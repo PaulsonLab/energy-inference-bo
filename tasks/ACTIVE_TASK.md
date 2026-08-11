@@ -1,16 +1,19 @@
-# Active task: Task 02B
+# Active task status
 
-Task 01 and Task 02A are complete. The active bounded diagnostic is **Task 02B —
-decision-relevant structural compression and joint-energy validation**.
+There is currently **no active implementation task**.
 
-Read in this order:
+Task 02B is complete and its full three-seed Colab evidence passes the prespecified
+gate for designing a bounded Task 02C joint-energy transport falsification experiment.
+That result does not authorize Task 02C implementation without a new task contract.
+
+For review, read in this order:
 
 1. [`AGENTS.md`](../AGENTS.md) and [`MATH_AND_SCOPE.md`](../MATH_AND_SCOPE.md)
-2. [Task 02B entry point](task02b/README.md) and [decision mathematics](task02b/MATH.md)
-3. [Task 02B specification](task02b/SPEC.md)
-4. [`docs/research/PROJECT_STATUS.md`](../docs/research/PROJECT_STATUS.md)
-5. [Task 02B summary](task02b/SUMMARY.md) and
-   [`results/task02b/`](../results/task02b/) once generated
+2. [Task 02B entry point](task02b/README.md)
+3. [Task 02B decision mathematics](task02b/MATH.md)
+4. [Task 02B full summary](task02b/SUMMARY.md)
+5. [Full reviewed evidence](../results/task02b/full/README.md)
+6. [Current research roadmap](../docs/research/ROADMAP.md)
 
-Historical roadmaps do not override the active task specification. Do not proceed to
-Task 02C automatically.
+Historical roadmaps do not override this status. Stop and write an explicit Task 02C
+specification and mathematical note before adding transport code.

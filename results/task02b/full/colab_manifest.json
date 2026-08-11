@@ -1,0 +1,47 @@
+{
+  "task": "task02b",
+  "profile": "full",
+  "git_sha": "772f59fb029bbebdff3bb22885988c1d37661b89",
+  "python": "3.12.13",
+  "accelerator": "gpu",
+  "jax_backend": "gpu",
+  "jax_devices": [
+    "cuda:0"
+  ],
+  "packages": {
+    "jax": "0.9.2",
+    "jaxlib": "0.9.2",
+    "numpyro": "0.21.0",
+    "torch": "2.13.0",
+    "botorch": "0.18.1",
+    "gpytorch": "1.15.2"
+  },
+  "commands": [
+    [
+      "/usr/bin/python3",
+      "-m",
+      "energy_bo.experiments.run_task02b",
+      "--profile",
+      "retrospective",
+      "--task02a-results",
+      "/content/energy-inference-bo/results/task02a/full",
+      "--output-dir",
+      "/content/energy-inference-bo/artifacts/task02b/full/retrospective"
+    ],
+    [
+      "/usr/bin/python3",
+      "-m",
+      "energy_bo.experiments.run_task02b",
+      "--profile",
+      "full",
+      "--task02a-results",
+      "/content/energy-inference-bo/results/task02a/full",
+      "--output-dir",
+      "/content/energy-inference-bo/artifacts/task02b/full",
+      "--retrospective-dir",
+      "/content/energy-inference-bo/artifacts/task02b/full/retrospective",
+      "--summary-path",
+      "/content/energy-inference-bo/artifacts/task02b/full/SUMMARY.md"
+    ]
+  ]
+}

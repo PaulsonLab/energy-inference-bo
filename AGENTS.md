@@ -5,9 +5,10 @@
 This repository is a research prototype for testing whether energy-based modeling and augmented energy inference provide a real advantage for Bayesian optimization (BO).
 
 Read `MATH_AND_SCOPE.md` before changing mathematical code. Then read
-`tasks/ACTIVE_TASK.md` and the canonical task specification it names before
-implementing a task. Canonical task contracts, mathematics, run instructions, and
-summaries live together under `tasks/<task>/`.
+`tasks/ACTIVE_TASK.md` and, when it names an active stage, its canonical task
+specification before implementing a task. If no task is active, write and approve a
+new task contract before adding stage code. Canonical task contracts, mathematics, run
+instructions, and summaries live together under `tasks/<task>/`.
 
 `tasks/ACTIVE_TASK.md` is the navigation source for the current stage. The active
 task specification overrides historical roadmaps or stage descriptions when they

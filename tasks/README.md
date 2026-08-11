@@ -7,7 +7,7 @@ self-contained folder; task-specific files are not duplicated at the repository 
 | --- | --- | --- |
 | Task 01 — oracle shape and q=1 identities | Complete | [task entry point](task01/README.md) |
 | Task 02A — fixed-support SAAS reuse | Complete | [task entry point](task02a/README.md) |
-| Task 02B — decision-space compression | Active | [task entry point](task02b/README.md) |
+| Task 02B — decision-space compression | Complete; Task 02C gate passed | [task entry point](task02b/README.md) |
 
 ## Document convention
 
@@ -28,6 +28,9 @@ self-contained folder; task-specific files are not duplicated at the repository 
    `src/energy_bo/experiments/`, automatic outputs in `artifacts/<task>/<profile>/`,
    and reviewed compact evidence in `results/<task>/<profile>/`.
 4. Do not advance a stage automatically; each task summary states the evidence gate.
+
+There is currently no active implementation contract after Task 02B. Task 02C may be
+scoped next, but its code must wait for a dedicated specification and mathematics note.
 
 The [current research roadmap](../docs/research/ROADMAP.md) is the human overview.
 [Historical documents](../docs/research/history/README.md) never override the active

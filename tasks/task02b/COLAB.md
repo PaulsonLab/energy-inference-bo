@@ -1,5 +1,10 @@
 # Task 02B Colab run
 
+The prescribed full run is complete and reviewed under
+[`results/task02b/full/`](../../results/task02b/full/). Use this notebook only to
+reproduce that evidence or execute a separately approved revision; it is no longer a
+pending stage gate.
+
 Use the tracked [Task 02B notebook](../../notebooks/task02b_colab.ipynb) or
 [open it directly in Colab](https://colab.research.google.com/github/PaulsonLab/energy-inference-bo/blob/main/notebooks/task02b_colab.ipynb).
 The full profile obtains per-particle acquisition signatures from fresh NUTS at all 18
@@ -9,7 +14,8 @@ saved Task 02A checkpoints. The retrospective preflight itself requires no new N
 
 1. Select an **NVIDIA GPU** runtime before executing cells; CPU is valid but may take
    hours. Set `ACCELERATOR = "gpu"` only after selecting the GPU runtime.
-2. Replace `REPO_REF = "main"` with the published Task 02B commit SHA when possible.
+2. Keep `REPO_REF = "772f59fb029bbebdff3bb22885988c1d37661b89"` to reproduce
+   the reviewed run. Use another revision only for a deliberately revised study.
 3. Run setup, strict JAX backend validation, `pytest`, and the inexpensive
    retrospective preflight cells.
 4. Set `RUN_FULL = True`, then run the full extraction cell.
@@ -21,10 +27,13 @@ sequentially; JAX/NumPyro NUTS is the dominant cost. A signature matrix is about
 
 ## After download
 
-Unzip locally and keep the original `artifacts/task02b/full/` tree for review. If the
-full evidence passes its gates, create `results/task02b/full/` and copy only:
+Unzip locally and keep the original `artifacts/task02b/full/` tree for review. Compare
+it against the published [`results/task02b/full/`](../../results/task02b/full/) package.
+Do not overwrite the evidence automatically. A deliberately published revision should
+copy only:
 
 - `SUMMARY.md` and `colab_manifest.json`;
+- a machine-readable import audit and raw-signature checksum inventory;
 - aggregate spectra, coreset, and joint-target CSVs;
 - the few plots directly used by the summary.
 
