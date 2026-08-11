@@ -2,6 +2,7 @@
 __pycache__/
 *.py[codz]
 *$py.class
+.DS_Store
 
 # C extensions
 *.so
@@ -156,6 +157,9 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+
+# Reproducible source reports are tracked; regenerated figures and detailed runs are not.
+artifacts/
 
 # Spyder project settings
 .spyderproject
