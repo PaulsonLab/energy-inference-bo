@@ -10,7 +10,10 @@ points, and 2,048 fixed EI candidates. The manifest pins the source to commit
 `392937c458f832787f6ffc7b5f53e9d1543c3445`, records Python 3.12.13 and GPU-backed JAX,
 and matches this repository's exported-requirements SHA-256.
 
-Start with [the full quantitative summary](TASK_02A_COLAB_SUMMARY.md). Its central
+For the governing task context, see the canonical [Task 02A specification](../../../tasks/task02a/SPEC.md)
+and [Task 02A summary](../../../tasks/task02a/SUMMARY.md).
+
+Start with [the full quantitative summary](SUMMARY.md). Its central
 negative result is rapid fixed-support weight collapse: final mean
 `-log(ESS/P)=5.268`, final MMD `0.7878`, and q=1 EI decision agreement only `1/3`.
 Accordingly, the recorded recommendation is **02B-B**: investigate another particle

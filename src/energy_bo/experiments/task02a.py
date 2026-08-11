@@ -93,7 +93,9 @@ def _write_csv(path: Path, rows: list[dict[str, Any]]) -> None:
         return
     fields = sorted({key for row in rows for key in row})
     with path.open("w", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fields, extrasaction="ignore")
+        writer = csv.DictWriter(
+            handle, fieldnames=fields, extrasaction="ignore", lineterminator="\n"
+        )
         writer.writeheader()
         writer.writerows(rows)
 
@@ -584,7 +586,7 @@ Profile: `{config.profile}`; seeds `{list(config.seeds)}`; D={config.dimension};
 
 ## Reproduction and files
 
-- `artifacts/task02a_{config.profile}/task02a_config.json` records the frozen affine transform, seeds, numerical settings, package versions, JAX backend/devices, and counters.
+- `artifacts/task02a/{config.profile}/task02a_config.json` records the frozen affine transform, seeds, numerical settings, package versions, JAX backend/devices, and counters.
 - The same directory contains round, checkpoint, lengthscale, coordinate-drift, and EI CSVs plus ESS, lengthscale, drift, EI, and timing PNGs.
 - Unit tests include exact marginal-increment, rank-one cache, GPyTorch-kernel, stable weighting, weighted-EI, and frozen-preprocessing identities.
 - `COLAB.md` gives the exact CPU full-run command and optional NVIDIA JAX setup.

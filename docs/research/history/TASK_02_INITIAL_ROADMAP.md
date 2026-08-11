@@ -1,5 +1,9 @@
 # Task 02 Roadmap
 
+> Historical planning note. It predates the full Task 02A result and the Task 02B
+> decision-space pivot. It is retained for context only; follow
+> [`ACTIVE_TASK.md`](../../../tasks/ACTIVE_TASK.md) and the active task specification instead.
+
 ## Task 02A — now
 **Posterior continuity / reuse diagnostic**
 

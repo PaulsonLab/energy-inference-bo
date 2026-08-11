@@ -1,0 +1,2 @@
+common_vs_independent_l1,m1_l1_error,m1_max_abs_error,m1_mode,m2_l1_error,m2_max_abs_error,m2_mode,teacher_mode,teacher_squared_mode
+0.3067804101678545,1.0920430505991191e-16,6.938893903907228e-18,91,0.0,0.0,91,91,91

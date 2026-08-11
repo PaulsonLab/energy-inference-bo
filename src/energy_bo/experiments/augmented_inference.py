@@ -21,7 +21,10 @@ from energy_bo.oracle.scenarios import TAIL_SENSITIVE, scenario_grid
 def _save_csv(path: Path, rows: list[dict[str, object]]) -> None:
     with path.open("w", newline="") as handle:
         writer = csv.DictWriter(
-            handle, fieldnames=sorted({key for row in rows for key in row}), extrasaction="ignore"
+            handle,
+            fieldnames=sorted({key for row in rows for key in row}),
+            extrasaction="ignore",
+            lineterminator="\n",
         )
         writer.writeheader()
         writer.writerows(rows)

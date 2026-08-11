@@ -2,10 +2,10 @@
 
 Read, in this order:
 
-1. `AGENTS.md`
-2. `MATH_AND_SCOPE.md`
-3. `TASK_01_SUMMARY.md`
-4. `TASK_02_STRUCTURAL_ENERGY_MATH.md`
+1. `../../AGENTS.md`
+2. `../../MATH_AND_SCOPE.md`
+3. `../task01/SUMMARY.md`
+4. `MATH.md`
 5. this file
 
 Task 02A is a deliberate diagnostic pivot. Where its sequencing differs from the older stage-gate ordering in `MATH_AND_SCOPE.md`, this task-specific plan controls.
@@ -297,7 +297,7 @@ Locally / in the Codex environment:
 - use explicitly reduced NUTS settings;
 - do not run the full `D=10, n=40` study.
 
-Create/update `COLAB.md` with exact commands for the full Task 02A experiment.
+Create/update this task's `COLAB.md` with exact commands for the full Task 02A experiment.
 
 The full configuration should use NUTS settings consistent with current BoTorch recommendations where feasible (not smoke-test settings), and should clearly report chosen warmup, samples, thinning, device, and runtime.
 
@@ -324,7 +324,7 @@ Add tests for:
 
 Create:
 
-- `TASK_02A_SUMMARY.md`;
+- `SUMMARY.md`;
 - machine-readable summary CSV/JSON;
 - ESS/reuse-horizon plot;
 - lengthscale posterior comparison plots;
@@ -338,7 +338,7 @@ Save experiment configuration and seeds.
 
 # Completion questions
 
-Answer these explicitly in `TASK_02A_SUMMARY.md`:
+Answer these explicitly in `SUMMARY.md`:
 
 1. How many new observations can be added before ESS/P first crosses 0.75, 0.50, 0.25, and 0.10?
 2. Does `-log(ESS/P)` track the measured discrepancy between sequential and fresh NUTS posteriors?

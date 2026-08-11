@@ -13,14 +13,15 @@ def main() -> None:
     parser.add_argument("--profile", choices=("smoke", "full"), default="smoke")
     parser.add_argument("--seeds", nargs="+", type=int)
     parser.add_argument("--output-dir", type=Path)
-    parser.add_argument("--summary-path", type=Path, default=Path("TASK_02A_SUMMARY.md"))
+    parser.add_argument("--summary-path", type=Path)
     args = parser.parse_args()
     if args.profile == "smoke":
         config = Task02AConfig.smoke(tuple(args.seeds or (0,)))
     else:
         config = Task02AConfig.full(tuple(args.seeds or (0, 1, 2)))
-    output_dir = args.output_dir or Path(f"artifacts/task02a_{args.profile}")
-    run_task02a(config, output_dir, args.summary_path)
+    output_dir = args.output_dir or Path(f"artifacts/task02a/{args.profile}")
+    summary_path = args.summary_path or output_dir / "SUMMARY.md"
+    run_task02a(config, output_dir, summary_path)
 
 
 if __name__ == "__main__":

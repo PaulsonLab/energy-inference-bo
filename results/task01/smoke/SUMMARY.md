@@ -24,6 +24,6 @@ Configuration: 3 fitting seeds (`0, 1, 2`), residual sample sizes `20, 50, 100, 
 
 ## Reproduction notes
 
-- `artifacts/task01/task01_metrics.csv` holds every per-seed measurement and `artifacts/task01/task01_config.json` holds the exact run configuration.
-- `artifacts/task01/oracle_true_vs_gaussian_ei.png` is the requested oracle EI figure.
+- `artifacts/task01/smoke/task01_metrics.csv` holds every per-seed measurement and `artifacts/task01/smoke/task01_config.json` holds the exact run configuration.
+- `artifacts/task01/smoke/oracle_true_vs_gaussian_ei.png` is the requested oracle EI figure.
 - The 30-seed Colab command is in `COLAB.md`; it was deliberately not run locally.

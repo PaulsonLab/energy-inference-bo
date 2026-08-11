@@ -17,7 +17,9 @@ from .oracle_shape import oracle_shape_rows, run_oracle_shape_experiment
 def _write_combined_csv(path: Path, rows: list[dict[str, object]]) -> None:
     fieldnames = sorted({key for row in rows for key in row})
     with path.open("w", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fieldnames, extrasaction="ignore")
+        writer = csv.DictWriter(
+            handle, fieldnames=fieldnames, extrasaction="ignore", lineterminator="\n"
+        )
         writer.writeheader()
         writer.writerows(rows)
 
@@ -139,9 +141,9 @@ Configuration: {len(seeds)} fitting seeds (`{', '.join(str(seed) for seed in see
 
 ## Reproduction notes
 
-- `artifacts/task01/task01_metrics.csv` holds every per-seed measurement and `artifacts/task01/task01_config.json` holds the exact run configuration.
-- `artifacts/task01/oracle_true_vs_gaussian_ei.png` is the requested oracle EI figure.
-- The 30-seed Colab command is in `COLAB.md`; it was deliberately not run locally.
+- `artifacts/task01/smoke/task01_metrics.csv` holds every per-seed measurement and `artifacts/task01/smoke/task01_config.json` holds the exact run configuration.
+- `artifacts/task01/smoke/oracle_true_vs_gaussian_ei.png` is the requested oracle EI figure.
+- The 30-seed Colab procedure is in `tasks/task01/COLAB.md`; it was deliberately not run locally.
 """
     report_path.parent.mkdir(parents=True, exist_ok=True)
     report_path.write_text(report)
@@ -178,8 +180,12 @@ def run_task01(
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Run the CPU smoke validation for Task 01.")
-    parser.add_argument("--output-dir", type=Path, default=Path("artifacts/task01"))
-    parser.add_argument("--report-path", type=Path, default=Path("reports/TASK_01_SMOKE.md"))
+    parser.add_argument(
+        "--output-dir", type=Path, default=Path("artifacts/task01/smoke")
+    )
+    parser.add_argument(
+        "--report-path", type=Path, default=Path("artifacts/task01/smoke/SUMMARY.md")
+    )
     parser.add_argument("--seeds", nargs="+", type=int, default=[0, 1, 2])
     arguments = parser.parse_args()
     run_task01(arguments.output_dir, arguments.report_path, tuple(arguments.seeds))

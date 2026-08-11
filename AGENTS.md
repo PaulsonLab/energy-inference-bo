@@ -4,7 +4,14 @@
 
 This repository is a research prototype for testing whether energy-based modeling and augmented energy inference provide a real advantage for Bayesian optimization (BO).
 
-Read `MATH_AND_SCOPE.md` before changing mathematical code. Read the active `CODEX_TASK_*.md` file before implementing a task.
+Read `MATH_AND_SCOPE.md` before changing mathematical code. Then read
+`tasks/ACTIVE_TASK.md` and the canonical task specification it names before
+implementing a task. Canonical task contracts, mathematics, run instructions, and
+summaries live together under `tasks/<task>/`.
+
+`tasks/ACTIVE_TASK.md` is the navigation source for the current stage. The active
+task specification overrides historical roadmaps or stage descriptions when they
+conflict; preserve those older documents as research history.
 
 The project is intentionally staged. Do not jump ahead.
 
@@ -156,6 +163,22 @@ Unless explicitly requested:
 - report expected scale (seeds, particles, dimensions, approximate memory-sensitive objects) before recommending the full Colab run.
 
 GPU use must be optional until a later task explicitly requires it.
+
+### Smoke and Colab run policy
+
+- Every task must have a small CPU-compatible local validation path. Local smoke runs
+  exercise correctness and wiring; they are not scientific performance evidence.
+- Every task with a larger approved study must provide a thin, guarded notebook under
+  `notebooks/` and short task-local instructions in `tasks/<task>/COLAB.md`.
+- Notebook "Run all" must be safe: expensive cells require an explicit `RUN_FULL =
+  True`, record the checked-out Git SHA and environment, run the test gate first, and
+  produce one downloadable ZIP. Notebooks never authenticate to or push to GitHub.
+- Automatic local and Colab outputs go to ignored `artifacts/<task>/<profile>/`.
+  Only compact evidence that has been reviewed and intentionally selected belongs in
+  `results/<task>/<profile>/`; raw posterior samples and large signature matrices stay
+  ignored.
+- A task's `README.md` must state its local command, notebook, expected scale, and the
+  exact files worth promoting after review.
 
 ## Task completion
 

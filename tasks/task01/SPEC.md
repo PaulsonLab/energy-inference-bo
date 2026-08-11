@@ -1,6 +1,6 @@
 # CODEX TASK 01 — Mathematical and oracle validation
 
-Read `AGENTS.md` and `MATH_AND_SCOPE.md` completely before coding.
+Read `../../AGENTS.md` and `../../MATH_AND_SCOPE.md` completely before coding.
 
 ## Goal
 
@@ -266,7 +266,7 @@ Run only:
 
 Do not launch large seed sweeps or expensive particle studies.
 
-Create a thin Colab notebook or `COLAB.md` showing exactly how to:
+Create a thin Colab notebook or this task's `COLAB.md` showing exactly how to:
 1. clone the public GitHub repository;
 2. install the package;
 3. run a larger seed sweep;

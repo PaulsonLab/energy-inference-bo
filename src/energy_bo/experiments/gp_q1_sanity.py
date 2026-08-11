@@ -49,7 +49,7 @@ def run_gp_q1_sanity_experiment(
         }
     ]
     with (output_dir / "gp_q1_sanity_metrics.csv").open("w", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=list(rows[0]))
+        writer = csv.DictWriter(handle, fieldnames=list(rows[0]), lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
     return rows

@@ -6,7 +6,7 @@ moment-matched Gaussian, and does augmented expected-utility inference reproduce
 usual q=1 GP decision rule? The answer is **yes for these mathematical/oracle checks**.
 It is not evidence of end-to-end BO superiority, and it does not implement Task 02.
 
-![Oracle mixture and moment-matched Gaussian EI curves](docs/task01_oracle_ei.png)
+![Oracle mixture and moment-matched Gaussian EI curves](../../results/task01/smoke/oracle_ei.png)
 
 ## Key findings
 
@@ -47,9 +47,9 @@ a nine-RBF residual energy with 64-point Gauss–Hermite normalization.
 
 ## Reproduce or inspect
 
-- Detailed per-check evidence: [reports/TASK_01_SMOKE.md](reports/TASK_01_SMOKE.md)
-- Reusable implementation: [src/energy_bo](src/energy_bo)
-- Mathematical tests: [tests](tests)
+- Detailed per-check evidence: [results/task01/smoke/SUMMARY.md](../../results/task01/smoke/SUMMARY.md)
+- Reusable implementation: [src/energy_bo](../../src/energy_bo)
+- Mathematical tests: [tests](../../tests)
 - Local quick start: `uv sync --python 3.12 --all-groups && uv run pytest`
 - Larger 30-seed Colab procedure: [COLAB.md](COLAB.md)
 

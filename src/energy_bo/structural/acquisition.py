@@ -20,7 +20,9 @@ def gaussian_expected_improvement(
     standardized = improvement / standard_deviation
     normal_pdf = torch.exp(-0.5 * standardized.square()) / math.sqrt(2.0 * math.pi)
     normal_cdf = 0.5 * (1.0 + torch.erf(standardized / math.sqrt(2.0)))
-    return improvement * normal_cdf + standard_deviation * normal_pdf
+    # The analytic expression is nonnegative, but cancellation can produce tiny
+    # negative values far into the no-improvement tail in double precision.
+    return (improvement * normal_cdf + standard_deviation * normal_pdf).clamp_min(0.0)
 
 
 def weighted_expected_improvement(

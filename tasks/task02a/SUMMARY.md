@@ -19,9 +19,9 @@ Profile: `smoke`; seeds `[0]`; D=4; n0=8; nfinal=11; retained particles=32; NUTS
 
 ## Reproduction and files
 
-- `artifacts/task02a_smoke/task02a_config.json` records the frozen affine transform, seeds, numerical settings, package versions, JAX backend/devices, and counters.
+- `artifacts/task02a/smoke/task02a_config.json` records the frozen affine transform, seeds, numerical settings, package versions, JAX backend/devices, and counters.
 - The same directory contains round, checkpoint, lengthscale, coordinate-drift, and EI CSVs plus ESS, lengthscale, drift, EI, and timing PNGs.
 - Unit tests include exact marginal-increment, rank-one cache, GPyTorch-kernel, stable weighting, weighted-EI, and frozen-preprocessing identities.
-- `COLAB.md` gives the exact CPU full-run command and optional NVIDIA JAX setup.
+- [COLAB.md](COLAB.md) gives the exact CPU full-run command and optional NVIDIA JAX setup.
 
 No Task 02B code is included.
