@@ -45,6 +45,9 @@ the JAX/NumPyro NUTS references; exact-GP cache calculations remain on CPU by de
 After download, review the ZIP locally, copy `TASK_02A_COLAB_SUMMARY.md` into a tracked
 report if desired, optionally choose a figure or compact CSV to track, then make your
 normal local Git commit and push. The detailed `artifacts/` directory remains ignored.
+The first completed full run is published in
+[`results/task02a_full/`](results/task02a_full/); use it as the expected output layout,
+not as a replacement for a new reproducible run.
 
 ### Terminal fallback
 

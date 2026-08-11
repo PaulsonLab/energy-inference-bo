@@ -38,8 +38,10 @@ Task 02A is a bounded falsification experiment for reusing a trusted SAAS poster
 particle locations stay fixed while new observations change weights and exact GP
 caches. Read the quantitative [Task 02A summary](TASK_02A_SUMMARY.md) and the governing
 [structural-energy mathematics](TASK_02_STRUCTURAL_ENERGY_MATH.md). The checked-in
-summary is from one deliberately reduced CPU smoke run; the full three-seed evidence
-is deferred to the self-contained [Task 02A Colab notebook](notebooks/task02a_colab.ipynb)
+summary is from one deliberately reduced CPU smoke run. The complete three-seed Colab
+evidence, including raw CSVs, figures, and reproducibility manifest, is now tracked in
+[the Task 02A full-results package](results/task02a_full/README.md). The notebook remains
+available as the self-contained [Task 02A Colab notebook](notebooks/task02a_colab.ipynb)
 ([open in Colab](https://colab.research.google.com/github/PaulsonLab/energy-inference-bo/blob/main/notebooks/task02a_colab.ipynb))
 or the terminal fallback in [COLAB.md](COLAB.md).
 
