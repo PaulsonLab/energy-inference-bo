@@ -167,3 +167,18 @@ Before declaring a coding task complete:
 4. Report quantitative validation results.
 5. Report any failed assumption or negative result.
 6. State whether the next stage gate is justified; do not automatically implement the next phase.
+
+## Structural-posterior inference rules
+
+For Task 02 and later structural-inference work:
+
+- Distinguish a particle's **location** (GP hyperparameters) from its **weight**. Bayesian updating can change weights without changing hyperparameter locations.
+- Do not claim that sequential particles are cheaper than NUTS unless expensive particle moves/rejuvenation are empirically needed less often than a full refit.
+- For fixed hyperparameters, prefer exact cached one-step GP updates / rank-one Cholesky augmentation over rebuilding the full factorization.
+- When a particle's kernel hyperparameters change, treat its exact GP factorization as invalid and count the resulting full recomputation explicitly.
+- Never change output normalization parameters across sequential rounds in an experiment whose math assumes `p_t(theta) ∝ p_{t-1}(theta) p(y_t | D_{t-1}, theta)`.
+- Use fresh BoTorch SAAS NUTS as the reference target until the custom structural energy has been independently validated.
+- SMC / particle treatment of GP or BO hyperparameters is prior art. Do not claim novelty for particle reuse, data tempering, resampling, or generic rejuvenation.
+- The intended research opportunity is information-adaptive, SAAS-specific structural inference: expensive computation should eventually depend on posterior change and unresolved effective dimension.
+- Do not implement selective coordinate freezing without a mechanism that can unlock a previously shrunk dimension.
+- Task 02A is diagnostic only: no new particle mover, no residual-output EBM, no q>1 acquisition inference.

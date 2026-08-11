@@ -11,7 +11,7 @@ requires-python = ">=3.11,<3.13"
 license = { file = "LICENSE" }
 authors = [{ name = "PaulsonLab" }]
 dependencies = [
-  "botorch>=0.16.1",
+  "botorch[fully-bayesian]>=0.16.1",
   "matplotlib>=3.8",
   "numpy>=1.26",
   "scipy>=1.11",
@@ -24,6 +24,7 @@ dev = ["pytest>=8.0"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-ra"
+pythonpath = ["src"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
