@@ -10,6 +10,7 @@ invariants, task contracts, or task-specific derivations linked below.
 | Task 01 | Non-Gaussian predictive shape can alter q=1 EI even with matched first two moments; the augmented q=1 marginal reproduces EI/LogEI. | [task](../../tasks/task01/README.md), [evidence](../../results/task01/README.md) |
 | Task 02A | Fixed-support SAAS posterior reuse collapses quickly, so it is not a reliable replacement for fresh posterior inference; some EI decisions remained more robust. | [task](../../tasks/task02a/README.md), [full results](../../results/task02a/README.md) |
 | Task 02B | Full evidence shows modest acquisition-space rank, strong oracle coreset decision preservation, and exact M=1/M=2 structural-decision identities. The prespecified Task 02C gate passed 5/5. | [task](../../tasks/task02b/README.md), [full evidence](../../results/task02b/full/README.md), [summary](../../tasks/task02b/SUMMARY.md) |
+| Task 02C | Exact-energy and envelope preflight passes; a matched P-SVGD/DT-SVGD implementation is locally smoke-tested. The full six-case GPU comparison is pending. | [task](../../tasks/task02c/README.md), [local evidence](../../results/task02c/README.md), [summary](../../tasks/task02c/SUMMARY.md) |
 
 ## Task 02B gate result
 
@@ -30,26 +31,25 @@ regret, acquisition rank reached `15.388`, the 99%-energy rank reached 83, and f
 teacher reruns differed from saved Task 02A curves by up to `0.04298` absolute EI.
 Frank–Wolfe is an oracle compression diagnostic, not a deployable inference method.
 
-## Next eligible stage: specify Task 02C
+## Active gate: complete Task 02C
 
-Task 02C may now be designed as a bounded falsification experiment for direct inference
-on the joint structural-decision energy
+Task 02C now implements a bounded falsification experiment for direct inference on the
+structural decision energy
 
 \[
 E(x,\theta) = -\log p_0(x) - \log p(\theta) - \log p(D\mid\theta) - \log EI_\theta(x).
 \]
 
-The implementation method remains undecided. Passing Task 02B authorizes writing a
-Task 02C specification; it does not authorize implementation without that contract and
-does not claim transport or BO performance. SVGD, annealed Langevin/MALA, and
-resample-move SMC are possible comparisons to evaluate during scoping, not implemented
-methods.
+The local preflight passes strict value and gradient checks, but the reduced smoke has
+no performance meaning. The next action is the guarded full Colab comparison of
+posterior-focused and decision-tilted SVGD. Its result must determine GO, transport
+pivot, or NO-GO; no later task is authorized yet.
 
 ## Scope boundary
 
-Do not add SVGD, MALA, annealed Langevin, new SMC rejuvenation, Vecchia,
-residual-output EBMs, q>1 BO, molecular optimization, or an end-to-end BO loop until a
-new task explicitly selects and bounds the method.
+Task 02C permits only its bounded SVGD comparison. Do not add MALA, annealed Langevin,
+SMC, Vecchia, residual-output EBMs, q>1 BO, molecular optimization, an end-to-end BO
+loop, or another transport method without a later explicit task.
 
 ## How to read the repository
 

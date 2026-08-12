@@ -15,6 +15,7 @@ augmented energy inference provide a real advantage for Bayesian optimization.
 | Task 01 — oracle shape and q=1 GP identities | Complete | [task folder](tasks/task01/README.md) |
 | Task 02A — fixed-support SAAS reuse | Complete | [task folder](tasks/task02a/README.md) |
 | Task 02B — decision-space compression | Complete; Task 02C gate passed | [task folder](tasks/task02b/README.md) |
+| Task 02C — decision-tilted structural SVGD | Active; full study pending | [task folder](tasks/task02c/README.md) |
 
 The [current roadmap](docs/research/ROADMAP.md) records the completed evidence and the
 conditional path to a separately specified Task 02C; [architecture](docs/ARCHITECTURE.md)
@@ -38,6 +39,8 @@ uv run --no-sync python -m energy_bo.experiments.run_task01
 uv run --no-sync python -m energy_bo.experiments.run_task02a --profile smoke
 uv run --no-sync python -m energy_bo.experiments.run_task02b --profile retrospective
 uv run --no-sync python -m energy_bo.experiments.run_task02b --profile smoke
+uv run --no-sync python -m energy_bo.experiments.run_task02c --profile preflight
+uv run --no-sync python -m energy_bo.experiments.run_task02c --profile smoke
 ```
 
 ## Repository map

@@ -10,6 +10,7 @@ pieces; results preserve reviewed evidence.
 | `src/energy_bo/gp/` | small exact-GP q=1 validation helpers | extending the Task 01 exact-GP sanity layer |
 | `src/energy_bo/structural/` | fixed SAAS particles, exact GP cache, preprocessing, and NUTS references | working with structural posterior state or exact sequential GP calculations |
 | `src/energy_bo/decision/` | EI signatures, decision metrics, coresets, and joint-target identities | adding a reusable decision-space diagnostic |
+| `src/energy_bo/transport/` | exact unconstrained SAAS energy, stable JAX LogEI, teacher preflight, and SVGD primitives | working on the bounded Task 02C structural transport experiment |
 | `src/energy_bo/experiments/` | reproducible task orchestration and `run_task*.py` CLIs | combining reusable modules into a bounded experiment |
 | `tests/` | mathematical identity tests mirroring the source domains | adding a correctness test before an experiment |
 
