@@ -19,7 +19,9 @@ preflight but is not recommended for the full experiment.
 4. Only then set `RUN_FULL = True`. The runner fits fresh NUTS teachers and processes
    all cases/K/budgets/repeats sequentially. Existing teacher files are reused after a
    runtime interruption.
-5. Run the manifest/ZIP cell and download `task02c_full_outputs.zip`.
+5. The same full-run cell writes the manifest, creates the ZIP, and starts the browser
+   download of `task02c_full_outputs.zip` after the experiment succeeds. Do not run a
+   separate save cell.
 
 The full configuration has six NUTS teachers, 256 retained samples each, K=8/16/32,
 32/64 structural steps, and three repeats. Exact GP matrices are at most 32x40x40 for
