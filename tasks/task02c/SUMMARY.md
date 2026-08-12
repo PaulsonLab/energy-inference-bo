@@ -1,40 +1,62 @@
-# Task 02C — local implementation and preflight summary
+# Task 02C — full decision-tilted SVGD result
 
-## Status
+## Scope and conclusion
 
-The bounded Task 02C implementation is complete and the prescribed local checks pass.
-The full six-case, three-repeat Colab comparison has **not** been run. Therefore the
-current research recommendation is **NO-GO pending full evidence**, not a negative
-judgment on the method.
+Task 02C is complete. The full Colab falsification study used the six D=10
+embedded-negative-Branin cases (seeds 0–2 at n=16 and n=40), K=8/16/32,
+post-initialization budgets 32/64, and three paired repeats. Fresh 256-particle SAAS
+NUTS teachers provided continuous q=1 EI references.
+
+The result is **NO-GO for the tested decision-tilted SVGD configuration**. This does
+not invalidate the Gibbs or envelope identities, which passed strict tests, and it is
+not evidence against every possible decision-energy transport method.
 
 ## Eight completion questions
 
-1. **Does the Gibbs/envelope mathematics pass?** Yes. Across 90 saved-teacher checks,
-   the maximum autodiff-versus-tilted envelope error was `2.178e-12`; the maximum
-   second-order finite-difference error was `6.297e-07`.
-2. **Does the implementation agree across frameworks?** Yes. Maximum JAX/PyTorch
-   objective and gradient discrepancies were `1.688e-13` and `6.366e-12`.
-3. **Does the fused target retain the exact SAAS potential?** Yes. Centered potential
-   and unconstrained-gradient errors were `3.979e-13` and `8.527e-13`, including
-   NumPyro's transformation Jacobians.
-4. **Is the teacher decision tilt immediately degenerate?** No in this preflight. At
-   beta one, ESS/P ranged `0.6484`–`0.9869` across MAP, teacher, and midpoint designs
-   for all six archived early/late cases. This does not establish that K=8 is enough.
-5. **Is stable LogEI validated?** Yes. Tests cover extreme standardized improvements,
-   BoTorch agreement, latent-variance flooring, and design gradients without adding an
-   EI epsilon.
-6. **Is the comparison computationally matched?** Yes. The smoke charged 112 total
-   factorization-equivalents to each method, including four shared initialization
-   steps; each branch had 80 post-initialization equivalents and four design attempts.
-7. **What happened in the reduced smoke?** P-SVGD and DT-SVGD normalized regrets were
-   `0.4619` and `0.4609`. The four-step beta bridge forced all four increments and is
-   deliberately too small for scientific interpretation. Particle median distances
-   remained above `5.13` in whitened coordinates, so the wiring failure mode was not
-   immediate particle duplication.
-8. **Is Task 02C scientifically supported yet?** **No conclusion pending the full
-   Colab study.** Only that study can decide whether DT-SVGD consistently improves
-   teacher regret at matched compute. Do not implement a subsequent task.
+1. **Did the mathematical and teacher preflight pass?** Yes. Across 90 fresh-teacher
+   checks, maximum envelope autodiff and finite-difference errors were `2.046e-12` and
+   `6.337e-07`; JAX/PyTorch value and gradient discrepancies were at most `5.205e-13`
+   and `1.125e-11`.
+2. **Was the exact SAAS energy reproduced?** Yes. Maximum centered-potential and
+   unconstrained-gradient errors were `4.403e-11` and `6.314e-11`, including
+   NumPyro's support transformations and Jacobians.
+3. **Was the decision tilt intrinsically degenerate?** No. At beta one, teacher
+   ESS/P ranged `0.612–0.986` with median `0.866`; none of the 18 checks fell below
+   `0.1`. The target itself was therefore not rejected by teacher-weight collapse.
+4. **Was the comparison complete and computationally matched?** Yes. All 108 paired
+   runs were present. Every pair had identical K, initial particles, structural steps,
+   cache builds, design attempts, and factorization-equivalent counts.
+5. **Did DT-SVGD improve q=1 decisions?** No. It reduced normalized regret in only
+   `20/108` pairs (`18.5%`). Median regret was `0.4139` for P-SVGD and `0.5330` for
+   DT-SVGD; the paired DT-minus-P median was `0.06984`. No run of either method reached
+   10% regret. For context, MAP-SAAS median regret was lower at `0.3543`.
+6. **Did more particles or structural work rescue the result?** No systematic rescue
+   appeared. DT median regret remained `0.486–0.622` across K/budget groups, and its
+   best observed regret was `0.1135`. K=8 was indeed a stress test, but K=32 and B=64
+   did not establish acceptable decision accuracy.
+7. **What do cost and geometry indicate?** Median charged times were `22.9 s` for
+   P-SVGD, `33.1 s` for DT-SVGD, and `23.4 s` for fresh NUTS. No final run met the
+   prespecified collapse condition and no bandwidth-floor event occurred. However,
+   initialization forced its likelihood-tempering progress in `625/864` steps,
+   102/108 runs per method experienced structural velocity clipping, and median
+   repulsion/attraction was only about `0.008`. This points to weak SVGD geometry and
+   initialization difficulty rather than an incorrect target or literal particle
+   duplication.
+8. **What should happen next?** Stop direct joint-energy SVGD development under this
+   configuration. A future transport revisit would require a separately approved
+   diagnostic contract addressing tempering, clipping, and weak repulsion without
+   tuning on these six cases. The preferred new planning direction is the still
+   underexplored modeling hypothesis: exact-GP prequential residual-energy correction
+   against strong Gaussian calibration baselines. No subsequent task is active or
+   implemented.
 
-Local machine-readable evidence is indexed under
-[`results/task02c/smoke/`](../../results/task02c/smoke/). Raw traces and plots remain
-ignored under `artifacts/task02c/`.
+## Evidence and reproducibility
+
+The reviewed full package and independent audit are in
+[`results/task02c/full/`](../../results/task02c/full/). Raw traces and particle states
+remain ignored under `artifacts/task02c/full/` and are identified by committed
+SHA-256 checksums.
+
+The run used source commit `9afa2a1`; the two later commits changed only the Colab
+checkout/download handoff, not the scientific implementation. This remains a bounded
+q=1 structural-transport diagnostic, not an end-to-end BO benchmark.

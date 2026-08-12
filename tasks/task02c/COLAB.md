@@ -1,5 +1,9 @@
 # Task 02C Colab run
 
+The archival full study is complete and reviewed. Use this notebook only to reproduce
+that result; routine reruns are not recommended. See the [full evidence](../../results/task02c/full/README.md)
+and [canonical conclusion](SUMMARY.md) first.
+
 Use the tracked [Task 02C notebook](../../notebooks/task02c_colab.ipynb). Select an
 **NVIDIA GPU** before starting. JAX/NumPyro NUTS and SVGD use the selected backend;
 the notebook fails if GPU was requested but CUDA is unavailable. CPU is valid for

@@ -9,7 +9,7 @@ environment setup, explicit run configuration, and artifact download.
 | Task 01 | [oracle/q=1 validation](task01_colab.ipynb) | CPU | `RUN_FULL = False` |
 | Task 02A | [SAAS reuse diagnostic](task02a_colab.ipynb) | CPU; GPU optional for NUTS | `RUN_FULL = False` |
 | Task 02B | [decision-space signatures](task02b_colab.ipynb) | NVIDIA GPU preferred | `RUN_FULL = False` |
-| Task 02C | [decision-tilted SVGD](task02c_colab.ipynb) | NVIDIA GPU preferred | `RUN_PREFLIGHT = False`, `RUN_FULL = False` |
+| Task 02C | [decision-tilted SVGD](task02c_colab.ipynb) | NVIDIA GPU preferred; completed study, reproduction only | `RUN_PREFLIGHT = False`, `RUN_FULL = False` |
 
 Each notebook follows the same cell order: configure → validate Python → clone an
 explicit Git revision → install → validate backend and tests → opt into the full run

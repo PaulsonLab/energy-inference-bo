@@ -15,11 +15,11 @@ augmented energy inference provide a real advantage for Bayesian optimization.
 | Task 01 — oracle shape and q=1 GP identities | Complete | [task folder](tasks/task01/README.md) |
 | Task 02A — fixed-support SAAS reuse | Complete | [task folder](tasks/task02a/README.md) |
 | Task 02B — decision-space compression | Complete; Task 02C gate passed | [task folder](tasks/task02b/README.md) |
-| Task 02C — decision-tilted structural SVGD | Active; full study pending | [task folder](tasks/task02c/README.md) |
+| Task 02C — decision-tilted structural SVGD | Complete; tested configuration NO-GO | [task folder](tasks/task02c/README.md) |
 
 The [current roadmap](docs/research/ROADMAP.md) records the completed evidence and the
-conditional path to a separately specified Task 02C; [architecture](docs/ARCHITECTURE.md)
-maps the source and evidence layout.
+next planning direction; [architecture](docs/ARCHITECTURE.md) maps the source and
+evidence layout. No implementation task is currently active.
 
 ## Local quick start
 

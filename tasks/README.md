@@ -8,7 +8,7 @@ self-contained folder; task-specific files are not duplicated at the repository 
 | Task 01 — oracle shape and q=1 identities | Complete | [task entry point](task01/README.md) |
 | Task 02A — fixed-support SAAS reuse | Complete | [task entry point](task02a/README.md) |
 | Task 02B — decision-space compression | Complete; Task 02C gate passed | [task entry point](task02b/README.md) |
-| Task 02C — decision-tilted structural SVGD | Active; implementation/smoke complete, full study pending | [task entry point](task02c/README.md) |
+| Task 02C — decision-tilted structural SVGD | Complete; tested configuration NO-GO | [task entry point](task02c/README.md) |
 
 ## Document convention
 
@@ -30,8 +30,8 @@ self-contained folder; task-specific files are not duplicated at the repository 
    and reviewed compact evidence in `results/<task>/<profile>/`.
 4. Do not advance a stage automatically; each task summary states the evidence gate.
 
-Task 02C is active under its dedicated specification and mathematics note. Its local
-smoke is a wiring check; the full Colab result is the scientific gate.
+No implementation task is active. Task 02C's full result closed the tested SVGD path;
+write and approve a new task contract before adding another research stage.
 
 The [current research roadmap](../docs/research/ROADMAP.md) is the human overview.
 [Historical documents](../docs/research/history/README.md) never override the active

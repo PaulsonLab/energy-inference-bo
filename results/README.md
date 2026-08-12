@@ -8,7 +8,7 @@ belong under ignored `artifacts/` until selected for publication.
 | Task 01 | [three-seed smoke evidence](task01/README.md) |
 | Task 02A | [full three-seed Colab evidence](task02a/README.md) |
 | Task 02B | [retrospective, local smoke, and reviewed full Colab evidence](task02b/README.md) |
-| Task 02C | [local mathematical preflight and wiring smoke; full study pending](task02c/README.md) |
+| Task 02C | [local checks and reviewed full Colab NO-GO evidence](task02c/README.md) |
 
 Each result package records its own runtime/configuration metadata. Do not treat a
 smoke run as a multi-seed performance benchmark. Interpret stage results through the

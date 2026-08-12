@@ -1,10 +1,13 @@
 # Task 02C evidence
 
-Task 02C is implemented and locally validated, but its full GPU study is pending.
+Task 02C is complete.
 
-- [`smoke/`](smoke/) contains compact reviewed preflight and wiring-smoke metrics.
-- A future `full/` package may be added only after reviewing the Colab ZIP.
+- [`smoke/`](smoke/) contains the local mathematical preflight and wiring-only smoke.
+- [`full/`](full/) contains the reviewed six-case Colab study, independent integrity
+  audit, compact tables, and decisive figures.
 
-Raw teacher states, transport traces, and generated plots remain under ignored
-`artifacts/task02c/`. Interpret the current numbers through the canonical
+The full study found a **NO-GO for the tested decision-tilted SVGD configuration**.
+Raw teacher states, transport particles, and detailed traces remain ignored under
+`artifacts/task02c/full/` and are identified by the checksum inventory in the full
+evidence package. Interpret the result through the canonical
 [Task 02C summary](../../tasks/task02c/SUMMARY.md).
