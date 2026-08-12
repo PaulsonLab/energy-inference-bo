@@ -16,10 +16,11 @@ augmented energy inference provide a real advantage for Bayesian optimization.
 | Task 02A — fixed-support SAAS reuse | Complete | [task folder](tasks/task02a/README.md) |
 | Task 02B — decision-space compression | Complete; Task 02C gate passed | [task folder](tasks/task02b/README.md) |
 | Task 02C — decision-tilted structural SVGD | Complete; tested configuration NO-GO | [task folder](tasks/task02c/README.md) |
+| Task 03A — fast sparse reference + residual predictive energy | Active; full Colab evidence pending | [task folder](tasks/task03a/README.md) |
 
 The [current roadmap](docs/research/ROADMAP.md) records the completed evidence and the
-next planning direction; [architecture](docs/ARCHITECTURE.md) maps the source and
-evidence layout. No implementation task is currently active.
+active modeling gate; [architecture](docs/ARCHITECTURE.md) maps the source and
+evidence layout.
 
 ## Local quick start
 
@@ -41,6 +42,7 @@ uv run --no-sync python -m energy_bo.experiments.run_task02b --profile retrospec
 uv run --no-sync python -m energy_bo.experiments.run_task02b --profile smoke
 uv run --no-sync python -m energy_bo.experiments.run_task02c --profile preflight
 uv run --no-sync python -m energy_bo.experiments.run_task02c --profile smoke
+uv run --no-sync python -m energy_bo.experiments.run_task03a --profile smoke
 ```
 
 ## Repository map

@@ -11,6 +11,7 @@ pieces; results preserve reviewed evidence.
 | `src/energy_bo/structural/` | fixed SAAS particles, exact GP cache, preprocessing, and NUTS references | working with structural posterior state or exact sequential GP calculations |
 | `src/energy_bo/decision/` | EI signatures, decision metrics, coresets, and joint-target identities | adding a reusable decision-space diagnostic |
 | `src/energy_bo/transport/` | exact unconstrained SAAS energy, stable JAX LogEI, teacher preflight, and SVGD primitives | maintaining or reproducing the completed Task 02C experiment; new transport requires a new contract |
+| `src/energy_bo/predictive/` | Gaussian-mixture reference marginals, held-out PIT calibration, scalar residual families, and corrected q=1 predictions | adding normalized predictive calibration independent of a particular GP fitter |
 | `src/energy_bo/experiments/` | reproducible task orchestration and `run_task*.py` CLIs | combining reusable modules into a bounded experiment |
 | `tests/` | mathematical identity tests mirroring the source domains | adding a correctness test before an experiment |
 

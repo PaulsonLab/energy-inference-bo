@@ -9,6 +9,7 @@ self-contained folder; task-specific files are not duplicated at the repository 
 | Task 02A — fixed-support SAAS reuse | Complete | [task entry point](task02a/README.md) |
 | Task 02B — decision-space compression | Complete; Task 02C gate passed | [task entry point](task02b/README.md) |
 | Task 02C — decision-tilted structural SVGD | Complete; tested configuration NO-GO | [task entry point](task02c/README.md) |
+| Task 03A — fast sparse reference + residual predictive energy | Active; full evidence pending | [task entry point](task03a/README.md) |
 
 ## Document convention
 
@@ -30,8 +31,8 @@ self-contained folder; task-specific files are not duplicated at the repository 
    and reviewed compact evidence in `results/<task>/<profile>/`.
 4. Do not advance a stage automatically; each task summary states the evidence gate.
 
-No implementation task is active. Task 02C's full result closed the tested SVGD path;
-write and approve a new task contract before adding another research stage.
+Task 03A is the only active implementation contract. Its local smoke is wiring
+evidence; only a reviewed full Colab result can open Task 03B.
 
 The [current research roadmap](../docs/research/ROADMAP.md) is the human overview.
 [Historical documents](../docs/research/history/README.md) never override the active
