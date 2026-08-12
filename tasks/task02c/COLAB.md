@@ -8,7 +8,8 @@ preflight but is not recommended for the full experiment.
 ## Cell order
 
 1. Set `REPO_REF` to the published Task 02C commit SHA, not a moving branch, and set
-   `ACCELERATOR = "gpu"` after selecting a GPU runtime.
+   `ACCELERATOR = "gpu"` after selecting a GPU runtime. The notebook explicitly
+   fetches that revision before checkout, so a SHA works with Colab's filtered clone.
 2. Run setup. The notebook checks Python 3.11–3.12, installs the locked project,
    enables JAX float64 before imports, prints the Git SHA/devices, and runs `pytest`.
 3. Set `RUN_PREFLIGHT = True`. This downloads the separately hosted Task 02B raw
