@@ -15,7 +15,8 @@ profiles official SciPy MAP fitting on CPU and CUDA rather than assuming CUDA he
    notebook kernel. `uv` does not rely on Colab's failing `ensurepip` bootstrap. The
    import preflight asserts that NumPy, SciPy, Torch, BoTorch, JAX, NumPyro, and
    GPyTorch came from that `.venv`. Setup enables JAX float64, prints CUDA/JAX devices,
-   and runs `pytest -q`. **No runtime restart is required or desired.** Re-running setup
+   forces Matplotlib's noninteractive `Agg` backend (rather than inheriting Colab's
+   unavailable inline-backend module), and runs `pytest -q`. **No runtime restart is required or desired.** Re-running setup
    safely rebuilds only `.venv` without deleting experiment artifacts.
 3. Run the preflight/smoke cell and inspect that it completes without identity or
    provenance failures.
