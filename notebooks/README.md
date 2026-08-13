@@ -17,10 +17,10 @@ explicit Git revision → install → validate backend and tests → opt into th
 → write a manifest → download one ZIP. The final Markdown cell says exactly which
 files may be promoted to `results/`; downloading never modifies GitHub.
 
-Task 03A's notebook deliberately installs its wheels into an isolated `/content`
-package directory and disables global site packages for every scientific subprocess.
-It does not rely on Colab `venv`/`ensurepip`. Do not restart between its setup and
-preflight cells or install repair packages into Colab's global Python.
+Task 03A's notebook deliberately uses `uv sync --locked` to build the project's native
+environment and asserts that the scientific stack actually loads from it. This avoids
+Colab's broken system `venv`/`ensurepip`. Do not restart between its setup and preflight
+cells or install numerical repair packages into Colab's global Python.
 
 See the [task registry](../tasks/README.md) for the current task and terminal/Colab
 procedures.
