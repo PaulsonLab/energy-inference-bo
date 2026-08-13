@@ -9,22 +9,24 @@ profiles official SciPy MAP fitting on CPU and CUDA rather than assuming CUDA he
 1. Set `REPO_REF="main"` and select `ACCELERATOR="gpu"`. Setup records the resolved
    immutable SHA in the output manifest. A commit SHA is accepted only if it is already
    reachable from `main`; use `main` rather than asking GitHub to fetch a short SHA.
-2. Run setup once. It checks Python 3.11–3.12, creates a fresh isolated
-   `/content/task03a-venv`, installs the constrained locked revision only inside that environment,
-   enables JAX float64 for its child processes, prints CUDA/JAX devices, and runs
-   `pytest -q`. It deliberately does not ask Colab's Python to upgrade its bootstrap
-   `pip`, a step which fails on some current images. **No runtime restart is required or desired.** Re-running setup safely
-   rebuilds that virtual environment without deleting experiment artifacts.
+2. Run setup once. It checks Python 3.11–3.12 and installs the constrained locked
+   wheels (including the locked pytest test gate) into `/content/task03a-packages`; every scientific child process runs with
+   Colab's global site packages disabled and that directory plus `src/` as its only
+   third-party import path. It therefore does **not** use Colab's currently unreliable
+   `venv`/`ensurepip` implementation. Setup enables JAX float64, prints CUDA/JAX
+   devices, and runs `pytest -q`. **No runtime restart is required or desired.**
+   Re-running setup safely rebuilds only the isolated package directory without
+   deleting experiment artifacts.
 3. Run the preflight/smoke cell and inspect that it completes without identity or
    provenance failures.
 4. Set `RUN_FULL=True` and run the full cell. Completed partial CSVs are written after
    each case; the final cell only packages outputs after the subprocess succeeds.
 5. Download `task03a_full_outputs.zip`.
 
-The isolated environment prevents Colab's preinstalled NumPy/SciPy binaries from
-mixing with the study dependencies. If setup fails, use **Runtime → Disconnect and
-delete runtime**, then begin from the configuration cell; do not apply ad-hoc global
-`pip` repairs or restart between setup and preflight.
+The isolated package directory prevents Colab's preinstalled NumPy/SciPy binaries
+from mixing with the study dependencies, without relying on `venv`. If setup fails,
+use **Runtime → Disconnect and delete runtime**, then begin from the configuration
+cell; do not apply ad-hoc global `pip` repairs or restart between setup and preflight.
 
 ## What to do with the ZIP
 
