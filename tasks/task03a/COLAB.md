@@ -12,7 +12,8 @@ profiles official SciPy MAP fitting on CPU and CUDA rather than assuming CUDA he
 2. Run setup once. It checks Python 3.11–3.12, creates a fresh isolated
    `/content/task03a-venv`, installs the constrained locked revision only inside that environment,
    enables JAX float64 for its child processes, prints CUDA/JAX devices, and runs
-   `pytest -q`. **No runtime restart is required or desired.** Re-running setup safely
+   `pytest -q`. It deliberately does not ask Colab's Python to upgrade its bootstrap
+   `pip`, a step which fails on some current images. **No runtime restart is required or desired.** Re-running setup safely
    rebuilds that virtual environment without deleting experiment artifacts.
 3. Run the preflight/smoke cell and inspect that it completes without identity or
    provenance failures.
