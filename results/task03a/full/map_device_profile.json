@@ -1,0 +1,10 @@
+{
+  "selected_device": "cpu",
+  "seconds": {
+    "cpu": 3.0489064149999194,
+    "cuda": 2.8480675480000173
+  },
+  "failures": {},
+  "cpu_cuda_max_abs": 3.112036850438926e-09,
+  "speedup": 1.0705175925834118
+}

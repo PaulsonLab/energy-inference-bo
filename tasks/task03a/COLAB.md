@@ -1,5 +1,8 @@
 # Task 03A Colab run
 
+**Status:** the full five-seed run is complete and reviewed. This notebook is retained
+for reproducibility and should not be rerun routinely.
+
 Use the guarded [Task 03A notebook](../../notebooks/task03a_colab.ipynb). Select an
 NVIDIA GPU runtime; JAX/NumPyro NUTS and batched prediction benefit most. The notebook
 profiles official SciPy MAP fitting on CPU and CUDA rather than assuming CUDA helps.
