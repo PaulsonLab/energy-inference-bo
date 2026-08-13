@@ -65,18 +65,7 @@ networkx==3.6.1
     # via torch
 ninja==1.13.0
     # via botorch
-numpy==2.4.6 ; python_full_version < '3.12'
-    # via
-    #   contourpy
-    #   energy-inference-bo
-    #   jax
-    #   jaxlib
-    #   matplotlib
-    #   ml-dtypes
-    #   numpyro
-    #   scikit-learn
-    #   scipy
-numpy==2.5.2 ; python_full_version >= '3.12'
+numpy==2.3.5
     # via
     #   contourpy
     #   energy-inference-bo
@@ -144,16 +133,7 @@ python-dateutil==2.9.0.post0
     # via matplotlib
 scikit-learn==1.9.0
     # via gpytorch
-scipy==1.17.1 ; python_full_version < '3.12'
-    # via
-    #   botorch
-    #   energy-inference-bo
-    #   gpytorch
-    #   jax
-    #   jaxlib
-    #   linear-operator
-    #   scikit-learn
-scipy==1.18.0 ; python_full_version >= '3.12'
+scipy==1.16.3
     # via
     #   botorch
     #   energy-inference-bo

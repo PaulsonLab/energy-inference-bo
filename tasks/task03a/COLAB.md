@@ -6,14 +6,24 @@ profiles official SciPy MAP fitting on CPU and CUDA rather than assuming CUDA he
 
 ## Cell order
 
-1. Set `REPO_REF` to the published Task 03A commit SHA and select `ACCELERATOR="gpu"`.
-2. Run setup. It checks Python 3.11–3.12, installs the locked revision, enables JAX
-   float64, prints CUDA/JAX devices, and runs `pytest -q`.
+1. Set `REPO_REF="main"` and select `ACCELERATOR="gpu"`. Setup records the resolved
+   immutable SHA in the output manifest. A commit SHA is accepted only if it is already
+   reachable from `main`; use `main` rather than asking GitHub to fetch a short SHA.
+2. Run setup once. It checks Python 3.11–3.12, creates a fresh isolated
+   `/content/task03a-venv`, installs the constrained locked revision only inside that environment,
+   enables JAX float64 for its child processes, prints CUDA/JAX devices, and runs
+   `pytest -q`. **No runtime restart is required or desired.** Re-running setup safely
+   rebuilds that virtual environment without deleting experiment artifacts.
 3. Run the preflight/smoke cell and inspect that it completes without identity or
    provenance failures.
 4. Set `RUN_FULL=True` and run the full cell. Completed partial CSVs are written after
    each case; the final cell only packages outputs after the subprocess succeeds.
 5. Download `task03a_full_outputs.zip`.
+
+The isolated environment prevents Colab's preinstalled NumPy/SciPy binaries from
+mixing with the study dependencies. If setup fails, use **Runtime → Disconnect and
+delete runtime**, then begin from the configuration cell; do not apply ad-hoc global
+`pip` repairs or restart between setup and preflight.
 
 ## What to do with the ZIP
 

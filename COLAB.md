@@ -18,6 +18,9 @@ this Git repository.
 
 Every notebook uses `RUN_FULL = False` by default, checks Python and the selected JAX
 backend, installs the chosen Git revision, runs `pytest`, records a manifest, and
-downloads one ZIP. After unzipping locally, preserve the task/profile subdirectory;
-copy only a reviewed summary and a small number of decisive tables/figures into the
-matching `results/<task>/<profile>/` directory, then commit normally.
+downloads one ZIP. Task 03A additionally builds an isolated virtual environment so
+its scientific stack cannot mix with Colab's preinstalled NumPy/SciPy packages; do not
+restart between its setup and preflight cells. After unzipping locally, preserve the
+task/profile subdirectory; copy only a reviewed summary and a small number of decisive
+tables/figures into the matching `results/<task>/<profile>/` directory, then commit
+normally.

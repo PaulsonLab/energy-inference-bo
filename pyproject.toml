@@ -13,8 +13,11 @@ authors = [{ name = "PaulsonLab" }]
 dependencies = [
   "botorch[fully-bayesian]>=0.16.1",
   "matplotlib>=3.8",
-  "numpy>=1.26",
-  "scipy>=1.11",
+  # NumPy 2.4+ and SciPy 1.17+ currently have an import-time private-ABI
+  # incompatibility on the Python 3.11 Colab image. Keep the locked scientific
+  # base below that pair until the upstream stacks are jointly compatible.
+  "numpy>=1.26,<2.4",
+  "scipy>=1.11,<1.17",
   "torch>=2.2",
 ]
 
