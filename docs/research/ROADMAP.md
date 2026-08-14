@@ -13,6 +13,9 @@ invariants, task contracts, task-specific derivations, or reviewed evidence.
 | Task 02C | Exact decision-energy mathematics passed, but decision-tilted SVGD failed to improve q=1 decisions at matched compute. | [task](../../tasks/task02c/README.md), [evidence](../../results/task02c/full/README.md) |
 | Task 03A | Normalized PIT residual energies did not beat strong calibration baselines; honest cross-fit construction was slower than A100 NUTS, and Task 03B was not opened. | [task](../../tasks/task03a/README.md), [evidence](../../results/task03a/full/README.md) |
 
+Task 04A is paused after preflight and therefore is not listed as completed full-run
+evidence.
+
 ## Task 02C gate result
 
 The full D=10 study contained 108 paired P-SVGD/DT-SVGD comparisons. DT-SVGD won only
@@ -44,10 +47,28 @@ time—but genuine four-fold cross-fitting plus the final MAP ensemble cost a me
 hardware-specific because MAP fitting remained on CPU while NUTS used the GPU; the
 predictive and decision failures are not hardware-timing artifacts.
 
-Task 03B is therefore **not authorized**. No implementation task is active. A future
+Task 03B is therefore **not authorized**. Task 04A subsequently opened as a separate
+contracted pivot and is now paused after its preflight. The Task 03A finding implies
+that a future calibration-focused
 planning brief should address the observed structural/mean and reduced-data
 cross-fit-transfer bottlenecks rather than presuming a richer residual density is the
 next step.
+
+## Active Task 04A pivot
+
+Task 04A tests a distinct process-level hypothesis: fixed oracle geometry and
+Vecchia-style Gaussian conditionals are augmented by small, exactly normalized unary
+and pairwise local energies. It is limited to q=1 oracle evaluation with no learned
+geometry or sequential BO. [Contract](../../tasks/task04a/SPEC.md),
+[mathematics](../../tasks/task04a/MATH.md), and [status](../../tasks/task04a/SUMMARY.md)
+are the implementation authority. A standardized-child revision repaired the weak
+interaction density signal. The subsequent withheld-seed diagnostic strengthened the
+density result to a 51.0% P-over-U KL gain with 8/8 wins, but was officially `INVALID`
+for decisions: all 16 I cases had zero qualifying natural near-tie pairs, only 6.64%
+of counterfactual oracle pairs had 1% EI contrast, and U had no natural decision
+opportunity. The A100 study remains disabled and Task 04B is not authorized. Further
+work requires a prospective oracle contract that creates decision-relevant tail
+variation, not weaker post-observation thresholds.
 
 Revisiting structural transport is lower priority and requires a separate diagnostic
 contract addressing forced likelihood tempering, frequent clipping, and weak SVGD
@@ -55,8 +76,9 @@ repulsion without tuning retrospectively on the six Task 02C cases.
 
 ## Scope boundary
 
-No later method is authorized automatically. Do not add another sampler, SMC/MALA,
-Vecchia, q>1 BO, molecular optimization, or an end-to-end BO loop without a new
+Task 04A authorizes only its fixed-geometry, local Vecchia-style oracle experiment.
+No later method is authorized automatically. Do not add another sampler, learned
+geometry, q>1 BO, molecular optimization, or an end-to-end BO loop without a new
 approved task contract.
 
 ## How to read the repository

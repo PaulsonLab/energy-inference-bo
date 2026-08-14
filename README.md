@@ -17,6 +17,7 @@ augmented energy inference provide a real advantage for Bayesian optimization.
 | Task 02B — decision-space compression | Complete; Task 02C gate passed | [task folder](tasks/task02b/README.md) |
 | Task 02C — decision-tilted structural SVGD | Complete; tested configuration NO-GO | [task folder](tasks/task02c/README.md) |
 | Task 03A — fast sparse reference + residual predictive energy | Complete; prespecified Task 03B gate NO-GO | [task folder](tasks/task03a/README.md) |
+| Task 04A — local conditional energy process, oracle geometry | Decision diagnostic INVALID; full study disabled | [task folder](tasks/task04a/README.md) |
 
 The [current roadmap](docs/research/ROADMAP.md) records the completed evidence and the
 current planning boundary; [architecture](docs/ARCHITECTURE.md) maps the source and
@@ -43,6 +44,8 @@ uv run --no-sync python -m energy_bo.experiments.run_task02b --profile smoke
 uv run --no-sync python -m energy_bo.experiments.run_task02c --profile preflight
 uv run --no-sync python -m energy_bo.experiments.run_task02c --profile smoke
 uv run --no-sync python -m energy_bo.experiments.run_task03a --profile smoke
+uv run --no-sync python -m energy_bo.experiments.run_task04a --profile smoke
+uv run --no-sync python -m energy_bo.experiments.run_task04a --profile preflight
 ```
 
 ## Repository map

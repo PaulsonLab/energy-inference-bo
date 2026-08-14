@@ -11,6 +11,7 @@ locally, and commit only deliberately selected compact evidence under `results/`
 | Task 02B | [open in Colab](https://colab.research.google.com/github/PaulsonLab/energy-inference-bo/blob/main/notebooks/task02b_colab.ipynb) | [instructions](tasks/task02b/COLAB.md) | Full run complete; NVIDIA GPU preferred for reproduction |
 | Task 02C | [open in Colab](https://colab.research.google.com/github/PaulsonLab/energy-inference-bo/blob/main/notebooks/task02c_colab.ipynb) | [instructions](tasks/task02c/COLAB.md) | Full run complete; reproduction only, NVIDIA GPU preferred |
 | Task 03A | [open in Colab](https://colab.research.google.com/github/PaulsonLab/energy-inference-bo/blob/main/notebooks/task03a_colab.ipynb) | [instructions](tasks/task03a/COLAB.md) | Full run complete; reproduction only, NVIDIA GPU preferred |
+| Task 04A | [archived driver](notebooks/task04a_colab.ipynb) | [status](tasks/task04a/COLAB.md) | Full A100 run paused by CPU preflight |
 
 Keep regenerated CSV/JSON/PNG files and raw signatures in ignored `artifacts/` until
 they have been reviewed. A Colab download is local to the browser and does not change

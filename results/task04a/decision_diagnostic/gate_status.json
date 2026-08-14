@@ -1,0 +1,31 @@
+{
+  "decision": "INVALID",
+  "gates": {
+    "validity": false,
+    "safety": true,
+    "density": true,
+    "counterfactual": false,
+    "real_pairs": false,
+    "natural": false
+  },
+  "diagnostics": {
+    "density": {
+      "u_mean_kl": 0.045686343778183536,
+      "p_mean_kl": 0.022365726280814235,
+      "gain": 0.0233206174973693,
+      "relative_gain": 0.5104505103449649,
+      "paired_wins": 8
+    },
+    "counterfactual_oracle_significant_fraction": 0.06640625,
+    "real_pair_counts": {
+      "minimum": 0,
+      "maximum": 0,
+      "required": 32
+    },
+    "natural_eligible_cases": 0,
+    "u_median_regret": 0.0,
+    "p_median_regret": 0.0,
+    "recorded_case_seconds": 14.889018664136529,
+    "peak_rss_bytes": 821346304
+  }
+}

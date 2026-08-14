@@ -1,6 +1,6 @@
 # Research status
 
-The completed Task 01–03A evidence and current no-active-task planning boundary are
+The completed Task 01–03A evidence and invalid Task 04A decision diagnostic are
 maintained in the [current research roadmap](ROADMAP.md).
 
 For implementation, follow [the active task](../../tasks/ACTIVE_TASK.md), not this
