@@ -13,8 +13,8 @@ invariants, task contracts, task-specific derivations, or reviewed evidence.
 | Task 02C | Exact decision-energy mathematics passed, but decision-tilted SVGD failed to improve q=1 decisions at matched compute. | [task](../../tasks/task02c/README.md), [evidence](../../results/task02c/full/README.md) |
 | Task 03A | Normalized PIT residual energies did not beat strong calibration baselines; honest cross-fit construction was slower than A100 NUTS, and Task 03B was not opened. | [task](../../tasks/task03a/README.md), [evidence](../../results/task03a/full/README.md) |
 
-Task 04A is paused after preflight and therefore is not listed as completed full-run
-evidence.
+Task 04A and Task 04A-E stopped at local gates and therefore are not completed
+full-run evidence.
 
 ## Task 02C gate result
 
@@ -54,7 +54,7 @@ planning brief should address the observed structural/mean and reduced-data
 cross-fit-transfer bottlenecks rather than presuming a richer residual density is the
 next step.
 
-## Active Task 04A pivot
+## Task 04A and 04A-E gate results
 
 Task 04A tests a distinct process-level hypothesis: fixed oracle geometry and
 Vecchia-style Gaussian conditionals are augmented by small, exactly normalized unary
@@ -70,22 +70,31 @@ opportunity. The A100 study remains disabled and Task 04B is not authorized. Fur
 work requires a prospective oracle contract that creates decision-relevant tail
 variation, not weaker post-observation thresholds.
 
+Task 04A-E then supplied that prospective decision opportunity in a stricter q=2
+oracle: Gaussian and t-copula endpoints had identical standard-normal marginals and
+matched Pearson correlation, but differed by `8.78%` in qEI. The corrected paired
+panel was valid, with `3.41%` G0 tie-aware regret. Nevertheless, the n=128 smoke was
+`LEARNING_NO_GO`: P improved r=1 joint KL over U by only `9.87%`, shifted q=1 EI by
+up to `18.2%`, raised mean r>0 qEI error to `19.92%`, and doubled paired regret to
+`6.82%`. The full A100 study remains disabled. [Contract](../../tasks/task04ae/SPEC.md),
+[summary](../../tasks/task04ae/SUMMARY.md), and [evidence](../../results/task04ae/smoke/README.md)
+are the current boundary.
+
 Revisiting structural transport is lower priority and requires a separate diagnostic
 contract addressing forced likelihood tempering, frequent clipping, and weak SVGD
 repulsion without tuning retrospectively on the six Task 02C cases.
 
 ## Scope boundary
 
-Task 04A authorizes only its fixed-geometry, local Vecchia-style oracle experiment.
 No later method is authorized automatically. Do not add another sampler, learned
-geometry, q>1 BO, molecular optimization, or an end-to-end BO loop without a new
+geometry, q>2 BO, molecular optimization, or an end-to-end BO loop without a new
 approved task contract.
 
 ## How to read the repository
 
 - [AGENTS.md](../../AGENTS.md) and [MATH_AND_SCOPE.md](../../MATH_AND_SCOPE.md) define
   global invariants.
-- [ACTIVE_TASK.md](../../tasks/ACTIVE_TASK.md) records that no implementation task is active.
+- [ACTIVE_TASK.md](../../tasks/ACTIVE_TASK.md) records that no implementation task is active after the Task 04A-E smoke.
 - Each task's `SPEC.md` defines its bounded contract; its math note derives identities;
   its `SUMMARY.md` and `results/` package record what happened.
 - [Historical research documents](history/README.md) are provenance only.

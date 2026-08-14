@@ -1,0 +1,13 @@
+metric,value
+oracle_relative_qei_contrast,0.08777549180739663
+panel_significant_fraction,1.0
+g0_panel_tie_aware_regret,0.034120700740386936
+p_panel_tie_aware_regret,0.06824140148077387
+u_r1_joint_kl,0.05390895771172888
+p_r1_joint_kl,0.04858980146990577
+p_over_u_relative_kl_gain,0.09866924658915877
+g0_mean_r_positive_qei_relative_error,0.058916033076329775
+u_mean_r_positive_qei_relative_error,0.18271921825623844
+p_mean_r_positive_qei_relative_error,0.19918259659494325
+p_max_q1_ei_relative_error,0.18190537300762963
+p_max_marginal_kl,0.0020110916814463434
