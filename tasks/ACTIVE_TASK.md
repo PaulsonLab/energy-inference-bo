@@ -1,19 +1,20 @@
-# Active task — none
+# Active task — Task 05A
 
-Task 04A-E's matched-marginal q=2 CPU smoke returned `LEARNING_NO_GO`. Its oracle and
-paired decision opportunity were valid, but P missed the dependence-learning,
-marginal-safety, and qEI gates. The full A100 study and Task 04B are not authorized.
-Tasks 01–04A-E are complete at their recorded gates and remain historical.
+Task 05A is implemented and `READY_FOR_A100_RUN`. The local smoke validated both
+measured-data loaders and all three exact-GP paths, but cannot pass the research gate.
+Task 05B is blocked.
 
 Read in this order:
 
 1. [`AGENTS.md`](../AGENTS.md) and [`MATH_AND_SCOPE.md`](../MATH_AND_SCOPE.md)
-2. [Task 04A-E contract](task04ae/SPEC.md)
-3. [Task 04A-E mathematics](task04ae/MATH.md)
-4. [Task 04A-E status and summary](task04ae/SUMMARY.md)
-5. [Task 04A-E execution guide](task04ae/COLAB.md)
+2. [Composable BO control plan](../docs/research/COMPOSABLE_BO_PLAN.md)
+3. [Task 05A contract](task05a/SPEC.md)
+4. [Task 05A mathematics](task05a/MATH.md)
+5. [Task 05A current summary](task05a/SUMMARY.md)
+6. [Task 05A A100 guide](task05a/COLAB.md)
 
-Task 04A-E is complete at its prescribed smoke gate. There is no active implementation
-contract. Do not rerun it with different seeds or tuning, launch its full profile,
-learn geometry, run sequential BO, add neural EBMs, structured inputs, q>2
-acquisition, or implement Task 04B.
+The next authorized action is to run and return the frozen Task 05A Drive-backed
+campaign package. Profile `trpb_seed0` first, then resume the remaining shards with
+the guarded campaign notebook. Do not
+implement Task 05B, change the gate thresholds, add pretrained embeddings, or treat
+the smoke metrics as gate evidence.

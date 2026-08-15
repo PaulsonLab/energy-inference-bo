@@ -3,6 +3,14 @@
 This is the concise human overview. It does not replace the global mathematical
 invariants, task contracts, task-specific derivations, or reviewed evidence.
 
+## Current stage
+
+The new stage-gated program is controlled by
+[COMPOSABLE_BO_PLAN.md](COMPOSABLE_BO_PLAN.md). Task 05A is implemented and ready
+for twenty frozen measured TrpB/CreiLOV A100 shards. Its final CPU smoke passed wiring
+in 7.73 seconds but supplies no gate evidence. Task 05B remains blocked unless the
+mechanical full Task 05A gate returns `PASS`.
+
 ## Completed evidence
 
 | Stage | What the evidence established | Canonical record |
@@ -86,9 +94,8 @@ repulsion without tuning retrospectively on the six Task 02C cases.
 
 ## Scope boundary
 
-No later method is authorized automatically. Do not add another sampler, learned
-geometry, q>2 BO, molecular optimization, or an end-to-end BO loop without a new
-approved task contract.
+Only the transition rules in the composable BO control plan authorize later work.
+Task 05B is not authorized until Task 05A passes its frozen full protocol.
 
 ## How to read the repository
 

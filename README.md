@@ -1,7 +1,7 @@
 # energy-inference-bo
 
-Research prototype for testing whether energy-based predictive corrections and
-augmented energy inference provide a real advantage for Bayesian optimization.
+Stage-gated research prototype for compositional free-energy Bayesian optimization.
+The current gate tests credible structured beliefs on measured protein landscapes.
 
 ## Start here
 
@@ -19,6 +19,7 @@ augmented energy inference provide a real advantage for Bayesian optimization.
 | Task 03A — fast sparse reference + residual predictive energy | Complete; prespecified Task 03B gate NO-GO | [task folder](tasks/task03a/README.md) |
 | Task 04A — local conditional energy process, oracle geometry | Decision diagnostic INVALID; full study disabled | [task folder](tasks/task04a/README.md) |
 | Task 04A-E — matched-marginal q=2 dependence | CPU smoke LEARNING_NO_GO; full study disabled | [task folder](tasks/task04ae/README.md) |
+| Task 05A — structured protein belief gate | Implemented; ready for frozen A100 shards | [task folder](tasks/task05a/README.md) |
 
 The [current roadmap](docs/research/ROADMAP.md) records the completed evidence and the
 current planning boundary; [architecture](docs/ARCHITECTURE.md) maps the source and
@@ -48,6 +49,7 @@ uv run --no-sync python -m energy_bo.experiments.run_task03a --profile smoke
 uv run --no-sync python -m energy_bo.experiments.run_task04a --profile smoke
 uv run --no-sync python -m energy_bo.experiments.run_task04a --profile preflight
 uv run --no-sync python -m energy_bo.experiments.run_task04ae --profile smoke --device cpu
+uv run --no-sync python -m energy_bo.experiments.run_task05a --profile smoke --device cpu
 ```
 
 ## Repository map

@@ -13,6 +13,7 @@ environment setup, explicit run configuration, and artifact download.
 | Task 03A | [MAP-SAAS plus residual predictive energy](task03a_colab.ipynb) | NVIDIA GPU preferred; completed study, reproduction only | `RUN_FULL = False` |
 | Task 04A | [paused local conditional energy driver](task04a_colab.ipynb) | CPU preflight failed decision gate; full disabled | `RUN_FULL = False` |
 | Task 04A-E | [matched-marginal q=2 driver](task04ae_colab.ipynb) | CPU smoke LEARNING_NO_GO; full disabled | smoke gate plus `RUN_FULL = False` |
+| Task 05A | [measured protein belief campaign](task05a_colab.ipynb) | A100 required for full shards | `RUN_PROFILE = False`, `RUN_CAMPAIGN = False` |
 
 Each notebook follows the same cell order: configure → validate Python → clone an
 explicit Git revision → install → validate backend and tests → opt into the full run
@@ -28,6 +29,10 @@ Task 04A retains that no-restart locked-environment pattern, but its A100 profil
 disabled after the standardized-child CPU preflight failed decision relevance.
 Task 04A-E uses the same pattern and additionally reads the committed smoke gate;
 `RUN_FULL=True` cannot bypass its negative result.
+
+Task 05A uses the locked project `.venv` and a Drive-backed campaign manifest. It
+profiles one shard first, then automatically resumes all remaining dataset/seed shards
+across sessions and downloads one package after frozen aggregation.
 
 See the [task registry](../tasks/README.md) for the current task and terminal/Colab
 procedures.

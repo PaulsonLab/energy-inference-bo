@@ -160,6 +160,7 @@ venv.bak/
 
 # Reproducible source reports are tracked; regenerated figures and detailed runs are not.
 artifacts/
+data/task05a/
 
 # Spyder project settings
 .spyderproject

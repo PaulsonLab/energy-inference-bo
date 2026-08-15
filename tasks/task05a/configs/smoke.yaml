@@ -1,0 +1,1 @@
+{"profile":"smoke","datasets":["trpb","creilov"],"seeds":[0],"offline_sizes":[48],"initial_size":48,"bo_steps":2,"candidate_limit":2048,"max_iterations":25,"prediction_chunk":512,"device":"cpu","source_commit":"290fa8a4cc99d50980cb8d7cf85ae76744552ead","lock_reference_commit":"df384fe24c26ebc3ac4a8aab49809d66104f7e8e","protocol_version":"task05a-v1"}

@@ -13,6 +13,7 @@ pieces; results preserve reviewed evidence.
 | `src/energy_bo/transport/` | exact unconstrained SAAS energy, stable JAX LogEI, teacher preflight, and SVGD primitives | maintaining or reproducing the completed Task 02C experiment; new transport requires a new contract |
 | `src/energy_bo/predictive/` | Gaussian-mixture reference marginals, held-out PIT calibration, scalar residual families, and corrected q=1 predictions | adding normalized predictive calibration independent of a particular GP fitter |
 | `src/energy_bo/local_process/` | deterministic local geometry, Gaussian/Vecchia conditionals, affine local and bivariate energies, copula oracles, and q=2 panels | maintaining Task 04A/04A-E or a separately approved successor |
+| `src/energy_bo/protein/` | measured landscape loading, sequence kernels, exact-GP beliefs, finite-pool metrics, and automatic gates | maintaining the active Task 05A structured-belief study |
 | `src/energy_bo/experiments/` | reproducible task orchestration and `run_task*.py` CLIs | combining reusable modules into a bounded experiment |
 | `tests/` | mathematical identity tests mirroring the source domains | adding a correctness test before an experiment |
 
