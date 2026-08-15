@@ -40,9 +40,14 @@ def utc_now() -> str:
 
 
 def shard_keys() -> tuple[tuple[str, int], ...]:
-    """Return the frozen deterministic campaign order."""
+    """Return the frozen grid in a compute-safe deterministic order.
 
-    return tuple((dataset, seed) for dataset in DATASETS for seed in range(10))
+    TrpB seed 0 remains the explicit profile.  CreiLOV seed 0 follows first in
+    campaign mode so its substantially longer sequences inform subsequent time
+    estimates before most shards are launched.
+    """
+
+    return tuple((dataset, seed) for seed in range(10) for dataset in DATASETS)
 
 
 def shard_name(dataset: str, seed: int) -> str:

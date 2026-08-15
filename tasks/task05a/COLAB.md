@@ -51,6 +51,9 @@ Do not rename or merge anything in this directory.
 2. Run all cells from the top.
 3. The notebook validates all twenty dataset/seed locations, skips complete shards,
    resumes partial checkpoints, and starts the next shard in deterministic order.
+   `creilov_seed0` runs immediately after the TrpB profile so the longer protein and
+   larger pool inform the conservative runtime estimate early; later seeds are paired
+   by dataset.
 4. The campaign stops cleanly before a new shard is unlikely to fit inside its
    eight-hour soft session budget. Reopen the notebook and repeat these steps.
 

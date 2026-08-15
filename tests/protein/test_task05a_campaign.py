@@ -70,7 +70,7 @@ def _complete_shard(directory: Path, dataset: str, seed: int) -> None:
 def test_campaign_grid_and_order_are_frozen() -> None:
     keys = shard_keys()
     assert len(keys) == 20
-    assert keys[:2] == (("trpb", 0), ("trpb", 1))
+    assert keys[:4] == (("trpb", 0), ("creilov", 0), ("trpb", 1), ("creilov", 1))
     assert keys[-1] == ("creilov", 9)
 
 
@@ -172,7 +172,7 @@ def test_campaign_requires_profile_and_respects_deterministic_next_shard(tmp_pat
         root, repo, root / "data", GIT_SHA, CONFIG_HASH, mode="campaign", device="cpu",
         session_budget_seconds=60 * 60, shard_timeout_seconds=10, launcher=launcher,
     )
-    assert calls[0] == "trpb_seed1"
+    assert calls[0] == "creilov_seed0"
     assert result["counts"]["COMPLETE"] == 20
     assert next_incomplete(inspect_campaign(root, GIT_SHA, CONFIG_HASH)) is None
 
