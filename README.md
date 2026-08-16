@@ -1,7 +1,8 @@
 # energy-inference-bo
 
 Stage-gated research prototype for compositional free-energy Bayesian optimization.
-The current gate tests credible structured beliefs on measured protein landscapes.
+The latest full gate found no sufficiently credible tested belief on the measured
+protein landscapes; the program is awaiting human review.
 
 ## Start here
 
@@ -19,7 +20,7 @@ The current gate tests credible structured beliefs on measured protein landscape
 | Task 03A — fast sparse reference + residual predictive energy | Complete; prespecified Task 03B gate NO-GO | [task folder](tasks/task03a/README.md) |
 | Task 04A — local conditional energy process, oracle geometry | Decision diagnostic INVALID; full study disabled | [task folder](tasks/task04a/README.md) |
 | Task 04A-E — matched-marginal q=2 dependence | CPU smoke LEARNING_NO_GO; full study disabled | [task folder](tasks/task04ae/README.md) |
-| Task 05A — structured protein belief gate | Implemented; ready for frozen A100 shards | [task folder](tasks/task05a/README.md) |
+| Task 05A — structured protein belief gate | Complete; frozen full gate FAIL | [task folder](tasks/task05a/README.md) |
 
 The [current roadmap](docs/research/ROADMAP.md) records the completed evidence and the
 current planning boundary; [architecture](docs/ARCHITECTURE.md) maps the source and

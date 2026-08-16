@@ -13,7 +13,7 @@ locally, and commit only deliberately selected compact evidence under `results/`
 | Task 03A | [open in Colab](https://colab.research.google.com/github/PaulsonLab/energy-inference-bo/blob/main/notebooks/task03a_colab.ipynb) | [instructions](tasks/task03a/COLAB.md) | Full run complete; reproduction only, NVIDIA GPU preferred |
 | Task 04A | [archived driver](notebooks/task04a_colab.ipynb) | [status](tasks/task04a/COLAB.md) | Full A100 run paused by CPU preflight |
 | Task 04A-E | [guarded driver](notebooks/task04ae_colab.ipynb) | [status](tasks/task04ae/COLAB.md) | CPU smoke LEARNING_NO_GO; full A100 run disabled |
-| Task 05A | [open in Colab](https://colab.research.google.com/github/PaulsonLab/energy-inference-bo/blob/main/notebooks/task05a_colab.ipynb) | [instructions](tasks/task05a/COLAB.md) | Drive-resumable A100 campaign; one final ZIP |
+| Task 05A | [reproduction driver](https://colab.research.google.com/github/PaulsonLab/energy-inference-bo/blob/main/notebooks/task05a_colab.ipynb) | [completed-run instructions](tasks/task05a/COLAB.md) | Full gate complete; reproduction only |
 
 Keep regenerated CSV/JSON/PNG files and raw signatures in ignored `artifacts/` until
 they have been reviewed. A Colab download is local to the browser and does not change

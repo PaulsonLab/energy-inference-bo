@@ -424,7 +424,13 @@ def aggregate_if_complete(root: Path, repo: Path, git_sha: str, config_hash: str
         sys.executable, "-m", "energy_bo.experiments.run_task05a", "--profile", "aggregate",
         "--shards-dir", str(root / "full_shards"), "--output-dir", str(aggregate),
     ]
-    subprocess.run(command, cwd=repo, check=True)
+    completed = subprocess.run(command, cwd=repo, text=True, capture_output=True)
+    if completed.returncode:
+        raise RuntimeError(
+            "Task 05A aggregation failed\n"
+            f"stdout:\n{completed.stdout}\n"
+            f"stderr:\n{completed.stderr}"
+        )
     required = ("config.yaml", "metrics.csv", "gate_result.json", "run_metadata.json", "TASK_05A_AGGREGATE_SUMMARY.md")
     if not all((aggregate / name).exists() for name in required):
         raise RuntimeError("aggregate completed without all required outputs")

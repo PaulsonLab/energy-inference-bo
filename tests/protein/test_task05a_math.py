@@ -6,7 +6,7 @@ import torch
 
 from energy_bo.protein.data import DATASETS, encode_sequences, frozen_permutation, sha256_file
 from energy_bo.protein.kernels import HammingRBFKernel, LOCKKernel, TanimotoKernel, blosum_scores, lock_correlation_matrix
-from energy_bo.protein.metrics import gaussian_crps, gaussian_nll, normalized_regret
+from energy_bo.protein.metrics import gaussian_crps, gaussian_nll, normalized_regret, offline_metrics
 from energy_bo.protein.models import FrozenStandardization, fit_protein_gp, log_ei, predict_raw
 
 
@@ -108,6 +108,17 @@ def test_gaussian_metrics_and_regret_identities() -> None:
     torch.testing.assert_close(gaussian_nll(y, mean, variance), expected_nll)
     assert torch.isfinite(gaussian_crps(y, mean, variance)).all()
     assert normalized_regret(3.0, 5.0, 1.0) == 0.5
+
+
+def test_one_step_regret_retains_the_incumbent() -> None:
+    result = offline_metrics(
+        train_y=torch.tensor([5.0]),
+        test_y=torch.tensor([1.0, 10.0]),
+        mean=torch.tensor([1.0, 10.0]),
+        variance=torch.ones(2),
+        latent_log_ei=torch.tensor([1.0, 0.0]),
+    )
+    assert result["one_step_regret"] == 1.0
 
 
 def test_tiny_exact_gp_prediction_and_logei_are_finite() -> None:

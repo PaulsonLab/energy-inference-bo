@@ -13,7 +13,7 @@ environment setup, explicit run configuration, and artifact download.
 | Task 03A | [MAP-SAAS plus residual predictive energy](task03a_colab.ipynb) | NVIDIA GPU preferred; completed study, reproduction only | `RUN_FULL = False` |
 | Task 04A | [paused local conditional energy driver](task04a_colab.ipynb) | CPU preflight failed decision gate; full disabled | `RUN_FULL = False` |
 | Task 04A-E | [matched-marginal q=2 driver](task04ae_colab.ipynb) | CPU smoke LEARNING_NO_GO; full disabled | smoke gate plus `RUN_FULL = False` |
-| Task 05A | [measured protein belief campaign](task05a_colab.ipynb) | A100 required for full shards | `RUN_PROFILE = False`, `RUN_CAMPAIGN = False` |
+| Task 05A | [measured protein belief campaign](task05a_colab.ipynb) | Full gate complete; reproduction only | `RUN_PROFILE = False`, `RUN_CAMPAIGN = False` |
 
 Each notebook follows the same cell order: configure → validate Python → clone an
 explicit Git revision → install → validate backend and tests → opt into the full run

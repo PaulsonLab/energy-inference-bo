@@ -12,7 +12,7 @@ belong under ignored `artifacts/` until selected for publication.
 | Task 03A | [reviewed full Colab NO-GO evidence](task03a/README.md) |
 | Task 04A | [density-positive but decision-diagnostic INVALID; full study disabled](task04a/README.md) |
 | Task 04A-E | [valid q=2 oracle but CPU smoke LEARNING_NO_GO](task04ae/README.md) |
-| Task 05A | [implementation complete; full measured-data evidence pending](../tasks/task05a/SUMMARY.md) |
+| Task 05A | [reviewed full measured-data FAIL evidence](task05a/full/README.md) |
 
 Each result package records its own runtime/configuration metadata. Do not treat a
 smoke run as a multi-seed performance benchmark. Interpret stage results through the

@@ -93,6 +93,7 @@ def offline_metrics(
     selected = int(torch.argmax(latent_log_ei))
     global_best = float(torch.maximum(train_y.max(), test_y.max()))
     initial_best = float(train_y.max())
+    one_step_best = max(initial_best, float(test_y[selected]))
     top_decile_threshold = float(torch.quantile(test_y, 0.9))
     result: dict[str, float | int | bool] = {
         "nll": float(gaussian_nll(test_y, mean, variance).mean()),
@@ -102,7 +103,7 @@ def offline_metrics(
         "top10_recall": top_recall(mean, test_y),
         "high_utility_nll": float(gaussian_nll(test_y[high], mean[high], variance[high]).mean()),
         "constant_high_utility_nll": constant_gaussian_nll(train_y, test_y, high),
-        "one_step_regret": normalized_regret(float(test_y[selected]), global_best, initial_best),
+        "one_step_regret": normalized_regret(one_step_best, global_best, initial_best),
         "selected_top_decile": bool(float(test_y[selected]) >= top_decile_threshold),
         "selected_test_index": selected,
     }

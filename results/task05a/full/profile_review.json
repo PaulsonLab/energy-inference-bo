@@ -1,0 +1,22 @@
+{
+  "bo_fit_converged": 96,
+  "bo_fit_expected": 96,
+  "config_hash": "f2b0cb29e0dc1962ee101a00bd2e9464677e9eeeeb1e62bf00bef15e9cda78d6",
+  "elapsed_hours": 0.018536828373888866,
+  "elapsed_seconds": 66.73258214599991,
+  "git_sha": "56e8bc1fd8a4f16a600990211ff86151bc88d224",
+  "naive_twenty_shard_gpu_hours": 0.3707365674777773,
+  "notes": "Use elapsed time to plan Colab sessions. One seed cannot establish calibration or BO gains; only the twenty-shard aggregate can evaluate the frozen gate.",
+  "offline_converged": 9,
+  "offline_expected": 9,
+  "offline_finite": 9,
+  "peak_cuda_mb": 1615.880859375,
+  "peak_rss_mb": 1446.125,
+  "purpose": "runtime and technical-integrity profile only; not gate evidence by itself",
+  "shard": "trpb_seed0",
+  "state": "COMPLETE",
+  "task_id": "05A",
+  "trajectory_converged": 3,
+  "trajectory_expected": 3,
+  "under_shard_timeout": true
+}

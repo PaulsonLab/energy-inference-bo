@@ -1,0 +1,75 @@
+{
+  "task_id": "05A",
+  "audit_status": "VALID_WITH_NON_GATING_METRIC_CORRECTION",
+  "protocol_version": "task05a-v1",
+  "source_git_sha": "56e8bc1fd8a4f16a600990211ff86151bc88d224",
+  "config_hash": "f2b0cb29e0dc1962ee101a00bd2e9464677e9eeeeb1e62bf00bef15e9cda78d6",
+  "source_inventory_sha256": "3e1e89a9b17a9b3fe5da9b8a666e51c90e627ac3c669a56deaf9f6299bbdeb32",
+  "gate_result_sha256": "65033c9806fcd16936a20e8282d475b9d73288a3b013b299bba5d487b2eb293f",
+  "metrics_sha256": "d65e681de94fabbb304f190863a966a243b4e4aa4633bcbf25ba78edaab1d287",
+  "integrity": {
+    "checksum_entries": 374,
+    "checksum_failures": 0,
+    "unlisted_source_files": 0,
+    "complete_shards": 20,
+    "offline_rows": 180,
+    "sequential_rows": 60,
+    "bo_trace_rows": 1920,
+    "offline_finite": 180,
+    "offline_converged": 180,
+    "sequential_summaries_converged": 60,
+    "bo_fits_converged": 1920,
+    "duplicate_selected_indices_within_trajectory": 0,
+    "nonmonotone_best_value_trajectories": 0,
+    "nonfinite_numeric_metrics": 0,
+    "recomputed_gate_matches_saved": true
+  },
+  "gate": {
+    "status": "FAIL",
+    "path": "FAIL",
+    "reason": "No model met the frozen credibility definition; neither PASS-A nor PASS-B was available."
+  },
+  "credibility_median_interval_error": {
+    "trpb": {
+      "n48": {"S0": 0.10122049356223176, "S1": 0.10581410944206007, "S2": 0.17628084763948498},
+      "n96": {"S0": 0.09469652920654796, "S1": 0.09970592181769387, "S2": 0.27598286966633867}
+    },
+    "creilov": {
+      "n48": {"S0": 0.15904158457221326, "S1": 0.15691459191593526, "S2": 0.11492701056779507},
+      "n96": {"S0": 0.0513676540850454, "S1": 0.0620655160057334, "S2": 0.05570502866698519}
+    }
+  },
+  "sequential_median_regret_auc": {
+    "trpb": {"S0": 0.5698313657222983, "S1": 1.0, "S2": 0.6174031599615589},
+    "creilov": {"S0": 0.7906146591898069, "S1": 0.7556604867918126, "S2": 0.6992654040036765}
+  },
+  "structured_paired_results": {
+    "trpb_S1_vs_S0": {"median_relative_auc_gain": -0.5599177094854118, "wins": 0, "top1_rate_gain": -0.3},
+    "trpb_S2_vs_S0": {"median_relative_auc_gain": -0.2939954048595458, "wins": 2, "top1_rate_gain": 0.0},
+    "creilov_S1_vs_S0": {"median_relative_auc_gain": -0.014248970697315688, "wins": 4, "top1_rate_gain": 0.0},
+    "creilov_S2_vs_S0": {"median_relative_auc_gain": 0.013800141558043232, "wins": 7, "top1_rate_gain": 0.0}
+  },
+  "metric_correction": {
+    "field": "offline one_step_regret",
+    "affected_rows": 118,
+    "total_rows": 180,
+    "observed_max_before_correction": 5.092567284202274,
+    "cause": "The historical implementation evaluated the selected candidate alone instead of retaining the incumbent when the candidate was worse.",
+    "correct_formula": "regret(max(initial_best, selected_value), global_best, initial_best)",
+    "gate_impact": "none; this field is not used by the Task 05A gate",
+    "source_fix_added": true
+  },
+  "timing": {
+    "trpb_median_elapsed_seconds": 66.56234904300027,
+    "creilov_median_elapsed_seconds": 357.64235811699996,
+    "sum_of_recorded_final_invocation_seconds": 3664.7362955720005,
+    "max_peak_cuda_mb": 4543.02392578125,
+    "max_peak_rss_mb": 1858.8828125,
+    "caveat": "Elapsed time resets on resumed invocations; CreiLOV seeds 4 and 9 therefore understate total shard wall time. Median uninterrupted-shard timings remain representative."
+  },
+  "environment": {
+    "device": "NVIDIA A100-SXM4-40GB",
+    "python": "3.12.13",
+    "torch": "2.13.0+cu130"
+  }
+}

@@ -185,13 +185,14 @@ def test_aggregate_and_final_package_require_all_shards(tmp_path: Path, monkeypa
     for dataset, seed in shard_keys():
         _complete_shard(root / "full_shards" / f"{dataset}_seed{seed}", dataset, seed)
 
-    def fake_run(command: list[str], cwd: Path, check: bool):
-        assert cwd == repo and check
+    def fake_run(command: list[str], cwd: Path, text: bool, capture_output: bool):
+        assert cwd == repo and text and capture_output
         output = Path(command[command.index("--output-dir") + 1])
         output.mkdir(parents=True)
         for name in ("config.yaml", "metrics.csv", "run_metadata.json", "TASK_05A_AGGREGATE_SUMMARY.md"):
             (output / name).write_text("{}")
         _json(output / "gate_result.json", {"git_sha": GIT_SHA, "config_hash": CONFIG_HASH, "status": "PASS"})
+        return type("Completed", (), {"returncode": 0, "stdout": "generated aggregate", "stderr": ""})()
 
     monkeypatch.setattr("energy_bo.experiments.task05a_campaign.subprocess.run", fake_run)
     aggregate = aggregate_if_complete(root, repo, GIT_SHA, CONFIG_HASH)

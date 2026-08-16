@@ -6,10 +6,10 @@ invariants, task contracts, task-specific derivations, or reviewed evidence.
 ## Current stage
 
 The new stage-gated program is controlled by
-[COMPOSABLE_BO_PLAN.md](COMPOSABLE_BO_PLAN.md). Task 05A is implemented and ready
-for twenty frozen measured TrpB/CreiLOV A100 shards. Its final CPU smoke passed wiring
-in 7.73 seconds but supplies no gate evidence. Task 05B remains blocked unless the
-mechanical full Task 05A gate returns `PASS`.
+[COMPOSABLE_BO_PLAN.md](COMPOSABLE_BO_PLAN.md). Task 05A completed all twenty frozen
+measured TrpB/CreiLOV A100 shards with mechanical `FAIL`. No tested belief met the
+low-data credibility requirement, and structured kernels did not achieve the required
+paired BO gain. The program is `HUMAN_REVIEW_REQUIRED`; Task 05B is blocked.
 
 ## Completed evidence
 
@@ -20,6 +20,7 @@ mechanical full Task 05A gate returns `PASS`.
 | Task 02B | Acquisition signatures are moderately compressible, oracle coresets preserve decisions, and the M=1/M=2 structural-decision identities hold exactly. | [task](../../tasks/task02b/README.md), [evidence](../../results/task02b/full/README.md) |
 | Task 02C | Exact decision-energy mathematics passed, but decision-tilted SVGD failed to improve q=1 decisions at matched compute. | [task](../../tasks/task02c/README.md), [evidence](../../results/task02c/full/README.md) |
 | Task 03A | Normalized PIT residual energies did not beat strong calibration baselines; honest cross-fit construction was slower than A100 NUTS, and Task 03B was not opened. | [task](../../tasks/task03a/README.md), [evidence](../../results/task03a/full/README.md) |
+| Task 05A | The exact-GP belief ladder was computationally sound but no S0/S1/S2 model was credibly calibrated at the frozen low-data gate; structured kernels did not provide the required paired BO gain. | [task](../../tasks/task05a/README.md), [evidence](../../results/task05a/full/README.md) |
 
 Task 04A and Task 04A-E stopped at local gates and therefore are not completed
 full-run evidence.
@@ -95,13 +96,14 @@ repulsion without tuning retrospectively on the six Task 02C cases.
 ## Scope boundary
 
 Only the transition rules in the composable BO control plan authorize later work.
-Task 05B is not authorized until Task 05A passes its frozen full protocol.
+Task 05A failed its frozen full protocol, so Task 05B is not authorized. Further work
+requires an explicit human-approved contract rather than a retrospective gate change.
 
 ## How to read the repository
 
 - [AGENTS.md](../../AGENTS.md) and [MATH_AND_SCOPE.md](../../MATH_AND_SCOPE.md) define
   global invariants.
-- [ACTIVE_TASK.md](../../tasks/ACTIVE_TASK.md) records that no implementation task is active after the Task 04A-E smoke.
+- [ACTIVE_TASK.md](../../tasks/ACTIVE_TASK.md) records that no implementation task is active after the Task 05A failure.
 - Each task's `SPEC.md` defines its bounded contract; its math note derives identities;
   its `SUMMARY.md` and `results/` package record what happened.
 - [Historical research documents](history/README.md) are provenance only.

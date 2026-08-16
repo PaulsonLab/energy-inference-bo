@@ -13,14 +13,14 @@
 
 | Field | Current value |
 |---|---|
-| Program status | `READY_FOR_A100_RUN` |
+| Program status | `HUMAN_REVIEW_REQUIRED` |
 | Current task | `05A — Structured Belief Gate` |
-| Current task state | `READY_FOR_A100_RUN` |
-| Last completed phase | Tasks 1–4 exploratory phase |
-| Next authorized action | Profile one Task 05A A100 shard, then run and return the resumable twenty-shard campaign ZIP |
+| Current task state | `FAIL` |
+| Last completed phase | Task 05A frozen full gate |
+| Next authorized action | Human review of the failed belief gate; approve a new bounded contract or stop |
 | Downstream task authorized? | No |
-| Waiting for external compute/results? | Yes |
-| Human decision required? | No |
+| Waiting for external compute/results? | No |
+| Human decision required? | Yes |
 
 ## Allowed states
 
@@ -356,7 +356,7 @@ Update this table after every gate.
 
 | Task | Question | Status | Gate result | Main learning | Next authorization |
 |---|---|---|---|---|---|
-| **05A** | Is there a credible structured belief, and is belief quality decision-limiting? | `READY_FOR_A100_RUN` | Smoke `INCONCLUSIVE` by rule | All three belief paths fit and serialize on both measured datasets; no full evidence yet | Profile one shard, then run the frozen resumable campaign only |
+| **05A** | Is there a credible structured belief, and is belief quality decision-limiting? | `FAIL` | Full gate `FAIL` | No tested belief was credible at n=48 on both measured datasets; structured kernels missed the paired BO-gain threshold and regressed on TrpB | `HUMAN_REVIEW_REQUIRED`; no automatic downstream task |
 | **05B** | Can belief + pretrained generator + utility be composed cleanly with existing inference? | `BLOCKED` | — | — | Requires 05A PASS |
 | **05C** | Does nonmyopia still improve decisions with the strong belief? | `BLOCKED` | — | — | Requires 05B PASS |
 | **06A** | Does path-energy inference beat strong rollout/tree inference at matched compute? | `BLOCKED` | — | — | Requires 05C PASS |
@@ -1220,23 +1220,9 @@ Every run records:
 
 # 15. Immediate Action
 
-**Task 05A is the only authorized task.**
+Task 05A completed its frozen full protocol with `FAIL`. The program is now
+`HUMAN_REVIEW_REQUIRED` and has no active implementation task. Do not implement Task
+05B, relax Task 05A retrospectively, or infer a replacement project automatically.
 
-The next substantive Codex call should:
-
-1. read this document and repository instructions;
-2. implement Task 05A completely;
-3. run local smoke tests;
-4. freeze the full protocol;
-5. create the automatic gate evaluator;
-6. prepare the full-run entrypoint;
-7. run locally only what is genuinely practical;
-8. set the task to either:
-   - `PASS`,
-   - `FAIL`,
-   - `READY_FOR_A100_RUN`, or
-   - `WAITING_FOR_RESULTS`;
-9. update this control document and Task 05A `SUMMARY.md`;
-10. stop.
-
-**Do not implement Task 05B in the same call.**
+The next substantive action must be an explicit human decision either to stop or to
+approve a new bounded belief-stage contract informed by the Task 05A evidence.
