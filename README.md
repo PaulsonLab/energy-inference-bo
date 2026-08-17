@@ -1,69 +1,27 @@
-# energy-inference-bo
+# Decision-Tilted Acquisition Inference for Bayesian Optimization
 
-Stage-gated research prototype for compositional free-energy Bayesian optimization.
-The latest full gate found no sufficiently credible tested belief on the measured
-protein landscapes; the program is awaiting human review.
+Monte Carlo BO samples uncertain worlds from the posterior even when expected utility is controlled by a very different, utility-tilted distribution. This project tests whether adapting the inner integration distribution can reduce acquisition-value and gradient cost by orders of magnitude while keeping the surrogate, acquisition, and gradient-based outer optimizer fixed.
 
-## Start here
-
-1. Read [AGENTS.md](AGENTS.md) and [MATH_AND_SCOPE.md](MATH_AND_SCOPE.md).
-2. Follow the [active task](tasks/ACTIVE_TASK.md).
-3. Use the [task registry](tasks/README.md) for completed-stage specifications,
-   mathematics, summaries, and Colab procedures.
-
-| Stage | Status | Evidence |
-| --- | --- | --- |
-| Task 01 — oracle shape and q=1 GP identities | Complete | [task folder](tasks/task01/README.md) |
-| Task 02A — fixed-support SAAS reuse | Complete | [task folder](tasks/task02a/README.md) |
-| Task 02B — decision-space compression | Complete; Task 02C gate passed | [task folder](tasks/task02b/README.md) |
-| Task 02C — decision-tilted structural SVGD | Complete; tested configuration NO-GO | [task folder](tasks/task02c/README.md) |
-| Task 03A — fast sparse reference + residual predictive energy | Complete; prespecified Task 03B gate NO-GO | [task folder](tasks/task03a/README.md) |
-| Task 04A — local conditional energy process, oracle geometry | Decision diagnostic INVALID; full study disabled | [task folder](tasks/task04a/README.md) |
-| Task 04A-E — matched-marginal q=2 dependence | CPU smoke LEARNING_NO_GO; full study disabled | [task folder](tasks/task04ae/README.md) |
-| Task 05A — structured protein belief gate | Complete; frozen full gate FAIL | [task folder](tasks/task05a/README.md) |
-
-The [current roadmap](docs/research/ROADMAP.md) records the completed evidence and the
-current planning boundary; [architecture](docs/ARCHITECTURE.md) maps the source and
-evidence layout.
-
-## Local quick start
-
-The locked `uv` environment targets CPython 3.12 for CPU-compatible PyTorch, GPyTorch,
-and BoTorch.
-
-```bash
-uv sync --python 3.12 --all-groups --no-editable
-uv run --no-sync pytest -q
-```
-
-Task drivers are explicit. These are development checks, not instructions to rerun
-every experiment routinely:
-
-```bash
-uv run --no-sync python -m energy_bo.experiments.run_task01
-uv run --no-sync python -m energy_bo.experiments.run_task02a --profile smoke
-uv run --no-sync python -m energy_bo.experiments.run_task02b --profile retrospective
-uv run --no-sync python -m energy_bo.experiments.run_task02b --profile smoke
-uv run --no-sync python -m energy_bo.experiments.run_task02c --profile preflight
-uv run --no-sync python -m energy_bo.experiments.run_task02c --profile smoke
-uv run --no-sync python -m energy_bo.experiments.run_task03a --profile smoke
-uv run --no-sync python -m energy_bo.experiments.run_task04a --profile smoke
-uv run --no-sync python -m energy_bo.experiments.run_task04a --profile preflight
-uv run --no-sync python -m energy_bo.experiments.run_task04ae --profile smoke --device cpu
-uv run --no-sync python -m energy_bo.experiments.run_task05a --profile smoke --device cpu
-```
+The project studies the **inner Monte Carlo acquisition integral**. It does not replace optimization over the BO decision variable with sampling.
 
 ## Repository map
 
-| Folder | Contents |
-| --- | --- |
-| [`tasks/`](tasks/README.md) | One self-contained folder per research task: entry point, contract, math when needed, summary, and run guide |
-| [`src/energy_bo/`](src/energy_bo/) | Reusable implementation, organized by mathematical domain rather than task number |
-| [`tests/`](tests/) | Unit tests for mathematical identities and reusable code |
-| [`notebooks/`](notebooks/README.md) | Thin, guarded Colab drivers—one per runnable task |
-| [`results/`](results/README.md) | Reviewed compact evidence committed to Git |
-| `artifacts/` | Ignored raw/generated run outputs |
+- [`PAPER_PLAN.md`](PAPER_PLAN.md): authoritative scientific contract and gates.
+- [`STATUS.md`](STATUS.md): current phase, claim status, and next authorized action.
+- [`src/decision_tilt/`](src/decision_tilt/): reusable mathematical and model code.
+- [`tests/`](tests/): mathematical identities and implementation tests.
+- [`experiments/`](experiments/): prospective paper experiments, organized by result rather than task number.
+- [`notebooks/`](notebooks/): readable scientific analyses and future Colab workflows.
 
-Use [COLAB.md](COLAB.md) for the notebook index and shared download/promotion workflow.
-Large runs never push to GitHub: download the ZIP, review it locally, and promote only
-selected evidence into `results/`.
+## Local setup
+
+The locked environment targets CPython 3.12:
+
+```bash
+uv sync --locked --group dev
+uv run pytest -q
+```
+
+The next authorized step is `rare_mode_mechanism`. Read [`PAPER_PLAN.md`](PAPER_PLAN.md) and [`STATUS.md`](STATUS.md) before changing code.
+
+The previous exploratory project, including Tasks 01–05A and their negative results, is preserved on branch `archive/exploration-v1` and annotated tag `exploration-v1`.

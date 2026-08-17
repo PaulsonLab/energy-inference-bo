@@ -3,31 +3,32 @@ requires = ["setuptools>=69"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "energy-inference-bo"
+name = "decision-tilt"
 version = "0.1.0"
-description = "Mathematical and oracle validation for energy-based Bayesian optimization"
+description = "Decision-tilted Monte Carlo acquisition inference for Bayesian optimization"
 readme = "README.md"
-requires-python = ">=3.11,<3.13"
+requires-python = ">=3.12,<3.13"
 license = { file = "LICENSE" }
 authors = [{ name = "PaulsonLab" }]
 dependencies = [
-  "botorch[fully-bayesian]>=0.16.1",
-  "matplotlib>=3.8",
-  # NumPy 2.4+ and SciPy 1.17+ currently have an import-time private-ABI
-  # incompatibility on the Python 3.11 Colab image. Keep the locked scientific
-  # base below that pair until the upstream stacks are jointly compatible.
-  "numpy>=1.26,<2.4",
-  "scipy>=1.11,<1.17",
-  "torch>=2.2",
+  "botorch==0.18.1",
+  "gpytorch==1.15.2",
+  "matplotlib==3.11.1",
+  "numpy==2.3.5",
+  "scipy==1.16.3",
+  "torch==2.13.0",
 ]
 
 [dependency-groups]
-dev = ["pytest>=8.0"]
+dev = [
+  "ipykernel>=6.29,<8",
+  "jupyterlab>=4.4,<5",
+  "pytest>=9,<10",
+]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-ra"
-pythonpath = ["src"]
 
 [tool.setuptools.packages.find]
 where = ["src"]

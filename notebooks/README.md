@@ -1,38 +1,7 @@
 # Notebooks
 
-Notebooks are thin execution handoffs, not the implementation home. Put reusable
-mathematics, data preparation, and diagnostics in `src/energy_bo/`; keep notebooks to
-environment setup, explicit run configuration, and artifact download.
+Notebooks are readable scientific records, not thin launchers. Reusable functions belong in `src/decision_tilt/`; notebooks own figures, numerical summaries, and interpretation.
 
-| Task | Notebook | Default hardware | Full run guard |
-| --- | --- | --- | --- |
-| Task 01 | [oracle/q=1 validation](task01_colab.ipynb) | CPU | `RUN_FULL = False` |
-| Task 02A | [SAAS reuse diagnostic](task02a_colab.ipynb) | CPU; GPU optional for NUTS | `RUN_FULL = False` |
-| Task 02B | [decision-space signatures](task02b_colab.ipynb) | NVIDIA GPU preferred | `RUN_FULL = False` |
-| Task 02C | [decision-tilted SVGD](task02c_colab.ipynb) | NVIDIA GPU preferred; completed study, reproduction only | `RUN_PREFLIGHT = False`, `RUN_FULL = False` |
-| Task 03A | [MAP-SAAS plus residual predictive energy](task03a_colab.ipynb) | NVIDIA GPU preferred; completed study, reproduction only | `RUN_FULL = False` |
-| Task 04A | [paused local conditional energy driver](task04a_colab.ipynb) | CPU preflight failed decision gate; full disabled | `RUN_FULL = False` |
-| Task 04A-E | [matched-marginal q=2 driver](task04ae_colab.ipynb) | CPU smoke LEARNING_NO_GO; full disabled | smoke gate plus `RUN_FULL = False` |
-| Task 05A | [measured protein belief campaign](task05a_colab.ipynb) | Full gate complete; reproduction only | `RUN_PROFILE = False`, `RUN_CAMPAIGN = False` |
+Every substantive notebook must contain sections for the question, paper relevance, mathematics, frozen protocol, GO/NO-GO expectation, results, interpretation, and next action. Colab notebooks must detect CPU/GPU, print device and package-version metadata, and run top-to-bottom without manual editing.
 
-Each notebook follows the same cell order: configure → validate Python → clone an
-explicit Git revision → install → validate backend and tests → opt into the full run
-→ write a manifest → download one ZIP. The final Markdown cell says exactly which
-files may be promoted to `results/`; downloading never modifies GitHub.
-
-Task 03A's notebook deliberately uses `uv sync --locked` to build the project's native
-environment and asserts that the scientific stack actually loads from it. This avoids
-Colab's broken system `venv`/`ensurepip`. Do not restart between its setup and preflight
-cells or install numerical repair packages into Colab's global Python.
-
-Task 04A retains that no-restart locked-environment pattern, but its A100 profile is
-disabled after the standardized-child CPU preflight failed decision relevance.
-Task 04A-E uses the same pattern and additionally reads the committed smoke gate;
-`RUN_FULL=True` cannot bypass its negative result.
-
-Task 05A uses the locked project `.venv` and a Drive-backed campaign manifest. It
-profiles one shard first, then automatically resumes all remaining dataset/seed shards
-across sessions and downloads one package after frozen aggregation.
-
-See the [task registry](../tasks/README.md) for the current task and terminal/Colab
-procedures.
+No notebook is created during the repository reset.
