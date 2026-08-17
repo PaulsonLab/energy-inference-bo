@@ -1,0 +1,27 @@
+{
+  "protocol_version": "rare-mode-mechanism-v1",
+  "config_hash": "957cbc939405efb7bd2d95770aa57442099dd3c40917d56af83665f7dc6896e6",
+  "status": "GO_EXPECTATIONS_MET",
+  "checks": {
+    "raw_ei_margin": true,
+    "smooth_margin": true,
+    "large_decision_shift": true,
+    "rare_mode_dominates_tilt": true,
+    "iid_variance_identity": true,
+    "iid_raw_failure_at_512": true,
+    "qmc_raw_failure_at_512": true,
+    "smooth_failure_at_512": true,
+    "eventual_iid_recovery": true
+  },
+  "observed": {
+    "raw_ei_ratio_b_over_a": 1.2595148802167493,
+    "smooth_ratio_b_over_a": 1.2002526601686723,
+    "candidate_b_ess_fraction": 0.004995921697037181,
+    "candidate_b_tilted_rare_weight": 0.999999999953627,
+    "maximum_iid_raw_variance_relative_error": 0.03155996992948185,
+    "iid_raw_accuracy_at_512": 0.5627,
+    "qmc_raw_accuracy_at_512": 0.5947265625,
+    "iid_smooth_accuracy_at_512": 0.4899,
+    "iid_raw_accuracy_at_8192": 0.9102
+  }
+}

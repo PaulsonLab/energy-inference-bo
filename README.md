@@ -22,6 +22,6 @@ uv sync --locked --group dev
 uv run pytest -q
 ```
 
-The next authorized step is `rare_mode_mechanism`. Read [`PAPER_PLAN.md`](PAPER_PLAN.md) and [`STATUS.md`](STATUS.md) before changing code.
+The `rare_mode_mechanism` experiment is complete and awaits human review. See its [protocol, evidence, and Figure 1](experiments/rare_mode_mechanism/README.md), then read [`STATUS.md`](STATUS.md) before authorizing any further experiment.
 
 The previous exploratory project, including Tasks 01–05A and their negative results, is preserved on branch `archive/exploration-v1` and annotated tag `exploration-v1`.
