@@ -1,5 +1,11 @@
 # Policy Kill Experiment
 
+## Result
+
+The prospectively frozen reference-only design scan is complete. None of the 20 candidate constructions passed the nonmyopic action-plus-value gate. The closest candidate moved the converged H=3 first action to the diagnostic region, but forcing the H=1 action lost only `0.0180%` of optimal H=3 value, versus the frozen `2%` requirement.
+
+The protocol therefore stopped before either learned policy was implemented or trained. See [`outputs/RESULTS.md`](outputs/RESULTS.md) for the compact evidence record.
+
 ## Model system
 
 Use a one-dimensional **two-regime Bayesian optimization problem** with latent regime
@@ -56,4 +62,4 @@ No PPO.
 - Does the learned causal policy recover the reference first action/value?
 - Does path-KL transport materially improve optimization stability or sample efficiency over plain pathwise Adam?
 
-Status: NEXT AUTHORIZED EXPERIMENT
+Status: POLICY_KILL_NEGATIVE_REVIEW_REQUIRED

@@ -1,0 +1,51 @@
+{
+  "audit_reference": {
+    "delta": 0.15,
+    "horizons": {
+      "1": {
+        "first_action": 0.25,
+        "forced_myopic_relative_loss": 0.0,
+        "forced_myopic_value": 0.4450012969600865,
+        "value": 0.4450012969600865
+      },
+      "2": {
+        "first_action": 0.25,
+        "forced_myopic_relative_loss": 0.0,
+        "forced_myopic_value": 0.5286915829391463,
+        "value": 0.5286915829391463
+      },
+      "3": {
+        "first_action": 0.5,
+        "forced_myopic_relative_loss": 0.00018047320033268876,
+        "forced_myopic_value": 0.566308074828328,
+        "value": 0.5664102967072762
+      }
+    },
+    "noise_std": 0.1
+  },
+  "candidate_count": 20,
+  "classification": "POLICY_KILL_NEGATIVE_REVIEW_REQUIRED",
+  "passing_candidate_count": 0,
+  "planning_opportunity": false,
+  "policy_representation": "NOT_RUN_REFERENCE_GATE_FAILED",
+  "prospective_stop_honored": true,
+  "reference_convergence": {
+    "action_drift_medium_to_fine": {
+      "1": 0.0,
+      "2": 0.0,
+      "3": 0.0
+    },
+    "action_tolerance": 0.01,
+    "maximum_action_drift": 0.0,
+    "maximum_relative_value_drift": 0.0002918313910286823,
+    "passes": true,
+    "refinement_required": false,
+    "relative_value_drift_medium_to_fine": {
+      "1": 0.0,
+      "2": 0.0002918313910286823,
+      "3": 1.2482206082088643e-05
+    },
+    "relative_value_tolerance": 0.0025
+  },
+  "transport_advantage": "NOT_RUN_REFERENCE_GATE_FAILED"
+}

@@ -1,0 +1,62 @@
+{
+  "audit_config": {
+    "delta": 0.15,
+    "diagnostic_center": 0.5,
+    "diagnostic_width": 0.035,
+    "domain_high": 1.0,
+    "domain_low": 0.0,
+    "exploit_width": 0.06,
+    "incumbent": 0.6,
+    "left_center": 0.25,
+    "noise_std": 0.1,
+    "objective": "best_observed_improvement",
+    "prior_m1": 0.5,
+    "right_center": 0.75
+  },
+  "audit_reason": "closest candidate with a diagnostic first action and the largest forced-myopic value loss",
+  "candidate_grid": {
+    "delta": [
+      0.15,
+      0.2,
+      0.25,
+      0.3,
+      0.35
+    ],
+    "noise_std": [
+      0.1,
+      0.15,
+      0.2,
+      0.25
+    ],
+    "order": "delta-major lexicographic"
+  },
+  "design_scan_level": {
+    "action_points": 201,
+    "belief_points": 81,
+    "incumbent_points": 101,
+    "log_odds_limit": 30.0,
+    "name": "design_scan",
+    "quadrature_points": 15,
+    "state_batch": 32
+  },
+  "experiment": "policy_kill",
+  "prospective_gates": {
+    "maximum_diagnostic_to_optimal_one_step_ei": 0.25,
+    "minimum_action_displacement": 0.1,
+    "minimum_forced_myopic_relative_loss": 0.02,
+    "nonmyopic_action_in_diagnostic_region": [
+      0.45,
+      0.55
+    ],
+    "one_step_action_in_exploit_region": true
+  },
+  "response_family": {
+    "f0": "1.12*g_left + (1.10-delta)*g_right - 0.40*g_diagnostic",
+    "f1": "(1.12-delta)*g_left + 1.10*g_right + 0.30*g_diagnostic",
+    "rbf": "exp(-0.5*((x-center)/width)^2)"
+  },
+  "schema_version": 1,
+  "selected_config": null,
+  "selection_status": "FAILED_NO_CANDIDATE",
+  "terminal_utility": "max(0, max_t(Y_t) - incumbent)"
+}
