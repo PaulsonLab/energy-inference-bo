@@ -1,37 +1,22 @@
 # AGENTS.md
 
-## Scientific contract
+## Scientific workflow
 
-- Read `PAPER_PLAN.md` and `STATUS.md` first.
-- Do not change the paper thesis during an implementation call.
-- Every code change must support a named paper claim, figure, table, or mathematical test. Otherwise, stop and report that it is out of scope.
-
-## Research discipline
-
-- Never weaken a GO/NO-GO criterion after seeing results. Negative results are valid.
-- Do not invent a new EBM sampler unless explicitly authorized.
-- Do not replace outer L-BFGS/Adam acquisition optimization with sampling over `X`.
-- Treat qLogEI with scrambled Sobol-QMC as a strong baseline, not a straw man.
-- Preserve arbitrary non-Gaussian posterior support in mathematics and interfaces.
-- Prefer the simplest correct implementation.
+- Read `PAPER_DESIGN.md` and `STATUS.md` first.
+- Implement only the experiment explicitly authorized in `STATUS.md`.
+- Never change the paper thesis during an implementation call.
+- Never introduce a rollout policy.
+- Never introduce a critic or value network unless a future human-approved plan changes the hypothesis.
+- Preserve causality: the policy sees only observed history, never the latent sampled world.
+- Use direct pathwise gradients where the model permits them.
+- Compare plain direct policy optimization against causal path-KL transport.
+- Treat negative results as valid.
+- Keep notebooks human-readable.
+- Do not create numbered task folders.
+- Update `STATUS.md` after every scientific call.
 
 ## Compute
 
-- Local target: a 16 GB MacBook Air. Tests and `rare_mode_mechanism` must be CPU-compatible.
-- GPU work uses one Colab A100. Design each shard for at most roughly 2–3 hours and make it checkpointed or cleanly restartable.
-
-## Organization
-
-- Reusable math/model code: `src/decision_tilt/`.
-- Prospective paper experiments: `experiments/<descriptive_name>/`.
-- Human-readable analysis and Colab workflows: `notebooks/`.
-- Mathematical identities: unit tests.
-- Do not create numbered research-task directories.
-
-## Notebooks
-
-Every substantive notebook must contain: question, paper relevance, mathematics, protocol, GO/NO-GO, results, interpretation, and next action.
-
-## End of call
-
-Update `STATUS.md` on every Codex call. Do not automatically begin the next experiment unless the human explicitly requested it.
+- Local target: MacBook Air with 16 GB RAM.
+- The first `policy_kill` experiment must be CPU practical.
+- Use a single Colab A100 only when later experiments genuinely need it.

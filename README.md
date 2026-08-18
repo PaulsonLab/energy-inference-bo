@@ -1,27 +1,7 @@
-# Decision-Tilted Acquisition Inference for Bayesian Optimization
+# Causal Policy Transport for Nonmyopic Bayesian Optimization
 
-Monte Carlo BO samples uncertain worlds from the posterior even when expected utility is controlled by a very different, utility-tilted distribution. This project tests whether adapting the inner integration distribution can reduce acquisition-value and gradient cost by orders of magnitude while keeping the surrogate, acquisition, and gradient-based outer optimizer fixed.
+> Full nonmyopic BO optimizes an adaptive causal policy. Rather than explicitly enumerate a fantasy tree or train an actor–critic, we test whether a shared causal policy can be optimized directly through coherent Bayesian worlds, with an energy-derived path-KL trust region stabilizing policy improvement.
 
-The project studies the **inner Monte Carlo acquisition integral**. It does not replace optimization over the BO decision variable with sampling.
+The first experiment, [`policy_kill`](experiments/policy_kill/README.md), is only a kill test. No claim about long-horizon superiority has been established, and no non-Gaussian flagship model is implemented yet.
 
-## Repository map
-
-- [`PAPER_PLAN.md`](PAPER_PLAN.md): authoritative scientific contract and gates.
-- [`STATUS.md`](STATUS.md): current phase, claim status, and next authorized action.
-- [`src/decision_tilt/`](src/decision_tilt/): reusable mathematical and model code.
-- [`tests/`](tests/): mathematical identities and implementation tests.
-- [`experiments/`](experiments/): prospective paper experiments, organized by result rather than task number.
-- [`notebooks/`](notebooks/): readable scientific analyses and future Colab workflows.
-
-## Local setup
-
-The locked environment targets CPython 3.12:
-
-```bash
-uv sync --locked --group dev
-uv run pytest -q
-```
-
-The `rare_mode_mechanism` experiment is complete. The frozen `constrained_batch_shift` A100 campaign is [invalid because its State 3 high-budget reference failed at the prespecified numerical cap](experiments/constrained_batch_shift/outputs/invalid_reference_v2/README.md). The subsequent valid q=1 [`welded_beam_shift`](experiments/welded_beam_shift/outputs/RESULTS.md) experiment found substantial decision shift but no practical scrambled-Sobol selection failure and ended negative. Read [`STATUS.md`](STATUS.md) before taking any further action.
-
-The previous exploratory project, including Tasks 01–05A and their negative results, is preserved on branch `archive/exploration-v1` and annotated tag `exploration-v1`.
+Read [`PAPER_DESIGN.md`](PAPER_DESIGN.md) and [`STATUS.md`](STATUS.md) before doing scientific work.

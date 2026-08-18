@@ -1,4 +1,4 @@
 def test_package_import() -> None:
-    import decision_tilt
+    import causal_policy_bo
 
-    assert decision_tilt.__version__ == "0.1.0"
+    assert causal_policy_bo.__version__ == "0.1.0"
