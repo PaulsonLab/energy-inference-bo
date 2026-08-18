@@ -125,4 +125,20 @@ Implementation must first provide a CPU smoke using one truncated state-generati
 
 Future full outputs must include the frozen config and hash, all eight state datasets, belief diagnostics, candidate provenance, reference-convergence records, per-scramble metrics, automatic gate result, environment/Git metadata, and plots of shift versus acquisition quality, practical-QMC error versus sample count, gradient reliability, optimizer regret, and Gaussian-versus-Student-t comparisons.
 
-Status: PROTOCOL FROZEN — IMPLEMENTATION REQUIRES A SEPARATE AUTHORIZATION
+## Implementation and run handoff
+
+Reusable conjugate-process, QMC, qLogEI-utility, gradient, and decision-shift code lives in `src/decision_tilt/`. The experiment CLI is [`run.py`](run.py). The implementation never changes the frozen JSON contract.
+
+Local validation command:
+
+```bash
+uv run --no-sync pytest -q
+uv run --no-sync python experiments/constrained_batch_shift/run.py smoke \
+  --output-dir artifacts/constrained_batch_shift_smoke
+```
+
+The smoke uses seed 3101 with explicitly reduced wiring settings. It cannot produce a scientific gate. The full study must be run from the human-readable [A100 Colab notebook](../../notebooks/constrained_batch_shift_colab.ipynb), which checks out the stable tag `constrained-batch-shift-gpu-v1`, requires a matching GPU preflight, checkpoints every state, and packages exactly one `constrained_batch_shift_gpu_results.zip` plus `SHA256SUM.txt`.
+
+After download, put the ZIP in the repository root and request a separate frozen-results audit. Do not commit the raw ZIP or interpret incomplete states.
+
+Status: READY FOR EXTERNAL A100 RUN — NO SCIENTIFIC RESULT YET

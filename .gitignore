@@ -17,6 +17,8 @@ htmlcov/
 # Local data and experiment outputs
 artifacts/
 data/
+constrained_batch_shift_gpu_results.zip
+SHA256SUM.txt
 
 # Editors and operating systems
 .DS_Store
