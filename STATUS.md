@@ -4,7 +4,7 @@
 Decision-adapted integration may reduce Monte Carlo acquisition cost when utility-tilted worlds differ sharply from ordinary posterior worlds.
 
 ## Phase
-HUMAN_REVIEW_REQUIRED
+WELDED_BEAM_SHIFT_PROTOCOL_FROZEN
 
 ## Claims
 
@@ -29,7 +29,10 @@ The two completed states are informative but not gate evidence. Across 180 top-d
 
 ## Next authorized action
 
-Human review of the invalid-reference evidence. No rerun or downstream method is authorized. A future call may propose a separately frozen numerical-reference diagnostic or recommend stopping the paper direction, but it must preserve this attempted campaign as invalid and cannot tune thresholds using States 3101–3103.
+Implement and run only the prospectively frozen
+[`welded_beam_shift`](experiments/welded_beam_shift/README.md) q=1 CPU
+diagnostic. The constrained Hartmann campaign remains permanently invalid and
+must not be rerun or modified.
 
 ## Not authorized
 
@@ -37,6 +40,7 @@ Human review of the invalid-reference evidence. No rerun or downstream method is
 - complex-posterior flagship
 - a constrained-batch rerun with relaxed thresholds, altered seeds, or larger reference budgets
 - any constrained-batch GO/NO-GO claim from the two completed states
+- q=4 or non-Gaussian Welded Beam experiments
 
 ## Unresolved concerns
 

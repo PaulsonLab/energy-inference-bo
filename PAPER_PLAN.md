@@ -847,6 +847,27 @@ the frozen protocol above; the audited evidence is recorded in
 
 ---
 
+# 15A. Authorized follow-up: `welded_beam_shift`
+
+The frozen constrained Hartmann campaign is permanently closed as an invalid
+attempt and must not be rerun or reinterpreted. Human review authorized one
+simpler q=1 follow-up using BoTorch's standard single-objective Welded Beam
+problem, ordinary independent Gaussian GPs, analytic constrained EI and
+decision-shift moments, and three prospectively fixed states.
+
+The authoritative protocol is
+[`experiments/welded_beam_shift/config.json`](experiments/welded_beam_shift/config.json),
+with its rationale and prospective decision rule in the adjacent
+[`README.md`](experiments/welded_beam_shift/README.md). The experiment asks
+whether multiple ordinary uncertain constraints produce low ESS among
+competitive constrained-EI candidates and whether this causes material
+scrambled-Sobol ranking or selection error at practical sample counts.
+
+No q=4 follow-up, non-Gaussian model, or decision-adapted inference method is
+authorized by this protocol alone.
+
+---
+
 # 16. CPU versus A100 strategy
 
 The project should not manufacture a compute advantage by making the baseline inefficient.
