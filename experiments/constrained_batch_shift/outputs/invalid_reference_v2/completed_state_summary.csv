@@ -1,0 +1,5 @@
+seed,belief,candidate_count,high_count,high_median_quality,top_decile_median_ess_fraction,low_ess_high_count,low_ess_high_fraction,shift_positive,material_failure,median_optimizer_regret_512,condition_value,condition_ranking,condition_gradient,condition_optimizer
+3101,gaussian,448,45,0.8508071240710263,0.41626381647864846,0,0.0,False,False,0.09488617193510213,False,False,False,True
+3101,student_t,448,45,0.8495403587419796,0.41091130468237125,0,0.0,False,False,0.10345125491679646,False,False,False,True
+3102,gaussian,448,45,0.808459583813102,0.4522373218699809,0,0.0,False,True,0.19552873960986072,False,False,True,True
+3102,student_t,448,45,0.8083479573440129,0.4469552605575518,0,0.0,False,True,0.16821090523511018,False,False,True,True

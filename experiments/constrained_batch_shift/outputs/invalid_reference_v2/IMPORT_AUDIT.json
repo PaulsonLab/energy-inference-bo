@@ -1,0 +1,80 @@
+{
+  "audit_version": "invalid-reference-import-v1",
+  "source_archive": "constrained_batch_shift_invalid_reference_v2.zip",
+  "source_archive_bytes": 67498295,
+  "source_archive_sha256": "c15a2d84db2b1e336ee351b961adff04d22177db5a3a7b751afb4f0a5a5dc1ba",
+  "archive_entries": 27,
+  "archive_entries_match_extraction": true,
+  "safe_relative_archive_paths": true,
+  "manifest": {
+    "git_sha": "0db7ea2b2e45606a488611e286617caec6d93180",
+    "implementation_ref": "constrained-batch-shift-gpu-v2",
+    "protocol_hash": "4dd20a796d9eb537311ba72eab4f539376b6fcb73a25e0e405500e3c68ff1d03",
+    "python": "3.12.13",
+    "torch": "2.13.0+cu130",
+    "botorch": "0.18.1",
+    "gpytorch": "1.15.2",
+    "scipy": "1.16.3",
+    "numpy": "2.3.5",
+    "gpu": "NVIDIA A100-SXM4-40GB"
+  },
+  "preflight_passed": true,
+  "complete_state_checks": {
+    "states": [3101, 3102],
+    "metadata_matches_summary": true,
+    "profile_is_full": true,
+    "protocol_and_git_match_manifest": true,
+    "observations_per_state": 56,
+    "candidate_batches_per_state": 448,
+    "qmc_rows_per_state": 384,
+    "optimizer_rows_per_state": 96,
+    "all_arrays_finite": true,
+    "inputs_and_candidates_in_unit_cube": true,
+    "diagnostic_fits_converged": true,
+    "maximum_moment_match_error": 1.3877787807814457e-17
+  },
+  "complete_state_compute": {
+    "3101": {
+      "elapsed_seconds": 871.72806128,
+      "posterior_worlds_evaluated": 972334592,
+      "peak_cuda_bytes": 715732480,
+      "reference_samples_per_replicate": {
+        "gaussian": 65536,
+        "student_t": 65536
+      }
+    },
+    "3102": {
+      "elapsed_seconds": 1149.0868245690003,
+      "posterior_worlds_evaluated": 2462842112,
+      "peak_cuda_bytes": 2803429376,
+      "reference_samples_per_replicate": {
+        "gaussian": 262144,
+        "student_t": 262144
+      }
+    }
+  },
+  "partial_state_check": {
+    "seed": 3103,
+    "observations": 56,
+    "candidate_labels": 448,
+    "state_arrays_finite": true,
+    "completed_summary_present": false,
+    "raw_reference_results_present": false,
+    "traceback_failure": "INVALID_REFERENCE: convergence failed at frozen cap",
+    "traceback_source": "maintainer-supplied Colab transcript",
+    "exact_failed_convergence_components_available": false
+  },
+  "descriptive_evidence": {
+    "completed_belief_state_cells": 4,
+    "top_decile_batches": 180,
+    "low_ess_top_decile_batches": 0,
+    "top_decile_median_ess_fraction_range": [0.41091130468237125, 0.4522373218699809],
+    "top_decile_minimum_ess_fraction_range": [0.3604619888344659, 0.42824707060497963],
+    "maximum_quality_among_all_low_ess_batches": 0.07211719674568545,
+    "qmc_512_value_error_range": [0.002753707790667375, 0.004869935539201196],
+    "qmc_512_ranking_disagreement_range": [0.03636363636363636, 0.05353535353535353],
+    "qmc_512_gradient_cosine_range": [0.8590793991914766, 0.983186722030577],
+    "qmc_512_median_optimizer_regret_range": [0.09488617193510213, 0.19552873960986072]
+  },
+  "audit_conclusion": "The imported evidence is internally consistent. The frozen campaign is INVALID_REFERENCE and cannot support GO or NO-GO."
+}

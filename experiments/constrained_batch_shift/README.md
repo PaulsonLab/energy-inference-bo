@@ -141,4 +141,12 @@ The smoke uses seed 3101 with explicitly reduced wiring settings. It cannot prod
 
 After download, put the ZIP in the repository root and request a separate frozen-results audit. Do not commit the raw ZIP or interpret incomplete states.
 
-Status: READY FOR EXTERNAL A100 RUN — NO SCIENTIFIC RESULT YET
+## Attempted A100 result
+
+The `constrained-batch-shift-gpu-v2` campaign completed States 3101 and 3102,
+then stopped prospectively at `INVALID_REFERENCE` during the Gaussian reference
+for State 3103 after reaching the maximum $2^{18}$ samples per replicate.
+The result is neither GO nor NO-GO. Do not rerun or relax the frozen reference
+rule. See the [audited compact evidence](outputs/invalid_reference_v2/README.md).
+
+Status: INVALID_REFERENCE — HUMAN REVIEW REQUIRED

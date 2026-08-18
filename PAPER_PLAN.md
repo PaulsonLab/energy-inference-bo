@@ -836,6 +836,15 @@ Stop the paper direction if:
 
 This is the most important early falsification.
 
+### Attempted frozen-run status
+
+The A100 campaign from implementation tag `constrained-batch-shift-gpu-v2`
+completed two states and then reached the prospectively specified
+`INVALID_REFERENCE` outcome on State 3103 at the maximum reference budget. It
+therefore produced neither GO nor NO-GO. This historical outcome does not alter
+the frozen protocol above; the audited evidence is recorded in
+[`outputs/invalid_reference_v2/`](experiments/constrained_batch_shift/outputs/invalid_reference_v2/README.md).
+
 ---
 
 # 16. CPU versus A100 strategy

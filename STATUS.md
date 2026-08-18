@@ -4,7 +4,7 @@
 Decision-adapted integration may reduce Monte Carlo acquisition cost when utility-tilted worlds differ sharply from ordinary posterior worlds.
 
 ## Phase
-READY_FOR_GPU_RUN
+HUMAN_REVIEW_REQUIRED
 
 ## Claims
 
@@ -13,7 +13,7 @@ READY_FOR_GPU_RUN
 | C1 — Standard-MC relative variance equals decision-shift chi-square divergence divided by sample count | `VERIFIED_IN_CODE` | Exact identity; empirical iid relative variance agrees within 3.16% across the frozen sample counts ([variance table](experiments/rare_mode_mechanism/outputs/variance_results.csv)) |
 | C2 — Importance-proposal relative variance is governed by divergence from the decision tilt | `TO_VERIFY_IN_CODE` | No importance proposal is authorized or implemented |
 | C3 — Free-energy and variational forms recover the same acquisition | `TO_VERIFY_IN_CODE` | Outside this mechanism experiment |
-| C4 — High-value BO decisions can exhibit large posterior-to-decision shift | `SYNTHETIC_SUPPORT; PRACTICAL_GATE_READY_FOR_GPU` | Rare-mode Figure 1 is positive; the multi-state constrained-batch [implementation](experiments/constrained_batch_shift/README.md) is CPU-validated but has no A100 results |
+| C4 — High-value BO decisions can exhibit large posterior-to-decision shift | `SYNTHETIC_SUPPORT; PRACTICAL_GATE_INVALID` | Rare-mode Figure 1 is positive; the constrained-batch A100 campaign stopped at a prospectively defined [`INVALID_REFERENCE`](experiments/constrained_batch_shift/outputs/invalid_reference_v2/README.md) outcome |
 | C5 — Decision-adapted integration materially reduces acquisition computation | `UNTESTED` | Requires a separately authorized method comparison; QMC is a strong control |
 | C6 — Reduced integration error improves sequential BO with a complex belief | `UNTESTED` | Future flagship; unauthorized |
 
@@ -23,17 +23,20 @@ The prospectively frozen `rare_mode_mechanism` experiment met every GO expectati
 
 The result establishes the intended synthetic failure mechanism. It does not yet show that a decision-adapted method is faster than strong QMC: in this example scrambled QMC reaches 100% ranking accuracy at 1,024 samples, whereas iid MC needs substantially more.
 
-The frozen constrained-batch diagnostic is implemented. Its protocol hash is `4dd20a796d9eb537311ba72eab4f539376b6fcb73a25e0e405500e3c68ff1d03`. All 23 repository tests pass. The CPU smoke exercised one truncated seed, both matched beliefs, pinned constrained qLogEI utility, QMC values, autograd gradients, optimization, serialization, and compatible checkpoint resume. This is implementation evidence only; no full state and no scientific gate has been evaluated.
+The frozen constrained-batch A100 campaign ran from Git SHA `0db7ea2` on an NVIDIA A100-SXM4-40GB. States 3101 and 3102 completed; State 3103 failed the frozen high-budget Gaussian-reference convergence check after escalation to $2^{18}$ samples per replicate, so States 3104–3108 were not run. The audited campaign status is `INVALID`, not GO or NO-GO. The compact evidence and integrity record are [here](experiments/constrained_batch_shift/outputs/invalid_reference_v2/README.md).
+
+The two completed states are informative but not gate evidence. Across 180 top-decile batch/belief evaluations, zero had ESS fraction at or below `0.05`; their median ESS fractions were `0.411–0.452`, and every low-ESS candidate had at most `7.21%` of maximum acquisition quality. At 512 QMC samples, median value error was below `0.49%` and ranking disagreement below `5.36%`. State 2 nevertheless showed poor gradient cosine (`0.859–0.873`) and material outer-optimizer regret, suggesting an optimization/gradient issue not explained by the prespecified severe decision shift. Gaussian and Student-t behavior was very similar.
 
 ## Next authorized action
 
-Run [`notebooks/constrained_batch_shift_colab.ipynb`](notebooks/constrained_batch_shift_colab.ipynb) on an A100 from stable tag `constrained-batch-shift-gpu-v2`. Complete the GPU preflight, then the resumable eight-state full run, and return `constrained_batch_shift_gpu_results.zip` for a separate integrity and gate audit. Tag `constrained-batch-shift-gpu-v1` is retained for provenance but must not be used: its full-profile summary path included a non-scientific provenance-column aggregation bug found on the first external attempt.
+Human review of the invalid-reference evidence. No rerun or downstream method is authorized. A future call may propose a separately frozen numerical-reference diagnostic or recommend stopping the paper direction, but it must preserve this attempted campaign as invalid and cannot tune thresholds using States 3101–3103.
 
 ## Not authorized
 
 - decision-adapted sampler implementation
 - complex-posterior flagship
-- any final constrained-batch GO/NO-GO claim before all eight frozen GPU states are audited
+- a constrained-batch rerun with relaxed thresholds, altered seeds, or larger reference budgets
+- any constrained-batch GO/NO-GO claim from the two completed states
 
 ## Unresolved concerns
 
@@ -41,5 +44,6 @@ Run [`notebooks/constrained_batch_shift_colab.ipynb`](notebooks/constrained_batc
 - Scrambled QMC is already fully reliable by 1,024 samples here, so the experiment does not demonstrate an orders-of-magnitude wall-clock advantage for a new method.
 - The QMC ranking curve is not monotone at small sample counts because inverse-mixture sampling exposes a discontinuous component threshold to randomized stratification; this is a property of the correctly applied transform, not numerical LogEI failure.
 - The softplus temperature `0.01` is a close smooth approximation to EI. It rules out dependence on exact zero utility but does not establish robustness to substantially broader smoothing.
-- The constrained-batch protocol deliberately uses eight unfiltered states, a standard 8.07%-feasible Hartmann6 constraint, practical qLogEI, and matched-moment Gaussian/Student-t beliefs. Whether these yield any material high-acquisition shift remains completely unknown until the frozen full study is run.
-- A100 runtime and reference-convergence escalation are not known from CPU smoke evidence. The full run must preserve each completed state and may validly return an invalid-reference outcome at the frozen numerical cap.
+- State 3's exact failed convergence components were not serialized before the exception. The package proves the partial-state boundary, and the Colab transcript records failure at the cap, but value-versus-gradient diagnosis requires a new approved diagnostic contract.
+- State generation emitted GPyTorch noise/jitter and SciPy optimization warnings. The completed diagnostic fits converged and their saved arrays are finite, but these warnings weaken claims that the generated states are ideal late-stage BO states.
+- The first two states lean toward high-value regions having healthy ESS, while State 2 exposes gradient and outer-optimizer difficulty. With only two valid states, neither observation can be generalized.
