@@ -712,10 +712,11 @@ def _state_summary(
     selected = [row for row in practical_rows if row["sample_count"] == primary]
     optimizer = [row for row in optimizer_rows if row["sample_count"] == primary]
     if selected:
+        provenance_keys = {"sample_count", "repetition", "belief", "seed"}
         aggregate = {
             key: float(np.median([row[key] for row in selected]))
             for key in selected[0]
-            if key not in {"sample_count", "repetition"}
+            if key not in provenance_keys
         }
         summary[f"qmc_{primary}"] = aggregate
         threshold = protocol["gate"]["material_conditions"]

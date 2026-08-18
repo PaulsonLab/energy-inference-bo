@@ -137,7 +137,7 @@ uv run --no-sync python experiments/constrained_batch_shift/run.py smoke \
   --output-dir artifacts/constrained_batch_shift_smoke
 ```
 
-The smoke uses seed 3101 with explicitly reduced wiring settings. It cannot produce a scientific gate. The full study must be run from the human-readable [A100 Colab notebook](../../notebooks/constrained_batch_shift_colab.ipynb), which checks out the stable tag `constrained-batch-shift-gpu-v1`, requires a matching GPU preflight, checkpoints every state, and packages exactly one `constrained_batch_shift_gpu_results.zip` plus `SHA256SUM.txt`.
+The smoke uses seed 3101 with explicitly reduced wiring settings. It cannot produce a scientific gate. The full study must be run from the human-readable [A100 Colab notebook](../../notebooks/constrained_batch_shift_colab.ipynb), which checks out the stable tag `constrained-batch-shift-gpu-v2`, requires a matching GPU preflight, checkpoints every state, and packages exactly one `constrained_batch_shift_gpu_results.zip` plus `SHA256SUM.txt`. The superseded `v1` tag is retained only for provenance after its first external attempt exposed a summary-only aggregation bug before any state completed.
 
 After download, put the ZIP in the repository root and request a separate frozen-results audit. Do not commit the raw ZIP or interpret incomplete states.
 

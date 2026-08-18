@@ -23,11 +23,11 @@ The prospectively frozen `rare_mode_mechanism` experiment met every GO expectati
 
 The result establishes the intended synthetic failure mechanism. It does not yet show that a decision-adapted method is faster than strong QMC: in this example scrambled QMC reaches 100% ranking accuracy at 1,024 samples, whereas iid MC needs substantially more.
 
-The frozen constrained-batch diagnostic is implemented. Its protocol hash is `4dd20a796d9eb537311ba72eab4f539376b6fcb73a25e0e405500e3c68ff1d03`. All 22 repository tests pass. The CPU smoke exercised one truncated seed, both matched beliefs, pinned constrained qLogEI utility, QMC values, autograd gradients, optimization, serialization, and compatible checkpoint resume. This is implementation evidence only; no full state and no scientific gate has been evaluated.
+The frozen constrained-batch diagnostic is implemented. Its protocol hash is `4dd20a796d9eb537311ba72eab4f539376b6fcb73a25e0e405500e3c68ff1d03`. All 23 repository tests pass. The CPU smoke exercised one truncated seed, both matched beliefs, pinned constrained qLogEI utility, QMC values, autograd gradients, optimization, serialization, and compatible checkpoint resume. This is implementation evidence only; no full state and no scientific gate has been evaluated.
 
 ## Next authorized action
 
-Run [`notebooks/constrained_batch_shift_colab.ipynb`](notebooks/constrained_batch_shift_colab.ipynb) on an A100 from stable tag `constrained-batch-shift-gpu-v1`. Complete the GPU preflight, then the resumable eight-state full run, and return `constrained_batch_shift_gpu_results.zip` for a separate integrity and gate audit.
+Run [`notebooks/constrained_batch_shift_colab.ipynb`](notebooks/constrained_batch_shift_colab.ipynb) on an A100 from stable tag `constrained-batch-shift-gpu-v2`. Complete the GPU preflight, then the resumable eight-state full run, and return `constrained_batch_shift_gpu_results.zip` for a separate integrity and gate audit. Tag `constrained-batch-shift-gpu-v1` is retained for provenance but must not be used: its full-profile summary path included a non-scientific provenance-column aggregation bug found on the first external attempt.
 
 ## Not authorized
 

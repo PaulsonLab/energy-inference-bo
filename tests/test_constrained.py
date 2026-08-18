@@ -21,6 +21,7 @@ from decision_tilt.constrained import (
     sample_belief_pair,
     scrambled_sobol_uniforms,
 )
+from decision_tilt.constrained_experiment import ExecutionProfile, _state_summary
 
 
 CONFIG = Path(__file__).resolve().parents[1] / "experiments" / "constrained_batch_shift" / "config.json"
@@ -147,3 +148,45 @@ def test_atomic_checkpoint_round_trip(tmp_path: Path) -> None:
     loaded = np.load(arrays)
     np.testing.assert_array_equal(loaded["x"], np.arange(8))
     np.testing.assert_array_equal(loaded["y"], np.eye(2))
+
+
+def test_full_state_summary_ignores_provenance_columns(protocol: dict) -> None:
+    reference = {
+        "acquisition": np.linspace(0.1, 1.0, 40),
+        "ess_fraction": np.full(40, 0.5),
+    }
+    practical = [
+        {
+            "sample_count": 512,
+            "repetition": repetition,
+            "belief": "gaussian",
+            "seed": 3101,
+            "median_high_relative_value_error": 0.01,
+            "mean_high_pairwise_ranking_disagreement": 0.02,
+            "high_kendall_tau": 0.95,
+            "top10_overlap": 1.0,
+            "median_high_gradient_cosine": 0.99,
+            "median_high_gradient_relative_error": 0.03,
+            "selected_panel_reference_regret": 0.01,
+        }
+        for repetition in range(2)
+    ]
+    optimizer = [
+        {
+            "sample_count": 512,
+            "repetition": 0,
+            "belief": "gaussian",
+            "seed": 3101,
+            "reference_regret": 0.01,
+        }
+    ]
+    profile = ExecutionProfile(
+        "test", 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, (1,), (512,), 2, 1, 1, 1, 1, False,
+    )
+    summary = _state_summary(
+        "gaussian", reference, practical, optimizer, protocol, profile
+    )
+    assert summary["qmc_512"]["median_high_relative_value_error"] == pytest.approx(0.01)
+    assert "belief" not in summary["qmc_512"]
+    assert "seed" not in summary["qmc_512"]
