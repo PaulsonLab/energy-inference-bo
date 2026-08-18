@@ -1,0 +1,35 @@
+{
+  "status": "WELDED_BEAM_SHIFT_NEGATIVE_REVIEW_REQUIRED",
+  "valid": true,
+  "positive_state_count": 0,
+  "negative_state_count": 2,
+  "state_checks": {
+    "4101": {
+      "shift_positive": true,
+      "qmc_failure_positive": false,
+      "joint_positive": false,
+      "shift_negative": false,
+      "qmc_reliable": true,
+      "conclusively_negative": true
+    },
+    "4102": {
+      "shift_positive": true,
+      "qmc_failure_positive": false,
+      "joint_positive": false,
+      "shift_negative": false,
+      "qmc_reliable": true,
+      "conclusively_negative": true
+    },
+    "4103": {
+      "shift_positive": true,
+      "qmc_failure_positive": false,
+      "joint_positive": false,
+      "shift_negative": false,
+      "qmc_reliable": false,
+      "conclusively_negative": false
+    }
+  },
+  "protocol_version": "welded-beam-shift-v1",
+  "protocol_hash": "eed30cb385f2a49aea06f235593e590e056e2c49655950376988d9fbe109b777",
+  "git_sha": "1db67fae9ba7ab3859d8cb96c5d4327a65f6a2e0"
+}

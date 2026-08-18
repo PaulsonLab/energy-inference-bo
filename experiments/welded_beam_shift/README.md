@@ -74,4 +74,18 @@ The gap between positive and negative thresholds is deliberate. Exact-best proba
 
 The final CPU notebook will be [`../../notebooks/welded_beam_shift.ipynb`](../../notebooks/welded_beam_shift.ipynb). Durable results will live in `outputs/`. The experiment must not authorize q=4, non-Gaussian beliefs, or a decision-adapted method automatically.
 
-Status: PROTOCOL FROZEN — IMPLEMENTATION AUTHORIZED
+## Result
+
+The complete frozen run is valid and classified
+`WELDED_BEAM_SHIFT_NEGATIVE_REVIEW_REQUIRED`. All 21 GP fits converged and the
+analytic improvement moments agreed with independent adaptive quadrature to a
+maximum log error of `4.44e-16`.
+
+Decision shift was real: top-32 median ESS fractions were `0.1133`, `0.0745`,
+and `0.0874`. It did not cause a practical decision failure. At both 256 and
+512 samples, all 64 scrambles in every state selected the exact finite-pool
+maximizer with zero acquisition regret. Mean top-32 pairwise disagreement at
+512 samples was only `1.15%`, `1.94%`, and `4.14%`. The complete interpretation
+and evidence links are in [`outputs/RESULTS.md`](outputs/RESULTS.md).
+
+Status: COMPLETE — NEGATIVE RESULT — HUMAN REVIEW REQUIRED

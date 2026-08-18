@@ -866,6 +866,17 @@ scrambled-Sobol ranking or selection error at practical sample counts.
 No q=4 follow-up, non-Gaussian model, or decision-adapted inference method is
 authorized by this protocol alone.
 
+### Completed result
+
+The frozen three-state run was valid and returned
+`WELDED_BEAM_SHIFT_NEGATIVE_REVIEW_REQUIRED`. Competitive top-32 ESS fractions
+were often low, but every one of 64 scrambled-Sobol replicates selected the
+exact finite-pool maximizer at 256 and 512 samples in all three states, with
+zero acquisition regret. Mean top-32 pairwise disagreement at 512 samples was
+only 1.15%, 1.94%, and 4.14%. Thus ordinary constraints produced measurable
+decision shift, but not the required practical-QMC decision failure. See the
+tracked [`result`](experiments/welded_beam_shift/outputs/RESULTS.md).
+
 ---
 
 # 16. CPU versus A100 strategy
@@ -969,9 +980,11 @@ RelVar(\widehat\alpha_{Q,N})
 
 ## C4 — High-value BO decisions can exhibit large posterior-to-decision shift
 
-**Status:** untested. This is the key empirical mechanism claim.
+**Status:** synthetic support, but no practical support from the completed q=1
+Welded Beam gate; the constrained Hartmann attempt was invalid.
 
-Target evidence: `rare_mode_mechanism` + `constrained_batch_shift`.
+Evidence: `rare_mode_mechanism`, the invalid `constrained_batch_shift`
+attempt, and the negative `welded_beam_shift` result.
 
 ## C5 — Decision-adapted integration materially reduces acquisition computation
 

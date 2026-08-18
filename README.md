@@ -22,6 +22,6 @@ uv sync --locked --group dev
 uv run pytest -q
 ```
 
-The `rare_mode_mechanism` experiment is complete. The frozen `constrained_batch_shift` A100 campaign is [invalid because its State 3 high-budget reference failed at the prespecified numerical cap](experiments/constrained_batch_shift/outputs/invalid_reference_v2/README.md); it produced neither GO nor NO-GO. Read [`STATUS.md`](STATUS.md) before taking any further action.
+The `rare_mode_mechanism` experiment is complete. The frozen `constrained_batch_shift` A100 campaign is [invalid because its State 3 high-budget reference failed at the prespecified numerical cap](experiments/constrained_batch_shift/outputs/invalid_reference_v2/README.md). The subsequent valid q=1 [`welded_beam_shift`](experiments/welded_beam_shift/outputs/RESULTS.md) experiment found substantial decision shift but no practical scrambled-Sobol selection failure and ended negative. Read [`STATUS.md`](STATUS.md) before taking any further action.
 
 The previous exploratory project, including Tasks 01–05A and their negative results, is preserved on branch `archive/exploration-v1` and annotated tag `exploration-v1`.
