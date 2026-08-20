@@ -168,9 +168,30 @@ Standard exponential-tilting calculus specialized to BO acquisition gaps. Applie
 
 If a valid covariance/influence operator \(C_S\) exists uniformly along the active-to-full path, the structural bound follows directly from T1.
 
-**Concrete status: BLOCKER.**
+**Reflection-symmetry analytic status: PROVED.**
 
-The symmetry and nonlinear-PDE implementations must verify the one-block curvature/Poincaré and cross-block coupling conditions used to obtain the current \(C_S=A_S^{-1}\), uniformly over active sets and interpolation parameter \(s\). The computation must use structural metadata rather than full-target inference.
+For the block-local `logcosh` reflection factors, Menz's Theorem 2.3 gives one
+uniform conservative operator \(C_S\equiv A^{-1}\), with
+\(A_{ii}=\lambda_{\min}(Q_{ii})\) and
+\(A_{ij}=-\lVert Q_{ij}\rVert_{\mathrm{op}}\). The archived OU specialization
+has an analytic positive row-dominance margin
+\((1-e^{-\Delta x/\ell})/(1+e^{-\Delta x/\ell})\). See
+`T2B_SYMMETRY_AUDIT.md` and `THEORY.tex`.
+
+**Reflection-symmetry EI numerical status: PASSED (narrow validation).**
+
+The prospective EI screen stopped with 15 of 40 factors active and left 62.5%
+unevaluated before held-out validation. The structural envelope was
+\(0.005084<0.01\), and eight fresh empirical full-target replicates had maximum
+observed EI regret \(3.78\times10^{-4}\). This establishes useful non-vacuity,
+not a rigorous end-to-end inference or continuous-action certificate.
+
+**Nonlinear-PDE concrete status: BLOCKER.**
+
+The nonlinear-PDE implementation still must verify its one-block
+curvature/Poincaré constants, cross-block couplings, and positive comparison
+matrix uniformly over active sets and interpolation parameter \(s\). Solving the
+reflection-symmetry case does not resolve that separate construction.
 
 ### T3 — full-target action certificate
 
@@ -292,9 +313,12 @@ Do not let the manuscript become a paper about covariance inequalities with BO a
 
 ## Immediate execution gates
 
-### BLOCKER 1 — structural influence validity
+### BLOCKER 1 — remaining structural influence validity
 
-Verify the concrete covariance/influence constants and positive-definite comparison matrix uniformly for the main factor models.
+Reflection symmetry is resolved analytically and has passed a narrow EI
+non-vacuity validation. Verify the concrete covariance/influence constants and
+positive-definite comparison matrix for the nonlinear-PDE model; do not treat
+all of T2-B as solved until that separate construction is resolved.
 
 ### BLOCKER 2 — rigorous end-to-end certificate
 

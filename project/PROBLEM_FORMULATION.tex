@@ -165,34 +165,57 @@ decision-specific.
 The computational guarantee requires more structure than
 Equation~\eqref{eq:gap-transport} alone.
 
-Assume the reference model admits a finite latent-Gaussian representation
+Assume there is a finite Gaussian vector $Y$, defined jointly with $f$ under
+the reference law, such that
 \[
-    \xi\sim\gamma_t=\mathcal N(m_t,K_t),
+    Y\sim\gamma_t=\mathcal N(m_t,K_t),
     \qquad
-    f=\mathcal T_t\xi,
+    e_j(f)=\varepsilon_j(Y)
 \]
-so that $P_{0,t}=\mathcal T_{t\#}\gamma_t$.  Write each factor in latent
-coordinates as
-\[
-    \varepsilon_j(\xi)=e_j(\mathcal T_t\xi).
-\]
-Partition $\xi$ into blocks $\xi=(\xi_1,\ldots,\xi_B)$.
+for every conditioning factor.  Thus $Y$ is \emph{factor-sufficient}; it need
+not determine the full function.  A deterministic representation
+$f=\mathcal T_tY$ is a sufficient special case, but the reflection-symmetry
+construction instead retains the reference conditional law of $f$ away from
+the factor locations.
 
-For a weakly differentiable observable $g$, let
+For any integrable observable $g(f)$, define its Rao--Blackwellized observable
 \[
-    L(g)=(L_1(g),\ldots,L_B(g))^\top\in\mathbb R_+^B
+    \bar g(Y)=\mathbb E_{P_{0,t}}[g(f)\mid Y].
+\]
+Let $\mu_{S,s}$ denote the $Y$-marginal along the active-to-full path:
+\[
+    \mu_{S,s}(dY)
+    \propto
+    \exp\!\left[-\sum_{j\in S}\varepsilon_j(Y)
+                 -s\sum_{j\notin S}\varepsilon_j(Y)\right]\gamma_t(dY).
+\]
+Because the reweighting depends only on $Y$, the conditional law of $f$ given
+$Y$ is unchanged from the reference law.  In particular,
+\begin{equation}
+    \operatorname{Cov}_{\pi_{S,s}}(g,e_j)
+    =
+    \operatorname{Cov}_{\mu_{S,s}}(\bar g,\varepsilon_j).
+    \label{eq:rao-blackwell-covariance}
+\end{equation}
+
+Partition $Y$ into blocks $Y=(Y_1,\ldots,Y_B)$.  For a weakly differentiable
+observable $\bar g$ of $Y$, let
+\[
+    L(\bar g)=(L_1(\bar g),\ldots,L_B(\bar g))^\top\in\mathbb R_+^B
 \]
 be a cheaply available block-sensitivity bound.  A factor family is called
 \emph{screenable} for the BO utilities of interest if, for every active set and
 every $s\in[0,1]$, there is an entrywise nonnegative influence operator $C_S$
 such that
 \begin{equation}
-    \left|\operatorname{Cov}_{\pi_{S,s}}(g,h)\right|
-    \le L(g)^\top C_S L(h)
+    \left|\operatorname{Cov}_{\mu_{S,s}}(\bar g,h)\right|
+    \le L(\bar g)^\top C_S L(h)
     \label{eq:screenable-covariance}
 \end{equation}
-for the required gap and factor observables, with the following computational
-requirements:
+for the required Rao--Blackwellized gap and factor observables.  The notation
+$C_S$ permits an active-set-dependent construction; a single conservative
+$C_S\equiv C$ may instead be used when it is valid uniformly over $S$ and $s$.
+The following computational requirements also apply:
 
 \begin{enumerate}
     \item $C_S$ is obtained from model structure without sampling from the fully
@@ -230,7 +253,7 @@ Under screenability, use the bound
 \begin{equation}
     B_{\mathrm{struct}}(x,\widehat x)
     =
-    L(F_{x,\widehat x})^\top C_S
+    L(\bar F_{x,\widehat x})^\top C_S
     \sum_{j\notin S}L(e_j).
     \label{eq:structural-bound}
 \end{equation}
@@ -287,7 +310,7 @@ When $C_S=A_S^{-1}$, one structural solve
 \]
 gives
 \[
-    B_{\mathrm{struct}}(x,\widehat x)=L(F_{x,\widehat x})^\top w
+    B_{\mathrm{struct}}(x,\widehat x)=L(\bar F_{x,\widehat x})^\top w
 \]
 for all challengers.
 
@@ -295,7 +318,7 @@ For the worst challenger $x_c$, a factor-level upper-bound contribution can be
 computed as
 \[
     b_j
-    = L(e_j)^\top C_S L(F_{x_c,\widehat x}).
+    = L(e_j)^\top C_S L(\bar F_{x_c,\widehat x}).
 \]
 If the certificate fails because structural error dominates, activate the
 largest $b_j$ values (or $b_j/\mathrm{cost}_j$ when factors have heterogeneous

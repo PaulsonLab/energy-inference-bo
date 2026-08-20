@@ -17,7 +17,7 @@
 
 | ID | Experiment | Paper role | Status | Compute |
 |---|---|---|---|---|
-| E1 | Nonlocal reflection symmetry | Mechanism + certificate figure | EXISTING EVIDENCE; needs rigorous repeat | MacBook Air |
+| E1 | Nonlocal reflection symmetry | Mechanism + certificate figure | EXISTING EVIDENCE; T2-B symmetry PASS; needs rigorous repeat | MacBook Air |
 | E2 | Nonlinear PDE expanding-domain scaling | Main scaling / inference consequence | EXISTING EVIDENCE; needs robustness + baselines | Colab A100 |
 | E3 | Preference-conditioned sequential BO | Main end-to-end non-PDE BO test | PLANNED | MacBook Air / A100 sweeps |
 | E4 | Linear PDE factor graph | Supplementary control | EXISTING EVIDENCE | MacBook Air / A100 sweeps |
@@ -29,7 +29,9 @@
 
 ## E1 — Nonlocal reflection symmetry
 
-**Status:** `EXISTING EVIDENCE` — mechanism is established; final version needs repeated seeds, rigorous inference accounting, and baselines.
+**Status:** `EXISTING EVIDENCE` — the reflection-symmetry T2-B construction and
+narrow EI non-vacuity check pass; the final experiment still needs repeated
+trials, rigorous inference accounting, and baselines.
 
 **Paper claim tested:** C1/C2; Theory T1--T3.
 
@@ -61,6 +63,27 @@ Each factor couples potentially distant inputs, so the example tests influence t
 - earlier scaling test with \(N=20,40,80,160\) required approximately \(M=10\) factors at the same structural threshold.
 
 **Existing notebook:** `DEC_Symmetry_Continuous_BO_Demo.ipynb`
+
+### T2-B EI validation — 2026-08-20
+
+**Status:** `PASSED` for the narrow structural non-vacuity question only.
+
+The prospective failure criterion was inability to stop at EI tolerance
+\(0.01\) while omitting at least 20% of the 40 factors, or an empirical
+held-out full-target EI regret above that fixed tolerance. The screen stopped
+with 15 active factors and 25 (62.5%) unevaluated before validation. Its final
+sparse gap was \(-0.00025484\), structural term \(0.00533922\), and optimistic
+envelope \(0.00508439\). The screened action was \(-0.2082\).
+
+Across eight fresh 20,000-sample full-target replicates, the maximum empirical
+EI regret at that action was \(3.78\times10^{-4}\); all replicates were below
+the fixed tolerance. Four of eight selected the exact same coarse-grid action,
+and the maximum action displacement was \(0.0065\). A 401-to-1601 action-grid
+refinement moved the leader by \(0.00065\). These inference and grid checks are
+empirical diagnostics, not a rigorous finite-sample or continuous-action
+certificate. See
+[`../experiments/symmetry/outputs/t2b_ei_validation/`](../experiments/symmetry/outputs/t2b_ei_validation/)
+and [`T2B_SYMMETRY_AUDIT.md`](T2B_SYMMETRY_AUDIT.md).
 
 ### Final hypothesis
 
@@ -437,7 +460,8 @@ Do not record only screenshots or notebook output. The point of this file is to 
 
 # Immediate execution order
 
-1. **Resolve structural-bound validity** for the symmetry and nonlinear-PDE constructions.
+1. **Resolve the remaining structural-bound validity task** for the
+   nonlinear-PDE construction; reflection symmetry is now resolved.
 2. **Implement one rigorous end-to-end certificate** on a finite action set/grid.
 3. **Upgrade E1** into the polished mechanism/coverage experiment.
 4. **Build E3** as the first genuinely sequential non-PDE BO demonstration.

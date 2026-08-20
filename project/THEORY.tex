@@ -10,7 +10,8 @@
 % CURRENT STATUS
 %   T1 Exact gap transport:                     PROVED
 %   T2 Screenable omitted-factor bound:          PROVED (abstract form)
-%   T2 concrete influence construction:          BLOCKER for main factor models
+%   T2 reflection-symmetry construction:          PROVED
+%   T2 nonlinear-PDE construction:                BLOCKER
 %   T3 Full-action certificate:                  PROVED
 %   T4 Decision/conditioning separation:         PROVED under abstract assumptions;
 %                                                 concrete mapping is a PROOF TASK
@@ -23,7 +24,10 @@
 All notation follows \texttt{PROBLEM\_FORMULATION.tex}.  In particular,
 $\pi_S$ is the active conditioned law, $\pi_C$ the fully conditioned law,
 $F_{x,\widehat x}=u_x-u_{\widehat x}$ the acquisition-gap observable, and
-$G_Q(x,\widehat x)=\mathbb E_Q[F_{x,\widehat x}]$.
+$G_Q(x,\widehat x)=\mathbb E_Q[F_{x,\widehat x}]$.  For a factor-sufficient
+Gaussian vector $Y$, $\bar F_{x,\widehat x}
+=\mathbb E_{P_{0,t}}[F_{x,\widehat x}\mid Y]$ denotes the Rao--Blackwellized
+gap observable.
 
 % -----------------------------------------------------------------------------
 \subsection{T1: Exact acquisition-gap transport}
@@ -132,20 +136,21 @@ Turn T1 from an exact but expensive identity into a computable upper bound that
 does not require inference under every omitted factor.
 
 \paragraph{Status.}
-\textbf{PROVED in abstract form.}  The model-specific construction of a valid
-influence operator for the principal experiments is a \textbf{BLOCKER} until its
-uniform assumptions are checked explicitly.
+\textbf{PROVED in abstract form.}  Proposition~T2-SYM below proves the concrete
+reflection-symmetry construction.  The nonlinear-PDE construction remains a
+separate \textbf{BLOCKER}.
 
 \paragraph{Screenability assumption S.}
 Assume that, for every active set encountered by the algorithm and every
-$s\in[0,1]$, the relevant observables satisfy
+$s\in[0,1]$, the relevant full-function observable $g$ and factor-measurable
+observable $h$ satisfy
 \begin{equation}
     |\operatorname{Cov}_{\pi_{S,s}}(g,h)|
-    \le L(g)^\top C_S L(h),
+    \le L(\bar g)^\top C_S L(h),
     \label{eq:S-cov}
 \end{equation}
-where $L(g)\in\mathbb R_+^B$ is a computable block-sensitivity vector and $C_S$
-is entrywise nonnegative and available without sampling from $\pi_C$.
+where $L(\bar g)\in\mathbb R_+^B$ is a computable block-sensitivity vector and
+$C_S$ is entrywise nonnegative and available without sampling from $\pi_C$.
 
 \paragraph{Theorem T2 (omitted-factor influence bound).}
 Under the assumptions of T1 and Assumption S,
@@ -159,7 +164,7 @@ with
 \begin{equation}
     B_{\mathrm{struct}}(x,\widehat x)
     =
-    L(F_{x,\widehat x})^\top C_S
+    L(\bar F_{x,\widehat x})^\top C_S
     \sum_{j\notin S}L(e_j).
     \label{eq:T2-Bstruct}
 \end{equation}
@@ -174,7 +179,7 @@ and solve
 Then
 \[
     B_{\mathrm{struct}}(x,\widehat x)
-    =L(F_{x,\widehat x})^\top w
+    =L(\bar F_{x,\widehat x})^\top w
 \]
 for every challenger $x$.
 
@@ -194,60 +199,228 @@ Apply Assumption S to each term:
     |G_C-G_S|
     &\le
     \sum_{j\notin S}\int_0^1
-    L(F_{x,\widehat x})^\top C_S L(e_j)\,ds\\
+    L(\bar F_{x,\widehat x})^\top C_S L(e_j)\,ds\\
     &=
-    L(F_{x,\widehat x})^\top C_S
+    L(\bar F_{x,\widehat x})^\top C_S
     \sum_{j\notin S}L(e_j),
 \end{align*}
 which is Equation~\eqref{eq:T2-Bstruct}.  The linear-solve form is immediate
 when $C_S=A_S^{-1}$.
 \end{proof}
 
-\paragraph{EI regularity.}
-For expected improvement
+\paragraph{Published covariance theorem.}
+The concrete reflection-symmetry construction invokes Theorem~2.3
+(``Covariance estimate, Otto \& Menz'') of Georg Menz,
+\emph{A Brascamp--Lieb type covariance estimate}, Electron. J. Probab. 19
+(2014), no.~78, 1--15, doi:10.1214/EJP.v19-2997.  For a measure
+$\mu(dy)\propto\exp[-V(y)]dy$ on a product of Euclidean blocks, Menz assumes
+that $V$ is convex at infinity, that every one-block conditional law has a
+uniform Poincar\'e constant $\rho_i>0$, that
+$\|\nabla_i\nabla_jV\|_{\mathrm{op}}\le\kappa_{ij}$ uniformly for $i\ne j$,
+and that
 \[
-    u_x(f)=(f(x)-y_t^\star)_+,
+    A_{ii}=\rho_i,
+    \qquad
+    A_{ij}=-\kappa_{ij}\quad(i\ne j)
 \]
-the map $z\mapsto(z-y_t^\star)_+$ is 1-Lipschitz and weakly differentiable with
-weak derivative in $[0,1]$.  If $f(x)$ is a bounded linear functional of the
-latent Gaussian variable, the corresponding Sobolev/gradient sensitivity bound
-is therefore valid even though EI is nonsmooth at $f(x)=y_t^\star$.  The main
-theory should require weak differentiability/Lipschitz regularity, not classical
-smoothness.
+is positive definite.  The theorem gives
+\begin{equation}
+ |\operatorname{Cov}_{\mu}(g,h)|
+ \le
+ \sum_{i,j}(A^{-1})_{ij}
+ \left(\mathbb E_{\mu}\|\nabla_i g\|_2^2\right)^{1/2}
+ \left(\mathbb E_{\mu}\|\nabla_j h\|_2^2\right)^{1/2}.
+ \label{eq:menz-covariance}
+\end{equation}
+The proof also establishes that $A^{-1}$ is entrywise nonnegative.
 
-\paragraph{Concrete influence construction: proof obligation.}
-For the current factor models, the intended route is a standard block covariance
-comparison inequality.  A sufficient model-specific checklist is:
-\begin{enumerate}
-    \item each one-block conditional law along every $\pi_{S,s}$ satisfies a
-          Poincar\'e inequality with constant $\rho_i^{-1}$;
-    \item mixed block Hessians/couplings are bounded by $\kappa_{ij}$;
-    \item the comparison matrix
-          \[
-              A_{ii}=\rho_i,\qquad A_{ij}=-\kappa_{ij}
-          \]
-          is positive definite (and preferably sparse/local);
-    \item the invoked comparison theorem indeed yields
-          \[
-             |\operatorname{Cov}(g,h)|
-             \le L(g)^\top A^{-1}L(h)
-          \]
-          uniformly along the active-to-full path.
-\end{enumerate}
-The paper should cite the underlying comparison result rather than claim it as
-new.  What must be supplied is a correct verification of these constants for
-the factors used in the experiments.
+\paragraph{Proposition T2-SYM (uniform reflection-symmetry influence).}
+Fix one BO iteration.  Let
+$Y=(Y_1,\ldots,Y_N)\in(\mathbb R^2)^N$ have reference law
+$\mathcal N(m,K)$ with precision $Q=K^{-1}\succ0$, where
+\[
+    Y_j=\begin{bmatrix}f(-r_j)\\f(r_j)\end{bmatrix},
+    \qquad
+    b=\begin{bmatrix}-1\\1\end{bmatrix}.
+\]
+For $\gamma_j,\tau_j>0$, define the block-local factors
+\[
+    e_j(Y_j)
+    =\gamma_j\log\cosh\!\left(\frac{b^\top Y_j}{\tau_j}\right).
+\]
+For $S\subseteq[N]$ and $s\in[0,1]$, let $\mu_{S,s}$ have potential
+\begin{equation}
+ V_{S,s}(y)
+ =\frac12(y-m)^\top Q(y-m)
+ +\sum_{j=1}^N
+ \left(\mathbf 1\{j\in S\}+s\mathbf 1\{j\notin S\}\right)e_j(y_j).
+ \label{eq:symmetry-potential}
+\end{equation}
+Write $Q_{ij}$ for its two-by-two block entries and define
+\begin{equation}
+ \rho_i=\lambda_{\min}(Q_{ii}),
+ \qquad
+ \kappa_{ij}=\|Q_{ij}\|_{\mathrm{op}},
+ \qquad
+ A_{ii}=\rho_i,
+ \quad
+ A_{ij}=-\kappa_{ij}\ (i\ne j).
+ \label{eq:symmetry-comparison}
+\end{equation}
+If $A\succ0$, then the single conservative choice
+\[
+    C_S\equiv C=A^{-1}
+\]
+is valid simultaneously for every active set $S$ and every $s\in[0,1]$.
+Moreover,
+\begin{equation}
+    L_i(e_j)=\mathbf 1\{i=j\}\frac{\sqrt2\,\gamma_j}{\tau_j}.
+    \label{eq:symmetry-factor-sensitivity}
+\end{equation}
 
-\paragraph{BLOCKER T2-B.}
-Before large-scale experiments continue, verify the above uniformly for the
-symmetry and nonlinear-PDE factor families.  If the resulting $A^{-1}$ is invalid
-or so conservative that the certificate is vacuous, the current paper claim
-must be revised.
+Suppose the factors are measurable with respect to $Y$ and the reference GP
+conditional law is
+\[
+ f(x)\mid Y=y
+ \sim
+ \mathcal N\!\left(m(x)+a_x^\top(y-m),\sigma_x^2\right),
+ \qquad
+ a_x=K^{-1}k_{Yx}.
+\]
+For EI, let
+\[
+ \bar u_x(y)=\mathbb E[(f(x)-y_t^\star)_+\mid Y=y],
+ \qquad
+ \bar F_{x,\widehat x}=\bar u_x-\bar u_{\widehat x},
+\]
+and partition $a_x$ into the same two-coordinate blocks.  A valid block
+sensitivity is
+\begin{equation}
+ d_i^{\mathrm{EI}}(x,\widehat x)
+ =\max\!\left\{
+ \|a_{x,i}\|_2,
+ \|a_{\widehat x,i}\|_2,
+ \|a_{x,i}-a_{\widehat x,i}\|_2
+ \right\}.
+ \label{eq:ei-block-footprint}
+\end{equation}
+Consequently, for omitted factors $U=S^c$, with
+\[
+ (h_U)_i
+ =\mathbf 1\{i\notin S\}\frac{\sqrt2\,\gamma_i}{\tau_i},
+\]
+the concrete structural bound is
+\begin{equation}
+ |G_C(x,\widehat x)-G_S(x,\widehat x)|
+ \le
+ \bigl(d^{\mathrm{EI}}(x,\widehat x)\bigr)^\top A^{-1}h_U.
+ \label{eq:symmetry-ei-bound}
+\end{equation}
+
+\begin{proof}
+The symmetry-factor derivatives are
+\[
+ \nabla_j e_j
+ =\frac{\gamma_j}{\tau_j}
+ \tanh\!\left(\frac{b^\top y_j}{\tau_j}\right)b,
+ \qquad
+ \nabla_j^2e_j
+ =\frac{\gamma_j}{\tau_j^2}
+ \operatorname{sech}^2\!\left(\frac{b^\top y_j}{\tau_j}\right)bb^\top
+ \succeq0.
+\]
+This proves Equation~\eqref{eq:symmetry-factor-sensitivity}.  Conditional on
+$y_{-i}$, the $i$th one-block potential has Hessian
+\[
+ Q_{ii}
+ +\left(\mathbf 1\{i\in S\}+s\mathbf 1\{i\notin S\}\right)
+   \nabla_i^2e_i
+ \succeq Q_{ii}.
+\]
+The Bakry--\'Emery criterion therefore gives a conditional Poincar\'e constant
+at least $\rho_i=\lambda_{\min}(Q_{ii})$, uniformly in the conditioning value,
+$S$, and $s$.  Factor locality gives
+$\nabla_i\nabla_jV_{S,s}=Q_{ij}$ for $i\ne j$.  Finally,
+$\nabla^2V_{S,s}\succeq Q\succ0$, so the potential is globally strongly
+convex and in particular satisfies Menz's convex-at-infinity assumption.
+Menz's Theorem~2.3 now gives Equation~\eqref{eq:menz-covariance}; bounding its
+block $L^2$ gradient norms by essential suprema yields
+\[
+ |\operatorname{Cov}_{\mu_{S,s}}(g,h)|
+ \le L(g)^\top A^{-1}L(h)
+\]
+uniformly over $S$ and $s$.
+
+Because all reweighting factors depend only on $Y$,
+Equation~\eqref{eq:rao-blackwell-covariance} transfers the required covariance
+to the finite-dimensional marginal.  If $\sigma_x>0$, conditional EI has
+\[
+ \bar u_x(y)
+ = (\mu_x(y)-y_t^\star)\Phi(z_x)+\sigma_x\phi(z_x),
+ \qquad
+ z_x=\frac{\mu_x(y)-y_t^\star}{\sigma_x},
+\]
+and $\nabla_i\bar u_x=\Phi(z_x)a_{x,i}$.  Hence
+$\nabla_i\bar F=p a_{x,i}-q a_{\widehat x,i}$ for some $p,q\in[0,1]$.
+This vector is a convex combination of
+$0$, $a_{x,i}$, $-a_{\widehat x,i}$, and
+$a_{x,i}-a_{\widehat x,i}$, so convexity of the norm proves
+Equation~\eqref{eq:ei-block-footprint}.
+
+When $\sigma_x=0$, conditional EI is the positive-part function.  Its weak
+derivative has a multiplier in $[0,1]$ almost everywhere.  Equivalently,
+approximate the positive part by smooth 1-Lipschitz functions whose derivatives
+remain in $[0,1]$, apply Menz's smooth result, and pass to the limit using the
+Gaussian tails.  Thus the same footprint holds at the nonsmooth limit.
+Substitution into Theorem~T2 gives Equation~\eqref{eq:symmetry-ei-bound}.
+\end{proof}
+
+\paragraph{Analytic positivity for the archived OU model.}
+For the equally spaced OU kernel with
+$q=\exp(-\Delta x/\ell)\in(0,1)$, the spatial precision is the AR(1)
+tridiagonal matrix with endpoint diagonal $1/(1-q^2)$, interior diagonal
+$(1+q^2)/(1-q^2)$, and adjacent magnitude $q/(1-q^2)$.  In inner-to-outer
+reflection-block order, $A$ is tridiagonal.  For $N\ge2$, its minimum strict
+row-diagonal-dominance margin is
+\[
+ \frac{1-q}{1+q}>0.
+\]
+Gershgorin's theorem therefore proves $A\succ0$ analytically for every such
+$N$; a numerical eigenvalue is only a regression diagnostic.
+
+\paragraph{Relationship to the archived log-acquisition prototype.}
+The archived symmetry notebook does not use EI.  It uses exponential utility
+$u_x(f)=\exp(\beta f(x))$ and bounds a difference of log acquisitions.  Its
+footprint
+\[
+ d_i=\beta\|[a_x-a_{\widehat x}]_i\|_2
+\]
+is justified by an additional interpolation between the two action-dependent
+linear tilts.  Specifically, use the potential
+\[
+ V_{S,s,r}^{x,\widehat x}(y)
+ =V_{S,s}(y)
+ -\beta\{(1-r)a_{\widehat x}+r a_x\}^\top(y-m),
+ \qquad r\in[0,1].
+\]
+The added term is linear, so the same $A$ is valid uniformly in $r$ as well as
+$S,s$.  Differentiation in $r$, followed by Menz's covariance bound and
+integration over both unit intervals, gives the notebook's structural term
+$h_U^\top A^{-1}d$ with no extra multiplicative factor.  This validates that
+historical structural calculation; it does not relabel the prototype as EI or
+supply its separate Monte Carlo and action-grid errors.
+
+\paragraph{Reflection-symmetry status and remaining blocker.}
+The proposition resolves the analytic T2-B construction for the stated
+reflection-symmetry family whenever $A\succ0$, including the archived OU
+specialization above.  It does not prove the nonlinear-PDE construction.  The
+rigorous inference and action-optimization terms required for an end-to-end T3
+certificate also remain separate.
 
 \paragraph{Main-paper use.}
-State the abstract result and one concise sufficient-condition proposition.
-Move the comparison-theorem derivation and model-specific constants to the
-supplement.
+State Proposition~T2-SYM and Equation~\eqref{eq:symmetry-ei-bound} concisely.
+Place the Menz assumption check, OU precision calculation, weak-derivative
+argument, and archived-prototype distinction in the supplement.
 
 % -----------------------------------------------------------------------------
 \subsection{T3: Full-target BO action certificate}
@@ -377,8 +550,8 @@ $d(\cdot,\cdot)$.  Let $D\subset V_n$ be a fixed-size decision region.
 Assume:
 \begin{enumerate}
     \item \textbf{Localized gap sensitivity:}
-          $L_i(F_{x,\widehat x})=0$ for $i\notin D$ and
-          $\sup_{x,\widehat x}\|L(F_{x,\widehat x})\|_1\le L_F$.
+          $L_i(\bar F_{x,\widehat x})=0$ for $i\notin D$ and
+          $\sup_{x,\widehat x}\|L(\bar F_{x,\widehat x})\|_1\le L_F$.
     \item \textbf{Bounded factor density/load:} each factor has uniformly
           bounded support diameter, and for every block $k$,
           \[
@@ -430,7 +603,7 @@ Equation~\eqref{eq:T2-Bstruct} and the factor-load assumption give
 \begin{align*}
 B_{\mathrm{struct}}(x,\widehat x)
 &\le
-\sum_{i\in D}L_i(F_{x,\widehat x})
+\sum_{i\in D}L_i(\bar F_{x,\widehat x})
 \sum_{k:d(k,D)>r}
 (C_S)_{ik}
 \sum_{j:k\in\operatorname{supp}(e_j)}L_k(e_j)\\
@@ -582,8 +755,10 @@ challengers to one current leader through a single optimistic envelope.
 \begin{description}
     \item[T1] Proof complete.  Main text.
     \item[T2 abstract] Proof complete.  Main text.
-    \item[T2 concrete] Verify path-uniform constants and $A\succ0$ for every
-          main experimental factor family.  \textbf{BLOCKER.}
+    \item[T2 reflection symmetry] Analytic construction complete under the
+          stated assumptions.  \textbf{PROVED.}
+    \item[T2 nonlinear PDE] Verify path-uniform constants and $A\succ0$ for the
+          nonlinear-PDE factor family.  \textbf{BLOCKER.}
     \item[T3] Proof complete.  Main text.
     \item[T4] Abstract proof complete.  Clean up constants and connect the
           influence-decay assumptions to the actual factor graphs.

@@ -1,0 +1,113 @@
+{
+  "analytic_status": "PROVED_FOR_REFLECTION_SYMMETRY_UNDER_STATED_ASSUMPTIONS",
+  "blocker_verdict": "PASS",
+  "config_sha256": "794a5dfc25d57f1c94257a52d4c5d19ae7e804fd7172430a50d60f11b6b914dc",
+  "end_to_end_certificate": false,
+  "grid_diagnostic": {
+    "coarse_action_count": 401,
+    "coarse_leader": -0.2082,
+    "leader_drift": 0.0006499999999999839,
+    "refined_action_count": 1601,
+    "refined_challenger": -0.21339999999999998,
+    "refined_leader": -0.20884999999999998,
+    "refined_optimistic_envelope": 0.005033323843690853,
+    "status": "EMPIRICAL_NOT_A_CONTINUOUS_OPTIMIZATION_BOUND"
+  },
+  "heldout_validation": {
+    "exact_grid_match_fraction": 0.5,
+    "full_ess_fraction_max": 0.6677568815137191,
+    "full_ess_fraction_min": 0.661153450563506,
+    "independent_replicates": 8,
+    "leader_max": -0.20429999999999998,
+    "leader_median": -0.2082,
+    "leader_min": -0.2147,
+    "maximum_action_distance": 0.006500000000000006,
+    "maximum_full_ei_regret": 0.000378397587572632,
+    "median_full_ei_regret": 5.0720120335884245e-05,
+    "samples_per_replicate": 20000,
+    "status": "HIGH_ACCURACY_EMPIRICAL_VALIDATION",
+    "within_epsilon_fraction": 1.0
+  },
+  "linear_system_diagnostics": {
+    "condition_number_A": 25.41762947646927,
+    "kappa_adjacent": 1.2172785608036423,
+    "lambda_max_A": 5.059021531108995,
+    "lambda_min_A": 0.1990359303880976,
+    "minimum_row_dominance_margin": 0.19737532022490356,
+    "q": 0.6703200460356393,
+    "rho_inner": 1.4146538810285458,
+    "rho_middle": 2.631932441832188,
+    "rho_outer": 1.815966220916094,
+    "solve_residual_l2": 5.047853359223194e-15
+  },
+  "monte_carlo_diagnostic": {
+    "active_batch_leader_max": -0.2017,
+    "active_batch_leader_min": -0.21599999999999997,
+    "final_gap_batch_standard_error": 0.00018399484443127744,
+    "status": "EMPIRICAL_NOT_A_RIGOROUS_INFERENCE_BOUND"
+  },
+  "numerical_status": "NONVACUOUS",
+  "remaining_blockers": [
+    "nonlinear-PDE T2-B construction",
+    "finite-sample adaptivity-safe inference error",
+    "rigorous continuous-action optimization error"
+  ],
+  "runtime": {
+    "numpy": "2.3.5",
+    "python": "3.12.13",
+    "scipy": "1.16.3",
+    "wall_seconds": 4.779804541030899
+  },
+  "screening": {
+    "active_ess_fraction": 0.8692880859691829,
+    "active_factor_order": [
+      5,
+      4,
+      3,
+      11,
+      10,
+      12,
+      1,
+      0,
+      2,
+      7,
+      6,
+      8,
+      9,
+      13,
+      14
+    ],
+    "active_factor_set": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "active_factors": 15,
+    "certification_margin": 0.0049156131239261125,
+    "challenger_action": -0.21339999999999998,
+    "epsilon_ei": 0.01,
+    "factor_scalar_evaluations_avoided_before_validation": 2000000,
+    "factor_vector_evaluations_avoided_before_validation": 25,
+    "factor_vector_evaluations_before_validation": 15,
+    "leader_action": -0.2082,
+    "no_omitted_factor_evaluated_during_screening": true,
+    "omitted_factors_before_validation": 25,
+    "omitted_fraction_before_validation": 0.625,
+    "optimistic_envelope": 0.005084386876073888,
+    "sparse_ei": 0.32181378010819817,
+    "sparse_gap": -0.00025483517682622914,
+    "structural_bound": 0.005339222052900117
+  }
+}

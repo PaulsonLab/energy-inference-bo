@@ -1,0 +1,43 @@
+{
+  "decision": {
+    "action_max": -0.06,
+    "action_min": -0.58,
+    "epsilon_ei": 0.01,
+    "incumbent": 0.5,
+    "nonvacuity_minimum_omitted_fraction": 0.2,
+    "refined_action_count": 1601,
+    "screen_action_count": 401
+  },
+  "heldout_validation": {
+    "reference_samples_per_seed": 20000,
+    "seeds": [
+      1000,
+      1001,
+      1002,
+      1003,
+      1004,
+      1005,
+      1006,
+      1007
+    ]
+  },
+  "interpretation": {
+    "epsilon_rationale": "A prospective absolute EI tolerance, fixed in code before any full-target evaluation; it is not the prototype's 0.03 log-acquisition tolerance.",
+    "incumbent_rationale": "Fixed modestly above the maximum of the archived reference mean.",
+    "validation_scope": "High-accuracy empirical held-out validation only; no rigorous finite-sample inference or continuous-action certificate."
+  },
+  "model": {
+    "gamma": 0.05,
+    "lengthscale": 0.125,
+    "mean": "0.36 exp(-0.5 ((x+0.22)/0.095)^2) + 0.31 exp(-0.5 ((x-0.25)/0.18)^2)",
+    "n_factors": 40,
+    "spacing": 0.05,
+    "tau": 0.5
+  },
+  "screening": {
+    "activation_batch_size": 3,
+    "mc_diagnostic_batches": 8,
+    "reference_samples": 80000,
+    "seed": 123
+  }
+}
