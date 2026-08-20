@@ -3,9 +3,9 @@ requires = ["setuptools>=69"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "causal-policy-bo"
+name = "energy-inference-bo"
 version = "0.1.0"
-description = "Causal policy transport for critic-free nonmyopic Bayesian optimization"
+description = "Research code for decision-relevant structured conditioning in Bayesian optimization"
 readme = "README.md"
 requires-python = ">=3.12,<3.13"
 license = { file = "LICENSE" }
@@ -15,7 +15,6 @@ dependencies = [
   "numpy==2.3.5",
   "pandas==3.0.1",
   "scipy==1.16.3",
-  "torch==2.13.0",
 ]
 
 [dependency-groups]

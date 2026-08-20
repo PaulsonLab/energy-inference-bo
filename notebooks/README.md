@@ -1,5 +1,3 @@
 # Notebooks
 
-Human-readable analyses for authorized experiments belong here. Each substantive notebook should state the question, paper relevance, mathematics, protocol, prospective GO/NO-GO rule, results, interpretation, and next action.
-
-- [`policy_kill.ipynb`](policy_kill.ipynb): CPU-runnable record of the negative reference gate; learned-policy phases were not run.
+Original evidence-producing notebooks are preserved unchanged in [`prototypes/`](prototypes/). Future notebooks should be thin, human-readable drivers over clean code in `src/` and `experiments/`.

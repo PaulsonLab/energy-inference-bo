@@ -1,0 +1,340 @@
+% PROBLEM_FORMULATION.tex
+% Canonical mathematical source for the BO problem and notation.
+% Do not place long proofs here; those belong in THEORY.tex.
+
+\section{Richly Conditioned Bayesian Optimization}
+\label{sec:problem}
+
+\paragraph{Purpose.}
+This section defines the single problem solved by the paper.  The presentation is
+intentionally Bayesian-optimization-first: structured conditioning is introduced
+only after the standard sequential BO decision has been defined.
+
+\subsection{Standard BO reference model}
+
+At BO iteration $t$, let
+\[
+    \mathcal D_t = \{(x_i,y_i)\}_{i=1}^t
+\]
+denote the data collected so far, and let
+\[
+    P_{0,t}(df) = p(df\mid \mathcal D_t)
+\]
+be a tractable reference law for the unknown objective $f$.  In the main paper
+$P_{0,t}$ is a Gaussian-process posterior, although the theory only requires the
+latent-Gaussian representation specified below when the structural influence
+bound is instantiated.
+
+The action domain is $\mathcal X$.  For a BO utility $u_x(f)$, the reference
+acquisition is
+\[
+    \alpha_0(x) = \mathbb E_{P_{0,t}}[u_x(f)].
+\]
+The canonical example is expected improvement,
+\[
+    u_x(f) = (f(x)-y_t^\star)_+,
+\]
+where $y_t^\star$ is the current incumbent value.  The theory should allow
+nonsmooth Lipschitz utilities such as EI and should not require $u_x$ to be
+$C^1$ or $C^2$.
+
+\subsection{Additional structured information}
+
+Suppose BO also has access to structured information about $f$.  Represent this
+information by conditioning factors
+\[
+    \{e_j(f)\}_{j=1}^N,
+\]
+with total energy
+\[
+    E_C(f) = \sum_{j=1}^N e_j(f).
+\]
+The fully conditioned law is
+\begin{equation}
+    \pi_C(df)
+    = \frac{1}{Z_C}
+      \exp[-E_C(f)]\,P_{0,t}(df),
+    \label{eq:full-conditioned-law}
+\end{equation}
+where $0<Z_C<\infty$.
+
+The factors may encode, for example, symmetry relations, monotonicity or shape
+constraints, pairwise preferences, local physics/PDE residuals, conservation
+relations, simulator-derived statements, or other structured information.
+Because the factors may be nonlinear or non-Gaussian, $\pi_C$ is generally
+non-Gaussian even when $P_{0,t}$ is a GP posterior.
+
+The fully conditioned acquisition and BO action are
+\begin{align}
+    \alpha_C(x)
+    &= \mathbb E_{\pi_C}[u_x(f)], \\
+    x_C^\star
+    &\in \arg\max_{x\in\mathcal X}\alpha_C(x).
+\end{align}
+
+The computational difficulty is that repeatedly evaluating and optimizing
+$\alpha_C$ may require non-Gaussian inference in which all $N$ factors are
+processed at every BO iteration.
+
+\subsection{Decision-relevant active conditioning}
+
+Let $S\subseteq[N]$ be an active subset of conditioning factors.  Define
+\begin{align}
+    E_S(f) &= \sum_{j\in S} e_j(f), \\
+    H_S(f) &= \sum_{j\notin S} e_j(f),
+\end{align}
+and the active conditioned law
+\begin{equation}
+    \pi_S(df)
+    = \frac{1}{Z_S}\exp[-E_S(f)]\,P_{0,t}(df).
+    \label{eq:active-conditioned-law}
+\end{equation}
+Its acquisition is
+\[
+    \alpha_S(x)=\mathbb E_{\pi_S}[u_x(f)].
+\]
+
+The paper does \emph{not} require $\pi_S$ to be close to $\pi_C$ as a
+distribution.  The target is the BO action.
+
+Given a returned action $\widehat x$, define its full-conditioned acquisition
+regret
+\begin{equation}
+    R_C(\widehat x)
+    = \alpha_C(x_C^\star)-\alpha_C(\widehat x)
+    = \sup_{x\in\mathcal X}
+      \bigl\{\alpha_C(x)-\alpha_C(\widehat x)\bigr\}.
+    \label{eq:full-regret}
+\end{equation}
+The computational goal is to return $\widehat x$ satisfying
+\begin{equation}
+    R_C(\widehat x)\le \epsilon
+    \label{eq:target-certificate}
+\end{equation}
+while performing non-Gaussian inference with substantially fewer than $N$
+conditioning factors whenever the structure of the problem permits it.
+
+\subsection{Acquisition gaps are the canonical decision object}
+
+For a challenger $x$ and proposed action $\widehat x$, define
+\begin{align}
+    F_{x,\widehat x}(f)
+    &= u_x(f)-u_{\widehat x}(f), \\
+    G_Q(x,\widehat x)
+    &= \mathbb E_Q[F_{x,\widehat x}(f)]
+     = \alpha_Q(x)-\alpha_Q(\widehat x),
+\end{align}
+for any law $Q$ over $f$.
+
+Equation~\eqref{eq:full-regret} becomes
+\[
+    R_C(\widehat x)=\sup_{x\in\mathcal X}G_C(x,\widehat x).
+\]
+This pairwise gap is preferable to bounding acquisition values independently:
+errors common to both actions can cancel, and only a challenger that can change
+the ordering matters for the next BO decision.
+
+\subsection{Active-to-full interpolation}
+
+Introduce the path
+\begin{equation}
+    \pi_{S,s}(df)
+    \propto
+    \exp[-E_S(f)-sH_S(f)]\,P_{0,t}(df),
+    \qquad s\in[0,1].
+    \label{eq:interpolation}
+\end{equation}
+Then $\pi_{S,0}=\pi_S$ and $\pi_{S,1}=\pi_C$.
+Under the regularity conditions stated in \texttt{THEORY.tex}, the acquisition
+gap obeys the exact identity
+\begin{equation}
+    G_C(x,\widehat x)-G_S(x,\widehat x)
+    =
+    -\sum_{j\notin S}
+    \int_0^1
+    \operatorname{Cov}_{\pi_{S,s}}
+    \!\left(F_{x,\widehat x},e_j\right)\,ds.
+    \label{eq:gap-transport}
+\end{equation}
+This identity is the mathematical reason that conditioning relevance is
+decision-specific.
+
+\subsection{Screenable factor class}
+\label{subsec:screenable}
+
+The computational guarantee requires more structure than
+Equation~\eqref{eq:gap-transport} alone.
+
+Assume the reference model admits a finite latent-Gaussian representation
+\[
+    \xi\sim\gamma_t=\mathcal N(m_t,K_t),
+    \qquad
+    f=\mathcal T_t\xi,
+\]
+so that $P_{0,t}=\mathcal T_{t\#}\gamma_t$.  Write each factor in latent
+coordinates as
+\[
+    \varepsilon_j(\xi)=e_j(\mathcal T_t\xi).
+\]
+Partition $\xi$ into blocks $\xi=(\xi_1,\ldots,\xi_B)$.
+
+For a weakly differentiable observable $g$, let
+\[
+    L(g)=(L_1(g),\ldots,L_B(g))^\top\in\mathbb R_+^B
+\]
+be a cheaply available block-sensitivity bound.  A factor family is called
+\emph{screenable} for the BO utilities of interest if, for every active set and
+every $s\in[0,1]$, there is an entrywise nonnegative influence operator $C_S$
+such that
+\begin{equation}
+    \left|\operatorname{Cov}_{\pi_{S,s}}(g,h)\right|
+    \le L(g)^\top C_S L(h)
+    \label{eq:screenable-covariance}
+\end{equation}
+for the required gap and factor observables, with the following computational
+requirements:
+
+\begin{enumerate}
+    \item $C_S$ is obtained from model structure without sampling from the fully
+          conditioned target;
+    \item $L(e_j)$ can be computed from factor support, derivative bounds, or
+          other inexpensive metadata without repeatedly evaluating omitted
+          factors on posterior samples;
+    \item application of $C_S$ to an aggregated sensitivity vector is cheaper
+          than full conditioned inference.
+\end{enumerate}
+
+The abstract paper theory should be stated in terms of
+Equation~\eqref{eq:screenable-covariance}.  A concrete block
+Poincar\'e/Brascamp--Lieb/Dobrushin-style construction may be used to instantiate
+$C_S$ for the experimental factor families, but that comparison theorem is
+supporting machinery rather than the central contribution.
+
+For expected improvement,
+\[
+    u_x(f)=(f(x)-y_t^\star)_+,
+\]
+the utility is 1-Lipschitz in $f(x)$ and weakly differentiable almost
+everywhere.  Thus the gradient-based screenability argument should be stated
+for weakly differentiable Lipschitz utilities rather than imposing unnecessary
+smoothness.
+
+\subsection{Structural, inference, and optimization error}
+
+Define the structural omission error
+\[
+    \Delta_{\mathrm{struct}}(x,\widehat x)
+    = |G_C(x,\widehat x)-G_S(x,\widehat x)|.
+\]
+Under screenability, use the bound
+\begin{equation}
+    B_{\mathrm{struct}}(x,\widehat x)
+    =
+    L(F_{x,\widehat x})^\top C_S
+    \sum_{j\notin S}L(e_j).
+    \label{eq:structural-bound}
+\end{equation}
+
+Let $\widehat G_S(x,\widehat x)$ be an inference approximation satisfying,
+on an event with specified confidence,
+\begin{equation}
+    |\widehat G_S(x,\widehat x)-G_S(x,\widehat x)|
+    \le B_{\mathrm{infer}}(x,\widehat x).
+    \label{eq:inference-interface}
+\end{equation}
+The confidence statement must be valid for the data-dependent leader,
+challenger search, and adaptive refinement procedure; pointwise Monte Carlo
+standard errors alone are not sufficient for a rigorous certificate.
+
+Define the optimistic challenger envelope
+\begin{equation}
+    \Psi_S(x;\widehat x)
+    =
+    \widehat G_S(x,\widehat x)
+    + B_{\mathrm{infer}}(x,\widehat x)
+    + B_{\mathrm{struct}}(x,\widehat x).
+    \label{eq:challenger-envelope}
+\end{equation}
+Suppose the challenger optimizer returns $x_c$ and a certified optimization
+remainder $\eta_{\mathrm{opt}}$ satisfying
+\[
+    \sup_{x\in\mathcal X}\Psi_S(x;\widehat x)
+    \le \Psi_S(x_c;\widehat x)+\eta_{\mathrm{opt}}.
+\]
+Then the stopping condition is
+\begin{equation}
+    \Psi_S(x_c;\widehat x)+\eta_{\mathrm{opt}}\le\epsilon.
+    \label{eq:stop}
+\end{equation}
+The certificate theorem in \texttt{THEORY.tex} proves that
+Equation~\eqref{eq:stop} implies Equation~\eqref{eq:target-certificate} on the
+stated inference-confidence event.
+
+A useful consequence is that the current leader need not itself be globally
+certified.  A poor leader merely produces a stronger challenger and prevents
+the stopping test from passing.  The global requirement belongs to the
+optimistic challenger problem.
+
+\subsection{Factor activation}
+
+Let
+\[
+    h_U=\sum_{j\notin S}L(e_j).
+\]
+When $C_S=A_S^{-1}$, one structural solve
+\[
+    A_S w=h_U
+\]
+gives
+\[
+    B_{\mathrm{struct}}(x,\widehat x)=L(F_{x,\widehat x})^\top w
+\]
+for all challengers.
+
+For the worst challenger $x_c$, a factor-level upper-bound contribution can be
+computed as
+\[
+    b_j
+    = L(e_j)^\top C_S L(F_{x_c,\widehat x}).
+\]
+If the certificate fails because structural error dominates, activate the
+largest $b_j$ values (or $b_j/\mathrm{cost}_j$ when factors have heterogeneous
+costs), recompute the active target, and repeat.  If inference or challenger
+optimization error dominates, refine that component rather than adding factors.
+
+\subsection{Continuous conditioning}
+
+A continuous factor field may be written
+\[
+    E_C(f)=\int_{\mathcal Z} e(z,f)\,\mu(dz).
+\]
+The main paper need not develop this setting in detail.  The supplement may
+replace the omitted sum in Equation~\eqref{eq:structural-bound} with the
+componentwise integral
+\[
+    \int_{\mathcal Z} L(e_z)\,(\mu-\nu)(dz)
+\]
+for an active submeasure $\nu\le\mu$, or with the corresponding total-variation
+bound for signed quadrature error.
+
+\subsection{Scope and exclusions}
+
+The exact perturbation identity is broad, but the cheap computational guarantee
+is not.  The screenable class excludes, unless a separate valid influence bound
+is supplied:
+
+\begin{itemize}
+    \item arbitrary black-box factors with no usable derivative, support, or
+          coupling information;
+    \item hard infinite-energy constraints for which the required covariance
+          comparison is unavailable;
+    \item factor interactions that destroy the needed Poincar\'e/comparison
+          condition or make the influence operator dense and uninformative;
+    \item models for which constructing $C_S$ is as expensive as full inference;
+    \item discontinuous acquisition utilities without an alternative sensitivity
+          argument.
+\end{itemize}
+
+The claim should therefore be stated as certified decision-relevant conditioning
+for a structured, screenable class of richly conditioned GP/latent-Gaussian BO
+models, not as a universal method for arbitrary conditioning statements.

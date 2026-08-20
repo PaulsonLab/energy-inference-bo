@@ -1,0 +1,595 @@
+% THEORY.tex
+% Proof ledger for the project.  This file records mathematical truth and proof
+% status; it does NOT determine how many theorems appear in the main paper.
+%
+% STATUS LEGEND
+%   PROVED      = proof is complete under the stated assumptions.
+%   PROOF TASK  = theorem route is fixed but details/constants remain to write.
+%   BLOCKER     = validity for the intended paper depends on resolving the item.
+%
+% CURRENT STATUS
+%   T1 Exact gap transport:                     PROVED
+%   T2 Screenable omitted-factor bound:          PROVED (abstract form)
+%   T2 concrete influence construction:          BLOCKER for main factor models
+%   T3 Full-action certificate:                  PROVED
+%   T4 Decision/conditioning separation:         PROVED under abstract assumptions;
+%                                                 concrete mapping is a PROOF TASK
+%   Rigorous inference instantiation:            BLOCKER for an end-to-end certified demo
+
+\section{Theory Ledger}
+\label{sec:theory-ledger}
+
+\paragraph{Notation.}
+All notation follows \texttt{PROBLEM\_FORMULATION.tex}.  In particular,
+$\pi_S$ is the active conditioned law, $\pi_C$ the fully conditioned law,
+$F_{x,\widehat x}=u_x-u_{\widehat x}$ the acquisition-gap observable, and
+$G_Q(x,\widehat x)=\mathbb E_Q[F_{x,\widehat x}]$.
+
+% -----------------------------------------------------------------------------
+\subsection{T1: Exact acquisition-gap transport}
+
+\paragraph{Purpose.}
+Answer the BO question: \emph{how can omitted conditioning change the ordering
+between the proposed experiment and a challenger?}
+
+\paragraph{Status.}
+\textbf{PROVED.}  This is a standard exponential-tilting derivative specialized
+to a BO acquisition gap.  The identity is central; the calculus is not claimed
+as novel.
+
+\paragraph{Assumptions.}
+Fix an active set $S$, challenger $x$, and proposed action $\widehat x$.  Let
+\[
+    H_S(f)=\sum_{j\notin S}e_j(f),
+\]
+and define
+\[
+    \pi_{S,s}(df)
+    = Z_s^{-1}\exp[-E_S(f)-sH_S(f)]P_{0,t}(df),
+    \qquad s\in[0,1].
+\]
+Assume:
+\begin{enumerate}
+    \item $0<Z_s<\infty$ for all $s\in[0,1]$;
+    \item $F_{x,\widehat x}$, $H_S$, and
+          $F_{x,\widehat x}H_S$ are integrable under $\pi_{S,s}$;
+    \item differentiation under the integral is valid on $[0,1]$ (for example,
+          by an integrable dominating function in a neighborhood of the path).
+\end{enumerate}
+No differentiability of the BO utility is required for this result.
+
+\paragraph{Theorem T1 (exact acquisition-gap transport).}
+Let
+\[
+    G_s(x,\widehat x)
+    =\mathbb E_{\pi_{S,s}}[F_{x,\widehat x}].
+\]
+Then $G_s$ is absolutely continuous and
+\begin{equation}
+    \frac{d}{ds}G_s(x,\widehat x)
+    =
+    -\operatorname{Cov}_{\pi_{S,s}}
+       \!\left(F_{x,\widehat x},H_S\right).
+    \label{eq:T1-derivative}
+\end{equation}
+Consequently,
+\begin{equation}
+    G_C(x,\widehat x)-G_S(x,\widehat x)
+    =
+    -\int_0^1
+      \operatorname{Cov}_{\pi_{S,s}}
+      \!\left(F_{x,\widehat x},H_S\right)\,ds.
+    \label{eq:T1-integrated}
+\end{equation}
+If $H_S=\sum_{j\notin S}e_j$, then
+\begin{equation}
+    G_C-G_S
+    =
+    -\sum_{j\notin S}\int_0^1
+      \operatorname{Cov}_{\pi_{S,s}}
+      \!\left(F_{x,\widehat x},e_j\right)\,ds.
+    \label{eq:T1-factorized}
+\end{equation}
+
+\begin{proof}
+Write
+\[
+    N_s
+    = \int F_{x,\widehat x}(f)
+      \exp[-E_S(f)-sH_S(f)]\,P_{0,t}(df),
+\]
+so that $G_s=N_s/Z_s$.  Differentiation under the integral gives
+\begin{align*}
+    N_s'
+    &= -Z_s\,\mathbb E_{\pi_{S,s}}[F_{x,\widehat x}H_S],\\
+    Z_s'
+    &= -Z_s\,\mathbb E_{\pi_{S,s}}[H_S].
+\end{align*}
+The quotient rule therefore yields
+\begin{align*}
+    G_s'
+    &= \frac{N_s'Z_s-N_sZ_s'}{Z_s^2}\\
+    &= -\mathbb E_{\pi_{S,s}}[F_{x,\widehat x}H_S]
+       +\mathbb E_{\pi_{S,s}}[F_{x,\widehat x}]
+        \mathbb E_{\pi_{S,s}}[H_S]\\
+    &= -\operatorname{Cov}_{\pi_{S,s}}
+       (F_{x,\widehat x},H_S).
+\end{align*}
+Integrating from $s=0$ to $s=1$ proves
+Equation~\eqref{eq:T1-integrated}.  The factorized form follows from covariance
+linearity and finite summation.
+\end{proof}
+
+\paragraph{Main-paper use.}
+State the theorem and include the short proof or derivation.  This is the
+conceptual bridge from rich conditioning to BO decisions.
+
+% -----------------------------------------------------------------------------
+\subsection{T2: Screenable omitted-factor influence}
+
+\paragraph{Purpose.}
+Turn T1 from an exact but expensive identity into a computable upper bound that
+does not require inference under every omitted factor.
+
+\paragraph{Status.}
+\textbf{PROVED in abstract form.}  The model-specific construction of a valid
+influence operator for the principal experiments is a \textbf{BLOCKER} until its
+uniform assumptions are checked explicitly.
+
+\paragraph{Screenability assumption S.}
+Assume that, for every active set encountered by the algorithm and every
+$s\in[0,1]$, the relevant observables satisfy
+\begin{equation}
+    |\operatorname{Cov}_{\pi_{S,s}}(g,h)|
+    \le L(g)^\top C_S L(h),
+    \label{eq:S-cov}
+\end{equation}
+where $L(g)\in\mathbb R_+^B$ is a computable block-sensitivity vector and $C_S$
+is entrywise nonnegative and available without sampling from $\pi_C$.
+
+\paragraph{Theorem T2 (omitted-factor influence bound).}
+Under the assumptions of T1 and Assumption S,
+\begin{equation}
+    |G_C(x,\widehat x)-G_S(x,\widehat x)|
+    \le
+    B_{\mathrm{struct}}(x,\widehat x),
+    \label{eq:T2-bound}
+\end{equation}
+with
+\begin{equation}
+    B_{\mathrm{struct}}(x,\widehat x)
+    =
+    L(F_{x,\widehat x})^\top C_S
+    \sum_{j\notin S}L(e_j).
+    \label{eq:T2-Bstruct}
+\end{equation}
+If $C_S=A_S^{-1}$, define
+\[
+    h_U=\sum_{j\notin S}L(e_j)
+\]
+and solve
+\[
+    A_S w=h_U.
+\]
+Then
+\[
+    B_{\mathrm{struct}}(x,\widehat x)
+    =L(F_{x,\widehat x})^\top w
+\]
+for every challenger $x$.
+
+\begin{proof}
+By T1 and the triangle inequality,
+\begin{align*}
+    |G_C-G_S|
+    &\le
+    \sum_{j\notin S}\int_0^1
+    \left|
+    \operatorname{Cov}_{\pi_{S,s}}
+    (F_{x,\widehat x},e_j)
+    \right|ds.
+\end{align*}
+Apply Assumption S to each term:
+\begin{align*}
+    |G_C-G_S|
+    &\le
+    \sum_{j\notin S}\int_0^1
+    L(F_{x,\widehat x})^\top C_S L(e_j)\,ds\\
+    &=
+    L(F_{x,\widehat x})^\top C_S
+    \sum_{j\notin S}L(e_j),
+\end{align*}
+which is Equation~\eqref{eq:T2-Bstruct}.  The linear-solve form is immediate
+when $C_S=A_S^{-1}$.
+\end{proof}
+
+\paragraph{EI regularity.}
+For expected improvement
+\[
+    u_x(f)=(f(x)-y_t^\star)_+,
+\]
+the map $z\mapsto(z-y_t^\star)_+$ is 1-Lipschitz and weakly differentiable with
+weak derivative in $[0,1]$.  If $f(x)$ is a bounded linear functional of the
+latent Gaussian variable, the corresponding Sobolev/gradient sensitivity bound
+is therefore valid even though EI is nonsmooth at $f(x)=y_t^\star$.  The main
+theory should require weak differentiability/Lipschitz regularity, not classical
+smoothness.
+
+\paragraph{Concrete influence construction: proof obligation.}
+For the current factor models, the intended route is a standard block covariance
+comparison inequality.  A sufficient model-specific checklist is:
+\begin{enumerate}
+    \item each one-block conditional law along every $\pi_{S,s}$ satisfies a
+          Poincar\'e inequality with constant $\rho_i^{-1}$;
+    \item mixed block Hessians/couplings are bounded by $\kappa_{ij}$;
+    \item the comparison matrix
+          \[
+              A_{ii}=\rho_i,\qquad A_{ij}=-\kappa_{ij}
+          \]
+          is positive definite (and preferably sparse/local);
+    \item the invoked comparison theorem indeed yields
+          \[
+             |\operatorname{Cov}(g,h)|
+             \le L(g)^\top A^{-1}L(h)
+          \]
+          uniformly along the active-to-full path.
+\end{enumerate}
+The paper should cite the underlying comparison result rather than claim it as
+new.  What must be supplied is a correct verification of these constants for
+the factors used in the experiments.
+
+\paragraph{BLOCKER T2-B.}
+Before large-scale experiments continue, verify the above uniformly for the
+symmetry and nonlinear-PDE factor families.  If the resulting $A^{-1}$ is invalid
+or so conservative that the certificate is vacuous, the current paper claim
+must be revised.
+
+\paragraph{Main-paper use.}
+State the abstract result and one concise sufficient-condition proposition.
+Move the comparison-theorem derivation and model-specific constants to the
+supplement.
+
+% -----------------------------------------------------------------------------
+\subsection{T3: Full-target BO action certificate}
+
+\paragraph{Purpose.}
+Answer the stopping question: \emph{when is the current experiment guaranteed to
+be within $\epsilon$ of the experiment selected by fully conditioned BO?}
+
+\paragraph{Status.}
+\textbf{PROVED.}  The theorem is elementary once valid structural, inference,
+and optimization error bounds are supplied.  The experimental challenge is
+constructing those bounds rigorously in at least one complete implementation.
+
+\paragraph{Inference interface.}
+Let $\widehat G_S(x,\widehat x)$ satisfy, on an event $\mathcal E$ with
+$\Pr(\mathcal E)\ge1-\delta$,
+\begin{equation}
+    |\widehat G_S(x,\widehat x)-G_S(x,\widehat x)|
+    \le B_{\mathrm{infer}}(x,\widehat x)
+    \label{eq:T3-infer}
+\end{equation}
+simultaneously over the challengers used by the certification procedure.
+
+Define
+\begin{equation}
+    \Psi_S(x;\widehat x)
+    = \widehat G_S(x,\widehat x)
+      +B_{\mathrm{infer}}(x,\widehat x)
+      +B_{\mathrm{struct}}(x,\widehat x).
+    \label{eq:T3-Psi}
+\end{equation}
+Suppose a challenger routine returns $x_c$ and $\eta_{\mathrm{opt}}\ge0$ such
+that
+\begin{equation}
+    \sup_{x\in\mathcal X}\Psi_S(x;\widehat x)
+    \le
+    \Psi_S(x_c;\widehat x)+\eta_{\mathrm{opt}}.
+    \label{eq:T3-opt}
+\end{equation}
+
+\paragraph{Theorem T3 (full-conditioned action certificate).}
+Under T2, Equations~\eqref{eq:T3-infer}--\eqref{eq:T3-opt} imply that, on
+$\mathcal E$,
+\begin{equation}
+    R_C(\widehat x)
+    \le
+    \Psi_S(x_c;\widehat x)+\eta_{\mathrm{opt}}.
+    \label{eq:T3-certificate}
+\end{equation}
+Hence, if the right-hand side is at most $\epsilon$, then
+\[
+    \alpha_C(x_C^\star)-\alpha_C(\widehat x)\le\epsilon.
+\]
+
+\begin{proof}
+For every challenger $x$, T2 gives
+\[
+    G_C(x,\widehat x)
+    \le G_S(x,\widehat x)+B_{\mathrm{struct}}(x,\widehat x).
+\]
+On $\mathcal E$, Equation~\eqref{eq:T3-infer} gives
+\[
+    G_S(x,\widehat x)
+    \le \widehat G_S(x,\widehat x)+B_{\mathrm{infer}}(x,\widehat x).
+\]
+Therefore
+\[
+    G_C(x,\widehat x)\le\Psi_S(x;\widehat x).
+\]
+Taking the supremum over $x$ and applying Equation~\eqref{eq:T3-opt},
+\begin{align*}
+    R_C(\widehat x)
+    &=\sup_x G_C(x,\widehat x)\\
+    &\le\sup_x\Psi_S(x;\widehat x)\\
+    &\le\Psi_S(x_c;\widehat x)+\eta_{\mathrm{opt}}.
+\end{align*}
+\end{proof}
+
+\paragraph{Useful corollary: leader optimization need not be certified.}
+T3 holds for any returned $\widehat x$.  The leader optimizer can therefore be
+approximate or local.  A poor leader simply leaves a positive optimistic
+challenger and prevents certification.  The globally certified optimization
+requirement belongs to the challenger envelope, not to the initial leader.
+
+\paragraph{Main-paper use.}
+State and prove this result.  It is the formal reason the method can return an
+action without all pairwise action comparisons.
+
+% -----------------------------------------------------------------------------
+\subsection{T4: When decision-relevant conditioning stays small}
+
+\paragraph{Purpose.}
+Formalize the empirical phenomenon that the conditioning required to settle the
+next BO action can remain local even while the total factorized conditioning
+problem grows.
+
+\paragraph{Status.}
+\textbf{PROVED under the abstract assumptions below.}  Mapping the theorem
+cleanly onto the concrete PDE/symmetry models, including inverse-decay constants,
+is a \textbf{PROOF TASK}.  The lower-bound witness concerns subsets of the
+\emph{original factors}; do not overstate it as an impossibility result against
+all posterior approximations.
+
+\paragraph{Definition.}
+For original-factor subsets, define
+\begin{equation}
+    M_{\mathrm{dec}}(\epsilon)
+    =
+    \min\left\{|S|:
+    \exists\,x_S\ \text{with}\ R_C(x_S)\le\epsilon
+    \ \text{certifiable using }S\right\}.
+    \label{eq:Mdec}
+\end{equation}
+For a posterior-fidelity comparison, one possible benchmark is
+\begin{equation}
+    M_{\mathrm{post}}(\delta)
+    =
+    \min\left\{|S|:
+    D_{\mathrm{KL}}(\pi_C\|\pi_S)\le\delta\right\}.
+    \label{eq:Mpost}
+\end{equation}
+This second definition is only one posterior-oriented reference criterion.
+
+\paragraph{Assumptions for localized decision influence.}
+Consider a sequence of factor graphs with block set $V_n$ and graph distance
+$d(\cdot,\cdot)$.  Let $D\subset V_n$ be a fixed-size decision region.
+Assume:
+\begin{enumerate}
+    \item \textbf{Localized gap sensitivity:}
+          $L_i(F_{x,\widehat x})=0$ for $i\notin D$ and
+          $\sup_{x,\widehat x}\|L(F_{x,\widehat x})\|_1\le L_F$.
+    \item \textbf{Bounded factor density/load:} each factor has uniformly
+          bounded support diameter, and for every block $k$,
+          \[
+              \sum_{j:k\in\operatorname{supp}(e_j)}L_k(e_j)\le H_0.
+          \]
+    \item \textbf{Exponential influence decay:}
+          \[
+              (C_S)_{ik}\le c_C\exp[-\beta d(i,k)]
+          \]
+          for constants independent of the total domain size.
+    \item \textbf{Polynomial graph growth:} the number of blocks at distance
+          exactly $\ell$ from the fixed decision region is bounded by
+          \[
+              c_V(1+\ell)^{d_g-1}.
+          \]
+    \item \textbf{Bounded factor density in neighborhoods:} the number of
+          factors whose support intersects a radius-$r$ neighborhood of $D$ is
+          at most $c_M(1+r)^{d_g}$.
+\end{enumerate}
+
+\paragraph{Theorem T4A (localized conditioning upper bound).}
+Activate every factor whose support intersects the radius-$r$ neighborhood of
+$D$.  Then there is a constant $K$, independent of the total number of factors,
+such that
+\begin{equation}
+    \sup_x B_{\mathrm{struct}}(x,\widehat x)
+    \le
+    K(1+r)^{d_g-1}e^{-\beta r}.
+    \label{eq:T4-tail}
+\end{equation}
+Consequently, there exists
+\[
+    r_\epsilon=O\!\left(\log\frac{1}{\epsilon}\right)
+\]
+(up to the logarithmic polynomial correction in
+Equation~\eqref{eq:T4-tail}) for which the structural error is at most
+$\epsilon$, and
+\begin{equation}
+    M_{\mathrm{dec}}(\epsilon)
+    =
+    O\!\left(\log^{d_g}\frac{1}{\epsilon}\right),
+    \label{eq:T4-Mdec}
+\end{equation}
+with constants independent of the total conditioning-domain size.
+
+\begin{proof}
+Because the acquisition-gap sensitivity is supported on $D$,
+Equation~\eqref{eq:T2-Bstruct} and the factor-load assumption give
+\begin{align*}
+B_{\mathrm{struct}}(x,\widehat x)
+&\le
+\sum_{i\in D}L_i(F_{x,\widehat x})
+\sum_{k:d(k,D)>r}
+(C_S)_{ik}
+\sum_{j:k\in\operatorname{supp}(e_j)}L_k(e_j)\\
+&\le
+L_F c_C H_0
+\sum_{\ell>r}c_V(1+\ell)^{d_g-1}e^{-\beta\ell}.
+\end{align*}
+The tail of an exponentially weighted polynomial sequence is bounded by
+$K'(1+r)^{d_g-1}e^{-\beta r}$ for a constant $K'$ depending only on
+$(\beta,d_g)$.  This proves Equation~\eqref{eq:T4-tail}.  Choosing $r$ so that
+this bound is at most $\epsilon$ gives
+$r_\epsilon=O(\log(1/\epsilon))$ up to the polynomial-log correction.  The
+neighborhood factor-density assumption then gives
+$M_{\mathrm{dec}}(\epsilon)\le c_M(1+r_\epsilon)^{d_g}$.
+\end{proof}
+
+\paragraph{Theorem T4B (posterior-fidelity lower-bound witness).}
+Consider $N$ independent latent blocks.  Let the fully conditioned target
+factorize as
+\[
+    \pi_C=\bigotimes_{j=1}^N q_j,
+\]
+and let omitting factor $j$ leave a reference marginal $\gamma_j$.  Suppose
+\[
+    D_{\mathrm{KL}}(q_j\|\gamma_j)\ge\kappa>0
+\]
+for all $j$.  For an original-factor subset $S$,
+\[
+    \pi_S
+    =\bigotimes_{j\in S}q_j
+     \otimes
+     \bigotimes_{j\notin S}\gamma_j.
+\]
+Then
+\begin{equation}
+    D_{\mathrm{KL}}(\pi_C\|\pi_S)
+    \ge (N-|S|)\kappa,
+\end{equation}
+and hence
+\begin{equation}
+    M_{\mathrm{post}}(\delta)
+    \ge N-\delta/\kappa.
+    \label{eq:T4-Mpost}
+\end{equation}
+If the BO utility depends only on a fixed set of blocks and its relevant
+conditioning lies in that fixed set, then $M_{\mathrm{dec}}(\epsilon)=O(1)$
+while $M_{\mathrm{post}}(\delta)=\Omega(N)$.
+
+\begin{proof}
+KL divergence is additive for product measures.  Therefore
+\begin{align*}
+D_{\mathrm{KL}}(\pi_C\|\pi_S)
+&=
+\sum_{j\notin S}D_{\mathrm{KL}}(q_j\|\gamma_j)\\
+&\ge(N-|S|)\kappa.
+\end{align*}
+Rearranging the condition
+$D_{\mathrm{KL}}(\pi_C\|\pi_S)\le\delta$ proves
+Equation~\eqref{eq:T4-Mpost}.  The decision statement follows immediately when
+the decision and its relevant factors are confined to a fixed block set.
+\end{proof}
+
+\paragraph{Interpretation discipline.}
+T4A is the substantive result: it says that under a localized decision regime and
+decaying structural influence, adding remote conditioning factors need not make
+the BO decision harder.  T4B is only a clean witness that posterior-faithful
+original-factor selection can behave very differently.  Do not market T4B as a
+universal information-theoretic lower bound.
+
+\paragraph{Main-paper use.}
+Include a compact statement/diagram and proof intuition.  Put graph-tail details,
+comparison-matrix inverse-decay conditions, and the product witness in the
+supplement if page pressure is high.
+
+% -----------------------------------------------------------------------------
+\subsection{Inference contract and rigorous instantiation}
+
+\paragraph{Role in the paper.}
+Inference is a modular component of the certification framework, not a separate
+methodological contribution.  T3 only requires a valid bound of the form
+\[
+    |\widehat G_S-G_S|\le B_{\mathrm{infer}}
+\]
+at a stated confidence level.
+
+\paragraph{What is required for a rigorous experiment.}
+The confidence statement must survive:
+\begin{itemize}
+    \item selection of the current leader;
+    \item global challenger search;
+    \item multiple adaptive factor-refinement rounds.
+\end{itemize}
+A safe finite-action construction is either (i) simultaneous acquisition/gap
+confidence intervals with a union/confidence-sequence argument, or (ii)
+independent certification samples after candidate selection, with explicit
+allocation of the total failure probability across rounds.
+
+\paragraph{Recommended rigorous backend.}
+Use independent samples from the GP reference with importance weights
+$w_S(f)=\exp[-E_S(f)]$ after shifting the energy so that a known upper bound on
+the weights is available.  Estimate the numerator and normalizer separately and
+construct a ratio interval.  For EI, the numerator is unbounded but has known or
+bounded second moment under the Gaussian reference; use a finite-variance robust
+mean estimator (e.g. median-of-means/Catoni) rather than an unjustified bounded
+Hoeffding interval.  A lower confidence bound on the normalizer is required.  If
+that lower bound is nonpositive, the certificate is inconclusive and inference
+must be refined.
+
+\paragraph{BLOCKER I1.}
+Implement and validate one complete finite-sample inference-error construction
+for a finite action grid.  Practical ESS, HMC/NUTS standard errors, SMC particle
+diagnostics, or FlowGP/LatentFlow discretization diagnostics can remain
+empirical elsewhere, but they do not substitute for this flagship certified
+instantiation.
+
+% -----------------------------------------------------------------------------
+\subsection{Canonical algorithm implied by T1--T3}
+
+\paragraph{Algorithmic invariant.}
+At every refinement round, maintain an upper bound on the full-conditioned
+regret of the current action.
+
+\begin{enumerate}
+    \item Infer under the active target $\pi_S$ and construct the required
+          $B_{\mathrm{infer}}$.
+    \item Optimize the active acquisition to obtain a leader $\widehat x$.
+    \item Aggregate omitted factor sensitivities and construct
+          $B_{\mathrm{struct}}(x,\widehat x)$.
+    \item Solve one global optimistic challenger problem
+          \[
+          \max_x \Psi_S(x;\widehat x).
+          \]
+    \item If the certified upper bound is at most $\epsilon$, return
+          $\widehat x$.
+    \item Otherwise diagnose whether structural, inference, or challenger
+          optimization error dominates.
+    \item If structural error dominates, rank omitted factors by their
+          contribution to the worst challenger's structural bound and activate
+          a batch.  If inference or optimization dominates, refine that component
+          without adding factors.
+\end{enumerate}
+
+The algorithm does not require all pairwise action comparisons.  It compares all
+challengers to one current leader through a single optimistic envelope.
+
+% -----------------------------------------------------------------------------
+\subsection{Proof and presentation checklist}
+
+\begin{description}
+    \item[T1] Proof complete.  Main text.
+    \item[T2 abstract] Proof complete.  Main text.
+    \item[T2 concrete] Verify path-uniform constants and $A\succ0$ for every
+          main experimental factor family.  \textbf{BLOCKER.}
+    \item[T3] Proof complete.  Main text.
+    \item[T4] Abstract proof complete.  Clean up constants and connect the
+          influence-decay assumptions to the actual factor graphs.
+          \textbf{PROOF TASK.}
+    \item[Inference] Produce one finite-sample, adaptivity-safe
+          $B_{\mathrm{infer}}$.  \textbf{BLOCKER for an end-to-end certified claim.}
+    \item[Continuous factors] Derive as a corollary only if used experimentally.
+          Supplement.
+\end{description}
