@@ -15,7 +15,7 @@
 %   T3 Full-action certificate:                  PROVED
 %   T4 Decision/conditioning separation:         PROVED under abstract assumptions
 %   T4 nonlinear-PDE mapping:                     PROVED FOR THIS FAMILY
-%   Rigorous symmetry inference construction:    THEORY READY --- PROSPECTIVE PILOT REQUIRED
+%   Rigorous symmetry inference construction:    PROVED; PROSPECTIVE FINITE-GRID PILOT PASSED
 
 \section{Theory Ledger}
 \label{sec:theory-ledger}
@@ -939,13 +939,15 @@ independent certification samples after candidate selection, with explicit
 allocation of the total failure probability across rounds.
 
 \paragraph{Status.}
-\textbf{THEORY READY --- PROSPECTIVE PILOT REQUIRED.}  The construction below
+\textbf{PROVED; PROSPECTIVE FINITE-GRID PILOT PASSED.}  The construction below
 supersedes the earlier proposed GP-reference importance-sampling ratio interval
 for the flagship reflection-symmetry certificate.  Its ingredients are standard
 rejection sampling and standard strong-log-concavity concentration; neither is
-claimed as sampler novelty.  The remaining blocker is the locked prospective
-test of whether the resulting finite-sample allowance is numerically small
-enough for a sparse end-to-end T3 certificate.
+claimed as sampler novelty.  The locked prospective test from preregistration
+commit \texttt{5da6fec6c0a645ba56f555062a3adb4139a1782d} passed: the exhaustive
+401-action certificate stopped with 15 of 40 factors active and
+$U_{\mathrm{cert}}=0.0093103112\le0.01$.  Thus the finite-sample end-to-end
+blocker is closed for this reflection-symmetry finite-grid instantiation.
 
 \paragraph{Exact active-target samples.}
 In the reflection-symmetry construction, let
@@ -1130,9 +1132,10 @@ challengers to one current leader through a single optimistic envelope.
           mapping is \textbf{PROVED FOR THIS FAMILY}; no theorem claim is made
           that the adaptive experiment must choose exactly $M=40$.
     \item[Inference] The exact rejection-sampling and whitened finite-sample
-          construction is complete.  \textbf{THEORY READY --- PROSPECTIVE
-          PILOT REQUIRED}; empirical end-to-end status remains open until the
-          locked pilot is run.
+          construction is complete.  \textbf{PROVED; PROSPECTIVE FINITE-GRID
+          PILOT PASSED}.  The corresponding end-to-end blocker is closed only
+          for the committed reflection-symmetry grid and exact-rejection
+          backend; no continuous-action or other-backend guarantee follows.
     \item[Continuous factors] Derive as a corollary only if used experimentally.
           Supplement.
 \end{description}

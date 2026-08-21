@@ -1,0 +1,81 @@
+{
+  "config_sha256": "c006a02581a6e586c793ce116476ccdd311509c31ece85790deedf7fdb33b639",
+  "cumulative_proposals_consumed": 5300146,
+  "cumulative_proposals_generated": 5375000,
+  "final_round": {
+    "acceptance_rate": 0.3342708888888889,
+    "accepted_samples": 1500000,
+    "active_count": 15,
+    "active_factors": [
+      5,
+      4,
+      3,
+      11,
+      10,
+      12,
+      1,
+      0,
+      2,
+      8,
+      7,
+      6,
+      9,
+      13,
+      14
+    ],
+    "b_infer": 0.003848511075377576,
+    "b_struct": 0.005771786534479693,
+    "batch_id": "cert-r05-7b1f78d701ef1cfec013",
+    "estimated_gap": -0.0003099863882800591,
+    "leader_action": -0.2082,
+    "leader_index": 286,
+    "omitted_fraction": 0.625,
+    "proposals_consumed": 4487299,
+    "proposals_generated": 4500000,
+    "round": 5,
+    "u_cert": 0.00931031122157721,
+    "worst_challenger_action": -0.2173,
+    "worst_challenger_index": 279
+  },
+  "guarantee_scope": "reflection_symmetry_finite_grid_exact_rejection_samples",
+  "hardware": {
+    "cpu_count": 10,
+    "machine": "arm64",
+    "numpy": "2.3.5",
+    "platform": "macOS-15.6.1-arm64-arm-64bit",
+    "processor": "arm",
+    "python": "3.12.13",
+    "scipy": "1.16.3"
+  },
+  "interpretation": "The locked reflection-symmetry finite-grid pilot satisfied every predeclared condition; the end-to-end finite-sample blocker is closed for this exact instantiation.",
+  "not_guaranteed_backends": [
+    "HMC",
+    "SMC",
+    "FlowGP",
+    "importance_sampling"
+  ],
+  "pass_conditions": {
+    "active_count_at_most_18": true,
+    "certificate_within_epsilon": true,
+    "cumulative_generated_proposals_at_most_20m": true,
+    "final_acceptance_rate_at_least_0_20": true,
+    "required_tests_passed": true,
+    "worst_challenger_b_infer_at_most_0_0045": true
+  },
+  "pilot_verdict": "PASS",
+  "preregistration_commit": "5da6fec6c0a645ba56f555062a3adb4139a1782d",
+  "rounds_reached": 6,
+  "test_record": {
+    "command": ".venv/bin/pytest -q",
+    "date": "2026-08-21",
+    "failed_tests": 0,
+    "numpy": "2.3.5",
+    "passed_tests": 43,
+    "prospective_certification_samples_drawn": false,
+    "python": "3.12.13",
+    "scipy": "1.16.3",
+    "status": "PASS",
+    "synthetic_end_to_end_full_target_check": "PASS"
+  },
+  "wall_seconds": 38.72378437500447
+}

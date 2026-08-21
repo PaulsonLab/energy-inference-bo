@@ -1,0 +1,560 @@
+{
+  "batches": [
+    {
+      "acceptance_rate": 1.0,
+      "accepted_candidates": 100000,
+      "accepted_samples": 100000,
+      "active_factors": [
+        5,
+        4,
+        3,
+        11,
+        10,
+        12,
+        1,
+        0,
+        2,
+        8,
+        7,
+        6,
+        9,
+        13,
+        14
+      ],
+      "active_set_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "batch_id": "cert-r00-72710d60b807344586f4",
+      "challenger_file": "challenger_bounds_round_00.csv",
+      "child_seed": {
+        "entropy": 314159265,
+        "generated_state_uint32": [
+          4079946200,
+          430812568,
+          2281774565,
+          4248585756
+        ],
+        "n_children_spawned": 0,
+        "pool_size": 4,
+        "spawn_key": [
+          0
+        ]
+      },
+      "leader_action": -0.21339999999999998,
+      "leader_index": 282,
+      "proposals_consumed": 100000,
+      "proposals_generated": 100000,
+      "round": 0,
+      "status": "EXPENDED"
+    },
+    {
+      "acceptance_rate": 0.79192,
+      "accepted_candidates": 118788,
+      "accepted_samples": 100000,
+      "active_factors": [
+        5,
+        4,
+        3,
+        11,
+        10,
+        12,
+        1,
+        0,
+        2,
+        8,
+        7,
+        6,
+        9,
+        13,
+        14
+      ],
+      "active_set_hash": "251e3c94506e86df03eedb498e73490db6ee18a5218e27977f64c8399006937a",
+      "batch_id": "cert-r01-1e25779473527335f84e",
+      "challenger_file": "challenger_bounds_round_01.csv",
+      "child_seed": {
+        "entropy": 314159265,
+        "generated_state_uint32": [
+          2709793738,
+          3702307901,
+          4146983568,
+          1770804272
+        ],
+        "n_children_spawned": 0,
+        "pool_size": 4,
+        "spawn_key": [
+          1
+        ]
+      },
+      "leader_action": -0.2082,
+      "leader_index": 286,
+      "proposals_consumed": 126382,
+      "proposals_generated": 150000,
+      "round": 1,
+      "status": "EXPENDED"
+    },
+    {
+      "acceptance_rate": 0.6263485714285715,
+      "accepted_candidates": 109611,
+      "accepted_samples": 100000,
+      "active_factors": [
+        5,
+        4,
+        3,
+        11,
+        10,
+        12,
+        1,
+        0,
+        2,
+        8,
+        7,
+        6,
+        9,
+        13,
+        14
+      ],
+      "active_set_hash": "9cf77d475c673b83a9b44750a00b84c8667b05a23541188715319bfe081a2c67",
+      "batch_id": "cert-r02-365acc0d6dcec684aba9",
+      "challenger_file": "challenger_bounds_round_02.csv",
+      "child_seed": {
+        "entropy": 314159265,
+        "generated_state_uint32": [
+          1285778630,
+          4064483598,
+          2159737890,
+          688627815
+        ],
+        "n_children_spawned": 0,
+        "pool_size": 4,
+        "spawn_key": [
+          2
+        ]
+      },
+      "leader_action": -0.20689999999999997,
+      "leader_index": 287,
+      "proposals_consumed": 159656,
+      "proposals_generated": 175000,
+      "round": 2,
+      "status": "EXPENDED"
+    },
+    {
+      "acceptance_rate": 0.527825,
+      "accepted_candidates": 105565,
+      "accepted_samples": 100000,
+      "active_factors": [
+        5,
+        4,
+        3,
+        11,
+        10,
+        12,
+        1,
+        0,
+        2,
+        8,
+        7,
+        6,
+        9,
+        13,
+        14
+      ],
+      "active_set_hash": "b21ca3eb4e624a255e0ee823c71db2dd0109f63504181cb2fc5cb3d28528e425",
+      "batch_id": "cert-r03-c0891a04a0903c150f49",
+      "challenger_file": "challenger_bounds_round_03.csv",
+      "child_seed": {
+        "entropy": 314159265,
+        "generated_state_uint32": [
+          575247541,
+          4168456716,
+          289298021,
+          1940828851
+        ],
+        "n_children_spawned": 0,
+        "pool_size": 4,
+        "spawn_key": [
+          3
+        ]
+      },
+      "leader_action": -0.20949999999999996,
+      "leader_index": 285,
+      "proposals_consumed": 189353,
+      "proposals_generated": 200000,
+      "round": 3,
+      "status": "EXPENDED"
+    },
+    {
+      "acceptance_rate": 0.42112,
+      "accepted_candidates": 105280,
+      "accepted_samples": 100000,
+      "active_factors": [
+        5,
+        4,
+        3,
+        11,
+        10,
+        12,
+        1,
+        0,
+        2,
+        8,
+        7,
+        6,
+        9,
+        13,
+        14
+      ],
+      "active_set_hash": "1d233c9d283e18ad6d54f96c5b683ae2f45b11e76fa93209c9623ada7e997e95",
+      "batch_id": "cert-r04-219efb19641716b1df40",
+      "challenger_file": "challenger_bounds_round_04.csv",
+      "child_seed": {
+        "entropy": 314159265,
+        "generated_state_uint32": [
+          4110869165,
+          709147094,
+          1939708741,
+          1855052498
+        ],
+        "n_children_spawned": 0,
+        "pool_size": 4,
+        "spawn_key": [
+          4
+        ]
+      },
+      "leader_action": -0.2082,
+      "leader_index": 286,
+      "proposals_consumed": 237456,
+      "proposals_generated": 250000,
+      "round": 4,
+      "status": "EXPENDED"
+    },
+    {
+      "acceptance_rate": 0.3342708888888889,
+      "accepted_candidates": 1504219,
+      "accepted_samples": 1500000,
+      "active_factors": [
+        5,
+        4,
+        3,
+        11,
+        10,
+        12,
+        1,
+        0,
+        2,
+        8,
+        7,
+        6,
+        9,
+        13,
+        14
+      ],
+      "active_set_hash": "e994167b45cad6081dd187620abc417759e9f5459b5dcbc0ac8d96ef3a7c7ba2",
+      "batch_id": "cert-r05-7b1f78d701ef1cfec013",
+      "challenger_file": "challenger_bounds_round_05.csv",
+      "child_seed": {
+        "entropy": 314159265,
+        "generated_state_uint32": [
+          1829061184,
+          995429387,
+          3718088505,
+          2045507449
+        ],
+        "n_children_spawned": 0,
+        "pool_size": 4,
+        "spawn_key": [
+          5
+        ]
+      },
+      "leader_action": -0.2082,
+      "leader_index": 286,
+      "proposals_consumed": 4487299,
+      "proposals_generated": 4500000,
+      "round": 5,
+      "status": "CERTIFIED"
+    }
+  ],
+  "config_sha256": "c006a02581a6e586c793ce116476ccdd311509c31ece85790deedf7fdb33b639",
+  "planned_children": [
+    {
+      "round": 0,
+      "seed": {
+        "entropy": 314159265,
+        "generated_state_uint32": [
+          4079946200,
+          430812568,
+          2281774565,
+          4248585756
+        ],
+        "n_children_spawned": 0,
+        "pool_size": 4,
+        "spawn_key": [
+          0
+        ]
+      },
+      "used": true
+    },
+    {
+      "round": 1,
+      "seed": {
+        "entropy": 314159265,
+        "generated_state_uint32": [
+          2709793738,
+          3702307901,
+          4146983568,
+          1770804272
+        ],
+        "n_children_spawned": 0,
+        "pool_size": 4,
+        "spawn_key": [
+          1
+        ]
+      },
+      "used": true
+    },
+    {
+      "round": 2,
+      "seed": {
+        "entropy": 314159265,
+        "generated_state_uint32": [
+          1285778630,
+          4064483598,
+          2159737890,
+          688627815
+        ],
+        "n_children_spawned": 0,
+        "pool_size": 4,
+        "spawn_key": [
+          2
+        ]
+      },
+      "used": true
+    },
+    {
+      "round": 3,
+      "seed": {
+        "entropy": 314159265,
+        "generated_state_uint32": [
+          575247541,
+          4168456716,
+          289298021,
+          1940828851
+        ],
+        "n_children_spawned": 0,
+        "pool_size": 4,
+        "spawn_key": [
+          3
+        ]
+      },
+      "used": true
+    },
+    {
+      "round": 4,
+      "seed": {
+        "entropy": 314159265,
+        "generated_state_uint32": [
+          4110869165,
+          709147094,
+          1939708741,
+          1855052498
+        ],
+        "n_children_spawned": 0,
+        "pool_size": 4,
+        "spawn_key": [
+          4
+        ]
+      },
+      "used": true
+    },
+    {
+      "round": 5,
+      "seed": {
+        "entropy": 314159265,
+        "generated_state_uint32": [
+          1829061184,
+          995429387,
+          3718088505,
+          2045507449
+        ],
+        "n_children_spawned": 0,
+        "pool_size": 4,
+        "spawn_key": [
+          5
+        ]
+      },
+      "used": true
+    },
+    {
+      "round": 6,
+      "seed": {
+        "entropy": 314159265,
+        "generated_state_uint32": [
+          2757370441,
+          1266241379,
+          1069099156,
+          3668426731
+        ],
+        "n_children_spawned": 0,
+        "pool_size": 4,
+        "spawn_key": [
+          6
+        ]
+      },
+      "used": false
+    },
+    {
+      "round": 7,
+      "seed": {
+        "entropy": 314159265,
+        "generated_state_uint32": [
+          268387472,
+          2751982996,
+          2952111534,
+          83519748
+        ],
+        "n_children_spawned": 0,
+        "pool_size": 4,
+        "spawn_key": [
+          7
+        ]
+      },
+      "used": false
+    },
+    {
+      "round": 8,
+      "seed": {
+        "entropy": 314159265,
+        "generated_state_uint32": [
+          263168121,
+          163888524,
+          3958757311,
+          3444483122
+        ],
+        "n_children_spawned": 0,
+        "pool_size": 4,
+        "spawn_key": [
+          8
+        ]
+      },
+      "used": false
+    },
+    {
+      "round": 9,
+      "seed": {
+        "entropy": 314159265,
+        "generated_state_uint32": [
+          564521951,
+          4999201,
+          1758766921,
+          148021270
+        ],
+        "n_children_spawned": 0,
+        "pool_size": 4,
+        "spawn_key": [
+          9
+        ]
+      },
+      "used": false
+    },
+    {
+      "round": 10,
+      "seed": {
+        "entropy": 314159265,
+        "generated_state_uint32": [
+          3026030584,
+          2693776092,
+          310550157,
+          1138546659
+        ],
+        "n_children_spawned": 0,
+        "pool_size": 4,
+        "spawn_key": [
+          10
+        ]
+      },
+      "used": false
+    },
+    {
+      "round": 11,
+      "seed": {
+        "entropy": 314159265,
+        "generated_state_uint32": [
+          2134443820,
+          2500513332,
+          2732304987,
+          3041701862
+        ],
+        "n_children_spawned": 0,
+        "pool_size": 4,
+        "spawn_key": [
+          11
+        ]
+      },
+      "used": false
+    },
+    {
+      "round": 12,
+      "seed": {
+        "entropy": 314159265,
+        "generated_state_uint32": [
+          3153861362,
+          3660097938,
+          2071666996,
+          264059239
+        ],
+        "n_children_spawned": 0,
+        "pool_size": 4,
+        "spawn_key": [
+          12
+        ]
+      },
+      "used": false
+    },
+    {
+      "round": 13,
+      "seed": {
+        "entropy": 314159265,
+        "generated_state_uint32": [
+          2324291433,
+          4218471764,
+          2656925315,
+          3958062162
+        ],
+        "n_children_spawned": 0,
+        "pool_size": 4,
+        "spawn_key": [
+          13
+        ]
+      },
+      "used": false
+    },
+    {
+      "round": 14,
+      "seed": {
+        "entropy": 314159265,
+        "generated_state_uint32": [
+          430994120,
+          691678880,
+          3184084324,
+          3163138552
+        ],
+        "n_children_spawned": 0,
+        "pool_size": 4,
+        "spawn_key": [
+          14
+        ]
+      },
+      "used": false
+    }
+  ],
+  "preregistration_commit": "5da6fec6c0a645ba56f555062a3adb4139a1782d",
+  "root_seed": {
+    "entropy": 314159265,
+    "generated_state_uint32": [
+      2377853180,
+      986377456,
+      723340792,
+      2344773103
+    ],
+    "n_children_spawned": 15,
+    "pool_size": 4,
+    "spawn_key": []
+  }
+}

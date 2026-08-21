@@ -220,8 +220,8 @@ choose exactly \(M=40\).
 
 ### Inference certification
 
-**Status: THEORY READY — PROSPECTIVE PILOT REQUIRED; end-to-end empirical
-blocker still open.**
+**Status: PROVED; PROSPECTIVE FINITE-GRID PILOT PASSED; the end-to-end blocker
+is closed for this exact reflection-symmetry instantiation.**
 
 The canonical flagship instantiation is now fixed: exact Gaussian-reference
 rejection sampling for the convex active symmetry target, exact i.i.d. accepted
@@ -231,10 +231,15 @@ finite action grid and adaptive rounds.  Every certification batch is drawn
 only after its active set and leader are fixed and is expended after use.  See
 `THEORY.tex` and `INFERENCE_CERTIFICATION_IMPLEMENTATION_HANDOFF.md`.
 
-This mathematical construction is ready, but the prospective locked symmetry
-pilot remains the empirical gate.  ESS or ordinary Monte Carlo error bars are
-diagnostics, not substitutes for this certificate, and the guarantee does not
-automatically transfer to other inference backends.
+The locked pilot was run once from preregistration commit
+`5da6fec6c0a645ba56f555062a3adb4139a1782d` and satisfied every predeclared
+condition.  It stopped with 15 of 40 factors active,
+\(B_{\rm infer}=0.0038485111\), \(B_{\rm struct}=0.0057717865\), and
+\(U_{\rm cert}=0.0093103112\le0.01\).  ESS or ordinary Monte Carlo error bars
+remain diagnostics, not substitutes for this certificate.  The guarantee is
+limited to the exhaustive 401-action reflection-symmetry grid with exact
+rejection samples and does not automatically transfer to HMC, SMC, FlowGP,
+importance sampling, or another inference backend.
 
 ## Canonical algorithm
 
@@ -340,13 +345,15 @@ Reflection symmetry and the nonlinear-PDE family now have proved concrete
 comparison constructions. The nonlinear-PDE structural replay is unchanged at
 \(0.03874403301354687\).
 
-### OPEN EMPIRICAL GATE — rigorous end-to-end certificate
+### CLOSED — rigorous finite-grid end-to-end certificate
 
-Run the committed prospective reflection-symmetry finite-grid pilot without
-post-hoc changes.  The inference-certification theory is ready; the
-finite-sample end-to-end empirical blocker remains open until that pilot passes.
+The committed prospective reflection-symmetry finite-grid pilot passed without
+post-hoc changes.  The finite-sample end-to-end empirical blocker is closed for
+that exact instantiation; the next work is the broader frozen empirical program.
 
-After this remaining blocker passes, **freeze the technical idea and execute the experimental program**. Further mathematical generalization is optional unless required by a reviewer-facing gap.
+**Freeze the technical idea and execute the experimental program.** Further
+mathematical generalization is optional unless required by a reviewer-facing
+gap.
 
 ## Compute constraints
 

@@ -476,7 +476,15 @@ def test_preregistered_contract_config_and_runner_are_frozen() -> None:
         str(repository_root / "experiments/symmetry/run_inference_certification_pilot.py")
     )
     assert callable(namespace["run"])
-    assert not (
+    output_directory = (
         repository_root
         / "experiments/symmetry/outputs/inference_certification_pilot"
-    ).exists()
+    )
+    if output_directory.exists():
+        with pytest.raises(
+            RuntimeError,
+            match="prospective output directory already exists",
+        ):
+            namespace["verify_preregistration_state"]()
+    else:
+        assert not output_directory.exists()

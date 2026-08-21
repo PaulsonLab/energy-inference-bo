@@ -12,8 +12,10 @@ Repository baseline: `ba4c1a75fc799a5d05095d35dbee4f492f4033f6`.
 > construction was subsequently proved and regression-tested; see
 > `T2B_NONLINEAR_PDE_AUDIT.md`. References below to that construction as
 > unresolved are preserved as dated audit provenance. The finite-sample
-> inference theory was subsequently completed; its prospective pilot remains
-> open. Continuous-action optimization remains outside the finite-grid claim.
+> inference theory was subsequently completed and its locked prospective
+> finite-grid pilot passed. Continuous-action optimization remains outside the
+> finite-grid claim, and no guarantee transfers automatically to other
+> inference backends.
 > See `INFERENCE_CERTIFICATION_IMPLEMENTATION_HANDOFF.md` and `THEORY.tex`.
 
 **Verdict: PASS.** The analytic construction is valid under its stated
@@ -357,9 +359,9 @@ changes.
 
 - Non-vacuity is demonstrated for one frozen mechanism regime, not across the
   full E1 repeated-trial and baseline program.
-- This dated validation supplies no finite-sample, adaptivity-safe inference
-  allowance; the later theory-ready construction has a separate prospective
-  pilot.
+- This dated validation itself supplies no finite-sample, adaptivity-safe
+  inference allowance; the later exact-rejection construction and separate
+  prospective finite-grid pilot passed.
 - The action-grid refinement is not a rigorous continuous optimizer bound.
 - At this audit's baseline, the nonlinear-PDE T2-B construction remained
   unresolved; it was subsequently proved as noted above.

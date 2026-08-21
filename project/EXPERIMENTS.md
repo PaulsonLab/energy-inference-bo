@@ -17,7 +17,7 @@
 
 | ID | Experiment | Paper role | Status | Compute |
 |---|---|---|---|---|
-| E1 | Nonlocal reflection symmetry | Mechanism + certificate figure | EXISTING EVIDENCE; T2-B PASS; inference theory ready; prospective pilot required | MacBook Air |
+| E1 | Nonlocal reflection symmetry | Mechanism + certificate figure | EXISTING EVIDENCE; T2-B PASS; prospective finite-sample pilot PASS; repeats/baselines remain | MacBook Air |
 | E2 | Nonlinear PDE expanding-domain scaling | Main scaling / inference consequence | EXISTING EVIDENCE; T2-B and family T4 PASS; needs robustness + baselines | Colab A100 |
 | E3 | Preference-conditioned sequential BO | Main end-to-end non-PDE BO test | PLANNED | MacBook Air / A100 sweeps |
 | E4 | Linear PDE factor graph | Supplementary control | EXISTING EVIDENCE | MacBook Air / A100 sweeps |
@@ -29,10 +29,10 @@
 
 ## E1 — Nonlocal reflection symmetry
 
-**Status:** `EXISTING EVIDENCE` — the reflection-symmetry T2-B construction and
-narrow EI non-vacuity check pass.  The finite-sample inference theory is ready,
-but the locked prospective flagship pilot below has not yet been run; repeated
-trials and baselines remain later E1 work.
+**Status:** `EXISTING EVIDENCE / PASSED` — the reflection-symmetry T2-B
+construction, narrow EI non-vacuity check, and locked prospective finite-sample
+pilot pass.  The rigorous end-to-end result is scoped to the committed
+finite-grid instantiation; repeated trials and baselines remain later E1 work.
 
 **Paper claim tested:** C1/C2; Theory T1--T3.
 
@@ -86,10 +86,10 @@ certificate. See
 [`../experiments/symmetry/outputs/t2b_ei_validation/`](../experiments/symmetry/outputs/t2b_ei_validation/)
 and [`T2B_SYMMETRY_AUDIT.md`](T2B_SYMMETRY_AUDIT.md).
 
-### Prospective finite-sample inference-certification pilot — preregistered
+### Prospective finite-sample inference-certification pilot — passed
 
-**Status:** `PLANNED` — theory ready; prospective result required; end-to-end
-empirical blocker open.
+**Status:** `PASSED` — the end-to-end blocker is closed for the committed
+reflection-symmetry finite-grid instantiation and exact-rejection backend.
 
 **Claim tested:** In the committed clean reflection-symmetry EI problem, the
 complete finite-grid T3 certificate can remain below \(\epsilon=0.01\) while a
@@ -132,6 +132,31 @@ results.
 end-to-end empirical blocker remains open and the failed predeclared conditions
 will be reported without redesigning the experiment in this task.
 
+**Prospective result (2026-08-21): PASS.**  The pilot was run once from the
+pre-result preregistration commit
+`5da6fec6c0a645ba56f555062a3adb4139a1782d`, using the frozen configuration
+SHA-256
+`c006a02581a6e586c793ce116476ccdd311509c31ece85790deedf7fdb33b639`.
+It reached six rounds and certified at \(M=15\), omitting 25 of 40 factors
+(62.5%).  The leader was \(-0.2082\), the worst optimistic challenger was
+\(-0.2173\), and the final decomposition was
+\[
+  \widehat G_S=-0.0003099863882800591,
+  \qquad B_{\rm infer}=0.003848511075377576,
+  \qquad B_{\rm struct}=0.005771786534479693,
+\]
+so \(U_{\rm cert}=0.00931031122157721\le0.01\).  The final exact-rejection
+acceptance rate was \(0.3342708888888889\); 5,375,000 Gaussian proposals were
+generated in total.  All six mechanical conditions passed, as did the 43-test
+pre-pilot suite and the saved-output integrity checks.  Machine-readable
+manifests, every 401-row challenger table, diagnostics, summary, and figure are
+in
+[`../experiments/symmetry/outputs/inference_certification_pilot/`](../experiments/symmetry/outputs/inference_certification_pilot/).
+
+This is not a continuous-action certificate and does not confer the same
+finite-sample guarantee on HMC, SMC, FlowGP, importance sampling, or another
+inference backend.
+
 ### Final hypothesis
 
 The adaptive influence/challenger procedure reaches a valid full-target action certificate using substantially fewer than \(N\) factors, including factors that would not be selected by Euclidean locality alone.
@@ -169,10 +194,9 @@ Across repeated trials, the certificate has coverage consistent with its nominal
 
 > **If this fails, we can no longer claim that the method identifies genuinely decision-relevant nonlocal conditioning rather than simply exploiting ordinary locality or a favorable single example.**
 
-### Next E1 task (after the global certificate gate)
+### Next E1 task
 
-After the finite-grid end-to-end certificate in the global execution order,
-convert the existing notebook into a reproducible seeded experiment that saves
+Convert the existing notebook into a reproducible seeded experiment that saves
 per-round leader/challenger, active set, bound decomposition, full-target
 validation, and baseline results in a tidy result table.
 
@@ -578,7 +602,7 @@ Do not record only screenshots or notebook output. The point of this file is to 
 
 # Immediate execution order
 
-1. **Implement one rigorous end-to-end certificate** on a finite action set/grid.
+1. **Completed:** rigorous finite-grid end-to-end reflection-symmetry certificate.
 2. **Upgrade E1** into the polished mechanism/coverage experiment.
 3. **Build E3** as the first genuinely sequential non-PDE BO demonstration.
 4. **Expand E2** across source fields/BO states with the smallest necessary baseline set.

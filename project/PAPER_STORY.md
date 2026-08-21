@@ -2,7 +2,10 @@
 
 > **Role of this file:** source of truth for the paper narrative. Keep this BO-first and short. Mathematical details belong in `PROBLEM_FORMULATION.tex` and `THEORY.tex`; experimental bookkeeping belongs in `EXPERIMENTS.md`.
 >
-> **Status:** story LOCKED. The structural-influence blocker is closed; finite-sample end-to-end certification is the sole remaining technical blocker. Do not reopen the research direction unless that blocker invalidates the central claim.
+> **Status:** story LOCKED. The structural-influence blocker and the
+> finite-sample end-to-end certification blocker are closed for the committed
+> reflection-symmetry finite-grid instantiation. Remaining work is execution of
+> the frozen empirical program, not reopening the research direction.
 
 ## The BO problem
 
@@ -124,14 +127,15 @@ The block Poincaré/Brascamp--Lieb/Dobrushin machinery, inference-confidence con
 ## Current blockers
 
 The structural-influence blocker is closed for the reflection-symmetry and
-nonlinear-PDE factor families. The sole remaining technical blocker is:
+nonlinear-PDE factor families.  The prospective reflection-symmetry pilot also
+closed the finite-sample end-to-end certification blocker on its exhaustive
+401-action grid using exact active-target rejection samples.  This guarantee is
+specific to that instantiation and backend; it is not a continuous-action
+certificate and does not automatically cover HMC, SMC, FlowGP, or other
+inference methods.
 
-1. **End-to-end certification:** implement at least one finite-sample inference
-   plus global-challenger certificate on a finite action set/grid, with errors
-   bounded rigorously enough that the reported full-target BO certificate is
-   genuinely valid rather than only an empirical diagnostic.
-
-Everything else is a proof or execution task, not a reason to reopen the research direction.
+No technical blocker currently requires reopening the thesis. Remaining items
+are proof presentation and execution of the locked experiment program.
 
 ## Framing discipline
 
