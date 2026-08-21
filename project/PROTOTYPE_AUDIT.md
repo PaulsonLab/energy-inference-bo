@@ -11,8 +11,17 @@
 > construction was subsequently proved and regression-tested; see
 > `T2B_NONLINEAR_PDE_AUDIT.md`. That result supersedes only the structural
 > blocker statements in this historical provenance audit. Its conclusions about
-> empirical inference allowances and the absence of an end-to-end finite-sample
-> certificate remain current.
+> empirical inference allowances remain current.
+>
+> **Post-audit finite-sample note (2026-08-21):** the exact-rejection inference
+> construction was subsequently proved and its locked prospective
+> reflection-symmetry finite-grid pilot passed; see
+> `INFERENCE_CERTIFICATION_IMPLEMENTATION_HANDOFF.md`, `THEORY.tex`, and
+> `EXPERIMENTS.md`. References below to a missing end-to-end certificate or
+> current certification blockers are preserved as dated audit provenance. The
+> later guarantee is limited to the exhaustive 401-action symmetry grid and
+> exact-rejection backend; it does not upgrade the prototype notebooks or
+> establish a continuous-action certificate.
 
 ## Verdict vocabulary
 

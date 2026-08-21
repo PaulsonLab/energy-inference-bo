@@ -652,10 +652,13 @@ def run() -> dict[str, Any]:
             "numpy": np.__version__,
             "scipy": scipy.__version__,
         },
-        "remaining_blockers": [
-            "finite-sample adaptivity-safe inference error",
-            "rigorous continuous-action optimization error",
+        "run_scope_limitations": [
+            "this run has no finite-sample adaptivity-safe inference allowance",
+            "this run has no rigorous continuous-action optimization allowance",
         ],
+        "current_status_cross_reference": (
+            "The later exact-rejection 401-action-grid prospective pilot passed."
+        ),
     }
 
     write_csv(OUTPUT_DIRECTORY / "screening_history.csv", history)
@@ -724,8 +727,10 @@ fresh samples and occurred only after the screened action was frozen.
 ## Decision
 
 The reflection-symmetry T2-B construction is **{blocker_verdict}**. The
-nonlinear-PDE construction was subsequently proved. Rigorous finite-sample
-inference and global-optimization allowances remain unresolved.
+nonlinear-PDE construction was subsequently proved. This dated narrow run does
+not itself supply rigorous finite-sample inference or continuous-action
+optimization allowances; the later exact-rejection 401-action-grid pilot
+supplies the finite-sample result and passed.
 """
     (OUTPUT_DIRECTORY / "RESULTS.md").write_text(results_markdown)
     print(f"[RESULT] reflection-symmetry T2-B: {blocker_verdict}")

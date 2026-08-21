@@ -530,7 +530,7 @@ def run() -> dict[str, Any]:
                 {
                     "round": round_index,
                     "batch_id": batch_id,
-                    "active_factors": active,
+                    "active_factors": list(active),
                     "active_set_hash": active_hash,
                     "leader_index": leader_index,
                     "leader_action": float(actions[leader_index]),
@@ -629,7 +629,7 @@ def run() -> dict[str, Any]:
             {
                 "round": round_index,
                 "batch_id": batch_id,
-                "active_factors": active,
+                "active_factors": list(active),
                 "active_set_hash": active_hash,
                 "leader_index": leader_index,
                 "leader_action": float(actions[leader_index]),

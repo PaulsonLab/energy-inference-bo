@@ -299,8 +299,8 @@ Wall time: recorded in summary.json
 Pass/fail verdict: PASS
 One-sentence interpretation: the nonlinear-PDE structural influence construction is rigorous and unchanged from the prototype.
 Next action recorded at run time: human-reviewed work on the then-open
-inference-theory blocker. Current status is the separate theory-ready prospective
-symmetry pilot above.
+inference-theory blocker. Current status is that the separate prospective
+symmetry finite-grid pilot above passed.
 ```
 
 See [`T2B_NONLINEAR_PDE_AUDIT.md`](T2B_NONLINEAR_PDE_AUDIT.md) and

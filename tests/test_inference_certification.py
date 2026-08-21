@@ -486,5 +486,17 @@ def test_preregistered_contract_config_and_runner_are_frozen() -> None:
             match="prospective output directory already exists",
         ):
             namespace["verify_preregistration_state"]()
+        manifest = json.loads((output_directory / "batch_manifest.json").read_text())
+        with (output_directory / "round_history.csv").open(newline="") as handle:
+            history = {
+                int(row["round"]): row for row in csv.DictReader(handle)
+            }
+        for batch in manifest["batches"]:
+            round_row = history[int(batch["round"])]
+            active_factors = json.loads(round_row["active_factors"])
+            assert batch["active_factors"] == active_factors
+            assert batch["active_set_hash"] == round_row["active_set_hash"]
+            assert batch["active_set_hash"] == active_set_sha256(active_factors)
+            assert batch["leader_index"] == int(round_row["leader_index"])
     else:
         assert not output_directory.exists()
