@@ -2,7 +2,7 @@
 
 > **Role of this file:** source of truth for the paper narrative. Keep this BO-first and short. Mathematical details belong in `PROBLEM_FORMULATION.tex` and `THEORY.tex`; experimental bookkeeping belongs in `EXPERIMENTS.md`.
 >
-> **Status:** story locked pending the two stated technical blockers. Do not reopen the research direction unless a blocker invalidates the central claim.
+> **Status:** story LOCKED. The structural-influence blocker is closed; finite-sample end-to-end certification is the sole remaining technical blocker. Do not reopen the research direction unless that blocker invalidates the central claim.
 
 ## The BO problem
 
@@ -123,10 +123,13 @@ The block Poincaré/Brascamp--Lieb/Dobrushin machinery, inference-confidence con
 
 ## Current blockers
 
-Only two issues should prevent broad experimental execution:
+The structural-influence blocker is closed for the reflection-symmetry and
+nonlinear-PDE factor families. The sole remaining technical blocker is:
 
-1. **Structural validity:** verify that the concrete influence bound used for the principal factor models is valid uniformly over the active-to-full interpolation and can be computed from structural information without effectively solving the full inference problem.
-2. **End-to-end certification:** demonstrate at least one implementation in which the inference error and global challenger error are bounded rigorously enough that the reported full-target BO certificate is genuinely valid rather than only an empirical diagnostic.
+1. **End-to-end certification:** implement at least one finite-sample inference
+   plus global-challenger certificate on a finite action set/grid, with errors
+   bounded rigorously enough that the reported full-target BO certificate is
+   genuinely valid rather than only an empirical diagnostic.
 
 Everything else is a proof or execution task, not a reason to reopen the research direction.
 
