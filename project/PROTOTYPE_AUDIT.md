@@ -6,6 +6,13 @@
 **Prototype notebooks changed by this audit:** none
 
 > **Post-audit provenance note (2026-08-20):** `PAPER_STORY.md` and `PROJECT_HANDOFF.md` were subsequently updated at the human author's request. The source hashes recorded below identify the exact inputs reviewed during the audit; they are not hashes of the later approved revisions.
+>
+> **Post-audit structural note (2026-08-21):** the nonlinear-PDE T2-B
+> construction was subsequently proved and regression-tested; see
+> `T2B_NONLINEAR_PDE_AUDIT.md`. That result supersedes only the structural
+> blocker statements in this historical provenance audit. Its conclusions about
+> empirical inference allowances and the absence of an end-to-end finite-sample
+> certificate remain current.
 
 ## Verdict vocabulary
 

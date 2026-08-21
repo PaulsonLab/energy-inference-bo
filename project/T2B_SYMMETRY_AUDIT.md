@@ -8,6 +8,12 @@ or continuous-action optimization error.
 
 Repository baseline: `ba4c1a75fc799a5d05095d35dbee4f492f4033f6`.
 
+> **Post-audit status note (2026-08-21):** the nonlinear-PDE T2-B
+> construction was subsequently proved and regression-tested; see
+> `T2B_NONLINEAR_PDE_AUDIT.md`. References below to that construction as
+> unresolved are preserved as dated audit provenance. The inference and
+> action-optimization limitations remain current.
+
 **Verdict: PASS.** The analytic construction is valid under its stated
 assumptions, the implementation reproduces the archived structural constants,
 and the prospective EI validation shows a meaningfully non-vacuous bound in the
@@ -349,5 +355,6 @@ changes.
   full E1 repeated-trial and baseline program.
 - No finite-sample, adaptivity-safe inference allowance is supplied.
 - The action-grid refinement is not a rigorous continuous optimizer bound.
-- The nonlinear-PDE T2-B construction remains unresolved.
+- At this audit's baseline, the nonlinear-PDE T2-B construction remained
+  unresolved; it was subsequently proved as noted above.
 - This result does not establish T4 influence decay for the experimental graph.

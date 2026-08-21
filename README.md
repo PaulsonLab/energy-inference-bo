@@ -4,7 +4,7 @@ This repository studies how much structured information—such as symmetry, pref
 
 ## Status
 
-The project has a BO-first formulation, an abstract theory ledger, and historical symmetry/PDE prototype evidence. Concrete structural-influence validity and a rigorous end-to-end certificate remain blockers; no clean reproduction or new method implementation is present yet.
+The project has a BO-first formulation, proved and regression-tested structural-influence constructions for the main symmetry and nonlinear-PDE factor families, and historical prototype evidence. The remaining technical blocker is a rigorous finite-sample inference-error construction for an end-to-end certificate; the broader experiment suite has not yet been cleanly reproduced.
 
 ## Project documents
 

@@ -1,0 +1,76 @@
+{
+  "analytic_constants": {
+    "center_derivative_bound": 1.25,
+    "factor_gradient_scale_gamma_over_tau": 0.26666666666666666,
+    "outer_curvature_scale_gamma_over_tau_squared": 0.888888888888889,
+    "worst_case_negative_curvature_gamma_eta_over_tau": 0.06666666666666667
+  },
+  "analytic_status": "NONLINEAR_PDE_T2B_PROVED",
+  "checks": {
+    "archived_and_clean_structural_values_match": true,
+    "comparison_matrix_matches_archived": true,
+    "no_factor_energies_evaluated": true,
+    "positive_definite": true,
+    "precision_matches_archived": true,
+    "prototype_hash_matches": true,
+    "strict_row_diagonal_dominance": true,
+    "structural_value_matches_locked_replay": true
+  },
+  "config_sha256": "1597203c2469393876c068e85372bf6ef8d2ddca96359d6b98b77998ba2eb3e6",
+  "end_to_end_finite_sample_certificate": false,
+  "git": {
+    "commit": "fe8d994119a47b0709651f26a418c946032e90f5",
+    "worktree_dirty_during_run": true
+  },
+  "inference_error_certification": "OPEN_BLOCKER",
+  "locked_empirical_provenance": {
+    "classification": "EMPIRICAL_NOT_A_FINITE_SAMPLE_CERTIFICATE",
+    "empirical_inference_allowance": 0.023528500294517668,
+    "empirical_total_envelope": 0.049522479694193114,
+    "sparse_gap": -0.01275005361387142,
+    "stopping_tolerance": 0.06
+  },
+  "matrix_diagnostics": {
+    "analytic_interior_row_margin": 2.2130666666666667,
+    "condition_number_A": 4.0776769402080815,
+    "diagonal_dominance_q0_threshold": 1.2869333333333333,
+    "lambda_max_A": 9.120457035761964,
+    "lambda_min_A": 2.2366796510604767,
+    "maximum_kappa": 0.8666666666666667,
+    "maximum_nonzeros_per_row": 13,
+    "minimum_rho": 4.633333333333334,
+    "minimum_row_dominance_margin": 2.2130666666666645
+  },
+  "notebook_comparison": {
+    "clean_equals_archived_to_tolerance": true,
+    "comparison_matrix_max_abs_difference": 1.1102230246251565e-16,
+    "computed_floating_ratio": 1.0000000000000004,
+    "precision_max_abs_difference": 0.0,
+    "rigorous_correction_factor": 1.0
+  },
+  "prototype_sha256": "73459edc0545ea2470a0cba5ab3cf60d18508b78b0acae08068790905b48e6fd",
+  "runtime": {
+    "numpy": "2.3.5",
+    "python": "3.12.13",
+    "scipy": "1.16.3",
+    "wall_seconds": 0.053209083154797554
+  },
+  "structural_replay": {
+    "active_factors": 40,
+    "archived_structural_value": 0.03874403301354685,
+    "challenger_site": [
+      9,
+      12
+    ],
+    "clean_structural_value": 0.03874403301354686,
+    "leader_site": [
+      14,
+      12
+    ],
+    "locked_structural_value": 0.03874403301354687,
+    "sparse_solve_residual_l2": 7.763674787416074e-15,
+    "total_factors": 576
+  },
+  "t4_status": "PROVED_FOR_THIS_FAMILY",
+  "verdict": "PASS"
+}

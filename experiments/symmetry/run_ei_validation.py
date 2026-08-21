@@ -653,7 +653,6 @@ def run() -> dict[str, Any]:
             "scipy": scipy.__version__,
         },
         "remaining_blockers": [
-            "nonlinear-PDE T2-B construction",
             "finite-sample adaptivity-safe inference error",
             "rigorous continuous-action optimization error",
         ],
@@ -725,8 +724,8 @@ fresh samples and occurred only after the screened action was frozen.
 ## Decision
 
 The reflection-symmetry T2-B construction is **{blocker_verdict}**. The
-nonlinear-PDE construction and rigorous inference/optimization allowances remain
-unresolved.
+nonlinear-PDE construction was subsequently proved. Rigorous finite-sample
+inference and global-optimization allowances remain unresolved.
 """
     (OUTPUT_DIRECTORY / "RESULTS.md").write_text(results_markdown)
     print(f"[RESULT] reflection-symmetry T2-B: {blocker_verdict}")

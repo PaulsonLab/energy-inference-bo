@@ -18,7 +18,7 @@
 | ID | Experiment | Paper role | Status | Compute |
 |---|---|---|---|---|
 | E1 | Nonlocal reflection symmetry | Mechanism + certificate figure | EXISTING EVIDENCE; T2-B symmetry PASS; needs rigorous repeat | MacBook Air |
-| E2 | Nonlinear PDE expanding-domain scaling | Main scaling / inference consequence | EXISTING EVIDENCE; needs robustness + baselines | Colab A100 |
+| E2 | Nonlinear PDE expanding-domain scaling | Main scaling / inference consequence | EXISTING EVIDENCE; T2-B and family T4 PASS; needs robustness + baselines | Colab A100 |
 | E3 | Preference-conditioned sequential BO | Main end-to-end non-PDE BO test | PLANNED | MacBook Air / A100 sweeps |
 | E4 | Linear PDE factor graph | Supplementary control | EXISTING EVIDENCE | MacBook Air / A100 sweeps |
 | A1 | Factor-selection ablations | Supplement / supports E1--E3 | PLANNED | Mixed |
@@ -122,15 +122,20 @@ Across repeated trials, the certificate has coverage consistent with its nominal
 
 > **If this fails, we can no longer claim that the method identifies genuinely decision-relevant nonlocal conditioning rather than simply exploiting ordinary locality or a favorable single example.**
 
-### Next Codex task
+### Next E1 task (after the global certificate gate)
 
-Convert the existing notebook into a reproducible seeded experiment that saves per-round leader/challenger, active set, bound decomposition, full-target validation, and baseline results in a tidy result table.
+After the finite-grid end-to-end certificate in the global execution order,
+convert the existing notebook into a reproducible seeded experiment that saves
+per-round leader/challenger, active set, bound decomposition, full-target
+validation, and baseline results in a tidy result table.
 
 ---
 
 ## E2 — Nonlinear PDE expanding-domain scaling
 
-**Status:** `EXISTING EVIDENCE` — strongest current evidence for a decision-conditioning/inference separation; needs proof-aligned robustness and selection baselines.
+**Status:** `EXISTING EVIDENCE` — the nonlinear-PDE T2-B construction and
+family-level T4 mapping pass; the scaling evidence still needs robustness and
+selection baselines.
 
 **Paper claim tested:** C3; Theory T4, with T2/T3 validation.
 
@@ -159,7 +164,10 @@ and conditioning factor
 e_{ij}(f)=\gamma\log\cosh(r_{ij}(f)/\tau).
 \]
 
-### Existing result: 24 x 24 case
+### Legacy reported result: 24 x 24 case
+
+These values predate the locked-environment provenance replay and are retained
+as historical claims rather than silently overwritten:
 
 - total factors: \(N=576\);
 - active factors: \(M=40\);
@@ -172,6 +180,58 @@ e_{ij}(f)=\gamma\log\cosh(r_{ij}(f)/\tau).
 - full-target Laplace-preconditioned IS ESS: \(58.9\%\);
 - active and held-out full targets selected the same BO action;
 - observed held-out EI regret was zero on the action grid.
+
+### Locked replay and structural validation — 2026-08-21
+
+**Status:** `PASSED` for the nonlinear-PDE T2-B structural construction and
+`PROVED FOR THIS FAMILY` for its T4 mapping.
+
+The prospective implementation check failed if any accepted matrix diagnostic,
+the clean-versus-notebook comparison, or the structural replay disagreed at its
+recorded precision. All checks passed. The clean sparse construction uses the
+same frozen \(24\times24\) model and exact active set as the archived replay:
+
+- total/active factors: \(N=576\), \(M=40\);
+- sparse acquisition gap: \(-0.0127500536\);
+- theorem-backed structural bound: \(0.03874403301354687\);
+- empirical inference allowance: \(0.0235285003\);
+- empirical total stopping envelope: \(0.0495224797\);
+- stopping tolerance: \(0.0600000000\), leaving margin \(0.0104775203\);
+- active GP-reference IS ESS: \(84.3855\%\);
+- full-target GP-reference IS ESS: approximately \(6.2\%\);
+- full-target Laplace-IS ESS: approximately \(58.9\%\);
+- active/full action: `(14, 12)`; observed grid EI regret: zero.
+
+The clean comparison matrix agrees with a literal reproduction of the archived
+notebook construction to maximum absolute difference \(1.11\times10^{-16}\).
+Therefore \(A_{\rm rigorous}=A_{\rm notebook}\), the rigorous structural
+correction factor is exactly one, and the structural value is unchanged.
+
+The structural term is theorem-backed. The inference allowance is the
+prototype's asymptotic Monte Carlo diagnostic, and the total envelope remains
+empirical; this is not a rigorous finite-sample end-to-end action certificate.
+
+Run record:
+
+```text
+Run ID / date: t2b_structural_validation / 2026-08-21
+Git commit: fe8d994119a47b0709651f26a418c946032e90f5 (implementation base)
+Configuration file: experiments/nonlinear_pde/outputs/t2b_structural_validation/frozen_config.json
+Seeds: none for structural regression; archived replay seed 911 recorded as provenance
+Result files: summary.json, RESULTS.md
+Primary metric: clean/notebook A equality and structural value 0.03874403301354687
+Certificate coverage: not applicable; no finite-sample inference certificate
+Factor count M / total N: 40 / 576
+Active inference metric: historical replay ESS 84.3855%
+Full inference metric: historical replay ESS approximately 6.2% (GP reference), 58.9% (Laplace IS)
+Wall time: recorded in summary.json
+Pass/fail verdict: PASS
+One-sentence interpretation: the nonlinear-PDE structural influence construction is rigorous and unchanged from the prototype.
+Next action: human-reviewed work on the separate inference-error blocker only.
+```
+
+See [`T2B_NONLINEAR_PDE_AUDIT.md`](T2B_NONLINEAR_PDE_AUDIT.md) and
+[`../experiments/nonlinear_pde/outputs/t2b_structural_validation/`](../experiments/nonlinear_pde/outputs/t2b_structural_validation/).
 
 ### Existing scaling result
 
@@ -229,9 +289,13 @@ The active factor count remains strongly sublinear over the tested expanding-dom
 
 > **If this fails, we can no longer make a strong empirical claim that decision-relevant conditioning remains small as the full structured-conditioning problem grows, or that adaptive decision conditioning changes the inference regime rather than merely dropping remote PDE factors.**
 
-### Next Codex task
+### Next E2 task (after the global certificate gate)
 
-Refactor the scaling experiment to run multiple source fields/BO states per \(N\), add the fixed-local and random baselines first, and save a single summary CSV/JSON containing \(N,M\), regret/certificate, ESS, wall time, and selected-factor geometry.
+After the finite-grid end-to-end certificate and the E1 upgrade in the global
+execution order, refactor the scaling experiment to run multiple source
+fields/BO states per \(N\), add the fixed-local and random baselines first, and
+save a single summary CSV/JSON containing \(N,M\), regret/certificate, ESS, wall
+time, and selected-factor geometry.
 
 ---
 
@@ -311,9 +375,14 @@ The adaptive conditioning procedure tracks the fully conditioned BO performance 
 - first implementation and debugging: **MacBook Air, 16 GB**;
 - larger factor-count and repeated-seed sweeps: **Colab A100**.
 
-### Next Codex task
+### Next E3 task (after the global certificate gate)
 
-Build the smallest full-target-validatable sequential preference-BO instance and first test only three methods: full conditioning, adaptive conditioning, and a fixed local/static subset. Do not add the full baseline suite until the adaptive factor set demonstrably changes across BO iterations.
+After the finite-grid end-to-end certificate and E1 upgrade in the global
+execution order, build the smallest full-target-validatable sequential
+preference-BO instance and first test only three methods: full conditioning,
+adaptive conditioning, and a fixed local/static subset. Do not add the full
+baseline suite until the adaptive factor set demonstrably changes across BO
+iterations.
 
 ---
 
@@ -460,10 +529,8 @@ Do not record only screenshots or notebook output. The point of this file is to 
 
 # Immediate execution order
 
-1. **Resolve the remaining structural-bound validity task** for the
-   nonlinear-PDE construction; reflection symmetry is now resolved.
-2. **Implement one rigorous end-to-end certificate** on a finite action set/grid.
-3. **Upgrade E1** into the polished mechanism/coverage experiment.
-4. **Build E3** as the first genuinely sequential non-PDE BO demonstration.
-5. **Expand E2** across source fields/BO states with the smallest necessary baseline set.
-6. Only then run broad supplementary sampler and factor-selection ablations.
+1. **Implement one rigorous end-to-end certificate** on a finite action set/grid.
+2. **Upgrade E1** into the polished mechanism/coverage experiment.
+3. **Build E3** as the first genuinely sequential non-PDE BO demonstration.
+4. **Expand E2** across source fields/BO states with the smallest necessary baseline set.
+5. Only then run broad supplementary sampler and factor-selection ablations.

@@ -1,0 +1,90 @@
+{
+  "locked_replay": {
+    "active_factor_indices": [
+      179,
+      202,
+      203,
+      204,
+      205,
+      225,
+      226,
+      227,
+      228,
+      229,
+      250,
+      251,
+      252,
+      253,
+      275,
+      298,
+      299,
+      300,
+      301,
+      322,
+      323,
+      324,
+      325,
+      326,
+      345,
+      346,
+      347,
+      348,
+      349,
+      350,
+      369,
+      370,
+      371,
+      372,
+      373,
+      374,
+      394,
+      395,
+      396,
+      397
+    ],
+    "active_reference_is_ess_fraction": 0.843854775843621,
+    "challenger_site": [
+      9,
+      12
+    ],
+    "empirical_inference_allowance": 0.023528500294517668,
+    "empirical_total_envelope": 0.049522479694193114,
+    "full_laplace_is_ess_fraction_rounded": 0.589,
+    "full_reference_is_ess_fraction_rounded": 0.062,
+    "leader_site": [
+      14,
+      12
+    ],
+    "observed_grid_ei_regret": 0.0,
+    "sparse_gap": -0.01275005361387142,
+    "stopping_tolerance": 0.06,
+    "structural_bound": 0.03874403301354687
+  },
+  "model": {
+    "coupling": 0.12,
+    "gamma": 0.08,
+    "grid_size": 24,
+    "incumbent": 0.55,
+    "nonlinearity": 0.25,
+    "q0": 3.5,
+    "q_laplacian": 0.6,
+    "tau": 0.3
+  },
+  "provenance": {
+    "audit_base_commit": "fe8d994119a47b0709651f26a418c946032e90f5",
+    "prototype_path": "notebooks/prototypes/DEC_Nonlinear_PDE_BO_Demo.ipynb",
+    "prototype_sha256": "73459edc0545ea2470a0cba5ab3cf60d18508b78b0acae08068790905b48e6fd",
+    "replay_seed": 911
+  },
+  "regression_targets": {
+    "condition_number_A": 4.077676940208081,
+    "lambda_max_A": 9.120457035761966,
+    "lambda_min_A": 2.236679651060477,
+    "matrix_max_abs_tolerance": 2e-15,
+    "maximum_kappa": 0.8666666666666667,
+    "maximum_nonzeros_per_row": 13,
+    "minimum_rho": 4.633333333333334,
+    "minimum_row_margin": 2.2130666666666667,
+    "structural_value_abs_tolerance": 2e-14
+  }
+}

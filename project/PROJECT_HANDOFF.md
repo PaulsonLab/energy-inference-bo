@@ -186,12 +186,17 @@ unevaluated before held-out validation. The structural envelope was
 observed EI regret \(3.78\times10^{-4}\). This establishes useful non-vacuity,
 not a rigorous end-to-end inference or continuous-action certificate.
 
-**Nonlinear-PDE concrete status: BLOCKER.**
+**Nonlinear-PDE analytic status: PROVED.**
 
-The nonlinear-PDE implementation still must verify its one-block
-curvature/Poincaré constants, cross-block couplings, and positive comparison
-matrix uniformly over active sets and interpolation parameter \(s\). Solving the
-reflection-symmetry case does not resolve that separate construction.
+For the archived sine-residual factor family, the exact two-term factor Hessian
+has worst-case negative curvature \(\gamma\eta/\tau\). Complete overlap
+accounting gives a uniformly positive comparison matrix for every active set and
+interpolation parameter. The rigorous matrix equals the archived notebook
+matrix to floating-point roundoff, so its structural term remains
+\(0.0387440330\) and the rigorous correction factor is one. See
+`T2B_NONLINEAR_PDE_AUDIT.md` and `THEORY.tex`.
+
+> **The structural-influence blocker is closed for the main factor families.**
 
 ### T3 — full-target action certificate
 
@@ -205,9 +210,13 @@ The full regret is bounded by the optimized challenger envelope when the structu
 
 For a localized decision region, bounded factor density, polynomial graph growth, and exponentially decaying influence, activating a radius-\(r\) neighborhood gives exponentially small omitted influence; hence the required factor count can depend polylogarithmically on \(1/\epsilon\) and not on total domain size. A separate product construction shows that posterior-faithful original-factor subsets can require \(\Omega(N)\) factors.
 
-**Concrete status: PROOF TASK.**
+**Nonlinear-PDE concrete status: PROVED FOR THIS FAMILY.**
 
-Connect the influence-decay assumptions and constants cleanly to the actual factor graphs used in experiments. Do not overclaim the posterior lower-bound witness as universal.
+The expanding-domain comparison matrices are uniformly SPD, fixed-range sparse,
+and uniformly conditioned. Standard sparse-matrix inverse decay therefore
+supplies the domain-independent exponential influence required by T4A. This is
+a family-level mapping; it does not prove that the adaptive experiment must
+choose exactly \(M=40\).
 
 ### Inference certification
 
@@ -313,18 +322,17 @@ Do not let the manuscript become a paper about covariance inequalities with BO a
 
 ## Immediate execution gates
 
-### BLOCKER 1 — remaining structural influence validity
+### CLOSED — structural influence validity
 
-Reflection symmetry is resolved analytically and has passed a narrow EI
-non-vacuity validation. Verify the concrete covariance/influence constants and
-positive-definite comparison matrix for the nonlinear-PDE model; do not treat
-all of T2-B as solved until that separate construction is resolved.
+Reflection symmetry and the nonlinear-PDE family now have proved concrete
+comparison constructions. The nonlinear-PDE structural replay is unchanged at
+\(0.03874403301354687\).
 
-### BLOCKER 2 — rigorous end-to-end certificate
+### BLOCKER 1 — rigorous end-to-end certificate
 
 Implement one finite-sample inference + global challenger certificate on a finite action set/grid.
 
-After both pass, **freeze the technical idea and execute the experimental program**. Further mathematical generalization is optional unless required by a reviewer-facing gap.
+After this remaining blocker passes, **freeze the technical idea and execute the experimental program**. Further mathematical generalization is optional unless required by a reviewer-facing gap.
 
 ## Compute constraints
 

@@ -23,5 +23,9 @@ evaluation occurs only after the screened action is frozen. Its Monte Carlo and
 action-grid checks are empirical diagnostics, not a rigorous end-to-end
 certificate.
 
-T2-B reflection-symmetry verdict: **PASS**. The nonlinear-PDE construction and
-the separate inference/optimization certification blockers remain unresolved.
+T2-B reflection-symmetry verdict: **PASS**. The nonlinear-PDE construction was
+subsequently proved; see
+[`project/T2B_NONLINEAR_PDE_AUDIT.md`](../../project/T2B_NONLINEAR_PDE_AUDIT.md).
+The separate finite-sample inference and global-optimization certification
+allowances remain unresolved. Status fields inside the frozen 2026-08-20 output
+are historical provenance, not the current project ledger.

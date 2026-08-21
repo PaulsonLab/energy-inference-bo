@@ -11,10 +11,10 @@
 %   T1 Exact gap transport:                     PROVED
 %   T2 Screenable omitted-factor bound:          PROVED (abstract form)
 %   T2 reflection-symmetry construction:          PROVED
-%   T2 nonlinear-PDE construction:                BLOCKER
+%   T2 nonlinear-PDE construction:                PROVED
 %   T3 Full-action certificate:                  PROVED
-%   T4 Decision/conditioning separation:         PROVED under abstract assumptions;
-%                                                 concrete mapping is a PROOF TASK
+%   T4 Decision/conditioning separation:         PROVED under abstract assumptions
+%   T4 nonlinear-PDE mapping:                     PROVED FOR THIS FAMILY
 %   Rigorous inference instantiation:            BLOCKER for an end-to-end certified demo
 
 \section{Theory Ledger}
@@ -137,8 +137,8 @@ does not require inference under every omitted factor.
 
 \paragraph{Status.}
 \textbf{PROVED in abstract form.}  Proposition~T2-SYM below proves the concrete
-reflection-symmetry construction.  The nonlinear-PDE construction remains a
-separate \textbf{BLOCKER}.
+reflection-symmetry construction, and Proposition~T2-PDE proves the concrete
+nonlinear-PDE construction used by the archived experiment.
 
 \paragraph{Screenability assumption S.}
 Assume that, for every active set encountered by the algorithm and every
@@ -209,7 +209,7 @@ when $C_S=A_S^{-1}$.
 \end{proof}
 
 \paragraph{Published covariance theorem.}
-The concrete reflection-symmetry construction invokes Theorem~2.3
+The concrete reflection-symmetry and nonlinear-PDE constructions invoke Theorem~2.3
 (``Covariance estimate, Otto \& Menz'') of Georg Menz,
 \emph{A Brascamp--Lieb type covariance estimate}, Electron. J. Probab. 19
 (2014), no.~78, 1--15, doi:10.1214/EJP.v19-2997.  For a measure
@@ -410,17 +410,217 @@ $h_U^\top A^{-1}d$ with no extra multiplicative factor.  This validates that
 historical structural calculation; it does not relabel the prototype as EI or
 supply its separate Monte Carlo and action-grid errors.
 
-\paragraph{Reflection-symmetry status and remaining blocker.}
+\paragraph{Reflection-symmetry status.}
 The proposition resolves the analytic T2-B construction for the stated
 reflection-symmetry family whenever $A\succ0$, including the archived OU
-specialization above.  It does not prove the nonlinear-PDE construction.  The
-rigorous inference and action-optimization terms required for an end-to-end T3
-certificate also remain separate.
+specialization above.  The nonlinear-PDE construction is proved separately in
+Proposition~T2-PDE below.  The rigorous inference and action-optimization terms
+required for an end-to-end T3 certificate remain separate.
 
 \paragraph{Main-paper use.}
 State Proposition~T2-SYM and Equation~\eqref{eq:symmetry-ei-bound} concisely.
 Place the Menz assumption check, OU precision calculation, weak-derivative
 argument, and archived-prototype distinction in the supplement.
+
+\paragraph{Proposition T2-PDE (uniform nonlinear-PDE influence).}
+Let $\Lambda_n$ be a nonperiodic $n\times n$ square grid, with one scalar
+latent block $Y_i$ at each site.  Let the Gaussian-reference precision be
+\[
+    Q=q_0 I+q_L L_n,
+\]
+where $L_n$ is the nearest-neighbor graph Laplacian.  For the neighborhood
+$\mathcal N(j)$ of site $j$, define
+\begin{align}
+    r_j(y)
+    &=y_j-c\sum_{k\in\mathcal N(j)}y_k+\eta\sin y_j-b_j,
+    \label{eq:pde-residual}\\
+    e_j(y)
+    &=\gamma\log\cosh\!\left(\frac{r_j(y)}{\tau}\right),
+    \label{eq:pde-factor}
+\end{align}
+with $c,\eta,\gamma\ge0$ and $\tau>0$.  For $S\subseteq\Lambda_n$ and
+$s\in[0,1]$, write
+\[
+    \theta_j^{S,s}=\mathbf 1\{j\in S\}
+      +s\mathbf 1\{j\notin S\}
+\]
+and consider the exact potential
+\begin{equation}
+    V_{S,s}(y)
+    =\frac12(y-m)^\top Q(y-m)
+     +\sum_{j\in\Lambda_n}\theta_j^{S,s}e_j(y).
+    \label{eq:pde-path-potential}
+\end{equation}
+Let $D_j=\{j\}\cup\mathcal N(j)$, set $a=1+\eta$, and define the
+metadata bounds
+\[
+    d_{ji}=a\mathbf 1\{i=j\}
+      +c\mathbf 1\{i\in\mathcal N(j)\}.
+\]
+Define
+\begin{align}
+    \rho_i
+    &=Q_{ii}-\frac{\gamma\eta}{\tau},
+    \label{eq:pde-rho}\\
+    \kappa_{ik}
+    &=|Q_{ik}|+\frac{\gamma}{\tau^2}
+      \sum_{j:\{i,k\}\subseteq D_j}d_{ji}d_{jk},
+      \qquad i\ne k,
+    \label{eq:pde-kappa}\\
+    A_{ii}&=\rho_i,
+    \qquad A_{ik}=-\kappa_{ik}\quad(i\ne k).
+    \label{eq:pde-comparison}
+\end{align}
+If $A\succ0$, then Menz's Theorem~2.3 applies with the single conservative
+choice $C_S\equiv A^{-1}$ for every $S$ and $s$.  A simple sufficient
+condition, independent of $n$, is
+\begin{equation}
+    q_0>
+    \frac{\gamma\eta}{\tau}
+    +\frac{8\gamma(1+\eta)c}{\tau^2}
+    +\frac{12\gamma c^2}{\tau^2}.
+    \label{eq:pde-diagonal-dominance}
+\end{equation}
+Moreover, a valid factor sensitivity is
+\begin{equation}
+    L_i(e_j)=\frac{\gamma}{\tau}d_{ji}.
+    \label{eq:pde-factor-sensitivity}
+\end{equation}
+
+For the discretized-field EI experiment, $Y$ is the entire latent field, so
+Rao--Blackwellization is the identity.  For distinct action sites $x$ and
+$\widehat x$, one may use
+\[
+    L_i(\bar F_{x,\widehat x})
+    =\mathbf 1\{i=x\}+\mathbf 1\{i=\widehat x\}.
+\]
+For omitted factors $U=S^c$, define
+\begin{equation}
+    (h_U)_i
+    =\frac{\gamma}{\tau}\left[
+      (1+\eta)\mathbf 1\{i\in U\}
+      +c\,|\{j\in U:i\in\mathcal N(j)\}|
+    \right].
+    \label{eq:pde-omitted-load}
+\end{equation}
+Then
+\begin{equation}
+    |G_C(x,\widehat x)-G_S(x,\widehat x)|
+    \le
+    L(\bar F_{x,\widehat x})^\top A^{-1}h_U.
+    \label{eq:pde-ei-structural-bound}
+\end{equation}
+
+\begin{proof}
+Let $u_i$ denote the coordinate vector at site $i$.  The residual derivatives
+are exactly
+\begin{align}
+    \nabla r_j(y)
+    &=(1+\eta\cos y_j)u_j
+      -c\sum_{k\in\mathcal N(j)}u_k,
+    \label{eq:pde-residual-gradient}\\
+    \nabla^2r_j(y)
+    &=-\eta\sin y_j\,u_j u_j^\top.
+    \label{eq:pde-residual-hessian}
+\end{align}
+Writing $z_j=r_j/\tau$, the factor derivatives retain both chain-rule terms:
+\begin{align}
+    \nabla e_j
+    &=\frac{\gamma}{\tau}\tanh(z_j)\nabla r_j,
+    \label{eq:pde-factor-gradient}\\
+    \nabla^2e_j
+    &=\frac{\gamma}{\tau^2}\operatorname{sech}^2(z_j)
+      \nabla r_j\nabla r_j^\top
+      +\frac{\gamma}{\tau}\tanh(z_j)\nabla^2r_j.
+    \label{eq:pde-factor-hessian}
+\end{align}
+The first term is positive semidefinite.  Since $|\tanh|\le1$ and
+$|\sin|\le1$, the second gives the state-uniform bound
+\begin{equation}
+    \nabla^2e_j(y)
+    \succeq-\frac{\gamma\eta}{\tau}u_j u_j^\top.
+    \label{eq:pde-negative-curvature}
+\end{equation}
+In particular, the negative-curvature scale is $\gamma\eta/\tau$, not
+$\gamma\eta/\tau^2$.
+
+Condition on every block except $i$.  Every residual factor whose support
+contains $i$ appears in the exact conditional second derivative:
+\begin{align*}
+    \partial_i^2V_{S,s}
+    =Q_{ii}
+    &+\frac{\gamma}{\tau^2}
+      \sum_{j:i\in D_j}\theta_j^{S,s}
+      \operatorname{sech}^2(z_j)(\partial_i r_j)^2\\
+    &+\theta_i^{S,s}\frac{\gamma}{\tau}
+      \tanh(z_i)(-\eta\sin y_i).
+\end{align*}
+The neighbor-centered factors contribute through the nonnegative first sum;
+only the factor centered at $i$ has a possibly negative residual-Hessian term.
+Thus $\partial_i^2V_{S,s}\ge\rho_i$, and Bakry--\'Emery supplies the one-block
+Poincar\'e constants in Equation~\eqref{eq:pde-rho}, uniformly over the other
+blocks, $S$, $s$, and $y$.
+
+For $i\ne k$, the residual Hessian contributes no mixed derivative.  Every
+factor whose support contains both sites must nevertheless be counted in the
+outer-product term, giving
+\[
+    |\partial_i\partial_k V_{S,s}|
+    \le |Q_{ik}|+\frac{\gamma}{\tau^2}
+    \sum_{j:\{i,k\}\subseteq D_j}d_{ji}d_{jk}
+    =\kappa_{ik}.
+\]
+Also,
+\[
+    \nabla^2V_{S,s}\succeq Q-\frac{\gamma\eta}{\tau}I
+    \succeq\left(q_0-\frac{\gamma\eta}{\tau}\right)I,
+\]
+so the potential is globally strongly convex under
+Equation~\eqref{eq:pde-diagonal-dominance} and satisfies Menz's
+convex-at-infinity assumption.
+
+For an interior row, cancellation of the four $q_L$ nearest-neighbor terms
+against the Laplacian diagonal leaves the margin
+\[
+    q_0-\frac{\gamma\eta}{\tau}
+    -\frac{8\gamma(1+\eta)c}{\tau^2}
+    -\frac{12\gamma c^2}{\tau^2}.
+\]
+The last coefficient counts all factor overlaps: four nearest-neighbor pairs
+receive two center--neighbor products, four diagonal pairs receive two
+neighbor--neighbor products, and four axial-distance-two pairs receive one
+neighbor--neighbor product.  Boundary rows omit some nonnegative couplings.
+Equation~\eqref{eq:pde-diagonal-dominance} therefore makes $A$ a symmetric
+strictly diagonally dominant matrix with positive diagonal, hence $A\succ0$.
+Menz's Theorem~2.3 now yields the uniform covariance comparison with
+$C_S\equiv A^{-1}$.  Equation~\eqref{eq:pde-factor-sensitivity} follows from
+$|\tanh(z_j)\partial_i r_j|\le d_{ji}$.  Summing it over $U$ gives
+Equation~\eqref{eq:pde-omitted-load}; the two-coordinate EI footprint and
+Theorem~T2 give Equation~\eqref{eq:pde-ei-structural-bound}.
+\end{proof}
+
+\paragraph{Archived-parameter diagnostics and non-vacuity.}
+For $n=24$, $q_0=3.5$, $q_L=0.6$, $c=0.12$, $\eta=0.25$,
+$\gamma=0.08$, and $\tau=0.30$, the right side of
+Equation~\eqref{eq:pde-diagonal-dominance} is $1.2869333333<3.5$.  The
+block constants are $4.6333333333$ at corners, $5.2333333333$ on edges, and
+$5.8333333333$ in the interior.  The three nonzero coupling classes are
+$0.8666666667$ for nearest neighbors, $0.0256$ for diagonal neighbors, and
+$0.0128$ at axial distance two.  The resulting $576\times576$ matrix has
+minimum row margin $2.2130666667$, spectral interval
+$[2.2366796511,9.1204570358]$, condition number $4.0776769402$, and at most
+$13$ nonzeros per row.  The sparse implementation agrees with a literal
+reproduction of the archived matrix to floating-point roundoff.  At the
+archived $M=40$ stopping state, Equation~\eqref{eq:pde-ei-structural-bound}
+is $0.03874403301354687$, exactly the notebook's structural term up to
+roundoff; the rigorous correction factor is one.  This statement does not
+upgrade the notebook's separate asymptotic inference allowance or total
+stopping envelope to a finite-sample certificate.
+
+\paragraph{Main-paper use.}
+State Proposition~T2-PDE and the resulting structural bound compactly.  Put
+the overlap enumeration, matrix diagnostics, and notebook comparison in the
+supplement; see \texttt{T2B\_NONLINEAR\_PDE\_AUDIT.md}.
 
 % -----------------------------------------------------------------------------
 \subsection{T3: Full-target BO action certificate}
@@ -518,11 +718,12 @@ next BO action can remain local even while the total factorized conditioning
 problem grows.
 
 \paragraph{Status.}
-\textbf{PROVED under the abstract assumptions below.}  Mapping the theorem
-cleanly onto the concrete PDE/symmetry models, including inverse-decay constants,
-is a \textbf{PROOF TASK}.  The lower-bound witness concerns subsets of the
-\emph{original factors}; do not overstate it as an impossibility result against
-all posterior approximations.
+\textbf{PROVED under the abstract assumptions below.}  Corollary~T4-PDE maps
+the nonlinear-PDE comparison matrices onto those assumptions and is
+\textbf{PROVED FOR THIS FAMILY}.  This does not assert that the adaptive
+experiment must choose exactly $M=40$.  The lower-bound witness concerns
+subsets of the \emph{original factors}; do not overstate it as an impossibility
+result against all posterior approximations.
 
 \paragraph{Definition.}
 For original-factor subsets, define
@@ -618,6 +819,40 @@ this bound is at most $\epsilon$ gives
 $r_\epsilon=O(\log(1/\epsilon))$ up to the polynomial-log correction.  The
 neighborhood factor-density assumption then gives
 $M_{\mathrm{dec}}(\epsilon)\le c_M(1+r_\epsilon)^{d_g}$.
+\end{proof}
+
+\paragraph{Corollary T4-PDE (inverse decay for the expanding-domain family).}
+For the nonlinear-PDE matrices $A_n$ of Proposition~T2-PDE with the fixed
+archived parameters, there are constants $c_A<\infty$ and $\beta_A>0$,
+independent of $n$, such that
+\begin{equation}
+    (A_n^{-1})_{ik}
+    \le c_A\exp[-\beta_A d_{A_n}(i,k)],
+    \label{eq:pde-inverse-decay}
+\end{equation}
+where $d_{A_n}$ is graph distance in the sparsity graph of $A_n$.  Therefore
+the expanding-domain nonlinear-PDE family satisfies the exponential-influence,
+bounded-load, and polynomial-growth assumptions of Theorem~T4A for a fixed
+decision region.
+
+\begin{proof}
+The comparison matrices are symmetric positive definite.  Their minimum row
+margin is bounded below uniformly by $2.2130666667$, while their diagonal and
+absolute row sums are bounded above by constants independent of $n$.  Hence
+the spectra of all $A_n$ lie in one compact interval $[m_A,M_A]\subset(0,\infty)$.
+Each row couples only nearest neighbors, diagonal neighbors, and axial
+distance-two neighbors, so the sparsity graph has uniformly bounded degree and
+fixed interaction range.
+
+Apply Theorem~3.4 of M.~Benzi and N.~Razouk, \emph{Decay bounds and $O(n)$
+algorithms for approximating functions of sparse matrices}, \emph{Electron.
+Trans. Numer. Anal.} 28 (2007), 16--39, to the analytic function $f(z)=z^{-1}$
+on a common complex neighborhood of $[m_A,M_A]$.  Polynomial approximation of
+$f$ and the fixed sparsity range give domain-independent exponential decay in
+the graph distance, proving Equation~\eqref{eq:pde-inverse-decay}.  The
+two-dimensional grid has polynomial volume growth, each residual factor has
+radius-one support, and Equation~\eqref{eq:pde-factor-sensitivity} gives a
+uniform per-block load.  Thus the remaining assumptions of Theorem~T4A hold.
 \end{proof}
 
 \paragraph{Theorem T4B (posterior-fidelity lower-bound witness).}
@@ -757,12 +992,13 @@ challengers to one current leader through a single optimistic envelope.
     \item[T2 abstract] Proof complete.  Main text.
     \item[T2 reflection symmetry] Analytic construction complete under the
           stated assumptions.  \textbf{PROVED.}
-    \item[T2 nonlinear PDE] Verify path-uniform constants and $A\succ0$ for the
-          nonlinear-PDE factor family.  \textbf{BLOCKER.}
+    \item[T2 nonlinear PDE] Path-uniform constants, complete overlap accounting,
+          and $A\succ0$ are established for the archived factor family.
+          \textbf{PROVED.}
     \item[T3] Proof complete.  Main text.
-    \item[T4] Abstract proof complete.  Clean up constants and connect the
-          influence-decay assumptions to the actual factor graphs.
-          \textbf{PROOF TASK.}
+    \item[T4] Abstract proof complete.  The nonlinear-PDE expanding-domain
+          mapping is \textbf{PROVED FOR THIS FAMILY}; no theorem claim is made
+          that the adaptive experiment must choose exactly $M=40$.
     \item[Inference] Produce one finite-sample, adaptivity-safe
           $B_{\mathrm{infer}}$.  \textbf{BLOCKER for an end-to-end certified claim.}
     \item[Continuous factors] Derive as a corollary only if used experimentally.
