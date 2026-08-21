@@ -26,6 +26,10 @@ certificate.
 T2-B reflection-symmetry verdict: **PASS**. The nonlinear-PDE construction was
 subsequently proved; see
 [`project/T2B_NONLINEAR_PDE_AUDIT.md`](../../project/T2B_NONLINEAR_PDE_AUDIT.md).
-The separate finite-sample inference and global-optimization certification
-allowances remain unresolved. Status fields inside the frozen 2026-08-20 output
-are historical provenance, not the current project ledger.
+The exact-rejection/strong-log-concavity finite-sample inference construction is
+now theory-ready. Its locked prospective finite-grid pilot is preregistered in
+[`configs/inference_certification_pilot.json`](configs/inference_certification_pilot.json)
+and remains the open empirical gate. The exhaustive 401-action grid has zero
+optimization remainder; no continuous-action certificate is claimed. Status
+fields inside the frozen 2026-08-20 output are historical provenance, not the
+current project ledger.

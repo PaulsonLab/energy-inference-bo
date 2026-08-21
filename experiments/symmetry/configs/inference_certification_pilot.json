@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "experiment_id": "reflection_symmetry_finite_sample_certification_pilot",
+  "model": {
+    "n_factors": 40,
+    "spacing": 0.05,
+    "lengthscale": 0.125,
+    "gamma": 0.05,
+    "tau": 0.5,
+    "reference_mean": {
+      "name": "clean_ei_validation_two_peak_mean",
+      "formula": "0.36 exp(-0.5 ((x+0.22)/0.095)^2) + 0.31 exp(-0.5 ((x-0.25)/0.18)^2)"
+    }
+  },
+  "action_grid": {
+    "count": 401,
+    "minimum": -0.58,
+    "maximum": -0.06,
+    "optimization_remainder": 0.0
+  },
+  "decision": {
+    "incumbent": 0.5,
+    "epsilon": 0.01,
+    "delta": 0.05
+  },
+  "refinement": {
+    "activation_batch_size": 3,
+    "maximum_rounds": 15,
+    "initial_active_factors": []
+  },
+  "working_stage": {
+    "reference_samples": 80000,
+    "seed": 123,
+    "method": "self_normalized_gaussian_reference_importance_sampling"
+  },
+  "certification_stage": {
+    "root_seed": 314159265,
+    "proposal_chunk_size": 25000,
+    "sample_schedule": {
+      "active_count_less_than": 15,
+      "accepted_samples_below_threshold": 100000,
+      "accepted_samples_at_or_above_threshold": 1500000
+    },
+    "method": "exact_gaussian_reference_rejection_sampling",
+    "confidence_allocation": "two_sided_union_over_401_actions_and_15_rounds"
+  },
+  "pass_criteria": {
+    "maximum_u_cert": 0.01,
+    "maximum_active_factors": 18,
+    "maximum_b_infer_at_worst_challenger": 0.0045,
+    "maximum_cumulative_gaussian_proposals": 20000000,
+    "minimum_final_acceptance_rate": 0.2,
+    "all_required_tests_must_pass": true
+  },
+  "proposal_accounting": {
+    "cost_cap_field": "proposals_generated",
+    "acceptance_rate_numerator": "accepted_candidates",
+    "acceptance_rate_denominator": "proposals_generated"
+  }
+}

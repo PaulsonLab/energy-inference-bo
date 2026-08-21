@@ -1,0 +1,12 @@
+{
+  "date": "2026-08-21",
+  "status": "PASS",
+  "command": ".venv/bin/pytest -q",
+  "passed_tests": 43,
+  "failed_tests": 0,
+  "python": "3.12.13",
+  "numpy": "2.3.5",
+  "scipy": "1.16.3",
+  "prospective_certification_samples_drawn": false,
+  "synthetic_end_to_end_full_target_check": "PASS"
+}

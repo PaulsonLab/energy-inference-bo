@@ -17,7 +17,7 @@
 
 | ID | Experiment | Paper role | Status | Compute |
 |---|---|---|---|---|
-| E1 | Nonlocal reflection symmetry | Mechanism + certificate figure | EXISTING EVIDENCE; T2-B symmetry PASS; needs rigorous repeat | MacBook Air |
+| E1 | Nonlocal reflection symmetry | Mechanism + certificate figure | EXISTING EVIDENCE; T2-B PASS; inference theory ready; prospective pilot required | MacBook Air |
 | E2 | Nonlinear PDE expanding-domain scaling | Main scaling / inference consequence | EXISTING EVIDENCE; T2-B and family T4 PASS; needs robustness + baselines | Colab A100 |
 | E3 | Preference-conditioned sequential BO | Main end-to-end non-PDE BO test | PLANNED | MacBook Air / A100 sweeps |
 | E4 | Linear PDE factor graph | Supplementary control | EXISTING EVIDENCE | MacBook Air / A100 sweeps |
@@ -30,8 +30,9 @@
 ## E1 — Nonlocal reflection symmetry
 
 **Status:** `EXISTING EVIDENCE` — the reflection-symmetry T2-B construction and
-narrow EI non-vacuity check pass; the final experiment still needs repeated
-trials, rigorous inference accounting, and baselines.
+narrow EI non-vacuity check pass.  The finite-sample inference theory is ready,
+but the locked prospective flagship pilot below has not yet been run; repeated
+trials and baselines remain later E1 work.
 
 **Paper claim tested:** C1/C2; Theory T1--T3.
 
@@ -84,6 +85,52 @@ empirical diagnostics, not a rigorous finite-sample or continuous-action
 certificate. See
 [`../experiments/symmetry/outputs/t2b_ei_validation/`](../experiments/symmetry/outputs/t2b_ei_validation/)
 and [`T2B_SYMMETRY_AUDIT.md`](T2B_SYMMETRY_AUDIT.md).
+
+### Prospective finite-sample inference-certification pilot — preregistered
+
+**Status:** `PLANNED` — theory ready; prospective result required; end-to-end
+empirical blocker open.
+
+**Claim tested:** In the committed clean reflection-symmetry EI problem, the
+complete finite-grid T3 certificate can remain below \(\epsilon=0.01\) while a
+materially sparse subset of the 40 conditioning factors is active, after the
+empirical Monte Carlo allowance is replaced by an adaptivity-safe rigorous
+finite-sample bound from exact active-target samples.
+
+The machine-readable source is
+[`../experiments/symmetry/configs/inference_certification_pilot.json`](../experiments/symmetry/configs/inference_certification_pilot.json),
+and the exact implementation/preregistration contract is
+[`INFERENCE_CERTIFICATION_IMPLEMENTATION_HANDOFF.md`](INFERENCE_CERTIFICATION_IMPLEMENTATION_HANDOFF.md).
+The locked configuration is:
+
+- 40 symmetry factors and the committed clean-EI OU/model parameters;
+- 401 actions on \([-0.58,-0.06]\), incumbent \(0.50\);
+- \(\epsilon=0.01\), \(\delta=0.05\), at most 15 certification rounds;
+- three factors per failed refinement;
+- one reusable 80,000-sample working batch with seed 123;
+- independent certification children from
+  `SeedSequence(314159265).spawn(15)`;
+- exact rejection sampling in chunks of 25,000 proposals;
+- 100,000 accepted samples for \(M<15\), otherwise 1,500,000.
+
+The pilot is **PASS if and only if** a reached round has
+\(U_{\rm cert}\le0.01\), certification occurs with \(M\le18\), the inference
+radius at the maximizing optimistic challenger is at most \(0.0045\), total
+generated Gaussian proposals are at most 20,000,000, the final-round acceptance
+rate is at least 0.20, and every required mathematical, regression,
+seed-separation, no-reuse, synthetic end-to-end, and output-integrity test
+passes.  Failure of any condition is a prospective **FAIL**; no threshold,
+seed, sample schedule, grid, or confidence allocation may be changed afterward
+in this task.
+
+Session-4 planning calculations predict stopping near \(M=15\), final
+acceptance roughly 0.27--0.34, \(B_{\rm infer}\) roughly 0.0038--0.0040, and
+\(U_{\rm cert}\) roughly 0.0089--0.0091.  These are planning estimates, not
+results.
+
+**Prospective failure statement:** if the pilot fails, the finite-sample
+end-to-end empirical blocker remains open and the failed predeclared conditions
+will be reported without redesigning the experiment in this task.
 
 ### Final hypothesis
 
@@ -227,7 +274,9 @@ Full inference metric: historical replay ESS approximately 6.2% (GP reference), 
 Wall time: recorded in summary.json
 Pass/fail verdict: PASS
 One-sentence interpretation: the nonlinear-PDE structural influence construction is rigorous and unchanged from the prototype.
-Next action: human-reviewed work on the separate inference-error blocker only.
+Next action recorded at run time: human-reviewed work on the then-open
+inference-theory blocker. Current status is the separate theory-ready prospective
+symmetry pilot above.
 ```
 
 See [`T2B_NONLINEAR_PDE_AUDIT.md`](T2B_NONLINEAR_PDE_AUDIT.md) and

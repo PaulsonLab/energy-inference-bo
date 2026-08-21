@@ -84,7 +84,7 @@ FROZEN_CONFIG: dict[str, Any] = {
 
 
 def reference_mean(x: np.ndarray) -> np.ndarray:
-    """Archived two-peak reference mean."""
+    """Frozen clean-EI two-peak mean (distinct from the archived notebook)."""
 
     values = np.asarray(x, dtype=float)
     return 0.36 * np.exp(-0.5 * ((values + 0.22) / 0.095) ** 2) + 0.31 * np.exp(

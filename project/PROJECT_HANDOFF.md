@@ -220,9 +220,21 @@ choose exactly \(M=40\).
 
 ### Inference certification
 
-**Status: BLOCKER for a fully end-to-end certified empirical claim.**
+**Status: THEORY READY — PROSPECTIVE PILOT REQUIRED; end-to-end empirical
+blocker still open.**
 
-The theory only requires a modular bound \(B_{\rm infer}\), but at least one experiment should instantiate it rigorously. Recommended route: finite action grid + independent GP-reference importance samples + robust numerator and normalizer confidence intervals + explicit confidence allocation across adaptive rounds. ESS or ordinary Monte Carlo error bars alone are diagnostics, not certificates.
+The canonical flagship instantiation is now fixed: exact Gaussian-reference
+rejection sampling for the convex active symmetry target, exact i.i.d. accepted
+samples, a Rao--Blackwellized EI-gap sample mean, and the whitened
+strong-log-concavity/log-Sobolev radius with a two-sided union bound across the
+finite action grid and adaptive rounds.  Every certification batch is drawn
+only after its active set and leader are fixed and is expended after use.  See
+`THEORY.tex` and `INFERENCE_CERTIFICATION_IMPLEMENTATION_HANDOFF.md`.
+
+This mathematical construction is ready, but the prospective locked symmetry
+pilot remains the empirical gate.  ESS or ordinary Monte Carlo error bars are
+diagnostics, not substitutes for this certificate, and the guarantee does not
+automatically transfer to other inference backends.
 
 ## Canonical algorithm
 
@@ -328,9 +340,11 @@ Reflection symmetry and the nonlinear-PDE family now have proved concrete
 comparison constructions. The nonlinear-PDE structural replay is unchanged at
 \(0.03874403301354687\).
 
-### BLOCKER 1 — rigorous end-to-end certificate
+### OPEN EMPIRICAL GATE — rigorous end-to-end certificate
 
-Implement one finite-sample inference + global challenger certificate on a finite action set/grid.
+Run the committed prospective reflection-symmetry finite-grid pilot without
+post-hoc changes.  The inference-certification theory is ready; the
+finite-sample end-to-end empirical blocker remains open until that pilot passes.
 
 After this remaining blocker passes, **freeze the technical idea and execute the experimental program**. Further mathematical generalization is optional unless required by a reviewer-facing gap.
 

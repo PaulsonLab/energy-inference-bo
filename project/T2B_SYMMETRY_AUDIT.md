@@ -11,8 +11,10 @@ Repository baseline: `ba4c1a75fc799a5d05095d35dbee4f492f4033f6`.
 > **Post-audit status note (2026-08-21):** the nonlinear-PDE T2-B
 > construction was subsequently proved and regression-tested; see
 > `T2B_NONLINEAR_PDE_AUDIT.md`. References below to that construction as
-> unresolved are preserved as dated audit provenance. The inference and
-> action-optimization limitations remain current.
+> unresolved are preserved as dated audit provenance. The finite-sample
+> inference theory was subsequently completed; its prospective pilot remains
+> open. Continuous-action optimization remains outside the finite-grid claim.
+> See `INFERENCE_CERTIFICATION_IMPLEMENTATION_HANDOFF.md` and `THEORY.tex`.
 
 **Verdict: PASS.** The analytic construction is valid under its stated
 assumptions, the implementation reproduces the archived structural constants,
@@ -308,7 +310,9 @@ The frozen validation is recorded under
 `experiments/symmetry/outputs/t2b_ei_validation/`. Before any full-target
 calculation, it fixed:
 
-- the archived \(N=40\), OU, factor, mean, and action-domain parameters;
+- the committed clean-EI validation's \(N=40\), OU, factor, mean, and
+  action-domain parameters; its reference mean is not the archived notebook's
+  separate log-acquisition mean;
 - incumbent \(y^\star=0.50\);
 - EI tolerance \(0.01\), explicitly not the archived \(0.03\) log-acquisition
   tolerance;
@@ -353,7 +357,9 @@ changes.
 
 - Non-vacuity is demonstrated for one frozen mechanism regime, not across the
   full E1 repeated-trial and baseline program.
-- No finite-sample, adaptivity-safe inference allowance is supplied.
+- This dated validation supplies no finite-sample, adaptivity-safe inference
+  allowance; the later theory-ready construction has a separate prospective
+  pilot.
 - The action-grid refinement is not a rigorous continuous optimizer bound.
 - At this audit's baseline, the nonlinear-PDE T2-B construction remained
   unresolved; it was subsequently proved as noted above.

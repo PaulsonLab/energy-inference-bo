@@ -4,7 +4,7 @@ This repository studies how much structured information—such as symmetry, pref
 
 ## Status
 
-The project has a BO-first formulation, proved and regression-tested structural-influence constructions for the main symmetry and nonlinear-PDE factor families, and historical prototype evidence. The remaining technical blocker is a rigorous finite-sample inference-error construction for an end-to-end certificate; the broader experiment suite has not yet been cleanly reproduced.
+The project has a BO-first formulation, proved and regression-tested structural-influence constructions for the main symmetry and nonlinear-PDE factor families, and historical prototype evidence. The rigorous reflection-symmetry inference construction is theory-ready; its locked prospective finite-grid pilot is required before the remaining end-to-end empirical blocker can be closed. The broader experiment suite has not yet been cleanly reproduced.
 
 ## Project documents
 

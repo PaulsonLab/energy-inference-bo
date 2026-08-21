@@ -15,7 +15,7 @@
 %   T3 Full-action certificate:                  PROVED
 %   T4 Decision/conditioning separation:         PROVED under abstract assumptions
 %   T4 nonlinear-PDE mapping:                     PROVED FOR THIS FAMILY
-%   Rigorous inference instantiation:            BLOCKER for an end-to-end certified demo
+%   Rigorous symmetry inference construction:    THEORY READY --- PROSPECTIVE PILOT REQUIRED
 
 \section{Theory Ledger}
 \label{sec:theory-ledger}
@@ -414,8 +414,10 @@ supply its separate Monte Carlo and action-grid errors.
 The proposition resolves the analytic T2-B construction for the stated
 reflection-symmetry family whenever $A\succ0$, including the archived OU
 specialization above.  The nonlinear-PDE construction is proved separately in
-Proposition~T2-PDE below.  The rigorous inference and action-optimization terms
-required for an end-to-end T3 certificate remain separate.
+Proposition~T2-PDE below.  The rigorous finite-grid inference construction is
+supplied below.  Its prospective numerical non-vacuity remains a separate
+empirical gate; continuous-action optimization is outside that finite-grid
+claim.
 
 \paragraph{Main-paper use.}
 State Proposition~T2-SYM and Equation~\eqref{eq:symmetry-ei-bound} concisely.
@@ -936,23 +938,151 @@ confidence intervals with a union/confidence-sequence argument, or (ii)
 independent certification samples after candidate selection, with explicit
 allocation of the total failure probability across rounds.
 
-\paragraph{Recommended rigorous backend.}
-Use independent samples from the GP reference with importance weights
-$w_S(f)=\exp[-E_S(f)]$ after shifting the energy so that a known upper bound on
-the weights is available.  Estimate the numerator and normalizer separately and
-construct a ratio interval.  For EI, the numerator is unbounded but has known or
-bounded second moment under the Gaussian reference; use a finite-variance robust
-mean estimator (e.g. median-of-means/Catoni) rather than an unjustified bounded
-Hoeffding interval.  A lower confidence bound on the normalizer is required.  If
-that lower bound is nonpositive, the certificate is inconclusive and inference
-must be refined.
+\paragraph{Status.}
+\textbf{THEORY READY --- PROSPECTIVE PILOT REQUIRED.}  The construction below
+supersedes the earlier proposed GP-reference importance-sampling ratio interval
+for the flagship reflection-symmetry certificate.  Its ingredients are standard
+rejection sampling and standard strong-log-concavity concentration; neither is
+claimed as sampler novelty.  The remaining blocker is the locked prospective
+test of whether the resulting finite-sample allowance is numerically small
+enough for a sparse end-to-end T3 certificate.
 
-\paragraph{BLOCKER I1.}
-Implement and validate one complete finite-sample inference-error construction
-for a finite action grid.  Practical ESS, HMC/NUTS standard errors, SMC particle
-diagnostics, or FlowGP/LatentFlow discretization diagnostics can remain
-empirical elsewhere, but they do not substitute for this flagship certified
-instantiation.
+\paragraph{Exact active-target samples.}
+In the reflection-symmetry construction, let
+\[
+  Y=(Y_1,\ldots,Y_N)\sim\gamma=\mathcal N(m,Q^{-1})
+\]
+under the reference law and define
+\[
+  E_S(y)=\sum_{j\in S}\gamma_j
+  \log\cosh\!\left(\frac{f(r_j)-f(-r_j)}{\tau_j}\right).
+\]
+Because every $\gamma_j\ge0$, $\tau_j>0$, and $\log\cosh z\ge0$,
+$0<\exp[-E_S(y)]\le1$.  Draw $Y\sim\gamma$ and an independent
+$U\sim\operatorname{Uniform}(0,1)$, accepting if
+\begin{equation}
+  \log U\le-E_S(Y).
+  \label{eq:symmetry-rejection-rule}
+\end{equation}
+For every measurable set $B$, the joint proposal/acceptance probability is
+\[
+  \Pr_\gamma(Y\in B,\ \mathrm{accept})
+  =\int_B e^{-E_S(y)}\gamma(dy).
+\]
+Conditioning on acceptance therefore gives exactly
+\[
+  \mu_S(dy)=Z_S^{-1}e^{-E_S(y)}\gamma(dy),
+  \qquad Z_S=\mathbb E_\gamma[e^{-E_S(Y)}].
+\]
+Successive accepted proposals are exact independent draws from $\mu_S$.
+
+\paragraph{Rao--Blackwellized EI gaps.}
+For an action $x$, retain the conditional GP law and write
+\[
+  f(x)\mid Y=y\sim\mathcal N(\mu_x(y),\sigma_x^2),
+  \qquad
+  \mu_x(y)=m(x)+a_x^\top(y-m),
+  \qquad a_x=Qk_{Yx}.
+\]
+Let $\bar u_x(y)$ be the closed-form conditional EI and
+$\bar F_{x,\widehat x}=\bar u_x-\bar u_{\widehat x}$.  For a fresh accepted
+batch $Y^{(1)},\ldots,Y^{(n)}$,
+\begin{equation}
+  \widehat G_S(x,\widehat x)
+  =\frac1n\sum_{\ell=1}^n
+   \bar F_{x,\widehat x}(Y^{(\ell)}).
+  \label{eq:rb-ei-gap-mean}
+\end{equation}
+The same accepted batch is used for the leader and every challenger, so the
+confidence analysis is for the gap observable itself rather than two separate
+acquisition estimates.
+
+\paragraph{Whitened Lipschitz geometry.}
+The active-target potential is
+\[
+  V_S(y)=\tfrac12(y-m)^\top Q(y-m)+E_S(y).
+\]
+Every reflection factor is convex.  With $y=m+Q^{-1/2}z$, the whitened
+potential satisfies
+\[
+  \nabla_z^2 V_S\succeq I.
+\]
+Bakry--\'Emery therefore gives a unit log-Sobolev constant, and Herbst's
+argument gives Gaussian concentration for functions Lipschitz in $z$.
+
+For EI, $\nabla_y\bar u_x=p a_x$ for some $p\in[0,1]$, including the weak
+derivative convention at zero conditional variance.  Thus the whitened
+gradient of an EI gap is $Q^{-1/2}(p a_x-q a_{\widehat x})$ for
+$p,q\in[0,1]$.  This rectangle is the convex hull of
+$0,a_x,-a_{\widehat x},a_x-a_{\widehat x}$, so convexity of the norm gives the
+valid constant
+\begin{equation}
+\Lambda_Q(x,\widehat x)=
+\begin{cases}
+0, & x=\widehat x,\\
+\max\!\left\{
+\sqrt{a_x^\top Q^{-1}a_x},
+\sqrt{a_{\widehat x}^\top Q^{-1}a_{\widehat x}},
+\sqrt{(a_x-a_{\widehat x})^\top Q^{-1}(a_x-a_{\widehat x})}
+\right\}, & x\ne\widehat x.
+\end{cases}
+\label{eq:ei-q-lipschitz}
+\end{equation}
+Every quadratic form in Equation~\eqref{eq:ei-q-lipschitz} is computed by
+solving $Qz=v$, never by forming $Q^{-1}$.  This precision $Q$ is distinct from
+the Menz comparison matrix $A$ in the structural term.
+
+\paragraph{Finite-sample simultaneous radius.}
+The product law of $n$ independent accepted samples has the corresponding
+tensorized log-Sobolev inequality.  The sample mean in
+Equation~\eqref{eq:rb-ei-gap-mean} is
+$\Lambda_Q(x,\widehat x)/\sqrt n$-Lipschitz in the whitened product space, so
+\[
+  \Pr\!\left(
+  |\widehat G_S-G_S|>t\mid\mathcal H_r
+  \right)
+  \le2\exp\!\left[-\frac{nt^2}{2\Lambda_Q^2}\right],
+\]
+where $\mathcal H_r$ is the history before the fresh round-$r$ batch.  For a
+finite grid of $K$ actions and at most $R_{\max}$ certification rounds, use
+\begin{equation}
+  B_{\mathrm{infer}}^{(r)}(x,\widehat x)
+  =\Lambda_Q(x,\widehat x)
+   \sqrt{\frac{2}{n_r}
+   \log\!\left(\frac{2KR_{\max}}{\delta}\right)}.
+  \label{eq:finite-sample-inference-radius}
+\end{equation}
+The factor two is the two-sided tail allocation.  For the locked pilot,
+$K=401$, $R_{\max}=15$, and $\delta=0.05$, giving
+\[
+  \log(2KR_{\max}/\delta)=12.390891082522716.
+\]
+
+\paragraph{Adaptivity and finite-grid T3 interface.}
+Condition on $\mathcal H_r$ after the working stage fixes $S_r$ and
+$\widehat x_r$.  The round-specific certification stream is independent of
+$\mathcal H_r$, so the preceding simultaneous $K$-action bound holds
+conditionally with failure probability at most $\delta/R_{\max}$.  If the
+batch influences later factor activation it becomes part of the next history
+and is expended; after an active-set or leader change a new independent child
+stream is mandatory.  Iterated conditioning and a union bound over the at most
+$R_{\max}$ reached rounds give total failure probability at most $\delta$.
+
+Consequently, on the resulting event, the exhaustive finite-grid quantity
+\begin{equation}
+ U_{\mathrm{cert}}
+ =\max_{x\in\mathcal X_{\mathrm{grid}}}
+ \left\{
+ \widehat G_S(x,\widehat x)
+ +B_{\mathrm{infer}}(x,\widehat x)
+ +B_{\mathrm{struct}}(x,\widehat x)
+ \right\}
+ \label{eq:finite-grid-u-cert}
+\end{equation}
+has $\eta_{\mathrm{opt}}=0$ and is a valid T3 upper bound on full-conditioned
+regret over the stated grid.  The construction does not certify a continuous
+action domain and does not transfer automatically to HMC, SMC, FlowGP,
+importance sampling, or any other inference backend.
 
 % -----------------------------------------------------------------------------
 \subsection{Canonical algorithm implied by T1--T3}
@@ -999,8 +1129,10 @@ challengers to one current leader through a single optimistic envelope.
     \item[T4] Abstract proof complete.  The nonlinear-PDE expanding-domain
           mapping is \textbf{PROVED FOR THIS FAMILY}; no theorem claim is made
           that the adaptive experiment must choose exactly $M=40$.
-    \item[Inference] Produce one finite-sample, adaptivity-safe
-          $B_{\mathrm{infer}}$.  \textbf{BLOCKER for an end-to-end certified claim.}
+    \item[Inference] The exact rejection-sampling and whitened finite-sample
+          construction is complete.  \textbf{THEORY READY --- PROSPECTIVE
+          PILOT REQUIRED}; empirical end-to-end status remains open until the
+          locked pilot is run.
     \item[Continuous factors] Derive as a corollary only if used experimentally.
           Supplement.
 \end{description}
