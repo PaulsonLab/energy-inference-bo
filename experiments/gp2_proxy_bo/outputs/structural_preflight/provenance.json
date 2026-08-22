@@ -1,0 +1,15 @@
+{
+  "completed_at_utc": "2026-08-22T17:18:11.939560+00:00",
+  "config_sha256": "332107f9a6c98af7135d627d39ea6883e3c2098d87feb5cdb0446a23151f78cc",
+  "details": {},
+  "git_branch": "main",
+  "git_sha": "1e81cd1c0f2ffe3c8d5347fdd1dd0007c2a5ff96",
+  "git_status_before_run": "",
+  "reason": "proxy factor count 47 is below 75",
+  "run_id": "gp2_e3_structural_preflight",
+  "started_at_utc": "2026-08-22T17:18:11.862466+00:00",
+  "target_leakage_audit": {
+    "heldout_target_magnitudes_saved_printed_ranked_plotted_or_correlated": false
+  },
+  "verdict": "PREPROCESSING_INVALID"
+}

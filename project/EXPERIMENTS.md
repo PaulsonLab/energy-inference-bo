@@ -32,7 +32,7 @@ separately from decision-time rich-conditioning inference in runtime claims.
 |---|---|---|---|---|
 | E1 | Nonlocal reflection symmetry | Mechanism + certificate figure | EXISTING EVIDENCE; T2-B PASS; prospective finite-sample pilot PASS; repeats/baselines remain | MacBook Air |
 | E2 | Nonlinear PDE expanding-domain scaling | Main scaling / inference consequence | EXISTING EVIDENCE; T2-B and family T4 PASS; needs robustness + baselines | Colab A100 |
-| E3 | Preference-conditioned sequential BO | Main end-to-end non-PDE BO test | TWO PROSPECTIVE SYNTHETIC PILOTS FAILED-P2 (P1 and performance passed; sparsity failed; final suite deferred) | MacBook Air / A100 sweeps |
+| E3 | Preference-conditioned sequential BO | Main end-to-end non-PDE BO test | TWO SYNTHETIC PILOTS FAILED-P2; REAL GP2 P1 PREPROCESSING INVALID; GP2 PROXY STRUCTURAL PREFLIGHT PREPROCESSING INVALID / GP2 ABANDONED | MacBook Air / A100 sweeps |
 | E4 | Linear PDE factor graph | Supplementary control | EXISTING EVIDENCE | MacBook Air / A100 sweeps |
 | A1 | Factor-selection ablations | Supplement / supports E1--E3 | PLANNED | Mixed |
 | A2 | Inference/sampler comparison | Supplement / modularity | PLANNED | A100 |
@@ -387,12 +387,32 @@ time, and selected-factor geometry.
 
 ## E3 — Preference-conditioned sequential BO
 
-**Status:** `FAILED-P2` for both the preregistered eight-factor minimal gate and
-the separately preregistered 24-factor redundant-bank gate. In both, P1 and P2
-performance passed while P2 sparsity failed. The full E3 baseline suite remains
-planned and was intentionally deferred.
+**Status:** `FAILED-P2` for both synthetic pilots; the real Gp2
+pairwise-preference P1 preprocessing gate and the final target-blind Gp2 proxy
+structural preflight were both `PREPROCESSING_INVALID`. Gp2 is abandoned as E3.
 
 **Paper claim tested:** C1--C3 in an end-to-end BO loop; establishes relevance beyond PDE/physics examples.
+
+### Gp2 target-blind proxy structural preflight — 2026-08-22
+
+**Status:** `PREPROCESSING_INVALID / GP2_ABANDONED` under the frozen outcome
+precedence.  The run used preregistration commit
+`1e81cd1c0f2ffe3c8d5347fdd1dd0007c2a5ff96` and config SHA-256
+`332107f9a6c98af7135d627d39ea6883e3c2098d87feb5cdb0446a23151f78cc`.
+Historical scaling/calibration retained 122/122 rows, with
+`mu_hist=0.545069487314983`, `s_hist=0.8996485618240223`, OOF RMSE
+`0.8970674391373464`, and `s_proxy=0.49457920033844893`.  The test-only action
+library had 279 actions in one connected 1,785-edge Hamming 8-NN component,
+but only 47 actions had both frozen proxy means, for factor coverage
+`0.16845878136200718`.  This failed the preregistered minimum of 75 factors
+(and also the 40% coverage minimum).  The terminal precedence therefore
+stopped before constructing theory matrices or any `R_0.05` distribution; no
+BO or inference was implemented or run.  The immutable failure record is in
+[`../experiments/gp2_proxy_bo/outputs/structural_preflight/`](../experiments/gp2_proxy_bo/outputs/structural_preflight/).
+
+**Interpretation / next action:** abandon Gp2 as E3 without another
+reformulation or rescue attempt.  Preserve the earlier Gp2 pairwise-preference
+P1 negative record unchanged.
 
 ### Minimal preference-BO phenomenon pilot — 2026-08-21
 

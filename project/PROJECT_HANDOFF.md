@@ -346,6 +346,16 @@ Do not let the manuscript become a paper about covariance inequalities with BO a
 
 ## Immediate execution gates
 
+### CLOSED — Gp2 rejected as E3
+
+The preregistered target-blind Gp2 proxy structural preflight at commit
+`1e81cd1c0f2ffe3c8d5347fdd1dd0007c2a5ff96` terminated with
+`PREPROCESSING_INVALID`: the connected 279-action library supplied only 47
+candidate-local proxy factors (16.85% coverage), below the frozen minimums of
+75 factors and 40% coverage.  No theory matrices, structural-sparsity
+distribution, inference, or BO were run.  Gp2 is abandoned as E3; its earlier
+pairwise-preference P1 negative result remains unchanged.
+
 ### CLOSED — structural influence validity
 
 Reflection symmetry and the nonlinear-PDE family now have proved concrete

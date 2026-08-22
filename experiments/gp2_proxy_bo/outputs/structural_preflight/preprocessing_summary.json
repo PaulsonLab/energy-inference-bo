@@ -1,0 +1,5 @@
+{
+  "details": {},
+  "reason": "proxy factor count 47 is below 75",
+  "verdict": "PREPROCESSING_INVALID"
+}
