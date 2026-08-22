@@ -1,0 +1,7 @@
+# Direct dependencies for the isolated Python 3.12 descriptor/graph runtime.
+# Resolve with the command recorded at the top of requirements-colab-graph.txt.
+matminer==0.10.1
+numpy==2.3.5
+pandas==2.3.3
+scikit-learn==1.9.0
+scipy==1.18.0

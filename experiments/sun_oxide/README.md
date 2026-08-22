@@ -49,3 +49,18 @@ python3 experiments/sun_oxide/gw_oracle.py write
 The terminal benchmark verdict is `PASS_CURRENT_NLR_BENCHMARK`. This does not
 alter the historical `JOIN_AMBIGUOUS` verdict and is not evidence for the paper
 method.
+
+## Pending descriptor/reference-graph compatibility gate
+
+[`colab_descriptor_graph.ipynb`](colab_descriptor_graph.ipynb) is the
+installation-safe Colab handoff for the next narrow gate. It creates an
+isolated Python 3.12 environment from the fully pinned
+[`requirements-colab-graph.txt`](requirements-colab-graph.txt), constructs the
+frozen 132-dimensional Magpie composition descriptors, builds the deterministic
+10-NN-plus-MST graph, checks the sparse graph-Gaussian reference precision, and
+maps the 191 actions to latent nodes.
+
+This gate is `PENDING_COLAB`: no 2,142-row descriptor calculation or result is
+committed yet. The implementation does not read GW values or use PBE values for
+descriptor or graph construction, and it contains no preference-factor,
+influence, inference, or BO code.

@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "gate_name": "CURRENT_NLR_PBE_GW_V1_DESCRIPTOR_GRAPH",
+  "status": "PENDING_COLAB",
+  "benchmark": {
+    "name": "CURRENT_NLR_PBE_GW_V1",
+    "manifest": "experiments/sun_oxide/benchmark/benchmark_manifest.json",
+    "legacy_table": "experiments/sun_oxide/benchmark/current_nlr_legacy.csv",
+    "action_table": "experiments/sun_oxide/benchmark/current_nlr_gw_actions.csv",
+    "expected_legacy_rows": 2142,
+    "expected_actions": 191
+  },
+  "environment": {
+    "python_major_minor": "3.12",
+    "requirements_input": "experiments/sun_oxide/requirements-colab-graph.in",
+    "requirements_lock": "experiments/sun_oxide/requirements-colab-graph.txt",
+    "required_versions": {
+      "matminer": "0.10.1",
+      "numpy": "2.3.5",
+      "pandas": "2.3.3",
+      "scikit-learn": "1.9.0",
+      "scipy": "1.18.0"
+    },
+    "recorded_transitive_packages": [
+      "monty",
+      "pymatgen",
+      "pymatgen-core",
+      "sympy"
+    ]
+  },
+  "descriptor": {
+    "class": "matminer.featurizers.composition.ElementProperty",
+    "preset_name": "magpie",
+    "impute_nan": true,
+    "expected_feature_count": 132,
+    "expected_shape": [2142, 132],
+    "preserve_constant_columns": true,
+    "row_order": "exact committed current_nlr_legacy.csv order"
+  },
+  "standardization": {
+    "class": "sklearn.preprocessing.StandardScaler",
+    "parameters": {},
+    "scope": "graph construction only",
+    "overwrite_raw_descriptors": false
+  },
+  "graph": {
+    "distance": "euclidean",
+    "knn_k": 10,
+    "knn_tie_break": [
+      "smaller_distance",
+      "lexicographically_smaller_composition_key"
+    ],
+    "mst": "complete standardized Euclidean descriptor graph",
+    "mst_tie_break": [
+      "smaller_distance",
+      "lexicographically_smaller_first_endpoint_key",
+      "lexicographically_smaller_second_endpoint_key"
+    ],
+    "final_graph": "unweighted undirected union of symmetrized directed 10-NN choices and MST",
+    "expected_connected_components": 1,
+    "allow_isolated_nodes": false
+  },
+  "reference": {
+    "definition": "Q0 = I + L_sym; L_sym = I - D^(-1/2) W D^(-1/2)",
+    "sparse_format": "csr",
+    "symmetry_tolerance": 1e-12,
+    "sign_tolerance": 1e-14,
+    "eigenvalue_tolerance": 1e-8,
+    "smallest_eigenvalue_lower_bound": 1.0,
+    "largest_eigenvalue_upper_bound": 3.0,
+    "solve_relative_residual_max": 1e-10,
+    "solve_right_hand_sides": [
+      "ones",
+      "linear_minus_one_to_one",
+      "sinusoid_index_times_sqrt_two"
+    ],
+    "dense_inverse_forbidden": true
+  },
+  "outputs": [
+    "RESULTS.md",
+    "descriptor_matrix.npz",
+    "descriptor_manifest.json",
+    "graph_edges.csv",
+    "graph_summary.json",
+    "q0_sparse.npz",
+    "action_node_map.csv",
+    "environment_freeze.txt",
+    "run_summary.json"
+  ],
+  "terminal_success": "PASS_DESCRIPTOR_GRAPH_COLAB",
+  "terminal_failures": [
+    "DESCRIPTOR_COMPATIBILITY_BLOCKED",
+    "GRAPH_COMPATIBILITY_BLOCKED",
+    "INSTALLATION_BLOCKED",
+    "IMPLEMENTATION_BLOCKED"
+  ]
+}
