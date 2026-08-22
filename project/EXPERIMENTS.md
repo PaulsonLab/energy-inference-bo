@@ -13,6 +13,19 @@
 5. **Use the same inference backend across factor-selection baselines when possible.** Otherwise improvements can be attributed to sampler differences rather than decision-directed conditioning.
 6. **Every experiment has a failure statement.** If the stated failure occurs, weaken or remove the corresponding claim rather than adding ad hoc tests.
 
+### Reference-model calibration policy
+
+Experiments that isolate decision-relevant conditioning must use the same
+hyperparameter values, or the same prospectively specified calibration
+protocol, across compared methods; full and adaptive conditioning must not
+differ because of unrelated hyperparameter fits. Record the hyperparameter and
+calibration policy with every experiment. For the initial preference-informed
+BO pilot, fixed shared hyperparameters are acceptable and preferable because
+the purpose is to isolate whether preference conditioning is useful and
+screenable; no factor-aware hyperparameter-learning experiment is required. If
+a final experiment performs nontrivial hyperparameter fitting, report that cost
+separately from decision-time rich-conditioning inference in runtime claims.
+
 ## Experiment registry
 
 | ID | Experiment | Paper role | Status | Compute |

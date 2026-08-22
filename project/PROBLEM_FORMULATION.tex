@@ -18,12 +18,30 @@ At BO iteration $t$, let
 \]
 denote the data collected so far, and let
 \[
-    P_{0,t}(df) = p(df\mid \mathcal D_t)
+    P_{0,t,\theta}(df) = p_\theta(df\mid \mathcal D_t)
 \]
-be a tractable reference law for the unknown objective $f$.  In the main paper
+be a tractable reference law for the unknown objective $f$, where $\theta$
+collects the GP/kernel/likelihood hyperparameters.  We suppress $\theta$ and
+write $P_{0,t}$ when it is fixed.  In the main paper
 $P_{0,t}$ is a Gaussian-process posterior, although the theory only requires the
 latent-Gaussian representation specified below when the structural influence
 bound is instantiated.
+
+\paragraph{Reference-model calibration scope.}
+All subsequent conditioning and certification statements are conditional on
+the supplied reference model $P_{0,t,\theta}$ at the current BO decision.  The
+framework is agnostic to whether $\theta$ was pretrained or fixed, fitted from
+ordinary BO observations, calibrated offline or periodically using the
+structured factors, learned jointly with those factors, or obtained by an
+approximate procedure.  In particular, genuine likelihood factors may inform
+$\theta$ in a fully joint probabilistic model; learning or approximating
+$\theta$ lies upstream of the present decision-conditioning guarantees.  If
+factor-aware calibration itself requires expensive non-Gaussian inference, the
+method does not remove that cost: its computational claim is only that it can
+reduce the amount of rich-conditioning inference required to determine each BO
+action, conditional on the calibrated reference model.  Calibration may in
+practice be fixed, amortized, warm-started, or less frequent than acquisition
+decisions, but those policies are not analyzed here.
 
 The action domain is $\mathcal X$.  For a BO utility $u_x(f)$, the reference
 acquisition is

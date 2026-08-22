@@ -29,6 +29,13 @@ Gaussian vector $Y$, $\bar F_{x,\widehat x}
 =\mathbb E_{P_{0,t}}[F_{x,\widehat x}\mid Y]$ denotes the Rao--Blackwellized
 gap observable.
 
+\paragraph{Reference-model scope.}
+T1--T4 are conditional on the reference law $P_{0,t,\theta}$ and therefore on
+the hyperparameters used to define it.  If $\theta$ is updated, the relevant
+reference covariance or precision and the concrete influence construction must
+be recomputed.  The current theory does not bound errors arising from
+approximate or factor-subsampled hyperparameter learning.
+
 % -----------------------------------------------------------------------------
 \subsection{T1: Exact acquisition-gap transport}
 

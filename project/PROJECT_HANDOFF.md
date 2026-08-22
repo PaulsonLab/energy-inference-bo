@@ -71,6 +71,13 @@ The desired output is an action \(\widehat x\) satisfying
 
 without performing full conditioned inference when only a smaller, decision-specific subset of factors matters.
 
+### Locked reference-model scope
+
+Each decision-certification problem treats the supplied GP/reference
+hyperparameters as fixed. Their upstream calibration is outside scope, although
+structured factors may inform that calibration in a fully joint model. This is
+not a remaining paper blocker or a new workstream.
+
 ## Current thesis
 
 > **In Bayesian optimization with richly structured conditioning, the next query can often be determined using only a decision-specific subset of the available information; for screenable factorized latent-Gaussian models, we can adaptively identify enough of that information to certify the action relative to the fully conditioned acquisition.**
