@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "run_id": "gp2_e3_p1_gate",
+  "status": "preregistered_frozen",
+  "external_data": {
+    "repository": "HackelLab-UMN/DevRep",
+    "commit": "e05023a8abe7be6c2e22f42d523b20bd76cd8da5",
+    "raw_base_url": "https://raw.githubusercontent.com/HackelLab-UMN/DevRep",
+    "cache_directory": "data/external/gp2_devrep/e05023a8abe7be6c2e22f42d523b20bd76cd8da5",
+    "files": [
+      {
+        "path": "datasets/assay_to_yield_training_sequences.csv",
+        "sha256": "4b2c1697798764eb6c76c9297c77d5e36b548cb0a6bf44b376edfea065beb52f"
+      },
+      {
+        "path": "datasets/test_sequences.csv",
+        "sha256": "eab318cf049552706ad9feb28e2cbf144b457b618135652a5bea2af7aee0a9c2"
+      }
+    ]
+  },
+  "target_column": "SH_Average_bc",
+  "preference": {
+    "assays": [
+      "Sort1",
+      "Sort8"
+    ],
+    "excluded_assays": [
+      "Sort10"
+    ],
+    "replicates_per_assay": 3,
+    "vote": "strict_2_of_3_with_zero_abstention",
+    "tau_pref": 1.0,
+    "factor_weights": "none"
+  },
+  "preprocessing": {
+    "duplicate_rtol": 1e-12,
+    "duplicate_atol": 1e-12,
+    "minimum_action_count": 250,
+    "minimum_largest_component_fraction": 0.9,
+    "minimum_factor_count": 1000,
+    "target_values_allowed_only_for_finite_row_filter": true
+  },
+  "graph": {
+    "distance": "unweighted_hamming",
+    "k": 8,
+    "directed_neighbor_tie_break": [
+      "hamming_distance_ascending",
+      "paratope_lexicographic_ascending",
+      "canonical_candidate_index_ascending"
+    ],
+    "undirected_construction": "union_of_directed_knn_choices"
+  },
+  "reference": {
+    "latent_prior_precision": "identity_plus_symmetric_normalized_laplacian",
+    "identity_coefficient": 1.0,
+    "normalized_laplacian_coefficient": 1.0,
+    "target_scaling": "five_initial_observations_only_fixed_for_trajectory",
+    "target_scaling_ddof": 1,
+    "target_scaling_minimum_standard_deviation": 1e-06,
+    "observation_noise_standard_deviation": 0.05,
+    "hyperparameter_fitting": false
+  },
+  "bo": {
+    "methods": [
+      "scalar_only",
+      "full_preference"
+    ],
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "initial_action_count": 5,
+    "initialization": "np.random.default_rng(seed).choice(N_actions,size=5,replace=False)",
+    "post_initial_horizon": 5,
+    "synthetic_observation_noise": false,
+    "repeated_actions": false,
+    "acquisition": "expected_improvement_on_standardized_latent_yield",
+    "action_optimization": "exhaustive_unobserved_finite_actions"
+  },
+  "laplace": {
+    "dtype": "float64",
+    "gradient_infinity_norm_tolerance": 1e-08,
+    "maximum_newton_iterations": 60,
+    "backtracking_line_search": true
+  },
+  "inference": {
+    "method": "laplace_preconditioned_self_normalized_importance_sampling",
+    "scientific_draw_schedule": [
+      8192,
+      16384,
+      32768,
+      65536
+    ],
+    "smoke_draw_schedule": [
+      1024,
+      2048,
+      4096
+    ],
+    "minimum_ess_fraction": 0.2,
+    "maximum_split_half_ei_discrepancy": 0.01,
+    "split_half_streams": "independent",
+    "draw_stage_streams": "independent",
+    "draw_chunk_size": 512,
+    "factor_chunk_size": 128,
+    "unreliable_at_schedule_cap": "INCONCLUSIVE_NUMERICAL"
+  },
+  "smoke": {
+    "seed": 0,
+    "post_initial_horizon": 2,
+    "scientific_gate_evaluated": false
+  },
+  "primary_metric": {
+    "name": "r_5",
+    "definition": "(f_star-best_of_five_initial_plus_five_bo)/(f_star-f_min)",
+    "aggregation": "paired_seed_medians",
+    "relative_median_improvement_threshold": 0.25,
+    "scalar_ceiling_outcome": "GATE_UNINFORMATIVE_SCALAR_CEILING"
+  },
+  "outcome_precedence": [
+    "PREPROCESSING_INVALID",
+    "IMPLEMENTATION_BLOCKED",
+    "INCONCLUSIVE_NUMERICAL",
+    "GATE_UNINFORMATIVE_SCALAR_CEILING",
+    "PASS",
+    "FAIL_P1"
+  ],
+  "provenance": {
+    "project_repository": "https://github.com/PaulsonLab/energy-inference-bo",
+    "branch": "main",
+    "gate_design_commit": "4f9b4c1f5349d52dc7799dd4b5229aae9f03d1c7",
+    "implementation_starting_commit": "5e9ed896956a937c0ed24e58b17499699e7734ad",
+    "handoff_path": "project/E3_GP2_P1_GATE_HANDOFF.md",
+    "config_hash_recording": "computed_from_exact_file_bytes_in_every_output_provenance_record"
+  }
+}

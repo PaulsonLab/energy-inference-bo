@@ -1,0 +1,11 @@
+{
+  "config_sha256": "56cf2ab3e9d6a97b39d75b55161054924eab2e5b0c153880c87c5fbe96e93dc8",
+  "criteria": {
+    "candidate_count_at_least_250": false,
+    "factor_count_at_least_1000": true,
+    "factor_provenance_sort1_sort8_only": true,
+    "graph_factor_generation_target_blind_by_interface": true,
+    "largest_component_at_least_90_percent": true
+  },
+  "verdict": "PREPROCESSING_INVALID"
+}

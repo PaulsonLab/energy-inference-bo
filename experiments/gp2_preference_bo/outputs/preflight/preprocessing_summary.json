@@ -1,0 +1,61 @@
+{
+  "canonical_candidate_count_before_component_rule": 169,
+  "component_was_restricted": false,
+  "duplicate_group_count": 0,
+  "duplicate_row_count": 0,
+  "endpoint_factor_degree_summary": {
+    "maximum": 81,
+    "mean": 24.59171597633136,
+    "median": 21.0,
+    "minimum": 13
+  },
+  "factor_count_by_assay": {
+    "Sort1": 998,
+    "Sort8": 1080
+  },
+  "filtering_counts": {
+    "after_SH_Average_bc_filter": 401,
+    "after_Sort1_1_score_filter": 202,
+    "after_Sort1_2_score_filter": 181,
+    "after_Sort1_3_score_filter": 172,
+    "after_Sort8_1_score_filter": 170,
+    "after_Sort8_2_score_filter": 170,
+    "after_Sort8_3_score_filter": 169,
+    "after_paratope_filter": 731,
+    "after_stop_filter": 731,
+    "rows_with_finite_SH_Average_bc": 401,
+    "rows_with_finite_Sort1_1_score": 354,
+    "rows_with_finite_Sort1_2_score": 326,
+    "rows_with_finite_Sort1_3_score": 326,
+    "rows_with_finite_Sort8_1_score": 387,
+    "rows_with_finite_Sort8_2_score": 389,
+    "rows_with_finite_Sort8_3_score": 385,
+    "rows_with_present_paratope": 731,
+    "rows_with_stop_false": 731,
+    "union_rows": 731
+  },
+  "final_candidate_count": 169,
+  "graph_component_count_before_rule": 1,
+  "graph_component_sizes_before_rule": [
+    169
+  ],
+  "graph_edge_count": 1080,
+  "graph_k": 8,
+  "largest_component_fraction": 1.0,
+  "preprocessing_criteria": {
+    "candidate_count_at_least_250": false,
+    "factor_count_at_least_1000": true,
+    "factor_provenance_sort1_sort8_only": true,
+    "graph_factor_generation_target_blind_by_interface": true,
+    "largest_component_at_least_90_percent": true
+  },
+  "retained_rows_before_duplicates": 169,
+  "sequence_length": 16,
+  "sequence_length_check": true,
+  "source_row_counts": {
+    "datasets/assay_to_yield_training_sequences.csv": 195,
+    "datasets/test_sequences.csv": 536
+  },
+  "total_factor_count": 2078,
+  "verdict": "PREPROCESSING_INVALID"
+}
