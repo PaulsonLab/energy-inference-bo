@@ -108,6 +108,21 @@ Details: [`experiments/symmetry/`](../experiments/symmetry/) and its immutable
 Details: [`experiments/nonlinear_pde/`](../experiments/nonlinear_pde/) and its
 immutable [`RESULTS.md`](../experiments/nonlinear_pde/outputs/t2b_structural_validation/RESULTS.md).
 
+### E3 — Sun oxide source gate
+
+- Source recovery closed with terminal verdict `JOIN_AMBIGUOUS`; this is a
+  data-provenance result, not evidence for the paper method.
+- Current authoritative queries reproduce 2,142 unique PBE compositions and
+  194 unique GW compositions, but only 193 overlap. Twenty-eight duplicate GW
+  compositions span multiple stable material families, and the current raw
+  source differs from the surviving author notebook evidence.
+- No normalized benchmark, descriptor matrix, factor design, inference, or BO
+  run was produced. Do not proceed unless exact historical assets or
+  authoritative row-resolving identifiers/structures are recovered.
+
+Details: [`experiments/sun_oxide/`](../experiments/sun_oxide/) and its immutable
+[`SOURCE_AUDIT.md`](../experiments/sun_oxide/outputs/source_recovery/SOURCE_AUDIT.md).
+
 ### E4 — linear PDE supplementary control
 
 Historical prototype evidence reports \(N=576\), \(M=50\), active/full
@@ -153,13 +168,13 @@ reproducible repeated mechanism/coverage experiment with its already specified
 random, Euclidean-local, and static baselines. Do not substitute a broad generic
 benchmark suite.
 
-When realistic E3 work resumes, the next candidate is the **Sun et al.
-PBE→GW oxide legacy-data problem**. This handoff records only that candidate;
-no experiment design, preregistration, code, directory, or run has begun.
-After E1, prospectively specify its claim, data provenance, full-target
-validation, and failure criterion before implementation. E2 robustness and
-the smallest necessary baselines follow the E3 gate; broad supplementary
-sampler/ablation work comes last.
+The Sun et al. oxide candidate must not advance beyond its closed
+`JOIN_AMBIGUOUS` source gate unless exact historical assets or authoritative
+row-resolving identifiers/structures are recovered. Do not rescue it by
+substituting another materials benchmark. Any different realistic-E3 candidate
+requires a new prospective decision. E2 robustness and the smallest necessary
+baselines remain later work; broad supplementary sampler/ablation work comes
+last.
 
 ## Operating rules
 

@@ -1,0 +1,48 @@
+{
+  "deterministic_order": [
+    "sorted_formula",
+    "mident"
+  ],
+  "intended_columns": [
+    {
+      "name": "row_key",
+      "type": "string"
+    },
+    {
+      "name": "pbe_mident",
+      "type": "integer"
+    },
+    {
+      "name": "sorted_formula",
+      "type": "string"
+    },
+    {
+      "name": "final_space_group",
+      "type": "integer_or_null"
+    },
+    {
+      "name": "pbe_band_gap_ev",
+      "type": "finite_number"
+    },
+    {
+      "name": "gw_mident",
+      "type": "integer_or_null"
+    },
+    {
+      "name": "gw_band_gap_ev",
+      "type": "finite_number_or_null"
+    },
+    {
+      "name": "gw_parent_mident",
+      "type": "integer_or_null"
+    },
+    {
+      "name": "gw_family_mident",
+      "type": "integer_or_null"
+    }
+  ],
+  "note": "No normalized benchmark table was written because row identity is unresolved.",
+  "row_key": "matdb:<zero-padded-mident>",
+  "schema_version": 1,
+  "status": "NOT_EMITTED_JOIN_AMBIGUOUS"
+}

@@ -1,0 +1,49 @@
+{
+  "descriptor": {
+    "constructor_recovered": "ElementProperty.from_preset(preset_name=\"magpie\")",
+    "exact_matrix_recovered": false,
+    "matrix_shape": null,
+    "nonfinite_count": null,
+    "notebook_python_version": "3.6.3",
+    "status": "NOT_REACHED_UPSTREAM_JOIN_BLOCKED"
+  },
+  "gw": {
+    "duplicate_extra_rows": 50,
+    "duplicate_formula_groups": 28,
+    "duplicate_groups_multiple_families": 28,
+    "duplicate_groups_multiple_final_space_groups": 27,
+    "finite_rows": 244,
+    "raw_rows": 244,
+    "unique_compositions": 194
+  },
+  "historical_source_drift": {
+    "current_query_counts_for_same_compositions": {
+      "O2 Sn": 3,
+      "O2 Ti": 4
+    },
+    "detected": true,
+    "prefint_displayed_raw_head_counts": {
+      "O2 Sn": 2,
+      "O2 Ti": 3
+    }
+  },
+  "implementation_sha": "46a08e09bce33d2189f3f3666035a72e08e608cb",
+  "join": {
+    "mapped_unique_compositions": 193,
+    "missing_unique_composition_count": 1,
+    "missing_unique_compositions": [
+      "Cd O"
+    ],
+    "stable_one_to_one_join": false
+  },
+  "paper_method_evidence": false,
+  "pbe": {
+    "finite_rows": 5604,
+    "raw_rows": 5604,
+    "unique_compositions": 2142
+  },
+  "reason": "The exact 2142 and 194 composition counts are reproducible, but the current GW source differs from the pinned author's displayed raw rows, 28 GW compositions span multiple stable MatDB families, and only 193 current GW compositions occur in the finite-FERE 2142-composition set. The author's formula-only drop_duplicates operation cannot identify the historical polymorphs.",
+  "schema_version": 1,
+  "terminal": true,
+  "verdict": "JOIN_AMBIGUOUS"
+}

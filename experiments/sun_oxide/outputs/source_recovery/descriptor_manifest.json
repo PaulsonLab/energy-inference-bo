@@ -1,0 +1,22 @@
+{
+  "evidence": {
+    "blob": "3e57d7cc01d7884dd637266f41280a74c0891988",
+    "history_commit": "b06606772d08d57301583c51d045b75e67c42161",
+    "notebook_python_version": "3.6.3",
+    "path": "data/.ipynb_checkpoints/matminerpractice-checkpoint.ipynb",
+    "repository": "https://github.com/tsudalab/PrefInt",
+    "requested_commit": "b96a1eb0fc8667127d6fffffd92f8ee37b9641f5",
+    "sha256": "ffc392886e4bd2ed81d13b135cf353c58d393b5874788d185a7382b42d5df3f9"
+  },
+  "exact_matrix_recovered": false,
+  "exact_recovered_call": "ElementProperty.from_preset(preset_name=\"magpie\")",
+  "feature_names": null,
+  "featurization_call": "StrToComposition().featurize_dataframe(..., \"sorted formula\"); ElementProperty.from_preset(preset_name=\"magpie\").featurize_dataframe(..., col_id=\"composition\")",
+  "imputation_behavior": "Not established because descriptor reconstruction was not reached.",
+  "matrix_shape": null,
+  "nonfinite_count": null,
+  "published_dimension": 132,
+  "schema_version": 1,
+  "status": "NOT_REACHED_UPSTREAM_JOIN_BLOCKED",
+  "version_pin": "Not frozen because the upstream source/join gate failed."
+}

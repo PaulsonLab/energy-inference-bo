@@ -31,7 +31,7 @@ conditioning cost when nontrivial fitting is used.
 |---|---|---|---|
 | E1 | Nonlocal reflection symmetry | Main mechanism + certificate | `ACTIVE`; T2-B validation and finite-grid pilot passed; repeats/baselines remain |
 | E2 | Nonlinear PDE expanding-domain scaling | Main scaling/inference consequence | `ACTIVE`; T2-B and family T4 passed; robustness/baselines remain |
-| E3 | Realistic non-PDE sequential BO | Main end-to-end sequential test | `SOURCE RECOVERY ACTIVE`; Sun et al. PBE→GW oxide benchmark reconstruction only; no BO design is authorized |
+| E3 | Realistic non-PDE sequential BO | Main end-to-end sequential test | `SOURCE RECOVERY CLOSED — JOIN_AMBIGUOUS`; Sun oxide benchmark must not proceed without the exact historical source |
 | E4 | Linear PDE factor graph | Supplementary control | `EXISTING EVIDENCE / SUPPLEMENT` |
 | A1 | Factor-selection ablations | Supplement | `PLANNED` after primary pipelines |
 | A2 | Inference-backend comparison | Supplement/modularity | `PLANNED` after primary pipelines |
@@ -163,17 +163,31 @@ factors.
 
 ## E3 — Realistic non-PDE BO candidate
 
-**Status:** `SOURCE RECOVERY ACTIVE / BO NOT DESIGNED`.
+**Status:** `SOURCE RECOVERY CLOSED — JOIN_AMBIGUOUS / BO NOT DESIGNED`.
 
-The next realistic-E3 candidate is the **Sun et al. PBE→GW oxide legacy-data
-problem**. Only its source-recovery and benchmark-reconstruction gate is now
-active. Factor construction, inference, BO design, and performance baselines
-remain unauthorized until that gate closes.
+The **Sun et al. PBE→GW oxide legacy-data problem** failed its first
+source-recovery gate. The current authoritative NREL/NLR queries reproduce
+5,604 finite PBE rows / 2,142 unique compositions and 244 finite GW rows / 194
+unique compositions, but only 193 GW compositions overlap the finite-PBE set.
+The 28 duplicate GW composition groups all span multiple stable material
+families, and the live raw rows differ from the author's surviving PrefInt
+notebook evidence. The exact historical formula-only de-duplication therefore
+cannot be reconstructed without unresolved polymorph choices.
 
-Before implementation, a separate prospective specification must map the case
-to the locked sequential BO claim, establish data/licensing provenance and a
-credible full-target validation, and freeze a failure criterion. Do not reuse
-Gp2 or tune another synthetic preference bank as an E3 rescue.
+Terminal verdict: `JOIN_AMBIGUOUS`. Implementation commit
+`46a08e09bce33d2189f3f3666035a72e08e608cb`; immutable result:
+[`experiments/sun_oxide/outputs/source_recovery/SOURCE_AUDIT.md`](../experiments/sun_oxide/outputs/source_recovery/SOURCE_AUDIT.md).
+No normalized benchmark or descriptor matrix was emitted, and no target
+ranking, descriptor regeneration, factor construction, inference, BO design,
+or performance baseline was run. The case must not proceed unless the exact
+historical author CSV/matrix or authoritative identifiers/structures resolving
+every row are recovered; do not substitute another materials benchmark.
+
+If the source blocker is ever resolved, a separate prospective specification
+must precede any modeling implementation and map the case to the locked
+sequential BO claim, credible full-target validation, and a frozen failure
+criterion. Do not reuse Gp2 or tune another synthetic preference bank as an E3
+rescue.
 
 ### Closed E3 evidence
 
