@@ -443,7 +443,10 @@ def test_401_row_output_integrity(tmp_path: Path) -> None:
 
 def test_preregistered_contract_config_and_runner_are_frozen() -> None:
     repository_root = Path(__file__).resolve().parents[1]
-    handoff = repository_root / "project/INFERENCE_CERTIFICATION_IMPLEMENTATION_HANDOFF.md"
+    handoff = (
+        repository_root
+        / "project/archive/INFERENCE_CERTIFICATION_IMPLEMENTATION_HANDOFF.md"
+    )
     assert hashlib.sha256(handoff.read_bytes()).hexdigest() == (
         "ef55b6bbc55b6245b2ac5d619b2c1bc2d038aabe85132ed2150ad22169ad14b1"
     )

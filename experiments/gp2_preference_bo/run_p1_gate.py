@@ -114,7 +114,7 @@ def _provenance(
         "git_status_before_run": git_status_before,
         "config_path": str(config_path.relative_to(REPOSITORY_ROOT)),
         "config_sha256": config_hash,
-        "handoff_path": "project/E3_GP2_P1_GATE_HANDOFF.md",
+        "handoff_path": "project/archive/e3/E3_GP2_P1_GATE_HANDOFF.md",
         "external_repository": "HackelLab-UMN/DevRep",
         "external_commit": "e05023a8abe7be6c2e22f42d523b20bd76cd8da5",
         "external_files": [

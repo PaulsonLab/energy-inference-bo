@@ -27,7 +27,7 @@ certificate.
 
 T2-B reflection-symmetry verdict: **PASS**. The nonlinear-PDE construction was
 subsequently proved; see
-[`project/T2B_NONLINEAR_PDE_AUDIT.md`](../../project/T2B_NONLINEAR_PDE_AUDIT.md).
+[`project/reference/T2B_NONLINEAR_PDE_AUDIT.md`](../../project/reference/T2B_NONLINEAR_PDE_AUDIT.md).
 The exact-rejection/strong-log-concavity finite-sample inference construction
 and its locked prospective finite-grid pilot passed. The frozen configuration is
 [`configs/inference_certification_pilot.json`](configs/inference_certification_pilot.json)

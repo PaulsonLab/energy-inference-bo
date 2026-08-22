@@ -1,8 +1,12 @@
 # Gp2 E3 structural preflight
 
+Status: **CLOSED — `PREPROCESSING_INVALID / GP2_ABANDONED`**. The frozen run
+stopped at 47 proxy factors, below the minimum of 75. No theory matrices,
+structural distribution, inference, or BO were run.
+
 This directory implements only the frozen, target-blind structural preflight
 specified in
-[`../../project/E3_GP2_STRUCTURAL_PREFLIGHT_HANDOFF.md`](../../project/E3_GP2_STRUCTURAL_PREFLIGHT_HANDOFF.md).
+[`../../project/archive/e3/E3_GP2_STRUCTURAL_PREFLIGHT_HANDOFF.md`](../../project/archive/e3/E3_GP2_STRUCTURAL_PREFLIGHT_HANDOFF.md).
 It calibrates the fixed Sort1/Sort8 proxy model from the historical source,
 constructs test-only candidate-local proxy factors and the frozen Hamming
 8-NN graph, verifies the model-specific Menz specialization, and evaluates the
@@ -13,8 +17,7 @@ inference, adaptive conditioning, or the later scalar-only versus full-proxy
 comparison. Held-out `SH_Average_bc` magnitudes are unavailable to graph,
 factor, theory, and structural interfaces.
 
-After the implementation and tests are committed as a clean preregistration,
-run the real preflight exactly once:
+The real preflight was run exactly once from its clean preregistration with:
 
 ```bash
 python experiments/gp2_proxy_bo/run_structural_preflight.py

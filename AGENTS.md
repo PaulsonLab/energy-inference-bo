@@ -2,10 +2,19 @@
 
 ## Required reading
 
-Before scientific or code changes, read:
+Before scientific or code changes:
 
-- `project/PROJECT_HANDOFF.md`;
-- the source-of-truth file relevant to the task.
+1. read `project/PROJECT_HANDOFF.md`;
+2. read the active source-of-truth file relevant to the task:
+   `project/PAPER_STORY.md`, `project/PROBLEM_FORMULATION.tex`,
+   `project/THEORY.tex`, `project/EXPERIMENTS.md`, or
+   `project/RELATED_WORK.md`;
+3. for experiment work, also read `experiments/README.md` and the relevant
+   experiment directory's `README.md`/committed result record.
+
+Files under `project/reference/` and `project/archive/` are supporting audits
+and closed handoffs. They are not default required reading; consult them only
+when an active source links to them or the task concerns their provenance.
 
 ## Scientific discipline
 
@@ -36,6 +45,8 @@ Before scientific or code changes, read:
 - Do not launch large sweeps locally.
 - Full runs must print progress and save structured results.
 
-## Prototype rule
+## Prototype and provenance rule
 
-Files under `notebooks/prototypes/` are archival evidence. Do not silently edit them once added. Clean implementations belong under `src/` and `experiments/`.
+Files under `notebooks/prototypes/` and committed experiment output directories
+are archival evidence. Do not silently edit them once added. Clean
+implementations belong under `src/` and `experiments/`.

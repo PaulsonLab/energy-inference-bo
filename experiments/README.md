@@ -1,8 +1,37 @@
-# Experiment Registry
+# Experiment index
 
-This directory will hold clean, reproducible experiment drivers. The complete specifications, claims, and prospective failure criteria remain in [`project/EXPERIMENTS.md`](../project/EXPERIMENTS.md).
+Experiment directory paths are stable provenance and are not reorganized when
+their status changes. The current claims, prospective criteria, and execution
+order live in [`project/EXPERIMENTS.md`](../project/EXPERIMENTS.md).
 
-- **E1 — Nonlocal reflection symmetry:** existing evidence; needs reproduction, certification, and baselines. See the [E1 specification](../project/EXPERIMENTS.md#e1--nonlocal-reflection-symmetry) and [`symmetry/`](symmetry/).
-- **E2 — Nonlinear PDE expanding-domain scaling:** existing evidence; needs reproduction, robustness checks, and baselines. See the [E2 specification](../project/EXPERIMENTS.md#e2--nonlinear-pde-expanding-domain-scaling) and [`nonlinear_pde/`](nonlinear_pde/).
-- **E3 — Preference-conditioned sequential BO:** planned main end-to-end experiment. See the [E3 specification](../project/EXPERIMENTS.md#e3--preference-conditioned-sequential-bo) and [`preference_bo/`](preference_bo/).
-- **E4 — Linear PDE:** existing evidence; likely a supplement or control. See the [E4 specification](../project/EXPERIMENTS.md#e4--linear-pde-control) and [`linear_pde/`](linear_pde/).
+## Active main experiments
+
+| ID | Directory | Status | Canonical committed result |
+|---|---|---|---|
+| E1 | [`symmetry/`](symmetry/) | T2-B validation and finite-grid pilot passed; repeated coverage/baselines are next | [finite-grid `RESULTS.md`](symmetry/outputs/inference_certification_pilot/RESULTS.md) |
+| E2 | [`nonlinear_pde/`](nonlinear_pde/) | T2-B and family T4 passed; repeated scaling/baselines remain | [structural `RESULTS.md`](nonlinear_pde/outputs/t2b_structural_validation/RESULTS.md) |
+
+## Planned main candidate
+
+E3's next realistic candidate is the Sun et al. PBE→GW oxide legacy-data
+problem. It has not been designed or implemented, so there is intentionally no
+experiment directory yet. See the [E3 registry entry](../project/EXPERIMENTS.md#e3--realistic-non-pde-bo-candidate).
+
+## Supplementary
+
+| ID | Directory | Status |
+|---|---|---|
+| E4 | [`linear_pde/`](linear_pde/) | Historical prototype control; clean main-paper expansion is not planned |
+
+## Closed negative experiments
+
+| Directory | Exact terminal status | Canonical committed record |
+|---|---|---|
+| [`preference_bo/`](preference_bo/) | Both synthetic pilots `FAIL-P2`; value/performance gates passed, sparsity gates failed | [minimal](preference_bo/outputs/minimal_pilot/RESULTS.md), [redundant bank](preference_bo/outputs/redundant_bank_pilot/RESULTS.md) |
+| [`gp2_preference_bo/`](gp2_preference_bo/) | `PREPROCESSING_INVALID`; no scientific P1 comparison ran | [`PREPROCESSING_INVALID.json`](gp2_preference_bo/outputs/preflight/PREPROCESSING_INVALID.json) |
+| [`gp2_proxy_bo/`](gp2_proxy_bo/) | `PREPROCESSING_INVALID / GP2_ABANDONED`; no theory matrix, inference, or BO ran | [`RESULTS.md`](gp2_proxy_bo/outputs/structural_preflight/RESULTS.md) |
+
+All committed configs, outputs, failed/intermediate attempts, and scientific
+code are preserved in their original directories. Status text embedded inside
+an immutable old output records the state at run time; use the current registry
+for present status.

@@ -297,7 +297,10 @@ def test_immutable_output_directory_refuses_overwrite(tmp_path: Path) -> None:
 
 
 def test_handoff_copy_is_byte_identical_to_attachment() -> None:
-    repository_copy = REPOSITORY_ROOT / "project/E3_GP2_STRUCTURAL_PREFLIGHT_HANDOFF.md"
+    repository_copy = (
+        REPOSITORY_ROOT
+        / "project/archive/e3/E3_GP2_STRUCTURAL_PREFLIGHT_HANDOFF.md"
+    )
     attachment = Path("/Users/joelpaulson/Downloads/E3_GP2_STRUCTURAL_PREFLIGHT_HANDOFF.md")
     if attachment.exists():
         assert repository_copy.read_bytes() == attachment.read_bytes()

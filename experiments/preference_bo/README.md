@@ -1,10 +1,16 @@
 # E3 — Preference-Conditioned Sequential BO
 
+Status: **CLOSED — both synthetic pilots `FAIL-P2`**. Their preference-value
+and performance gates passed, but their preregistered sparsity gates failed.
+Do not tune or rerun them; the next realistic-E3 candidate is tracked separately
+in [`project/EXPERIMENTS.md`](../../project/EXPERIMENTS.md#e3--realistic-non-pde-bo-candidate).
+
 The minimal phenomenon pilot is preregistered in
-[`../../project/E3_PREFERENCE_BO_PILOT_HANDOFF.md`](../../project/E3_PREFERENCE_BO_PILOT_HANDOFF.md)
+[`../../project/archive/e3/E3_PREFERENCE_BO_PILOT_HANDOFF.md`](../../project/archive/e3/E3_PREFERENCE_BO_PILOT_HANDOFF.md)
 and frozen in [`configs/minimal_pilot.json`](configs/minimal_pilot.json). It runs
 exactly scalar-only GP-EI, full preference-informed GP-EI, and adaptive
-preference-informed GP-EI. The broader final-E3 baseline suite remains deferred.
+preference-informed GP-EI. This is a preserved closed protocol, not the active
+E3 plan.
 
 Run the reduced numerical smoke profile first:
 
@@ -25,7 +31,7 @@ diagnostics, not rigorous finite-sample certificates.
 ## Redundant-bank follow-up
 
 The separate 24-edge follow-up is preregistered in
-[`../../project/E3_PREFERENCE_BO_REDUNDANT_BANK_PILOT_HANDOFF.md`](../../project/E3_PREFERENCE_BO_REDUNDANT_BANK_PILOT_HANDOFF.md)
+[`../../project/archive/e3/E3_PREFERENCE_BO_REDUNDANT_BANK_PILOT_HANDOFF.md`](../../project/archive/e3/E3_PREFERENCE_BO_REDUNDANT_BANK_PILOT_HANDOFF.md)
 and frozen in
 [`configs/redundant_bank_pilot.json`](configs/redundant_bank_pilot.json). It
 retains the same BO problem and exactly the same three methods, but uses 24

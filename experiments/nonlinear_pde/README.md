@@ -5,7 +5,7 @@ existing scaling evidence still requires clean reproduction, robustness checks,
 and baselines. See the
 [E2 specification](../../project/EXPERIMENTS.md#e2--nonlinear-pde-expanding-domain-scaling)
 and the permanent
-[proof audit](../../project/T2B_NONLINEAR_PDE_AUDIT.md).
+[proof audit](../../project/reference/T2B_NONLINEAR_PDE_AUDIT.md).
 
 The lightweight structural regression is
 [`run_structural_validation.py`](run_structural_validation.py). Its frozen

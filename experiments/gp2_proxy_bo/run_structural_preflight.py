@@ -41,7 +41,7 @@ from conditioned_bo.gp2_proxy_bo import (  # noqa: E402
 EXPERIMENT_DIRECTORY = Path(__file__).resolve().parent
 DEFAULT_CONFIG = EXPERIMENT_DIRECTORY / "configs" / "structural_preflight.json"
 OUTPUT_DIRECTORY = EXPERIMENT_DIRECTORY / "outputs" / "structural_preflight"
-HANDOFF_PATH = "project/E3_GP2_STRUCTURAL_PREFLIGHT_HANDOFF.md"
+HANDOFF_PATH = "project/archive/e3/E3_GP2_STRUCTURAL_PREFLIGHT_HANDOFF.md"
 REQUIRED_OUTPUTS = {
     "frozen_config.json",
     "provenance.json",
