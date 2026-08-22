@@ -1,0 +1,77 @@
+{
+  "branch": "main",
+  "config_sha256": "5c53c8de7144d1d0bc3a66b1ca4233b2c17811f726e977e1a5c90f103140b260",
+  "config_source_path": "experiments/preference_bo/configs/redundant_bank_pilot.json",
+  "first_pilot_verdict_preserved": "FAIL-P2",
+  "frozen_config_output_path": "experiments/preference_bo/outputs/redundant_bank_pilot/frozen_config.json",
+  "handoff_path": "project/E3_PREFERENCE_BO_REDUNDANT_BANK_PILOT_HANDOFF.md",
+  "handoff_sha256": "fcc57e20e288b9ec6d0ae8aa22bf81a59ce904f8a66885ccaa7509aa559f9bdf",
+  "head_commit_at_execution": "b68525952f58693461ac32d4658a8d611a594706",
+  "main_commit_at_execution": "b68525952f58693461ac32d4658a8d611a594706",
+  "matplotlib_version": "3.11.1",
+  "methods": [
+    "standard",
+    "full",
+    "adaptive"
+  ],
+  "numpy_version": "2.3.5",
+  "platform": "macOS-15.6.1-arm64-arm-64bit",
+  "post_initial_horizon": 6,
+  "preserved_attempts": [
+    {
+      "path": "experiments/preference_bo/outputs/redundant_bank_pilot_provenance_incomplete_attempt_002",
+      "status": "preserved incomplete output; not used for final gates"
+    },
+    {
+      "path": "experiments/preference_bo/outputs/redundant_bank_pilot_schema_incomplete_attempt_001",
+      "status": "preserved incomplete output; not used for final gates"
+    },
+    {
+      "path": "experiments/preference_bo/outputs/redundant_bank_pilot_smoke_provenance_incomplete_attempt_002",
+      "status": "preserved incomplete output; not used for final gates"
+    },
+    {
+      "path": "experiments/preference_bo/outputs/redundant_bank_pilot_smoke_schema_incomplete_attempt_001",
+      "status": "preserved incomplete output; not used for final gates"
+    }
+  ],
+  "prior_influence_regression": {
+    "checks": {
+      "condition_number": true,
+      "minimum_eigenvalue": true,
+      "minimum_row_dominance_margin": true,
+      "spd": true
+    },
+    "condition_number": 4.971352073782589,
+    "is_spd": true,
+    "minimum_eigenvalue": 3.728331299274427,
+    "minimum_row_dominance_margin": 3.4626638901604885
+  },
+  "profile": "frozen_pilot",
+  "python": "3.12.13 (main, Mar 10 2026, 18:18:07) [Clang 21.1.4 ]",
+  "remote_url": "https://github.com/PaulsonLab/energy-inference-bo.git",
+  "run_completed_utc": "2026-08-22T03:31:53.435965+00:00",
+  "run_id": "redundant_bank_pilot",
+  "run_started_utc": "2026-08-22T03:31:23.375114+00:00",
+  "runner_path": "experiments/preference_bo/run_redundant_bank_pilot.py",
+  "scientific_configuration_unchanged": true,
+  "scipy_version": "1.16.3",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "shared_runner_path": "experiments/preference_bo/run_minimal_pilot.py",
+  "starting_git_commit": "b68525952f58693461ac32d4658a8d611a594706",
+  "wall_time_seconds": 30.060566582949832,
+  "worktree_status_at_completion": "M experiments/preference_bo/run_minimal_pilot.py\n M src/conditioned_bo/preference_bo.py\n M src/conditioned_bo/preference_influence.py\n M tests/test_preference_bo.py\n M tests/test_preference_influence.py\n?? experiments/preference_bo/configs/redundant_bank_pilot.json\n?? experiments/preference_bo/outputs/redundant_bank_pilot/\n?? experiments/preference_bo/outputs/redundant_bank_pilot_provenance_incomplete_attempt_002/\n?? experiments/preference_bo/outputs/redundant_bank_pilot_schema_incomplete_attempt_001/\n?? experiments/preference_bo/outputs/redundant_bank_pilot_smoke/\n?? experiments/preference_bo/outputs/redundant_bank_pilot_smoke_provenance_incomplete_attempt_002/\n?? experiments/preference_bo/outputs/redundant_bank_pilot_smoke_schema_incomplete_attempt_001/\n?? experiments/preference_bo/run_redundant_bank_pilot.py\n?? project/E3_PREFERENCE_BO_REDUNDANT_BANK_PILOT_HANDOFF.md"
+}

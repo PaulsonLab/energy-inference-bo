@@ -21,6 +21,7 @@ from numpy.typing import ArrayLike, NDArray
 from scipy.special import expit, logsumexp, ndtr
 
 from conditioned_bo.preference_influence import (
+    ComparisonDiagnostics,
     comparison_diagnostics,
     comparison_matrix_from_precision,
     ei_decision_footprint,
@@ -28,7 +29,11 @@ from conditioned_bo.preference_influence import (
     factor_sensitivity_matrix,
     omitted_factor_load,
     preference_blocks,
+    preference_graph_degrees,
     ranked_omitted_contributions,
+    scalar_comparison_matrix_from_precision,
+    scalar_factor_sensitivity_matrix,
+    scalar_preference_blocks,
     structural_bound,
 )
 
@@ -52,6 +57,9 @@ REQUIRED_TRAJECTORY_FIELDS = {
     "active_factor_indices",
     "M_t",
     "N",
+    "active_factor_fraction",
+    "cumulative_factor_ratio_through_iteration",
+    "R_factors",
     "cumulative_final_active_factor_use",
     "raw_factor_likelihood_evaluation_count",
     "decision_factor_likelihood_evaluation_count",
@@ -60,10 +68,18 @@ REQUIRED_TRAJECTORY_FIELDS = {
     "inference_ess",
     "inference_ess_fraction",
     "inference_wall_time_seconds",
+    "laplace_converged",
+    "laplace_mode_iterations",
+    "laplace_gradient_infinity_norm",
+    "maximum_split_half_ei_discrepancy",
     "heldout_full_target_sample_count",
     "heldout_full_target_ess",
     "heldout_full_target_ess_fraction",
     "heldout_full_target_wall_time_seconds",
+    "heldout_laplace_converged",
+    "heldout_laplace_mode_iterations",
+    "heldout_laplace_gradient_infinity_norm",
+    "heldout_maximum_split_half_ei_discrepancy",
     "selected_action_acquisition_estimate",
     "structural_bound_at_worst_challenger",
     "empirical_inference_allowance",
@@ -187,7 +203,65 @@ def load_frozen_config(path: str | Path) -> dict[str, Any]:
         raise ValueError("the frozen pilot must contain standard/full/adaptive only")
     if config["scalar_observations"].get("screened") is not False:
         raise ValueError("scalar observations must never be screened")
+    preference = config["preference_bank"]
+    pairs = np.asarray(preference["endpoint_index_pairs"], dtype=np.int64)
+    if pairs.shape != (int(preference["factor_count"]), 2):
+        raise ValueError("preference factor count and endpoint pairs do not match")
+    if np.any(pairs[:, 0] == pairs[:, 1]):
+        raise ValueError("preference endpoints must be distinct")
+    if preference.get("edges_unique"):
+        undirected = {tuple(sorted((int(left), int(right)))) for left, right in pairs}
+        if len(undirected) != pairs.shape[0]:
+            raise ValueError("preference edges must be unique")
+    if "expected_grid_degree" in preference:
+        expected_degree = np.asarray(
+            preference["expected_grid_degree"], dtype=np.int64
+        )
+        actual_degree = preference_graph_degrees(
+            pairs, int(config["action_grid"]["count"])
+        )
+        if not np.array_equal(actual_degree, expected_degree):
+            raise ValueError("preference graph degrees do not match the frozen config")
     return config
+
+
+def preference_influence_components(
+    config: Mapping[str, Any], precision: ArrayLike
+) -> tuple[
+    tuple[IntArray, ...],
+    FloatArray,
+    FloatArray,
+    ComparisonDiagnostics,
+]:
+    """Construct the configured block geometry, sensitivities, and Menz matrix."""
+
+    matrix_q = np.asarray(precision, dtype=float)
+    pairs = np.asarray(
+        config["preference_bank"]["endpoint_index_pairs"], dtype=np.int64
+    )
+    temperature = float(config["preference_bank"]["temperature"])
+    partition = config["influence"].get(
+        "block_partition", "symmetric_matching_blocks"
+    )
+    if partition == "one_scalar_block_per_latent_grid_coordinate":
+        blocks = scalar_preference_blocks(matrix_q.shape[0])
+        sensitivities = scalar_factor_sensitivity_matrix(
+            pairs, matrix_q.shape[0], temperature
+        )
+        comparison, _, _ = scalar_comparison_matrix_from_precision(
+            matrix_q, pairs, temperature
+        )
+    elif partition == "symmetric_matching_blocks":
+        blocks = preference_blocks(matrix_q.shape[0])
+        metadata = factor_block_metadata(pairs, blocks)
+        sensitivities = factor_sensitivity_matrix(
+            metadata, len(blocks), temperature
+        )
+        comparison, _, _ = comparison_matrix_from_precision(matrix_q, blocks)
+    else:
+        raise ValueError(f"unsupported preference block partition: {partition}")
+    diagnostics = comparison_diagnostics(comparison)
+    return blocks, sensitivities, comparison, diagnostics
 
 
 def numerical_settings_from_config(
@@ -804,10 +878,14 @@ def _trajectory_row(
     inference_ess: float | None,
     inference_ess_fraction: float | None,
     inference_wall_time: float,
+    laplace_result: LaplaceResult | None,
+    maximum_split_half_discrepancy: float | None,
     heldout_sample_count: int | None,
     heldout_ess: float | None,
     heldout_ess_fraction: float | None,
     heldout_wall_time: float | None,
+    heldout_laplace_result: LaplaceResult | None,
+    heldout_maximum_split_half_discrepancy: float | None,
     selected_acquisition: float,
     structural_bound_value: float | None,
     inference_allowance: float | None,
@@ -816,6 +894,7 @@ def _trajectory_row(
 ) -> dict[str, Any]:
     best_true = float(objective[np.asarray(observed_indices, dtype=int)].max())
     simple_regret = float(objective.max() - best_true)
+    factor_count = int(config["preference_bank"]["factor_count"])
     return {
         "method": method,
         "seed": seed_input.seed,
@@ -831,9 +910,12 @@ def _trajectory_row(
         "t_0_10": None,
         "active_factor_indices": json.dumps(sorted(int(i) for i in active_factors)),
         "M_t": len(tuple(active_factors)),
-        "N": int(config["preference_bank"]["factor_count"]),
+        "N": factor_count,
+        "active_factor_fraction": len(tuple(active_factors)) / factor_count,
         "cumulative_factor_use_through_iteration": None,
         "cumulative_final_active_factor_use": None,
+        "cumulative_factor_ratio_through_iteration": None,
+        "R_factors": None,
         "raw_factor_likelihood_evaluation_count": int(raw_factor_evaluations),
         "decision_factor_likelihood_evaluation_count": int(
             decision_factor_evaluations
@@ -845,10 +927,40 @@ def _trajectory_row(
         "inference_ess": inference_ess,
         "inference_ess_fraction": inference_ess_fraction,
         "inference_wall_time_seconds": float(inference_wall_time),
+        "laplace_converged": (
+            None if laplace_result is None else bool(laplace_result.converged)
+        ),
+        "laplace_mode_iterations": (
+            None if laplace_result is None else int(laplace_result.iterations)
+        ),
+        "laplace_gradient_infinity_norm": (
+            None
+            if laplace_result is None
+            else float(laplace_result.gradient_infinity_norm)
+        ),
+        "maximum_split_half_ei_discrepancy": maximum_split_half_discrepancy,
         "heldout_full_target_sample_count": heldout_sample_count,
         "heldout_full_target_ess": heldout_ess,
         "heldout_full_target_ess_fraction": heldout_ess_fraction,
         "heldout_full_target_wall_time_seconds": heldout_wall_time,
+        "heldout_laplace_converged": (
+            None
+            if heldout_laplace_result is None
+            else bool(heldout_laplace_result.converged)
+        ),
+        "heldout_laplace_mode_iterations": (
+            None
+            if heldout_laplace_result is None
+            else int(heldout_laplace_result.iterations)
+        ),
+        "heldout_laplace_gradient_infinity_norm": (
+            None
+            if heldout_laplace_result is None
+            else float(heldout_laplace_result.gradient_infinity_norm)
+        ),
+        "heldout_maximum_split_half_ei_discrepancy": (
+            heldout_maximum_split_half_discrepancy
+        ),
         "selected_action_acquisition_estimate": float(selected_acquisition),
         "structural_bound_at_worst_challenger": structural_bound_value,
         "empirical_inference_allowance": inference_allowance,
@@ -867,11 +979,17 @@ def _finalize_method_rows(
     rows: list[dict[str, Any]], config: Mapping[str, Any]
 ) -> None:
     cumulative = 0
+    factor_count = int(config["preference_bank"]["factor_count"])
     for row in rows:
         cumulative += int(row["M_t"])
         row["cumulative_factor_use_through_iteration"] = cumulative
+        row["cumulative_factor_ratio_through_iteration"] = cumulative / (
+            int(row["bo_iteration"]) * factor_count
+        )
+    final_ratio = cumulative / (len(rows) * factor_count)
     for row in rows:
         row["cumulative_final_active_factor_use"] = cumulative
+        row["R_factors"] = final_ratio
     metric = config["primary_metric"]
     _complete_t_metric(
         rows,
@@ -964,10 +1082,14 @@ def run_standard_trajectory(
                 inference_ess=None,
                 inference_ess_fraction=None,
                 inference_wall_time=0.0,
+                laplace_result=None,
+                maximum_split_half_discrepancy=None,
                 heldout_sample_count=None,
                 heldout_ess=None,
                 heldout_ess_fraction=None,
                 heldout_wall_time=None,
+                heldout_laplace_result=None,
+                heldout_maximum_split_half_discrepancy=None,
                 selected_acquisition=float(acquisition[selected]),
                 structural_bound_value=None,
                 inference_allowance=None,
@@ -1151,10 +1273,16 @@ def _run_full_method(
                 inference_ess=inference.ess,
                 inference_ess_fraction=inference.ess_fraction,
                 inference_wall_time=inference.wall_time_seconds,
+                laplace_result=inference.laplace,
+                maximum_split_half_discrepancy=(
+                    inference.maximum_split_half_discrepancy
+                ),
                 heldout_sample_count=None,
                 heldout_ess=None,
                 heldout_ess_fraction=None,
                 heldout_wall_time=None,
+                heldout_laplace_result=None,
+                heldout_maximum_split_half_discrepancy=None,
                 selected_acquisition=float(inference.acquisition[selected]),
                 structural_bound_value=0.0,
                 inference_allowance=None,
@@ -1181,11 +1309,6 @@ def _run_adaptive_method(
         config["preference_bank"]["endpoint_index_pairs"], dtype=np.int64
     )
     temperature = float(config["preference_bank"]["temperature"])
-    blocks = preference_blocks(grid.size)
-    metadata = factor_block_metadata(pairs, blocks)
-    factor_sensitivities = factor_sensitivity_matrix(
-        metadata, len(blocks), temperature
-    )
     tolerance = float(config["method_contract"]["adaptive"]["screening_tolerance"])
     working_config = config["importance_sampling"]["adaptive_working"]
     minimum_ess = float(working_config["minimum_ess_fraction"])
@@ -1201,10 +1324,14 @@ def _run_adaptive_method(
         posterior = _posterior_from_history(
             config, grid, observed_indices, observed_values
         )
-        comparison, _, _ = comparison_matrix_from_precision(
-            posterior.precision, blocks
+        (
+            blocks,
+            factor_sensitivities,
+            comparison,
+            diagnostics,
+        ) = preference_influence_components(
+            config, posterior.precision
         )
-        diagnostics = comparison_diagnostics(comparison)
         if not diagnostics.is_spd:
             raise RuntimeError("preference comparison matrix is not SPD")
         incumbent_before = float(max(observed_values))
@@ -1498,10 +1625,16 @@ def _run_adaptive_method(
                 inference_wall_time=(
                     decision_wall_time + heldout.wall_time_seconds
                 ),
+                laplace_result=laplace,
+                maximum_split_half_discrepancy=None,
                 heldout_sample_count=heldout.draws,
                 heldout_ess=heldout.ess,
                 heldout_ess_fraction=heldout.ess_fraction,
                 heldout_wall_time=heldout.wall_time_seconds,
+                heldout_laplace_result=heldout.laplace,
+                heldout_maximum_split_half_discrepancy=(
+                    heldout.maximum_split_half_discrepancy
+                ),
                 selected_acquisition=float(final_acquisition[selected]),
                 structural_bound_value=final_bound,
                 inference_allowance=final_allowance,
@@ -1605,12 +1738,16 @@ def run_seed(
 def evaluate_gates(
     t_values_by_method: Mapping[str, Sequence[int]],
     adaptive_factor_ratios: Sequence[float],
+    *,
+    p2_sparsity_threshold: float = 0.65,
 ) -> dict[str, Any]:
     """Evaluate P1/P2 with the preregistered precedence and thresholds."""
 
     required = {"standard", "full", "adaptive"}
     if set(t_values_by_method) != required:
         raise ValueError("gate input must contain exactly standard/full/adaptive")
+    if not 0.0 <= p2_sparsity_threshold <= 1.0:
+        raise ValueError("P2 sparsity threshold must lie in [0, 1]")
     medians = {
         method: float(np.median(np.asarray(values, dtype=float)))
         for method, values in t_values_by_method.items()
@@ -1618,7 +1755,7 @@ def evaluate_gates(
     median_ratio = float(np.median(np.asarray(adaptive_factor_ratios, dtype=float)))
     p1_pass = medians["full"] <= medians["standard"] - 1.0
     p2_performance_pass = medians["adaptive"] <= medians["full"] + 1.0
-    p2_sparsity_pass = median_ratio <= 0.65
+    p2_sparsity_pass = median_ratio <= p2_sparsity_threshold
     p2_pass = p2_performance_pass and p2_sparsity_pass
     if not p1_pass:
         verdict = "FAIL-P1"
@@ -1631,6 +1768,7 @@ def evaluate_gates(
         "median_t_0_10_full": medians["full"],
         "median_t_0_10_adaptive": medians["adaptive"],
         "median_adaptive_factor_ratio": median_ratio,
+        "p2_sparsity_threshold": float(p2_sparsity_threshold),
         "p1_pass": bool(p1_pass),
         "p2_performance_pass": bool(p2_performance_pass),
         "p2_sparsity_pass": bool(p2_sparsity_pass),
@@ -1698,6 +1836,7 @@ __all__ = [
     "ou_covariance",
     "preference_energy_batch",
     "prepare_pilot_inputs",
+    "preference_influence_components",
     "run_seed",
     "run_standard_trajectory",
     "select_unobserved_argmax",

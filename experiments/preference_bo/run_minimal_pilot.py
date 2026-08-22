@@ -30,12 +30,15 @@ from conditioned_bo.preference_bo import (
     action_grid,
     active_set_turnover,
     evaluate_gates,
+    gp_reference_posterior,
     load_frozen_config,
     numerical_settings_from_config,
     prepare_pilot_inputs,
+    preference_influence_components,
     run_seed,
     validate_trajectory_rows,
 )
+from conditioned_bo.preference_influence import preference_graph_degrees
 
 
 CONFIG_PATH = Path(__file__).resolve().parent / "configs" / "minimal_pilot.json"
@@ -83,6 +86,13 @@ def _preference_bank_rows(
     pairs = np.asarray(
         config["preference_bank"]["endpoint_index_pairs"], dtype=int
     )
+    degrees = preference_graph_degrees(pairs, grid.size)
+    protocols = config["preference_bank"].get("protocols", {})
+    protocol_by_factor = {
+        int(factor_index): protocol
+        for protocol, payload in protocols.items()
+        for factor_index in payload["factor_indices"]
+    }
     rows: list[dict[str, Any]] = []
     for seed_input in prepared_inputs:
         for factor_index, (left, right) in enumerate(pairs):
@@ -94,6 +104,9 @@ def _preference_bank_rows(
                     "right_action_index": int(right),
                     "left_x": float(grid[left]),
                     "right_x": float(grid[right]),
+                    "protocol": protocol_by_factor.get(factor_index),
+                    "left_graph_degree": int(degrees[left]),
+                    "right_graph_degree": int(degrees[right]),
                     "preference_sign": int(
                         seed_input.preference_signs[factor_index]
                     ),
@@ -200,6 +213,16 @@ def _mechanical_checks(
     horizon: int,
 ) -> dict[str, bool]:
     methods = {row["method"] for row in trajectory_rows}
+    pairs = np.asarray(
+        config["preference_bank"]["endpoint_index_pairs"], dtype=int
+    )
+    undirected_edges = {
+        tuple(sorted((int(left), int(right)))) for left, right in pairs
+    }
+    graph_degrees = preference_graph_degrees(
+        pairs, int(config["action_grid"]["count"])
+    )
+    expected_degrees = config["preference_bank"].get("expected_grid_degree")
     adaptive_terminal = {
         (int(row["seed"]), int(row["bo_iteration"]))
         for row in refinement_rows
@@ -243,6 +266,14 @@ def _mechanical_checks(
             row["screened_factor_source"]
             == "historical_preference_bank_only"
             for row in trajectory_rows
+        ),
+        "preference_edges_unique": len(undirected_edges) == pairs.shape[0],
+        "preference_graph_degree_matches_config": expected_degrees is None
+        or np.array_equal(graph_degrees, np.asarray(expected_degrees, dtype=int)),
+        "preference_graph_declared_index_only": bool(
+            config["preference_bank"].get(
+                "graph_construction_depends_only_on_grid_indices", True
+            )
         ),
     }
     return checks
@@ -295,6 +326,29 @@ def _inference_summary(
                     if row["method"] == method
                 }
             ),
+            "laplace_all_converged": all(
+                bool(row["laplace_converged"])
+                for row in trajectory_rows
+                if row["method"] == method
+            ),
+            "maximum_laplace_gradient_infinity_norm": float(
+                max(
+                    float(row["laplace_gradient_infinity_norm"])
+                    for row in trajectory_rows
+                    if row["method"] == method
+                )
+            ),
+            "maximum_split_half_ei_discrepancy": (
+                None
+                if method == "adaptive"
+                else float(
+                    max(
+                        float(row["maximum_split_half_ei_discrepancy"])
+                        for row in trajectory_rows
+                        if row["method"] == method
+                    )
+                )
+            ),
         }
     heldout_regrets = np.asarray(
         [
@@ -333,6 +387,25 @@ def _inference_summary(
                 for row in trajectory_rows
                 if row["method"] == "adaptive"
             }
+        ),
+        "laplace_all_converged": all(
+            bool(row["heldout_laplace_converged"])
+            for row in trajectory_rows
+            if row["method"] == "adaptive"
+        ),
+        "maximum_laplace_gradient_infinity_norm": float(
+            max(
+                float(row["heldout_laplace_gradient_infinity_norm"])
+                for row in trajectory_rows
+                if row["method"] == "adaptive"
+            )
+        ),
+        "maximum_split_half_ei_discrepancy": float(
+            max(
+                float(row["heldout_maximum_split_half_ei_discrepancy"])
+                for row in trajectory_rows
+                if row["method"] == "adaptive"
+            )
         ),
         "exact_action_agreement_count": exact_agreement,
         "decision_count": len(heldout_groups),
@@ -406,7 +479,24 @@ def _failure_diagnosis(
     }
 
 
-def _next_action(verdict: str) -> str:
+def _next_action(verdict: str, run_id: str) -> str:
+    if run_id == "redundant_bank_pilot":
+        if verdict == "PASS":
+            return (
+                "Treat the preliminary E3 phenomenon as sufficiently supported "
+                "and next design one realistic larger preference-informed BO "
+                "case; do not run more synthetic tuning."
+            )
+        if verdict == "FAIL-P1":
+            return (
+                "Preserve that the redundant bank did not retain the preference-"
+                "value phenomenon and do not retune this synthetic bank."
+            )
+        return (
+            "Preserve the failed redundant-bank gate and do not design another "
+            "synthetic bank in this task; the PDE experiments remain the stronger "
+            "setting for the sparsity/scaling claim."
+        )
     if verdict == "PASS":
         return (
             "Proceed to the deferred full E3 baseline suite without changing this "
@@ -430,6 +520,7 @@ def _make_diagnostic(
     trajectory_rows: list[dict[str, Any]],
     horizon: int,
     n_factors: int,
+    sparsity_threshold: float,
 ) -> None:
     figure, axes = plt.subplots(1, 2, figsize=(10, 4), constrained_layout=True)
     iterations = np.arange(1, horizon + 1)
@@ -496,7 +587,9 @@ def _make_diagnostic(
         color=colors["adaptive"],
         alpha=0.16,
     )
-    axes[1].axhline(0.65, color="black", linestyle="--", linewidth=1)
+    axes[1].axhline(
+        sparsity_threshold, color="black", linestyle="--", linewidth=1
+    )
     axes[1].set_ylim(0.0, 1.03)
     axes[1].set_xlabel("Post-initial scalar BO iteration")
     axes[1].set_ylabel("Adaptive active fraction $M_t/N$")
@@ -530,7 +623,7 @@ def _results_markdown(summary: dict[str, Any]) -> str:
         if diagnosis
         else ""
     )
-    return f"""# E3 Preference-BO Minimal Pilot Results
+    return f"""# {summary['result_title']}
 
 Profile: `{summary['profile']}`
 
@@ -561,11 +654,18 @@ def run(
     *,
     smoke: bool = False,
     output_directory: Path | None = None,
+    config_path: Path = CONFIG_PATH,
+    default_output_directory: Path = DEFAULT_OUTPUT_DIRECTORY,
+    default_smoke_output_directory: Path = DEFAULT_SMOKE_OUTPUT_DIRECTORY,
+    result_title: str = "E3 Preference-BO Minimal Pilot Results",
+    entrypoint_path: Path | None = None,
 ) -> dict[str, Any]:
-    """Execute one immutable smoke or full pilot output directory."""
+    """Execute one immutable smoke or full preference-pilot output directory."""
 
-    config = load_frozen_config(CONFIG_PATH)
-    config_bytes = CONFIG_PATH.read_bytes()
+    config_path = config_path.resolve()
+    entrypoint = (entrypoint_path or Path(__file__)).resolve()
+    config = load_frozen_config(config_path)
+    config_bytes = config_path.read_bytes()
     config_sha256 = hashlib.sha256(config_bytes).hexdigest()
     starting_commit = str(config["provenance"]["starting_git_commit"])
     current_main = _git_output("rev-parse", "main")
@@ -575,15 +675,58 @@ def run(
             "current main/HEAD no longer matches the frozen starting commit "
             f"({current_main=}, {current_head=}, {starting_commit=})"
         )
+    grid = action_grid(config)
+    gp = config["gp_reference"]
+    prior = gp_reference_posterior(
+        grid,
+        observed_indices=[],
+        observed_values=[],
+        kernel_amplitude=float(gp["kernel_amplitude"]),
+        kernel_lengthscale=float(gp["kernel_lengthscale"]),
+        observation_noise_standard_deviation=float(
+            gp["observation_noise_standard_deviation"]
+        ),
+    )
+    _, _, _, prior_influence = preference_influence_components(
+        config, prior.precision
+    )
+    regression = config["influence"]["prior_regression"]
+    regression_checks = {
+        "minimum_eigenvalue": np.isclose(
+            prior_influence.minimum_eigenvalue,
+            float(regression["minimum_eigenvalue_approximately"]),
+            rtol=0.0,
+            atol=5e-8,
+        ),
+        "condition_number": np.isclose(
+            prior_influence.condition_number,
+            float(regression["condition_number_approximately"]),
+            rtol=0.0,
+            atol=0.01 if config["run_id"] == "minimal_pilot" else 5e-7,
+        ),
+        "spd": prior_influence.is_spd,
+    }
+    if "minimum_row_dominance_margin_approximately" in regression:
+        regression_checks["minimum_row_dominance_margin"] = np.isclose(
+            prior_influence.minimum_row_dominance_margin,
+            float(regression["minimum_row_dominance_margin_approximately"]),
+            rtol=0.0,
+            atol=5e-8,
+        )
+    if not all(regression_checks.values()):
+        raise RuntimeError(
+            "frozen preference influence/SPD regression failed before execution: "
+            f"{regression_checks}"
+        )
     destination = output_directory or (
-        DEFAULT_SMOKE_OUTPUT_DIRECTORY if smoke else DEFAULT_OUTPUT_DIRECTORY
+        default_smoke_output_directory if smoke else default_output_directory
     )
     if destination.exists():
         raise RuntimeError(
             f"output directory already exists and will not be overwritten: {destination}"
         )
     destination.mkdir(parents=True)
-    shutil.copyfile(CONFIG_PATH, destination / "frozen_config.json")
+    shutil.copyfile(config_path, destination / "frozen_config.json")
     if hashlib.sha256((destination / "frozen_config.json").read_bytes()).hexdigest() != config_sha256:
         raise RuntimeError("frozen configuration copy changed bytes")
 
@@ -657,7 +800,13 @@ def run(
         next_action = "Run the unchanged full 12-seed frozen pilot."
         failure_diagnosis = None
     else:
-        gate_result = evaluate_gates(t_values, adaptive_ratios)
+        gate_result = evaluate_gates(
+            t_values,
+            adaptive_ratios,
+            p2_sparsity_threshold=float(
+                config["gates"].get("p2_sparsity_threshold", 0.65)
+            ),
+        )
         verdict = str(gate_result["verdict"])
         failure_diagnosis = _failure_diagnosis(
             verdict,
@@ -683,7 +832,7 @@ def run(
                 "conditioning did not satisfy both preregistered preservation "
                 "and sparsity conditions."
             )
-        next_action = _next_action(verdict)
+        next_action = _next_action(verdict, str(config["run_id"]))
 
     adaptive_counts = [
         int(row["M_t"])
@@ -709,13 +858,47 @@ def run(
     )
     summary: dict[str, Any] = {
         "run_id": config["run_id"],
+        "result_title": result_title,
+        "runner_path": str(entrypoint.relative_to(REPOSITORY_ROOT)),
         "profile": "smoke" if smoke else "frozen_pilot",
         "starting_git_commit": starting_commit,
-        "config_path": str(CONFIG_PATH.relative_to(REPOSITORY_ROOT)),
+        "config_path": str(config_path.relative_to(REPOSITORY_ROOT)),
         "config_sha256": config_sha256,
         "handoff_path": config["provenance"]["handoff_path"],
         "seeds": [item.seed for item in prepared],
         "methods": config["methods"],
+        "first_pilot_record": {
+            "run_id": config["provenance"].get("first_pilot_run_id"),
+            "verdict": config["provenance"].get("first_pilot_verdict"),
+            "config_sha256": config["provenance"].get(
+                "first_pilot_config_sha256"
+            ),
+            "unchanged_by_this_run": True,
+        },
+        "preference_graph": {
+            "edge_count": int(config["preference_bank"]["factor_count"]),
+            "endpoint_index_pairs": config["preference_bank"][
+                "endpoint_index_pairs"
+            ],
+            "degrees": preference_graph_degrees(
+                np.asarray(
+                    config["preference_bank"]["endpoint_index_pairs"], dtype=int
+                ),
+                int(config["action_grid"]["count"]),
+            ).tolist(),
+            "construction_depends_only_on_grid_indices": bool(
+                config["preference_bank"].get(
+                    "graph_construction_depends_only_on_grid_indices", True
+                )
+            ),
+        },
+        "prior_influence_regression": {
+            "minimum_eigenvalue": prior_influence.minimum_eigenvalue,
+            "minimum_row_dominance_margin": prior_influence.minimum_row_dominance_margin,
+            "condition_number": prior_influence.condition_number,
+            "is_spd": prior_influence.is_spd,
+            "checks": {key: bool(value) for key, value in regression_checks.items()},
+        },
         "post_initial_horizon": horizon,
         "scientific_gates_evaluated": not smoke,
         "t_0_10_by_method": t_values,
@@ -730,6 +913,10 @@ def run(
             "mean_M_t": float(np.mean(adaptive_counts)),
             "median_scientific_factor_ratio": float(np.median(adaptive_ratios)),
             "total_adaptive_final_active_factor_use": int(sum(adaptive_counts)),
+            "M_t_distribution": {
+                str(value): int(adaptive_counts.count(value))
+                for value in sorted(set(adaptive_counts))
+            },
         },
         "factor_set_turnover_diagnostic": {
             "consecutive_turnover_values": turnovers,
@@ -764,7 +951,11 @@ def run(
     )
     (destination / "RESULTS.md").write_text(_results_markdown(summary))
     _make_diagnostic(
-        destination / "diagnostic.png", trajectory_rows, horizon, n_factors
+        destination / "diagnostic.png",
+        trajectory_rows,
+        horizon,
+        n_factors,
+        float(config["gates"].get("p2_sparsity_threshold", 0.65)),
     )
 
     provenance = {
@@ -776,7 +967,7 @@ def run(
         "branch": _git_output("branch", "--show-current"),
         "worktree_status_at_completion": _git_output("status", "--short"),
         "remote_url": _git_output("remote", "get-url", "origin"),
-        "config_source_path": str(CONFIG_PATH.relative_to(REPOSITORY_ROOT)),
+        "config_source_path": str(config_path.relative_to(REPOSITORY_ROOT)),
         "frozen_config_output_path": str(
             (destination / "frozen_config.json").relative_to(REPOSITORY_ROOT)
         ),
@@ -786,6 +977,10 @@ def run(
             (REPOSITORY_ROOT / config["provenance"]["handoff_path"]).read_bytes()
         ).hexdigest(),
         "methods": config["methods"],
+        "first_pilot_verdict_preserved": config["provenance"].get(
+            "first_pilot_verdict"
+        ),
+        "prior_influence_regression": summary["prior_influence_regression"],
         "seeds": summary["seeds"],
         "post_initial_horizon": horizon,
         "scientific_configuration_unchanged": True,
@@ -794,7 +989,19 @@ def run(
         "numpy_version": np.__version__,
         "scipy_version": scipy.__version__,
         "matplotlib_version": matplotlib.__version__,
-        "runner_path": str(Path(__file__).relative_to(REPOSITORY_ROOT)),
+        "runner_path": str(entrypoint.relative_to(REPOSITORY_ROOT)),
+        "shared_runner_path": str(Path(__file__).relative_to(REPOSITORY_ROOT)),
+        "preserved_attempts": [
+            {
+                "path": str(path.relative_to(REPOSITORY_ROOT)),
+                "status": "preserved incomplete output; not used for final gates",
+            }
+            for path in sorted(destination.parent.iterdir())
+            if path.is_dir()
+            and path != destination
+            and path.name.startswith(f"{config['run_id']}_")
+            and "attempt" in path.name
+        ],
         "run_started_utc": run_started,
         "run_completed_utc": summary["run_completed_utc"],
         "wall_time_seconds": summary["wall_time_seconds"],

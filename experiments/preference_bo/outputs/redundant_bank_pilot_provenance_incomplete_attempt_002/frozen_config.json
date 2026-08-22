@@ -1,0 +1,215 @@
+{
+  "schema_version": 2,
+  "run_id": "redundant_bank_pilot",
+  "status": "preregistered_frozen",
+  "provenance": {
+    "starting_git_commit": "b68525952f58693461ac32d4658a8d611a594706",
+    "handoff_path": "project/E3_PREFERENCE_BO_REDUNDANT_BANK_PILOT_HANDOFF.md",
+    "handoff_design_commit": "b68525952f58693461ac32d4658a8d611a594706",
+    "first_pilot_run_id": "minimal_pilot",
+    "first_pilot_verdict": "FAIL-P2",
+    "first_pilot_config_sha256": "4eafe727b67864632d25d30b526cbdb5c0a83989bf31e7b0cf41f7129c8a89da"
+  },
+  "numeric": {
+    "dtype": "float64"
+  },
+  "objective": {
+    "sense": "maximize",
+    "domain": [0.0, 1.0],
+    "gaussian_peaks": [
+      {"amplitude": 0.55, "center": 0.22, "width": 0.07},
+      {"amplitude": 1.0, "center": 0.76, "width": 0.065}
+    ],
+    "sinusoid": {"amplitude": 0.04, "angular_frequency": 12.566370614359172},
+    "expected_grid_maximum_regression": {
+      "index": 12,
+      "x": 0.75,
+      "value_approximately": 0.9882354306
+    }
+  },
+  "action_grid": {
+    "count": 17,
+    "minimum": 0.0,
+    "maximum": 1.0,
+    "formula": "x_i=i/16 for i=0,...,16"
+  },
+  "scalar_observations": {
+    "initial_action_indices": [2, 8, 14],
+    "post_initial_horizon": 6,
+    "noise_standard_deviation": 0.01,
+    "noise_model": "independent_normal_by_seed_and_grid_location",
+    "pregenerate_all_grid_locations": true,
+    "reuse_location_noise_across_methods": true,
+    "repeated_actions_prohibited": true,
+    "screened": false
+  },
+  "gp_reference": {
+    "mean": 0.0,
+    "kernel": "OU/Matern-1/2",
+    "kernel_amplitude": 0.1,
+    "kernel_lengthscale": 0.05,
+    "observation_noise_standard_deviation": 0.01,
+    "hyperparameter_fitting": false,
+    "condition_on_scalar_observations_only": true
+  },
+  "acquisition": {
+    "name": "expected_improvement",
+    "utility": "max(f(x)-y_t_star,0)",
+    "incumbent": "largest_observed_noisy_scalar_outcome",
+    "optimization": "exhaustive_unobserved_finite_grid",
+    "optimization_remainder": 0.0
+  },
+  "preference_bank": {
+    "factor_count": 24,
+    "endpoint_index_pairs": [
+      [0, 1], [2, 3], [4, 5], [6, 7], [9, 10], [11, 12], [13, 14], [15, 16],
+      [0, 4], [1, 5], [2, 6], [3, 7], [9, 13], [10, 14], [11, 15], [12, 16],
+      [0, 16], [1, 15], [2, 14], [3, 13], [4, 12], [5, 11], [6, 10], [7, 9]
+    ],
+    "protocols": {
+      "local": {"factor_indices": [0, 1, 2, 3, 4, 5, 6, 7]},
+      "medium_range": {"factor_indices": [8, 9, 10, 11, 12, 13, 14, 15]},
+      "cross_domain_mirrored": {"factor_indices": [16, 17, 18, 19, 20, 21, 22, 23]}
+    },
+    "graph_construction_depends_only_on_grid_indices": true,
+    "edges_unique": true,
+    "expected_grid_degree": [3, 3, 3, 3, 3, 3, 3, 3, 0, 3, 3, 3, 3, 3, 3, 3, 3],
+    "center_index": 8,
+    "temperature": 0.6,
+    "label_values": [-1, 1],
+    "positive_label_meaning": "left_endpoint_preferred_to_right_endpoint",
+    "positive_label_probability": "sigmoid((f_true(a_j)-f_true(b_j))/temperature)",
+    "labels_independent_given_true_objective": true,
+    "generated_before_any_method": true,
+    "reuse_across_methods": true,
+    "pilot_seeds": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+  },
+  "preference_factor": {
+    "energy": "log(1+exp(-s_j*(Y[a_j]-Y[b_j])/temperature))",
+    "stable_evaluation": "numpy.logaddexp",
+    "convex": true,
+    "scalar_endpoint_sensitivity": 1.6666666666666667,
+    "maximum_cross_coordinate_hessian_magnitude": 0.6944444444444444
+  },
+  "influence": {
+    "block_partition": "one_scalar_block_per_latent_grid_coordinate",
+    "blocks": [[0], [1], [2], [3], [4], [5], [6], [7], [8], [9], [10], [11], [12], [13], [14], [15], [16]],
+    "factor_sensitivity": "1/temperature at each endpoint and zero elsewhere",
+    "comparison_diagonal": "scalar_data_gp_precision_diagonal",
+    "comparison_off_diagonal": "-(abs(scalar_data_gp_precision_off_diagonal)+edge_count/(4*temperature^2))",
+    "uniform_over_active_sets_and_interpolation": true,
+    "prior_regression": {
+      "minimum_eigenvalue_approximately": 3.7283312993,
+      "minimum_row_dominance_margin_approximately": 3.4626638902,
+      "condition_number_approximately": 4.9713521
+    },
+    "structural_bound_computation": "linear_solve_never_explicit_inverse",
+    "distinct_action_footprint_per_leader_and_challenger_coordinate": 1.0,
+    "self_comparison_footprint": 0.0
+  },
+  "methods": ["standard", "full", "adaptive"],
+  "method_contract": {
+    "standard": {"active_preference_factors": 0, "inference": "analytic_gp_ei"},
+    "full": {"active_preference_factors": 24, "inference": "laplace_preconditioned_self_normalized_importance_sampling"},
+    "adaptive": {
+      "reset_active_set_to_empty_each_bo_iteration": true,
+      "activation_batch_size": 1,
+      "screening_tolerance": 0.05,
+      "stopping_rule": "worst_optimistic_challenger_envelope_at_most_tolerance_or_all_factors_active",
+      "factor_ranking": "largest_omitted_structural_contribution_for_worst_challenger",
+      "heldout_full_target_for_selection": false
+    }
+  },
+  "laplace": {
+    "gradient_infinity_norm_tolerance": 1e-9,
+    "maximum_newton_iterations": 50,
+    "backtracking_line_search": true,
+    "proposal": "normal_at_mode_with_inverse_mode_hessian_covariance"
+  },
+  "importance_sampling": {
+    "weight_normalization": "log_space",
+    "adaptive_working": {
+      "independent_batches": 2,
+      "initial_draws_per_batch": 8192,
+      "draws_per_batch_schedule": [8192, 16384, 32768],
+      "minimum_ess_fraction": 0.25,
+      "maximum_worst_challenger_inference_allowance": 0.01,
+      "gap_allowance": "max(2*pooled_standard_error, absolute_batch_gap_difference)"
+    },
+    "full_target": {
+      "initial_draws": 65536,
+      "accuracy_refinement_draws": 131072,
+      "minimum_ess_fraction": 0.25,
+      "maximum_split_half_ei_discrepancy": 0.0025
+    },
+    "adaptive_heldout_full_target": {
+      "independent": true,
+      "initial_draws": 65536,
+      "accuracy_refinement_draws": 131072,
+      "minimum_ess_fraction": 0.25,
+      "maximum_split_half_ei_discrepancy": 0.0025,
+      "validation_only_no_selection_leakage": true
+    },
+    "interpretation": "empirical_diagnostic_not_rigorous_finite_sample_certificate"
+  },
+  "rng": {
+    "generator": "numpy.default_rng",
+    "seed_derivation": "numpy.random.SeedSequence([pilot_seed, stream_code, bo_iteration, refinement_index, accuracy_level])",
+    "stream_codes": {
+      "preference_bank": 10,
+      "scalar_noise": 20,
+      "full_method": 30,
+      "adaptive_working_batch_1": 40,
+      "adaptive_working_batch_2": 41,
+      "adaptive_heldout_full": 50
+    }
+  },
+  "smoke_test": {
+    "seed": 0,
+    "post_initial_horizon": 2,
+    "working_draws_per_batch_schedule": [512, 1024, 2048],
+    "full_initial_draws": 4096,
+    "full_accuracy_refinement_draws": 8192,
+    "scientific_gate_evaluation": false
+  },
+  "primary_metric": {
+    "name": "T_0.10",
+    "simple_regret_threshold": 0.1,
+    "unreached_value": 7,
+    "simple_regret_uses_noise_free_grid_objective": true,
+    "complete_horizon_required": true
+  },
+  "gates": {
+    "p1": "median(T_0.10_full) <= median(T_0.10_standard) - 1",
+    "adaptive_factor_ratio_per_seed": "sum_t(M_t)/(6*24)",
+    "p2_performance": "median(T_0.10_adaptive) <= median(T_0.10_full) + 1",
+    "p2_sparsity": "median(adaptive_factor_ratio_per_seed) <= 0.80",
+    "p2_sparsity_threshold": 0.8,
+    "verdict_precedence": ["FAIL-P1", "FAIL-P2", "PASS"],
+    "exact_action_agreement_is_gate": false,
+    "active_set_turnover_is_gate": false,
+    "wall_time_advantage_is_gate": false
+  },
+  "factor_accounting": {
+    "scientific": "final_active_factor_count_per_decision",
+    "computational": "raw_factor_likelihood_evaluations_in_mode_and_importance_sampling",
+    "keep_distinct": true
+  },
+  "diagnostic_figure": {
+    "panels": ["simple_regret_by_method_vs_post_initial_iteration", "adaptive_active_fraction_vs_post_initial_iteration"],
+    "publication_figure": false,
+    "sparsity_reference_line": 0.8
+  },
+  "output_files": [
+    "frozen_config.json",
+    "preference_banks.csv",
+    "scalar_noise.csv",
+    "trajectory.csv",
+    "refinement_history.csv",
+    "acquisition_validation.csv",
+    "summary.json",
+    "RESULTS.md",
+    "diagnostic.png",
+    "provenance.json"
+  ]
+}

@@ -12,6 +12,7 @@ from conditioned_bo.preference_influence import (
     comparison_matrix_from_precision,
     ei_decision_footprint,
     factor_block_metadata,
+    factor_support_metadata,
     factor_sensitivity_matrix,
     logistic_preference_energy,
     logistic_preference_gradient,
@@ -19,7 +20,14 @@ from conditioned_bo.preference_influence import (
     omitted_factor_load,
     preference_block_sensitivity,
     preference_blocks,
+    preference_cross_coordinate_curvature_bound,
+    preference_graph_degrees,
+    preference_graph_edge_counts,
+    preference_scalar_endpoint_sensitivity,
     ranked_omitted_contributions,
+    scalar_comparison_matrix_from_precision,
+    scalar_factor_sensitivity_matrix,
+    scalar_preference_blocks,
     structural_bound,
 )
 
@@ -35,6 +43,16 @@ GRID = np.linspace(
 )
 PAIRS = np.asarray(CONFIG["preference_bank"]["endpoint_index_pairs"], dtype=int)
 TAU = CONFIG["preference_bank"]["temperature"]
+REDUNDANT_CONFIG = json.loads(
+    (
+        REPOSITORY_ROOT
+        / "experiments/preference_bo/configs/redundant_bank_pilot.json"
+    ).read_text()
+)
+REDUNDANT_PAIRS = np.asarray(
+    REDUNDANT_CONFIG["preference_bank"]["endpoint_index_pairs"], dtype=int
+)
+REDUNDANT_TAU = REDUNDANT_CONFIG["preference_bank"]["temperature"]
 
 
 def _finite_gradient(function, value: np.ndarray, step: float = 1e-6) -> np.ndarray:
@@ -235,3 +253,143 @@ def test_structural_runtime_path_never_calls_explicit_inverse(
         matrix, footprint, sensitivities, np.ones(PAIRS.shape[0], dtype=bool)
     )
     assert np.all(scores > 0.0)
+
+
+def test_redundant_bank_has_exact_unique_edges_and_frozen_degrees() -> None:
+    expected = np.asarray(
+        [
+            (0, 1), (2, 3), (4, 5), (6, 7),
+            (9, 10), (11, 12), (13, 14), (15, 16),
+            (0, 4), (1, 5), (2, 6), (3, 7),
+            (9, 13), (10, 14), (11, 15), (12, 16),
+            (0, 16), (1, 15), (2, 14), (3, 13),
+            (4, 12), (5, 11), (6, 10), (7, 9),
+        ],
+        dtype=int,
+    )
+    np.testing.assert_array_equal(REDUNDANT_PAIRS, expected)
+    undirected = {tuple(sorted(pair)) for pair in REDUNDANT_PAIRS.tolist()}
+    assert REDUNDANT_PAIRS.shape == (24, 2)
+    assert len(undirected) == 24
+    degrees = preference_graph_degrees(REDUNDANT_PAIRS, GRID.size)
+    np.testing.assert_array_equal(
+        degrees, [3, 3, 3, 3, 3, 3, 3, 3, 0, 3, 3, 3, 3, 3, 3, 3, 3]
+    )
+    assert REDUNDANT_CONFIG["preference_bank"][
+        "graph_construction_depends_only_on_grid_indices"
+    ]
+
+
+def test_scalar_support_metadata_sensitivity_and_curvature_bound() -> None:
+    blocks = scalar_preference_blocks(GRID.size)
+    metadata = factor_support_metadata(REDUNDANT_PAIRS, blocks)
+    sensitivities = scalar_factor_sensitivity_matrix(
+        REDUNDANT_PAIRS, GRID.size, REDUNDANT_TAU
+    )
+    endpoint_bound = preference_scalar_endpoint_sensitivity(REDUNDANT_TAU)
+    curvature_bound = preference_cross_coordinate_curvature_bound(REDUNDANT_TAU)
+    np.testing.assert_allclose(endpoint_bound, 1.0 / REDUNDANT_TAU)
+    np.testing.assert_allclose(curvature_bound, 1.0 / (4.0 * REDUNDANT_TAU**2))
+    for item, pair, sensitivity in zip(metadata, REDUNDANT_PAIRS, sensitivities):
+        assert item.block_indices == tuple(sorted(int(index) for index in pair))
+        expected = np.zeros(GRID.size)
+        expected[pair] = endpoint_bound
+        np.testing.assert_array_equal(sensitivity, expected)
+
+    hessian_at_zero = logistic_preference_hessian(
+        np.zeros(GRID.size), REDUNDANT_PAIRS[0], 1, REDUNDANT_TAU
+    )
+    left, right = REDUNDANT_PAIRS[0]
+    np.testing.assert_allclose(abs(hessian_at_zero[left, right]), curvature_bound)
+    for latent_margin in np.linspace(-50.0, 50.0, 101):
+        latent = np.zeros(GRID.size)
+        latent[left] = latent_margin
+        hessian = logistic_preference_hessian(
+            latent, (left, right), -1, REDUNDANT_TAU
+        )
+        assert abs(hessian[left, right]) <= curvature_bound + 2e-15
+
+
+def test_redundant_prior_scalar_comparison_regressions_and_couplings() -> None:
+    posterior = _prior()
+    matrix, rho, kappa = scalar_comparison_matrix_from_precision(
+        posterior.precision, REDUNDANT_PAIRS, REDUNDANT_TAU
+    )
+    diagnostics = comparison_diagnostics(matrix)
+    assert diagnostics.is_spd
+    np.testing.assert_allclose(
+        diagnostics.minimum_eigenvalue, 3.7283312993, rtol=0.0, atol=5e-10
+    )
+    np.testing.assert_allclose(
+        diagnostics.minimum_row_dominance_margin,
+        3.4626638902,
+        rtol=0.0,
+        atol=5e-10,
+    )
+    np.testing.assert_allclose(
+        diagnostics.condition_number, 4.9713521, rtol=0.0, atol=5e-8
+    )
+    np.testing.assert_array_equal(rho, np.diag(posterior.precision))
+
+    counts = preference_graph_edge_counts(REDUNDANT_PAIRS, GRID.size)
+    curvature = preference_cross_coordinate_curvature_bound(REDUNDANT_TAU)
+    edge = (0, 1)
+    nonedge = (0, 2)
+    np.testing.assert_allclose(
+        kappa[edge], abs(posterior.precision[edge]) + curvature * counts[edge]
+    )
+    np.testing.assert_allclose(kappa[nonedge], abs(posterior.precision[nonedge]))
+
+
+def test_scalar_observations_preserve_redundant_comparison_spd() -> None:
+    prior = _prior()
+    gp = REDUNDANT_CONFIG["gp_reference"]
+    posterior = gp_reference_posterior(
+        GRID,
+        observed_indices=[2, 8, 14, 11],
+        observed_values=[0.1, -0.2, 0.4, 0.3],
+        kernel_amplitude=gp["kernel_amplitude"],
+        kernel_lengthscale=gp["kernel_lengthscale"],
+        observation_noise_standard_deviation=gp[
+            "observation_noise_standard_deviation"
+        ],
+    )
+    prior_matrix, prior_rho, prior_kappa = scalar_comparison_matrix_from_precision(
+        prior.precision, REDUNDANT_PAIRS, REDUNDANT_TAU
+    )
+    posterior_matrix, posterior_rho, posterior_kappa = (
+        scalar_comparison_matrix_from_precision(
+            posterior.precision, REDUNDANT_PAIRS, REDUNDANT_TAU
+        )
+    )
+    assert np.all(posterior_rho >= prior_rho - 1e-12)
+    np.testing.assert_allclose(posterior_kappa, prior_kappa, atol=2e-10)
+    assert comparison_diagnostics(prior_matrix).is_spd
+    assert comparison_diagnostics(posterior_matrix).is_spd
+
+
+def test_redundant_structural_bound_accounting_and_all_active_zero() -> None:
+    posterior = _prior()
+    blocks = scalar_preference_blocks(GRID.size)
+    matrix, _, _ = scalar_comparison_matrix_from_precision(
+        posterior.precision, REDUNDANT_PAIRS, REDUNDANT_TAU
+    )
+    sensitivities = scalar_factor_sensitivity_matrix(
+        REDUNDANT_PAIRS, GRID.size, REDUNDANT_TAU
+    )
+    footprint = ei_decision_footprint(3, 13, blocks)
+    omitted = np.ones(REDUNDANT_PAIRS.shape[0], dtype=bool)
+    contributions = ranked_omitted_contributions(
+        matrix, footprint, sensitivities, omitted
+    )
+    bound = structural_bound(
+        matrix, footprint, omitted_factor_load(sensitivities, omitted)
+    )
+    np.testing.assert_allclose(bound, contributions[omitted].sum(), atol=2e-14)
+    omitted[:] = False
+    assert (
+        structural_bound(
+            matrix, footprint, omitted_factor_load(sensitivities, omitted)
+        )
+        == 0.0
+    )

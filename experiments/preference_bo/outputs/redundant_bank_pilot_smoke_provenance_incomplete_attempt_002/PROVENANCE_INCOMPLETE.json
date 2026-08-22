@@ -1,0 +1,8 @@
+{
+  "status": "preserved_provenance_incomplete_smoke_attempt",
+  "scientific_gates_evaluated": false,
+  "scientific_configuration_unchanged": true,
+  "config_sha256": "5c53c8de7144d1d0bc3a66b1ca4233b2c17811f726e977e1a5c90f103140b260",
+  "reason": "The output schema was complete, but provenance named only the shared runner and did not enumerate preserved attempts.",
+  "final_output_path": "experiments/preference_bo/outputs/redundant_bank_pilot_smoke"
+}

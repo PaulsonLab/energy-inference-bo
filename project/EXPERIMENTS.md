@@ -19,7 +19,7 @@
 |---|---|---|---|---|
 | E1 | Nonlocal reflection symmetry | Mechanism + certificate figure | EXISTING EVIDENCE; T2-B PASS; prospective finite-sample pilot PASS; repeats/baselines remain | MacBook Air |
 | E2 | Nonlinear PDE expanding-domain scaling | Main scaling / inference consequence | EXISTING EVIDENCE; T2-B and family T4 PASS; needs robustness + baselines | Colab A100 |
-| E3 | Preference-conditioned sequential BO | Main end-to-end non-PDE BO test | MINIMAL PHENOMENON GATE FAILED-P2 (P1 passed; final suite deferred) | MacBook Air / A100 sweeps |
+| E3 | Preference-conditioned sequential BO | Main end-to-end non-PDE BO test | TWO PROSPECTIVE SYNTHETIC PILOTS FAILED-P2 (P1 and performance passed; sparsity failed; final suite deferred) | MacBook Air / A100 sweeps |
 | E4 | Linear PDE factor graph | Supplementary control | EXISTING EVIDENCE | MacBook Air / A100 sweeps |
 | A1 | Factor-selection ablations | Supplement / supports E1--E3 | PLANNED | Mixed |
 | A2 | Inference/sampler comparison | Supplement / modularity | PLANNED | A100 |
@@ -374,9 +374,10 @@ time, and selected-factor geometry.
 
 ## E3 — Preference-conditioned sequential BO
 
-**Status:** `FAILED-P2` for the preregistered minimal phenomenon gate — P1
-passed and P2 performance passed, but P2 sparsity failed. The full E3 baseline
-suite remains planned and was intentionally deferred.
+**Status:** `FAILED-P2` for both the preregistered eight-factor minimal gate and
+the separately preregistered 24-factor redundant-bank gate. In both, P1 and P2
+performance passed while P2 sparsity failed. The full E3 baseline suite remains
+planned and was intentionally deferred.
 
 **Paper claim tested:** C1--C3 in an end-to-end BO loop; establishes relevance beyond PDE/physics examples.
 
@@ -458,6 +459,111 @@ final mechanical output check passed.
 separately preregistered follow-up, distinguish structural-bound conservatism
 from genuinely broad decision dependence before deciding how to execute the
 deferred final E3 baseline suite.
+
+### Redundant-bank preference-BO pilot — 2026-08-21
+
+**Status:** `FAILED-P2` under its independently preregistered precedence. This
+was the last small synthetic preference-bank design iteration in this sequence.
+It does not alter the first minimal pilot: that run remains `N=8`, P1 `PASS`,
+P2 performance `PASS`, P2 sparsity `FAIL`, and overall `FAIL-P2` under its
+original 0.65 threshold.
+
+The redundant-bank run started from `main` commit
+`b68525952f58693461ac32d4658a8d611a594706`. Its preregistration is
+[`E3_PREFERENCE_BO_REDUNDANT_BANK_PILOT_HANDOFF.md`](E3_PREFERENCE_BO_REDUNDANT_BANK_PILOT_HANDOFF.md),
+and its frozen configuration is
+[`../experiments/preference_bo/configs/redundant_bank_pilot.json`](../experiments/preference_bo/configs/redundant_bank_pilot.json)
+with SHA-256
+`5c53c8de7144d1d0bc3a66b1ca4233b2c17811f726e977e1a5c90f103140b260`.
+Seeds were exactly 0--11, the horizon was six post-initial scalar evaluations,
+and exactly standard, full, and adaptive were run.
+
+The bank contained exactly 24 unique, index-fixed edges: eight adjacent local
+comparisons, eight four-index medium-range comparisons within the two operating
+regimes, and eight mirrored cross-domain comparisons. Index 8 had degree zero;
+every other grid index had degree three. With one scalar block per latent grid
+coordinate, the derived prior comparison matrix had minimum eigenvalue
+`3.728331299274427`, minimum row-dominance margin `3.4626638901604885`, and
+condition number `4.971352073782589`; every regression and later-iteration SPD
+check passed.
+
+The 27 focused preference tests and the full 70-test repository suite passed
+before execution. The one-seed/two-iteration reduced-count smoke ran all three
+methods and passed every mechanical, sharing, schema, refinement, and held-out
+nonleakage check; its scientific gates were not evaluated.
+
+**P1 — passed.** Median $T_{0.10}$ was 2.5 for full preference-informed BO and
+7 for standard scalar GP-EI, so $2.5\le7-1$. Full per-seed values were
+`[3, 2, 4, 6, 1, 6, 4, 1, 1, 1, 3, 2]`; standard was 7 for every seed.
+
+**P2 performance — passed; P2 sparsity — failed.** Median $T_{0.10}$ was 2.5
+for adaptive and 2.5 for full, satisfying $2.5\le2.5+1$. Median
+$R_{\rm factors}$ was `0.8888888889`, exceeding this follow-up's independently
+frozen 0.80 threshold. Across 72 adaptive decisions, $M_t=18$ occurred 4
+times, 19 occurred 5 times, 20 occurred 9 times, 21 occurred 12 times, 22
+occurred 22 times, and 23 occurred 20 times. The median was 22 of 24 factors;
+total final-active use was 1543 of 1728 available decision/factor slots.
+
+**Post-run factor-count audit:** the pooled 18--23 distribution is primarily a
+coherent BO-iteration trend rather than unexplained across-seed instability.
+All 12 first decisions used 23 factors; iteration-two counts were 22--23;
+iteration three used 22 factors in 11 of 12 seeds; iteration-four counts were
+21--23; iteration-five counts were 19--22; and iteration-six counts were
+18--21. As direct scalar observations accumulated, the median comparison-matrix
+minimum eigenvalue rose monotonically from `4.81428` at iteration one to
+`6.06857` at iteration six, tightening the omitted-factor propagation bound.
+Accounting was exact: every reported $M_t$ equaled both the terminal active-set
+size and the number of activation rounds for that decision, all 1543
+activations selected a maximum-contribution omitted factor (three rounds had
+numerically tied maxima), and all 72 decisions terminated through the frozen
+screening tolerance. This diagnostic does not change the sparsity failure.
+
+**Held-out and inference diagnostics:** no frozen-cap numerical-accuracy
+failure occurred. Full-target ESS fractions had minimum `0.997291` and median
+`0.998526`; adaptive working ESS fractions had minimum `0.997286` and median
+`0.998502`; held-out full ESS fractions had minimum `0.997197` and median
+`0.998508`. All Laplace calculations converged. The largest full and held-out
+split-half EI discrepancies were `0.00239821` and `0.00203253`, respectively.
+Maximum adaptive held-out full-target acquisition regret was `0.00261658`, with
+median zero; exact held-out action agreement was 62/72 and was not a gate. Full
+inference used 65,536 draws in 70 decisions and the allowed 131,072 draws in
+two; every adaptive working refinement used 16,384 total draws and every
+held-out validation used 65,536. Recorded full and adaptive inference wall
+times were approximately 4.21 and 25.32 seconds, respectively, within a
+30.06-second complete run; wall time was not a gate.
+
+**Failure diagnosis:** only sparsity failed. Structural terms exceeded
+empirical inference allowances in all 1543 activation rounds, with medians
+`0.745311` and `0.000482393`, while held-out acquisition regret stayed far
+below the 0.05 screening tolerance. The main evidence again points to a
+conservative structural envelope rather than importance-sampling failure.
+Median consecutive active-set turnover was `0.0434783` and is diagnostic only.
+
+**Overall verdict: `FAIL-P2`.** The redundant bank retained a clear
+preference-value benefit and adaptive conditioning retained its optimization
+performance, but graph redundancy did not yield the preregistered material
+certified screening fraction.
+
+Final raw outputs and provenance are in
+[`../experiments/preference_bo/outputs/redundant_bank_pilot/`](../experiments/preference_bo/outputs/redundant_bank_pilot/),
+with the schema-complete mechanical smoke in
+[`../experiments/preference_bo/outputs/redundant_bank_pilot_smoke/`](../experiments/preference_bo/outputs/redundant_bank_pilot_smoke/).
+Two reporting/provenance-incomplete attempts for each profile are preserved
+alongside them and are not used for the final gates. The identical gate values
+across completed attempts verify that the reporting-only fixes did not change
+the scientific result.
+
+**One-sentence scientific interpretation:** preference information robustly
+improved this scalar-observation BO problem and adaptive inference preserved
+that benefit, but this conservative certified screen still required nearly the
+entire overlapping bank.
+
+**Next action:** do not tune another synthetic preference bank or change the
+0.80 gate. Strong certified sparsity should not be treated as the main empirical
+role of this preference example; the PDE experiments remain the stronger
+setting for the sparsity/scaling claim. Decide separately whether the retained
+preference-value result justifies moving directly to one realistic larger
+preference-informed BO case.
 
 ### Why this experiment
 
