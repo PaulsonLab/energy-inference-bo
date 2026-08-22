@@ -1,0 +1,34 @@
+{
+  "branch": "main",
+  "config_sha256": "4eafe727b67864632d25d30b526cbdb5c0a83989bf31e7b0cf41f7129c8a89da",
+  "config_source_path": "experiments/preference_bo/configs/minimal_pilot.json",
+  "frozen_config_output_path": "experiments/preference_bo/outputs/minimal_pilot_smoke/frozen_config.json",
+  "handoff_path": "project/E3_PREFERENCE_BO_PILOT_HANDOFF.md",
+  "handoff_sha256": "4b5be802c7a36deafb5f6fa296c958a5180ea389f29d9c28560632f4872a3587",
+  "head_commit_at_execution": "5f7f7cfa66f4d6ec33ebf5a5feb3d8f77ba2110a",
+  "main_commit_at_execution": "5f7f7cfa66f4d6ec33ebf5a5feb3d8f77ba2110a",
+  "matplotlib_version": "3.11.1",
+  "methods": [
+    "standard",
+    "full",
+    "adaptive"
+  ],
+  "numpy_version": "2.3.5",
+  "platform": "macOS-15.6.1-arm64-arm-64bit",
+  "post_initial_horizon": 2,
+  "profile": "smoke",
+  "python": "3.12.13 (main, Mar 10 2026, 18:18:07) [Clang 21.1.4 ]",
+  "remote_url": "https://github.com/PaulsonLab/energy-inference-bo.git",
+  "run_completed_utc": "2026-08-22T00:14:52.973223+00:00",
+  "run_id": "minimal_pilot",
+  "run_started_utc": "2026-08-22T00:14:52.924353+00:00",
+  "runner_path": "experiments/preference_bo/run_minimal_pilot.py",
+  "scientific_configuration_unchanged": true,
+  "scipy_version": "1.16.3",
+  "seeds": [
+    0
+  ],
+  "starting_git_commit": "5f7f7cfa66f4d6ec33ebf5a5feb3d8f77ba2110a",
+  "wall_time_seconds": 0.04886162490583956,
+  "worktree_status_at_completion": "M experiments/preference_bo/README.md\n?? experiments/preference_bo/configs/\n?? experiments/preference_bo/outputs/\n?? experiments/preference_bo/run_minimal_pilot.py\n?? project/E3_PREFERENCE_BO_PILOT_HANDOFF.md\n?? src/conditioned_bo/preference_bo.py\n?? src/conditioned_bo/preference_influence.py\n?? tests/test_preference_bo.py\n?? tests/test_preference_influence.py"
+}

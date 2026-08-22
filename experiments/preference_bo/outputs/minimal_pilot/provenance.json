@@ -1,0 +1,62 @@
+{
+  "branch": "main",
+  "config_sha256": "4eafe727b67864632d25d30b526cbdb5c0a83989bf31e7b0cf41f7129c8a89da",
+  "config_source_path": "experiments/preference_bo/configs/minimal_pilot.json",
+  "frozen_config_output_path": "experiments/preference_bo/outputs/minimal_pilot/frozen_config.json",
+  "handoff_path": "project/E3_PREFERENCE_BO_PILOT_HANDOFF.md",
+  "handoff_sha256": "61a6e77bfe511872ce2d97455c53b436fb86570687c2a6fa7f050757066254c7",
+  "head_commit_at_execution": "5f7f7cfa66f4d6ec33ebf5a5feb3d8f77ba2110a",
+  "main_commit_at_execution": "5f7f7cfa66f4d6ec33ebf5a5feb3d8f77ba2110a",
+  "matplotlib_version": "3.11.1",
+  "methods": [
+    "standard",
+    "full",
+    "adaptive"
+  ],
+  "numpy_version": "2.3.5",
+  "platform": "macOS-15.6.1-arm64-arm-64bit",
+  "post_run_validation": {
+    "head_before_result_commit": "5f7f7cfa66f4d6ec33ebf5a5feb3d8f77ba2110a",
+    "final_output_integrity": "PASS",
+    "final_repository_test_result": "60 passed",
+    "handoff_byte_identical_to_supplied_attachment": true,
+    "paper_story_unchanged_from_starting_commit": true
+  },
+  "preserved_attempts": [
+    {
+      "path": "experiments/preference_bo/outputs/minimal_pilot_failed_attempt_001",
+      "status": "implementation failure before gate evaluation"
+    },
+    {
+      "path": "experiments/preference_bo/outputs/minimal_pilot_schema_incomplete_attempt_002",
+      "status": "scientific run complete but output schema incomplete"
+    }
+  ],
+  "post_initial_horizon": 6,
+  "profile": "frozen_pilot",
+  "python": "3.12.13 (main, Mar 10 2026, 18:18:07) [Clang 21.1.4 ]",
+  "remote_url": "https://github.com/PaulsonLab/energy-inference-bo.git",
+  "run_completed_utc": "2026-08-22T00:22:32.742952+00:00",
+  "run_id": "minimal_pilot",
+  "run_started_utc": "2026-08-22T00:22:20.165951+00:00",
+  "runner_path": "experiments/preference_bo/run_minimal_pilot.py",
+  "scientific_configuration_unchanged": true,
+  "scipy_version": "1.16.3",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "starting_git_commit": "5f7f7cfa66f4d6ec33ebf5a5feb3d8f77ba2110a",
+  "wall_time_seconds": 12.577116166939959,
+  "worktree_status_at_completion": "M experiments/preference_bo/README.md\n?? experiments/preference_bo/configs/\n?? experiments/preference_bo/outputs/\n?? experiments/preference_bo/run_minimal_pilot.py\n?? project/E3_PREFERENCE_BO_PILOT_HANDOFF.md\n?? src/conditioned_bo/preference_bo.py\n?? src/conditioned_bo/preference_influence.py\n?? tests/test_preference_bo.py\n?? tests/test_preference_influence.py"
+}

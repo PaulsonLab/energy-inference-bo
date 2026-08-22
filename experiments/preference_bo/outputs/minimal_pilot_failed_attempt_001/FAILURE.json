@@ -1,0 +1,13 @@
+{
+  "status": "implementation_failure_before_gate_evaluation",
+  "profile": "frozen_pilot",
+  "config_sha256": "4eafe727b67864632d25d30b526cbdb5c0a83989bf31e7b0cf41f7129c8a89da",
+  "starting_git_commit": "5f7f7cfa66f4d6ec33ebf5a5feb3d8f77ba2110a",
+  "completed_seeds_before_failure": [0],
+  "failing_seed": 1,
+  "error": "adaptive Laplace mode failed the frozen 1e-9 gradient tolerance",
+  "diagnosis": "The full Newton step reduced the gradient infinity norm from 2.3648897284900272e-9 to 1.3609946503123638e-13, but Armijo rejected it because the computed potential changed by +4.440892098500626e-16, a floating-point roundoff-scale change.",
+  "scientific_gates_evaluated": false,
+  "scientific_configuration_changed": false,
+  "preservation_note": "This directory records the failed first full-run attempt and is not a scientific pilot result."
+}

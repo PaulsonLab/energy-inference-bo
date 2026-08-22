@@ -19,7 +19,7 @@
 |---|---|---|---|---|
 | E1 | Nonlocal reflection symmetry | Mechanism + certificate figure | EXISTING EVIDENCE; T2-B PASS; prospective finite-sample pilot PASS; repeats/baselines remain | MacBook Air |
 | E2 | Nonlinear PDE expanding-domain scaling | Main scaling / inference consequence | EXISTING EVIDENCE; T2-B and family T4 PASS; needs robustness + baselines | Colab A100 |
-| E3 | Preference-conditioned sequential BO | Main end-to-end non-PDE BO test | PLANNED | MacBook Air / A100 sweeps |
+| E3 | Preference-conditioned sequential BO | Main end-to-end non-PDE BO test | MINIMAL PHENOMENON GATE FAILED-P2 (P1 passed; final suite deferred) | MacBook Air / A100 sweeps |
 | E4 | Linear PDE factor graph | Supplementary control | EXISTING EVIDENCE | MacBook Air / A100 sweeps |
 | A1 | Factor-selection ablations | Supplement / supports E1--E3 | PLANNED | Mixed |
 | A2 | Inference/sampler comparison | Supplement / modularity | PLANNED | A100 |
@@ -374,9 +374,90 @@ time, and selected-factor geometry.
 
 ## E3 — Preference-conditioned sequential BO
 
-**Status:** `PLANNED` — main missing experiment.
+**Status:** `FAILED-P2` for the preregistered minimal phenomenon gate — P1
+passed and P2 performance passed, but P2 sparsity failed. The full E3 baseline
+suite remains planned and was intentionally deferred.
 
 **Paper claim tested:** C1--C3 in an end-to-end BO loop; establishes relevance beyond PDE/physics examples.
+
+### Minimal preference-BO phenomenon pilot — 2026-08-21
+
+**Status:** `FAILED-P2` under the preregistered precedence. This was the minimal
+E3 phenomenon gate, not the final E3 baseline experiment.
+
+**Scoped pilot update:** the older planning text below called for
+full/adaptive/fixed-local in the first three-way comparison. The frozen pilot
+handoff explicitly replaced only that pilot-level choice with
+standard/full/adaptive because scalar-only GP-EI was required to answer P1.
+The eventual final-E3 baseline plan below is unchanged, and no fourth method
+was run.
+
+The run started from local `main` commit
+`5f7f7cfa66f4d6ec33ebf5a5feb3d8f77ba2110a`. The exact supplied handoff is
+[`E3_PREFERENCE_BO_PILOT_HANDOFF.md`](E3_PREFERENCE_BO_PILOT_HANDOFF.md), and
+the frozen machine-readable configuration is
+[`../experiments/preference_bo/configs/minimal_pilot.json`](../experiments/preference_bo/configs/minimal_pilot.json)
+with SHA-256
+`4eafe727b67864632d25d30b526cbdb5c0a83989bf31e7b0cf41f7129c8a89da`.
+Seeds were exactly 0--11, with six post-initial scalar evaluations per seed and
+exactly the standard, full, and adaptive methods.
+
+**P1 — passed.** Median $T_{0.10}$ was 3 for full preference-informed BO
+and 7 for standard scalar GP-EI BO, so $3\le7-1$. The full per-seed values
+were `[5, 6, 2, 2, 3, 7, 2, 3, 6, 2, 6, 3]`; standard was 7 for every seed.
+
+**P2 performance — passed; P2 sparsity — failed.** Median $T_{0.10}$ was 3
+for adaptive and 3 for full, satisfying $3\le3+1$. Median
+$R_{\rm factors}$ was 0.875, exceeding the frozen 0.65 threshold. Adaptive
+used 500 final-active factors over the $12\times6\times8=576$ available
+decision/factor slots: $M_t=7$ in 68 of 72 decisions and $M_t=6$ in four.
+The per-seed ratios were
+`[0.875, 0.8541667, 0.875, 0.875, 0.875, 0.875, 0.875, 0.8541667, 0.875, 0.8333333, 0.875, 0.875]`.
+
+**Inference diagnostics:** no frozen-cap numerical-accuracy failure occurred.
+Full-target ESS fractions had minimum 0.999120 and median 0.999426; adaptive
+working ESS fractions had minimum 0.999121 and median 0.999423; held-out full
+ESS fractions had minimum 0.999096 and median 0.999418. Full inference used
+65,536 draws except for three accuracy-triggered 131,072-draw calculations;
+adaptive working inference used 16,384 total draws per refinement, and every
+held-out full validation used 65,536 draws. Maximum adaptive held-out
+full-target acquisition regret was $9.2476\times10^{-4}$, with median zero.
+Exact held-out action agreement was 59/72 and is a diagnostic, not a gate.
+
+**Failure diagnosis:** the main evidence points to conservative structural
+influence bounds rather than inference error. Structural terms exceeded
+empirical inference allowances in all 500 activation rounds; their medians
+were 0.387317 and 0.00103655, respectively, while held-out full-target regret
+remained far below the 0.05 screening tolerance. Consecutive active-set
+turnover was correspondingly small (median 0, mean 0.00714); turnover was not
+a pass condition.
+
+**One-sentence scientific interpretation:** the frozen preference bank clearly
+improved scalar-observation BO in this pilot, and adaptive conditioning
+preserved that optimization benefit, but the prescribed structural screen
+required nearly the full bank and therefore did not establish sparse
+decision-specific conditioning.
+
+Run outputs, including all raw trajectories, refinement histories, held-out
+curves, generated banks/noise, provenance, result summary, and diagnostic, are
+in
+[`../experiments/preference_bo/outputs/minimal_pilot/`](../experiments/preference_bo/outputs/minimal_pilot/).
+The schema-complete smoke output is in
+[`../experiments/preference_bo/outputs/minimal_pilot_smoke/`](../experiments/preference_bo/outputs/minimal_pilot_smoke/).
+An initial run stopped before gate evaluation on an Armijo roundoff bug and is
+preserved in
+[`../experiments/preference_bo/outputs/minimal_pilot_failed_attempt_001/`](../experiments/preference_bo/outputs/minimal_pilot_failed_attempt_001/);
+the first completed run, whose CSV omitted separate held-out sample-count/ESS
+fields, is also preserved in
+[`../experiments/preference_bo/outputs/minimal_pilot_schema_incomplete_attempt_002/`](../experiments/preference_bo/outputs/minimal_pilot_schema_incomplete_attempt_002/).
+The implementation-only fixes did not change the frozen configuration or gate
+outcome. All 60 repository tests passed before the final execution, and every
+final mechanical output check passed.
+
+**Next action:** preserve `FAIL-P2`; do not tune or rerun this pilot. In a
+separately preregistered follow-up, distinguish structural-bound conservatism
+from genuinely broad decision dependence before deciding how to execute the
+deferred final E3 baseline suite.
 
 ### Why this experiment
 

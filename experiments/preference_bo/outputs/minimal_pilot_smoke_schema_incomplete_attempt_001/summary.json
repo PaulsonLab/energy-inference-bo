@@ -1,0 +1,143 @@
+{
+  "adaptive_factor_ratios": [
+    0.875
+  ],
+  "all_mechanical_checks_passed": true,
+  "config_path": "experiments/preference_bo/configs/minimal_pilot.json",
+  "config_sha256": "4eafe727b67864632d25d30b526cbdb5c0a83989bf31e7b0cf41f7129c8a89da",
+  "factor_set_turnover_diagnostic": {
+    "consecutive_turnover_values": [
+      0.0
+    ],
+    "is_pass_condition": false,
+    "mean_turnover": 0.0,
+    "median_turnover": 0.0
+  },
+  "factor_use": {
+    "maximum_M_t": 7,
+    "mean_M_t": 7.0,
+    "median_M_t": 7.0,
+    "median_scientific_factor_ratio": 0.875,
+    "minimum_M_t": 7,
+    "total_adaptive_final_active_factor_use": 14
+  },
+  "failure_diagnosis": null,
+  "gates": null,
+  "handoff_path": "project/E3_PREFERENCE_BO_PILOT_HANDOFF.md",
+  "inference_diagnostics": {
+    "adaptive": {
+      "maximum_ess_fraction": 0.9994211104726013,
+      "median_ess_fraction": 0.9993766285464856,
+      "minimum_ess_fraction": 0.9993321466203698,
+      "total_raw_factor_likelihood_evaluations": 180671,
+      "total_wall_time_seconds": 0.033582791686058044
+    },
+    "adaptive_heldout_validation": {
+      "maximum_acquisition_regret": 0.0010514684797864379,
+      "median_acquisition_regret": 0.0005257342398932189
+    },
+    "full": {
+      "maximum_ess_fraction": 0.9993478543487736,
+      "median_ess_fraction": 0.9992802066315016,
+      "minimum_ess_fraction": 0.9992125589142297,
+      "total_raw_factor_likelihood_evaluations": 98416,
+      "total_wall_time_seconds": 0.008292666170746088
+    },
+    "numerical_caveats": [
+      "seed=0 full iteration=1: full-target ESS/split diagnostic remained unreliable at the frozen cap",
+      "seed=0 adaptive iteration=1: held-out full-target diagnostic remained unreliable at the frozen cap"
+    ],
+    "unreliable_trajectory_rows": 2
+  },
+  "mechanical_checks": {
+    "adaptive_refinement_terminated": true,
+    "complete_scalar_noise_maps": true,
+    "exactly_three_allowed_methods": true,
+    "heldout_full_validation_executed": true,
+    "heldout_validation_not_used_for_selection": true,
+    "no_prohibited_baseline": true,
+    "preference_banks_generated_before_methods": true,
+    "scalar_observations_never_screened": true,
+    "shared_seed_inputs_across_methods": true,
+    "trajectory_row_count": true
+  },
+  "methods": [
+    "standard",
+    "full",
+    "adaptive"
+  ],
+  "next_action": "Run the unchanged full 12-seed frozen pilot.",
+  "per_seed": [
+    {
+      "actions_adaptive": [
+        3,
+        0
+      ],
+      "actions_full": [
+        3,
+        0
+      ],
+      "actions_standard": [
+        1,
+        3
+      ],
+      "adaptive_active_factor_counts": [
+        7,
+        7
+      ],
+      "adaptive_active_factor_sets": [
+        [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "adaptive_cumulative_factor_use": 14,
+      "adaptive_factor_ratio": 0.875,
+      "consecutive_active_set_turnover": [
+        0.0
+      ],
+      "seed": 0,
+      "t_0_10_adaptive": 7,
+      "t_0_10_full": 7,
+      "t_0_10_standard": 7
+    }
+  ],
+  "post_initial_horizon": 2,
+  "profile": "smoke",
+  "run_completed_utc": "2026-08-22T00:14:52.973223+00:00",
+  "run_id": "minimal_pilot",
+  "run_started_utc": "2026-08-22T00:14:52.924353+00:00",
+  "scientific_gates_evaluated": false,
+  "scientific_interpretation": "Reduced-count smoke execution was mechanically correct; it is not scientific evidence for P1 or P2.",
+  "seeds": [
+    0
+  ],
+  "starting_git_commit": "5f7f7cfa66f4d6ec33ebf5a5feb3d8f77ba2110a",
+  "t_0_10_by_method": {
+    "adaptive": [
+      7
+    ],
+    "full": [
+      7
+    ],
+    "standard": [
+      7
+    ]
+  },
+  "verdict": "NOT_EVALUATED",
+  "wall_time_seconds": 0.04886162490583956
+}
