@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "benchmark_name": "CURRENT_NLR_PBE_GW_V1",
+  "description": "A current, reproducible NLR PBE→GW oxide benchmark inspired by the legacy-data setting of Sun et al. (2020), not an exact reproduction of their historical polymorph selection.",
+  "freeze_date": "2026-08-22",
+  "source_of_truth": {
+    "repository": "https://github.com/PaulsonLab/energy-inference-bo",
+    "branch": "main",
+    "starting_sha": "dc787db704fc7b585ca6002e4d585bfa6d7aedf7"
+  },
+  "expected": {
+    "pbe_raw_rows": 5604,
+    "pbe_unique_compositions": 2142,
+    "gw_raw_rows": 244,
+    "gw_unique_compositions": 194,
+    "gw_single_compositions": 166,
+    "gw_multiple_compositions": 28,
+    "gw_multiple_resolved_without_tie": 28,
+    "gw_exact_energy_ties": 0,
+    "strict_gw_actions": 191,
+    "strict_mapping_exclusions": [
+      {
+        "display_formula": "CdO",
+        "normalized_formula": "Cd O",
+        "reason_code": "COMPOSITION_ABSENT_FROM_PBE_FERE"
+      },
+      {
+        "display_formula": "Ga2O3",
+        "normalized_formula": "Ga2 O3",
+        "reason_code": "SELECTED_GW_FAMILY_ABSENT_FROM_PBE_FERE"
+      },
+      {
+        "display_formula": "Sb2O3",
+        "normalized_formula": "O3 Sb2",
+        "reason_code": "SELECTED_GW_FAMILY_ABSENT_FROM_PBE_FERE"
+      }
+    ]
+  },
+  "sources": {
+    "nrel_matdb": {
+      "query_url": "https://materials.nlr.gov/queryStd",
+      "disclaimer_url": "https://materials.nlr.gov/help?hname=disclaimer",
+      "retrieval_date": "2026-08-22",
+      "source_version": "live authoritative NLR MatDB query captured on freeze date",
+      "terms": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications."
+    },
+    "source_recovery_config": "experiments/sun_oxide/configs/source_recovery.json",
+    "source_recovery_cache": "data/external/sun_oxide/source_recovery",
+    "source_recovery_cache_manifest": "data/external/sun_oxide/source_recovery/cache_manifest.json"
+  },
+  "queries": {
+    "pbe_metadata": {
+      "asset_prefix": "nlr_fere_metadata",
+      "page_size": 100,
+      "fields": [
+        "mident",
+        "sorted_formula",
+        "icsd_space_group",
+        "final_space_group",
+        "total_energy_per_atom_ev",
+        "standards",
+        "parents"
+      ],
+      "form": [
+        ["qset", "superset"],
+        ["qrequires", "O"],
+        ["qforbids", ""],
+        ["qrestrictExpr", "gap >= 0"],
+        ["qstandardStg", "fere"],
+        ["qkeywordStg", ""],
+        ["qviewName", "General"],
+        ["qselectField", "model.mident"],
+        ["qselectField", "model.sortedformula"],
+        ["qselectField", "icsd.symgroupnum"],
+        ["qselectField", "model.finalspacegroupnum"],
+        ["qselectField", "model.energyperatom"],
+        ["qselectField", "model.meta_standards"],
+        ["qselectField", "model.parentids"],
+        ["qsortField", "sortedformula,inc"],
+        ["hideDupFere", "on"],
+        ["qfmtName", "HTML"]
+      ]
+    },
+    "gw_metadata": {
+      "asset_prefix": "nlr_gwvd_metadata",
+      "page_size": 100,
+      "fields": [
+        "mident",
+        "sorted_formula",
+        "icsd_space_group",
+        "final_space_group",
+        "icsd_id",
+        "standards",
+        "parents"
+      ],
+      "form": [
+        ["qset", "superset"],
+        ["qrequires", "O"],
+        ["qforbids", ""],
+        ["qrestrictExpr", ""],
+        ["qstandardStg", "gwvd"],
+        ["qkeywordStg", ""],
+        ["qviewName", "General"],
+        ["qselectField", "model.mident"],
+        ["qselectField", "model.sortedformula"],
+        ["qselectField", "icsd.symgroupnum"],
+        ["qselectField", "model.finalspacegroupnum"],
+        ["qselectField", "model.icsdnum"],
+        ["qselectField", "model.meta_standards"],
+        ["qselectField", "model.parentids"],
+        ["qsortField", "sortedformula,inc"],
+        ["qfmtName", "HTML"]
+      ]
+    },
+    "wave_metadata": {
+      "asset_prefix": "nlr_wave_metadata",
+      "page_size": 100,
+      "fields": [
+        "mident",
+        "sorted_formula",
+        "icsd_space_group",
+        "final_space_group",
+        "total_energy_per_atom_ev",
+        "standards",
+        "parents"
+      ],
+      "form": [
+        ["qset", "superset"],
+        ["qrequires", "O"],
+        ["qforbids", ""],
+        ["qrestrictExpr", ""],
+        ["qstandardStg", "wave"],
+        ["qkeywordStg", ""],
+        ["qviewName", "General"],
+        ["qselectField", "model.mident"],
+        ["qselectField", "model.sortedformula"],
+        ["qselectField", "icsd.symgroupnum"],
+        ["qselectField", "model.finalspacegroupnum"],
+        ["qselectField", "model.energyperatom"],
+        ["qselectField", "model.meta_standards"],
+        ["qselectField", "model.parentids"],
+        ["qsortField", "sortedformula,inc"],
+        ["qfmtName", "HTML"]
+      ]
+    }
+  },
+  "selection_rules": {
+    "pbe": "Within each normalized composition in the finite PBE/FERE source domain, select the row with the lowest finite total energy per atom; break an exact displayed-energy tie by smaller stable MatDB ID. Do not use PBE or GW gap values.",
+    "gw": "For a single-row GW composition, use that row. For a multi-row composition, select the GW row whose sole authoritative wave parent has the lowest finite GGA(+U) total energy per atom; break an exact displayed-energy tie by smaller stable GW MatDB ID. Never use GW band-gap magnitude.",
+    "strict_mapping": "Retain a selected GW row only when its normalized composition exists in the PBE/FERE domain and its authoritative GW/wave family anchor is present as exactly one PBE/FERE MatDB row for that composition."
+  }
+}

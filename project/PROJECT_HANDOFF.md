@@ -108,20 +108,29 @@ Details: [`experiments/symmetry/`](../experiments/symmetry/) and its immutable
 Details: [`experiments/nonlinear_pde/`](../experiments/nonlinear_pde/) and its
 immutable [`RESULTS.md`](../experiments/nonlinear_pde/outputs/t2b_structural_validation/RESULTS.md).
 
-### E3 — Sun oxide source gate
+### E3 — Sun oxide source gate and current-NLR benchmark
 
 - Source recovery closed with terminal verdict `JOIN_AMBIGUOUS`; this is a
-  data-provenance result, not evidence for the paper method.
+  historical data-provenance result, not evidence for the paper method, and it
+  remains unchanged.
 - Current authoritative queries reproduce 2,142 unique PBE compositions and
-  194 unique GW compositions, but only 193 overlap. Twenty-eight duplicate GW
-  compositions span multiple stable material families, and the current raw
-  source differs from the surviving author notebook evidence.
-- No normalized benchmark, descriptor matrix, factor design, inference, or BO
-  run was produced. Do not proceed unless exact historical assets or
-  authoritative row-resolving identifiers/structures are recovered.
+  194 unique GW compositions. The separately specified
+  `CURRENT_NLR_PBE_GW_V1` benchmark uses authoritative `wave`-parent energy and
+  family provenance rather than claiming an exact historical polymorph match.
+- The frozen benchmark contains 2,142 deterministic PBE/FERE legacy rows and
+  191 strict GW actions. The initial GW split is 166 single-row and 28
+  multi-polymorph compositions; all 28 multi-polymorph selections resolve with
+  zero exact energy ties. Strict mapping excludes exactly CdO, Ga2O3, and
+  Sb2O3, and every retained action maps to one legacy composition key.
+- Terminal benchmark verdict: `PASS_CURRENT_NLR_BENCHMARK`. GW magnitudes are
+  confined to the isolated two-column oracle and were not used for selection
+  or mapping. No descriptors, graph, factors, theory calculation, inference,
+  or BO were produced.
 
 Details: [`experiments/sun_oxide/`](../experiments/sun_oxide/) and its immutable
-[`SOURCE_AUDIT.md`](../experiments/sun_oxide/outputs/source_recovery/SOURCE_AUDIT.md).
+[`SOURCE_AUDIT.md`](../experiments/sun_oxide/outputs/source_recovery/SOURCE_AUDIT.md),
+plus the current-NLR
+[`benchmark_manifest.json`](../experiments/sun_oxide/benchmark/benchmark_manifest.json).
 
 ### E4 — linear PDE supplementary control
 
@@ -168,13 +177,12 @@ reproducible repeated mechanism/coverage experiment with its already specified
 random, Euclidean-local, and static baselines. Do not substitute a broad generic
 benchmark suite.
 
-The Sun et al. oxide candidate must not advance beyond its closed
-`JOIN_AMBIGUOUS` source gate unless exact historical assets or authoritative
-row-resolving identifiers/structures are recovered. Do not rescue it by
-substituting another materials benchmark. Any different realistic-E3 candidate
-requires a new prospective decision. E2 robustness and the smallest necessary
-baselines remain later work; broad supplementary sampler/ablation work comes
-last.
+The exact historical Sun et al. reproduction remains closed as
+`JOIN_AMBIGUOUS`. The distinct `CURRENT_NLR_PBE_GW_V1` benchmark is frozen, but
+no downstream descriptor, graph, factor, inference, or BO gate has begun; any
+such gate requires a separate prospective decision. E2 robustness and the
+smallest necessary baselines remain later work; broad supplementary
+sampler/ablation work comes last.
 
 ## Operating rules
 

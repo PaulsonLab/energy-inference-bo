@@ -31,7 +31,7 @@ conditioning cost when nontrivial fitting is used.
 |---|---|---|---|
 | E1 | Nonlocal reflection symmetry | Main mechanism + certificate | `ACTIVE`; T2-B validation and finite-grid pilot passed; repeats/baselines remain |
 | E2 | Nonlinear PDE expanding-domain scaling | Main scaling/inference consequence | `ACTIVE`; T2-B and family T4 passed; robustness/baselines remain |
-| E3 | Realistic non-PDE sequential BO | Main end-to-end sequential test | `SOURCE RECOVERY CLOSED — JOIN_AMBIGUOUS`; Sun oxide benchmark must not proceed without the exact historical source |
+| E3 | Realistic non-PDE sequential BO | Main end-to-end sequential test | Historical reproduction `JOIN_AMBIGUOUS`; separate current-NLR benchmark `CURRENT_NLR_PBE_GW_V1` frozen and validated; no BO designed |
 | E4 | Linear PDE factor graph | Supplementary control | `EXISTING EVIDENCE / SUPPLEMENT` |
 | A1 | Factor-selection ablations | Supplement | `PLANNED` after primary pipelines |
 | A2 | Inference-backend comparison | Supplement/modularity | `PLANNED` after primary pipelines |
@@ -163,10 +163,10 @@ factors.
 
 ## E3 — Realistic non-PDE BO candidate
 
-**Status:** `SOURCE RECOVERY CLOSED — JOIN_AMBIGUOUS / BO NOT DESIGNED`.
+**Status:** `CURRENT NLR BENCHMARK FROZEN / HISTORICAL REPRODUCTION JOIN_AMBIGUOUS / BO NOT DESIGNED`.
 
-The **Sun et al. PBE→GW oxide legacy-data problem** failed its first
-source-recovery gate. The current authoritative NREL/NLR queries reproduce
+The exact historical **Sun et al. PBE→GW oxide legacy-data problem** failed its
+first source-recovery gate. The current authoritative NREL/NLR queries reproduce
 5,604 finite PBE rows / 2,142 unique compositions and 244 finite GW rows / 194
 unique compositions, but only 193 GW compositions overlap the finite-PBE set.
 The 28 duplicate GW composition groups all span multiple stable material
@@ -179,15 +179,32 @@ Terminal verdict: `JOIN_AMBIGUOUS`. Implementation commit
 [`experiments/sun_oxide/outputs/source_recovery/SOURCE_AUDIT.md`](../experiments/sun_oxide/outputs/source_recovery/SOURCE_AUDIT.md).
 No normalized benchmark or descriptor matrix was emitted, and no target
 ranking, descriptor regeneration, factor construction, inference, BO design,
-or performance baseline was run. The case must not proceed unless the exact
-historical author CSV/matrix or authoritative identifiers/structures resolving
-every row are recovered; do not substitute another materials benchmark.
+or performance baseline was run. That historical reconstruction remains closed
+unless the exact author CSV/matrix is recovered.
 
-If the source blocker is ever resolved, a separate prospective specification
-must precede any modeling implementation and map the case to the locked
-sequential BO claim, credible full-target validation, and a frozen failure
-criterion. Do not reuse Gp2 or tune another synthetic preference bank as an E3
-rescue.
+A separate prospective current-data benchmark is now frozen as
+`CURRENT_NLR_PBE_GW_V1`: “A current, reproducible NLR PBE→GW oxide benchmark
+inspired by the legacy-data setting of Sun et al. (2020), not an exact
+reproduction of their historical polymorph selection.” Starting from 194
+current GW compositions, its target-blind rule uses the sole authoritative
+`wave` parent's finite GGA(+U) total energy per atom and stable MatDB ID only as
+an exact-tie breaker. The 166 single-row and 28 multi-polymorph composition
+counts reproduce; all 28 multi-polymorph cases resolve with zero exact energy
+ties. Strict composition/family-provenance mapping excludes CdO, Ga2O3, and
+Sb2O3 and leaves 191 one-to-one GW actions over 2,142 canonical PBE/FERE legacy
+composition keys. Canonical PBE rows use lowest available source total energy
+per atom with stable MatDB ID as the exact-tie breaker. The prospective freeze
+criterion was exact agreement with all of these counts, exclusions, mappings,
+deterministic reruns, provenance hashes, and GW-target isolation; it passed with
+terminal verdict `PASS_CURRENT_NLR_BENCHMARK`.
+
+Committed benchmark record:
+[`experiments/sun_oxide/benchmark/benchmark_manifest.json`](../experiments/sun_oxide/benchmark/benchmark_manifest.json).
+GW magnitudes live only in the isolated two-column `gw_oracle.csv` and did not
+enter selection or mapping. No descriptors, graph, factors, theory calculation,
+inference, or BO were produced. Any downstream modeling gate requires its own
+prospective specification; do not reuse Gp2 or tune another synthetic
+preference bank as an E3 rescue.
 
 ### Closed E3 evidence
 

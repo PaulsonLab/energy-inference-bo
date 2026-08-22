@@ -11,11 +11,14 @@ order live in [`project/EXPERIMENTS.md`](../project/EXPERIMENTS.md).
 | E1 | [`symmetry/`](symmetry/) | T2-B validation and finite-grid pilot passed; repeated coverage/baselines are next | [finite-grid `RESULTS.md`](symmetry/outputs/inference_certification_pilot/RESULTS.md) |
 | E2 | [`nonlinear_pde/`](nonlinear_pde/) | T2-B and family T4 passed; repeated scaling/baselines remain | [structural `RESULTS.md`](nonlinear_pde/outputs/t2b_structural_validation/RESULTS.md) |
 
-## Planned main candidate
+## Realistic E3 candidate
 
-E3's next realistic candidate is the Sun et al. PBE→GW oxide legacy-data
-problem. It has not been designed or implemented, so there is intentionally no
-experiment directory yet. See the [E3 registry entry](../project/EXPERIMENTS.md#e3--realistic-non-pde-bo-candidate).
+The exact historical Sun et al. PBE→GW oxide reconstruction remains closed as
+`JOIN_AMBIGUOUS`. The separately specified current-data benchmark
+`CURRENT_NLR_PBE_GW_V1` is frozen under [`sun_oxide/`](sun_oxide/) with terminal
+verdict `PASS_CURRENT_NLR_BENCHMARK`; no descriptors, factors, inference, or BO
+have been designed or run. See the
+[E3 registry entry](../project/EXPERIMENTS.md#e3--realistic-non-pde-bo-candidate).
 
 ## Supplementary
 

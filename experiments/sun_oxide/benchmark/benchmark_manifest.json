@@ -1,0 +1,1296 @@
+{
+  "artifacts": {
+    "NLR_DATA_USE_NOTICE.txt": {
+      "path": "experiments/sun_oxide/benchmark/NLR_DATA_USE_NOTICE.txt",
+      "sha256": "886e5fae4d4a935dd12f548a8e733708d1e8f727b66675b4015e68917c6e224b",
+      "size_bytes": 2025
+    },
+    "current_nlr_gw_actions.csv": {
+      "columns": [
+        "action_key",
+        "composition_key",
+        "normalized_formula",
+        "gw_mident",
+        "gw_family_mident",
+        "gw_parent_ids",
+        "gw_wave_parent_mident",
+        "gw_icsd_id",
+        "gw_icsd_space_group",
+        "gw_final_space_group",
+        "wave_parent_family_mident",
+        "wave_parent_parent_ids",
+        "wave_parent_icsd_space_group",
+        "wave_parent_final_space_group",
+        "wave_parent_total_energy_per_atom_ev",
+        "strict_pbe_family_anchor_mident",
+        "canonical_pbe_mident",
+        "selection_rule",
+        "source_query"
+      ],
+      "path": "experiments/sun_oxide/benchmark/current_nlr_gw_actions.csv",
+      "rows": 191,
+      "sha256": "30db6ea8807f2ed41cfe5830bb6e27f3fe912ae0aefb66661d58b8c57bd947b1",
+      "size_bytes": 102299
+    },
+    "current_nlr_legacy.csv": {
+      "columns": [
+        "composition_key",
+        "normalized_formula",
+        "pbe_mident",
+        "pbe_family_mident",
+        "pbe_parent_ids",
+        "pbe_icsd_space_group",
+        "pbe_final_space_group",
+        "pbe_total_energy_per_atom_ev",
+        "pbe_band_gap_ev",
+        "selection_rule",
+        "source_query"
+      ],
+      "path": "experiments/sun_oxide/benchmark/current_nlr_legacy.csv",
+      "rows": 2142,
+      "sha256": "24313a76530dd07c8545d57699ba9abadfb42d5be90573e918f235e39fe505e4",
+      "size_bytes": 874563
+    },
+    "gw_oracle.csv": {
+      "columns": [
+        "action_key",
+        "gw_band_gap_ev"
+      ],
+      "path": "experiments/sun_oxide/benchmark/gw_oracle.csv",
+      "rows": 191,
+      "sha256": "f4abeed6d387cdf8ec878d9b9c0b8efebe27d6ccc42395e5674049cd3789a2d2",
+      "size_bytes": 8979
+    }
+  },
+  "benchmark_name": "CURRENT_NLR_PBE_GW_V1",
+  "counts": {
+    "gw_exact_energy_ties": 0,
+    "gw_multiple_compositions": 28,
+    "gw_multiple_resolved_without_tie": 28,
+    "gw_raw_rows": 244,
+    "gw_single_compositions": 166,
+    "initial_gw_compositions": 194,
+    "legacy_compositions": 2142,
+    "pbe_raw_rows": 5604,
+    "strict_gw_actions": 191
+  },
+  "description": "A current, reproducible NLR PBE\u2192GW oxide benchmark inspired by the legacy-data setting of Sun et al. (2020), not an exact reproduction of their historical polymorph selection.",
+  "duplicate_and_tie_summary": {
+    "gw_exact_parent_energy_tie_groups": 0,
+    "gw_extra_polymorph_rows": 50,
+    "gw_multiple_composition_groups": 28,
+    "pbe_duplicate_composition_groups": 1022,
+    "pbe_exact_displayed_energy_tie_groups": 402
+  },
+  "freeze_date": "2026-08-22",
+  "provenance": {
+    "benchmark_config": {
+      "path": "experiments/sun_oxide/configs/current_nlr_pbe_gw_v1.json",
+      "sha256": "11084dd3c1b53e0b5462c9bb9d64573e26b480faf733461cba5ab4e6dc214791",
+      "size_bytes": 5717
+    },
+    "benchmark_generator": {
+      "path": "experiments/sun_oxide/current_nlr_benchmark.py",
+      "sha256": "c25747ab5ff9c7d5c9d0b312dca3090c6e9b930db7af102dc5b6c729a54990fd",
+      "size_bytes": 33087
+    },
+    "gw_oracle_writer": {
+      "path": "experiments/sun_oxide/gw_oracle.py",
+      "sha256": "e08b66263821329be4118ad3ec160cb8f550ca21fbf5f2bd691bbfe0804173e8",
+      "size_bytes": 8194
+    },
+    "gw_value_cache_files": [
+      {
+        "local_filename": "nrel_gwvd_gap_page_000.html",
+        "sha256": "911c1cfaa6d659906b7bcac73e1500d3d40b2f089979ff9e6a44a96db5a95d91",
+        "size_bytes": 142366
+      },
+      {
+        "local_filename": "nrel_gwvd_gap_page_001.html",
+        "sha256": "5bfc289266d6b4d8698197bf4ead59e088b471fd17687fc49fe577cc43513753",
+        "size_bytes": 142288
+      },
+      {
+        "local_filename": "nrel_gwvd_gap_page_002.html",
+        "sha256": "da09d5a9ad7ec0ae6872b6b4d1c78b5d4e9c826c2aa9fddb88435abbf0e7cbb9",
+        "size_bytes": 78475
+      }
+    ],
+    "metadata_cache_files": [
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_000.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "4d5c1322a74a43220fdfa556aa0134d6d6707a161a1f45706bf876ae583491c0",
+        "size_bytes": 123236,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_001.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "efed9eec1a930b713b2a4591f4d741332fe89405cdd8500bc32e5f5380fc62fe",
+        "size_bytes": 123391,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_002.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "b219c53d1f76c68e94006c42ef61001014bb8067123a06d08d9adad4cf32da2c",
+        "size_bytes": 123910,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_003.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "b410eda9510c32b2323d597137e57a3660cac84de2f270ab134a7925779f4960",
+        "size_bytes": 123780,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_004.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "61b4f7b72b18501132307c512dab2411db656c08d921f13bab07198cfd05caba",
+        "size_bytes": 123604,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_005.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "f46138101c8f0c0373d555acf5fe16dc5bfc1b935f4f0159d1d0bbc862f7dd50",
+        "size_bytes": 123896,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_006.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "943afe5ef838963f6fa23aab5f291ec76280bddd6bc6b9ddad63a3f1d1fa6ef2",
+        "size_bytes": 123796,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_007.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "004ea0a63d137009ee9ba3acd62c429f8fe2d632ef3b5c1db1a51f53fb1db6e1",
+        "size_bytes": 123899,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_008.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "c9551d4e7096293e7d75c34c438c09a909e08c55c8a8478ffbc822ddd7bf6837",
+        "size_bytes": 123672,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_009.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "4f3fbde0f509d68c636a0f3fd34baac474351e99cff47ae0a6b882cb33c88503",
+        "size_bytes": 123649,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_010.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "e0ea3f17e76105fae15272983cb9500869bd9f02720a82a8cd2104425c5e17fc",
+        "size_bytes": 123788,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_011.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "3bb41b2647cd372e58c1e3844eea9aa538307026fb79e045dce8a7b63cd88fe5",
+        "size_bytes": 123776,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_012.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "8ef571fd4b8664d64b3503b092c5e8cae11515324abd866a6be96dfa1e654076",
+        "size_bytes": 124089,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_013.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "400726ce81e7a38be6e641fd94e2b1bcfc8a24914f957e7cd12613339e7e588f",
+        "size_bytes": 123746,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_014.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "a4109aafeef346ca03930ac75141b99672fb9b40776d6e84e178d5020fcc5fb0",
+        "size_bytes": 123604,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_015.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "9f6395d6e4405383285dc9e8e537573523b56108c87d0f7b68e2639fa26ab864",
+        "size_bytes": 123922,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_016.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "5a416544907b43c524f7f8209f693ea501d9354cb3a7b60623e5033574f58461",
+        "size_bytes": 124277,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_017.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "bb3aa9d783b7d92e70f1428d84ef6dbae9ec14195014e7957511e3d11f0139db",
+        "size_bytes": 123490,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_018.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "0826b7d30457da0bd673200b9bcb435e8a21b113089f56537fa7940aff2fe546",
+        "size_bytes": 123696,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_019.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "14dfb37cf1bdf2b236c4faff9b95fe5b61bef3af7fb46820fcda5ff53c891915",
+        "size_bytes": 123642,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_020.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "a73fbdad5ad1fbff65e96500ce852afc56a4b050facabf58cd3d5961cef60b75",
+        "size_bytes": 123758,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_021.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "9ce75a665e90718e23cd424553730e80632e9728ed0f302bb841231276468270",
+        "size_bytes": 123796,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_022.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "3ab2c576e62898cf878bdcd70b6251b509830fb4398d9d555f87e245977f5bf3",
+        "size_bytes": 123607,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_023.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "39ca7eaa111e3605c1ffa3b0b76231007704e4a1d81432e8eac9793fdce237d8",
+        "size_bytes": 123591,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_024.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "e44b298b1724c859a6d8cbf8ae7ef8617cb9f554b2a5e5b5a1a8a26520e31bcd",
+        "size_bytes": 123676,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_025.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "65cf0f8f91e84ffd77733b9cbb49d777a39402e4b389463e49cb131d2ae3f70f",
+        "size_bytes": 124388,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_026.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "cc4dd9b39614d85ca7383a10afeb10da56cc839cb407aafeb3729e8249d7667b",
+        "size_bytes": 123569,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_027.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "b002810edc1038701d5bcffda173c563346556383f444f1067396bea317141b1",
+        "size_bytes": 123728,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_028.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "3914fcf1183787b9a9087149b713a47a737f4859df76fe41c96ad10f9f1dd6a8",
+        "size_bytes": 123883,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_029.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "72515fa8fd9caaef6c5fcc423add77e0d54411c4be2f48e77ad02c3caed03fb2",
+        "size_bytes": 123447,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_030.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "84d8750826c6d869d405b7808ff76fbf4539e46baa1918db055328d128db7ab5",
+        "size_bytes": 123540,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_031.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "84f378a79bc1b373b4ca77f53a5e4227997290810e950c741015b97870d8b8b0",
+        "size_bytes": 123394,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_032.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "d11ee2117db7eb14cd6c5b92facea6e6873b36e8a25c9e5572e7492bc74d8157",
+        "size_bytes": 123604,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_033.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "fbd480bf00fc396b3fcf41a0093f6f94ba093cecc78e79ab29a46560066bfd29",
+        "size_bytes": 123616,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_034.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "c136898f6384de5c66e11b36aab3fe1d9ac7fb54023bab372f21b2311fabc89f",
+        "size_bytes": 123333,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_035.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "aeab09c20a2ede0b2e0697c2706d318020c9c7729053c804d1c8699a859a1b68",
+        "size_bytes": 123545,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_036.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "ad4b7867b28d45f3b7d2336837c47c73a86bb62c96a3e6b803491a9fd9a5bab5",
+        "size_bytes": 123571,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_037.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "e88eb44ab7ac9a647cb5a2a99a1bdf140ee8dda5098bda0902633b4489d3d8c1",
+        "size_bytes": 123474,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_038.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "818c118d136a44beedd56c9cba5e86ef34c8884172ed3c7dbd06cafd486f762c",
+        "size_bytes": 123396,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_039.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "bc92e9196b87ce20ed30e5e9bcfeda5453240a2f1ae438439e4ccc5cadd2558f",
+        "size_bytes": 123761,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_040.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "5e2eb3538b9415e740dd07a143b0c3af0b5e5315acb2335a31bcdf90cbdde57c",
+        "size_bytes": 124009,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_041.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "048b0141f49b2541e2e749b2015b22e3f409149dc9e6c3f22b79b0c6f08e67ed",
+        "size_bytes": 123848,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_042.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "449139de1ce0fb2f474b58e7af905e32ec194ce26f73b37f7bbde45af1a03522",
+        "size_bytes": 123658,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_043.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "a72563270853f650af7a509dbda65cf936fa450a603f8c258e2ef6132c7907d8",
+        "size_bytes": 123469,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_044.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "c63a5b8a03a3709db0729b52dcff7e02120dcd5316e52d94c2883a9d5b200262",
+        "size_bytes": 123646,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_045.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "dbbe2c51ae0913ce2108ff37b5dc44247a84319022cf4765d5d86ff4183b4331",
+        "size_bytes": 123973,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_046.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "22334fd9a9180eb530dbea53fffda0563950ae4c2cd671672ad2c8f071d908f8",
+        "size_bytes": 124259,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_047.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "ba94dab948f563b8659859320b33c89cbd123579b14c5954f1824c205ac5a211",
+        "size_bytes": 123513,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_048.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "16cd467e21bceed3860ed409e16a4fdaf875dea54123d87306a63acd75caa627",
+        "size_bytes": 123816,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_049.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "b4623680699155f176efc98b72b2eff6415331cbad5ad5b37218ee39c6d81cd6",
+        "size_bytes": 124388,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_050.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "e778210e4bed06786a914f94075e30e822fdd72ae667addbdcb246274694f942",
+        "size_bytes": 123422,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_051.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "e1dc7af97f1db509899df26aba1d5befae47e5da62d28faab133266346b03001",
+        "size_bytes": 123671,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_052.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "e3765dd5533caf3419ec51579a12107a74f4d66c1bb57e18f4bd22692fd82c81",
+        "size_bytes": 123557,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_053.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "3e53264fa3f84126cafd9e046c89e74d37c96241b356812f996e4ee6dcd9b276",
+        "size_bytes": 123466,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_054.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "b195da7f686201ed214f8318c096a2da47e7099a478319fa785050b65036bbf1",
+        "size_bytes": 123516,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_055.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "1e85db652013c849ce1f892fe79f6d04168094109be2067976b76c8ae6312ad9",
+        "size_bytes": 123770,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_fere_metadata_page_056.html",
+        "query_name": "pbe_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_pbe_metadata_page",
+        "sha256": "7861471e6ea2d9230867bb324f04ece9d052bdc902f2dfc10269d464feaac3e3",
+        "size_bytes": 32252,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_gwvd_metadata_page_000.html",
+        "query_name": "gw_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_gw_metadata_page",
+        "sha256": "ea469e8a2a637a27d77a29fff3d6decc3f43ec95e2a87e065ed82ed152fc906b",
+        "size_bytes": 129446,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_gwvd_metadata_page_001.html",
+        "query_name": "gw_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_gw_metadata_page",
+        "sha256": "5fe9de705e46f7c631ec8b2c290f95ca220fbdbce13f02d2c7790ae381dc2f27",
+        "size_bytes": 129370,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_gwvd_metadata_page_002.html",
+        "query_name": "gw_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_gw_metadata_page",
+        "sha256": "842d1e3869823353002b9f6d647d537d77b3e9d4029a2b1626be9ce5939f0c6c",
+        "size_bytes": 72669,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_wave_metadata_page_000.html",
+        "query_name": "wave_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_wave_metadata_page",
+        "sha256": "fcbb9a30556f6295f97eb7ec95c60801aab85ff65daa46d036491a01e14be3ad",
+        "size_bytes": 130571,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_wave_metadata_page_001.html",
+        "query_name": "wave_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_wave_metadata_page",
+        "sha256": "0cf1bff84ea4c5c2e95dcab834674a8f32a7e03dd71bd89a487b5a7f917bec86",
+        "size_bytes": 130489,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      },
+      {
+        "content_type": "text/html",
+        "license": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications.",
+        "local_filename": "nlr_wave_metadata_page_002.html",
+        "query_name": "wave_metadata",
+        "resolved_url": "https://materials.nlr.gov/queryStd",
+        "retrieval_date": "2026-08-22",
+        "role": "current_nlr_benchmark_wave_metadata_page",
+        "sha256": "5c2eed087e4432ed4c2138101a280777a26ddbcf318c258dc14df82c2f6ce0fb",
+        "size_bytes": 73204,
+        "source_version": "live authoritative NLR MatDB query captured on freeze date",
+        "url": "https://materials.nlr.gov/queryStd"
+      }
+    ],
+    "metadata_cache_manifest": {
+      "path": "data/external/sun_oxide/current_nlr_pbe_gw_v1/cache_manifest.json",
+      "sha256": "9a7946dde9c171c7ab8720e30cd5c7eac11a2cdd4992a17cccadbe8259dab3f2",
+      "size_bytes": 46659
+    },
+    "pbe_value_cache_files": [
+      {
+        "local_filename": "nrel_fere_gap_page_000.html",
+        "sha256": "8a84bc1cc7c5fee2dbd7d35641426961248e466d17bea009d5c79fdeb478530c",
+        "size_bytes": 123109
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_001.html",
+        "sha256": "87884fb320779a4c4321c7a31a55ee7b6b0a98cfa7165fcf41ed6d65904ae785",
+        "size_bytes": 123264
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_002.html",
+        "sha256": "21db1cac3d731abde6497e2d48db82f9f283b9698fcaf385a5f1f6418ce0d443",
+        "size_bytes": 123783
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_003.html",
+        "sha256": "e6e103bfae7c2bca81068d36fb7bf445cee01f542ee2d8facb3f159f0d91d757",
+        "size_bytes": 123653
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_004.html",
+        "sha256": "385ba2e47aeddf814fb071cfffe8da6420749d2b3a672d42870bc7353ecacc9b",
+        "size_bytes": 123477
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_005.html",
+        "sha256": "3666dcaf773d31639705e601f79b81cf6f276f429a407cabd0baad379a59a3b1",
+        "size_bytes": 123769
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_006.html",
+        "sha256": "c7fef3f9738a7a9eb44bb6aeeca807c8902bf6be144f47c0e14dbaba2c2041b7",
+        "size_bytes": 123669
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_007.html",
+        "sha256": "53c13a11a8f1068dd99b06ff1a88ac44fa85c1609cf53e83b5dde535eb88c371",
+        "size_bytes": 123772
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_008.html",
+        "sha256": "c09c06083dabfcc988cb52a38e59f5a10411c84ae2944ddad9eac31ff5d0ad80",
+        "size_bytes": 123545
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_009.html",
+        "sha256": "3729a74b9587af897332baef73ea866f722a27127b8b3d75369c7908558cd53c",
+        "size_bytes": 123522
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_010.html",
+        "sha256": "752b43d81418d66b05058fe5f49d17f6568aa5a4f36aa9b5773e6c6fe8d3ac5b",
+        "size_bytes": 123661
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_011.html",
+        "sha256": "c00dd3b1b7ada21be6c9219ccbc734b39c1b07c0dd141d30a97a7731a87c2aee",
+        "size_bytes": 123649
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_012.html",
+        "sha256": "84707010c0249266ca05628eb2754ac69b68f8801b6905fdb145566a81e99f99",
+        "size_bytes": 123962
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_013.html",
+        "sha256": "ed5961266efa90b7840c8b6e95b8572aea7defb330742ecc84b0c1b023878dc3",
+        "size_bytes": 123619
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_014.html",
+        "sha256": "c8036f6ce5175c27bfeaf9d99a3cf6df91546bc051b4051b5885cb7074b459e0",
+        "size_bytes": 123477
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_015.html",
+        "sha256": "2a6a826a007036aa48b384a2d05cd4ebff0697e1b9ff932a2243fc90e591664c",
+        "size_bytes": 123795
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_016.html",
+        "sha256": "a9b053f1c8a3a8cba071f19b4b249c24f5528da8b93bbae7f7eafa919166e0f4",
+        "size_bytes": 124150
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_017.html",
+        "sha256": "2acca1b9d8bb08aff80bd6eacbdd0a0e82aefff21e36ddc2f4530fd6dcc3d159",
+        "size_bytes": 123363
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_018.html",
+        "sha256": "39bb547a6b26305d7dec71c3fa6bf515bf696a3765d45e08703a02670524a7ec",
+        "size_bytes": 123569
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_019.html",
+        "sha256": "90b0dcd221d3d420cfa6d73238ce7d0d0a2986181c6a606fa118a80dd5e498b8",
+        "size_bytes": 123515
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_020.html",
+        "sha256": "7a5cf03dcfec27d564f61903407fcbdefa89583602ba5cd02efa660899361894",
+        "size_bytes": 123631
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_021.html",
+        "sha256": "8abbf2b0ea9ed7ca1927221ac9feda64281c8aa20d8a1db685de205cb1be3686",
+        "size_bytes": 123669
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_022.html",
+        "sha256": "8e4ae63ba38fdd059278215ba1bce5818625ac461f04091bffa0ff909fa4f868",
+        "size_bytes": 123480
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_023.html",
+        "sha256": "1ea7d1963a322c5d777ce23c1378a09e7f105363db5831051bf4d19f87b7e99e",
+        "size_bytes": 123464
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_024.html",
+        "sha256": "79250b048f678bbe4e5f3595e6fcf960c0482b806124a5a0c49280f19b2958da",
+        "size_bytes": 123549
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_025.html",
+        "sha256": "f4fed885663c768cb1b80a46bee8b6ca06be201add04a39649f89c304e5d1c24",
+        "size_bytes": 124261
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_026.html",
+        "sha256": "e42097737450728446a5e5d314467efb4ee9566b704611529cc8e2ccebe29b87",
+        "size_bytes": 123442
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_027.html",
+        "sha256": "d1efa1bc7e50e7ca9b0bc2d19a4e407a32f02e5ba397a69cbac6677093f0895d",
+        "size_bytes": 123601
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_028.html",
+        "sha256": "8a57d55f5555f6ef011bc21966209469082bd968e5cf6c77b643e46c4b3988a9",
+        "size_bytes": 123756
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_029.html",
+        "sha256": "8438c67f10f66dd1f3d1d544e067bb8f2293eefc06e7a62e439e8e6595c5d490",
+        "size_bytes": 123320
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_030.html",
+        "sha256": "e4e9376ba899834236f92fe405e9a8796a7c0b27b85b6c7ea34658ce11f3198c",
+        "size_bytes": 123413
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_031.html",
+        "sha256": "bb1a913fcf9cdeac76a768537c20e7cf970bd77367bcc232c4dd1e5367370d03",
+        "size_bytes": 123267
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_032.html",
+        "sha256": "33986ba0161940828511509c01da6eb111e9bd7a513965b8e0cc8402f07e54ee",
+        "size_bytes": 123477
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_033.html",
+        "sha256": "cb2a3cc07b6978385e20d0c894c007af81a311ed39f59c3eff7a9fbb9913e0eb",
+        "size_bytes": 123489
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_034.html",
+        "sha256": "6d0cb6a4902299c9962dc3c4dab4b105779642d910b3b07d494452a3eca9e358",
+        "size_bytes": 123206
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_035.html",
+        "sha256": "0828e1ec2e4b48d29916687c493550b3fe06ffb2c7613e9637b4fe30a938ea59",
+        "size_bytes": 123418
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_036.html",
+        "sha256": "260b2059263dca7062b74805f629127a7c1af889f6636d3c56ece00db98404b5",
+        "size_bytes": 123444
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_037.html",
+        "sha256": "00e634cdaa23ac622794c5d351899908dd8f69601317e510f7293b69fb73f360",
+        "size_bytes": 123347
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_038.html",
+        "sha256": "c18e319d68f345f0b34001e5d05d8d2bd0c93641a9722fb937cfc2746dd06c71",
+        "size_bytes": 123269
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_039.html",
+        "sha256": "728ce82135ef9901f5cdd6ea1c863e664d66e23c771a4b68885c0f9f184fdcd7",
+        "size_bytes": 123634
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_040.html",
+        "sha256": "7b53e165e4a9b6aca31a12bf08acd62e9d6e35afb56f5a44bc076d80a82f3a71",
+        "size_bytes": 123882
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_041.html",
+        "sha256": "6f4e0d8de472017a9742816b4e4878d56187542ca5c33da10d946c86c0b2304c",
+        "size_bytes": 123721
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_042.html",
+        "sha256": "6571e0a99f0b611ad6672311d2ff7e1ac61259abd70b82b4e003fc6bb7402798",
+        "size_bytes": 123531
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_043.html",
+        "sha256": "14df7c761ed3f40aef2b4fe2ef68e4070b2168723a0b1cbc6f55e5c9c4faf8b8",
+        "size_bytes": 123342
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_044.html",
+        "sha256": "b712df56f58f9fee87bb34192ef93bb38236eae679d350a59ef899d1a5fa3835",
+        "size_bytes": 123519
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_045.html",
+        "sha256": "de88bc6b88a0474668451db371557310dafc65755210c5c56f4f0df4cefc3661",
+        "size_bytes": 123846
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_046.html",
+        "sha256": "54f8f19fba1cb881915b69c72d6e698e2ae0b696cd3fcd974b77abf9ab39acf3",
+        "size_bytes": 124132
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_047.html",
+        "sha256": "497e072734648ea65ba41591304ab05e5083b7681caa9a2e0bfdc68e9c395cc6",
+        "size_bytes": 123386
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_048.html",
+        "sha256": "50f43f11d9f7b046d12b67d1d189a8986fa8c2733ac41cba6e11fc5888135a70",
+        "size_bytes": 123689
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_049.html",
+        "sha256": "5e768cad18030a8f9a9c3339cb9b656df5acfb589bc9a03acd0fa58479dd7907",
+        "size_bytes": 124261
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_050.html",
+        "sha256": "1a49e6cffad18271829ec1dd59f27e3809584d88fae4f22b403ff2ae58fb3fee",
+        "size_bytes": 123295
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_051.html",
+        "sha256": "a4417c32faa8739374bdcaacd51896c3f501045ac9d38b87501ed9ab3ba01160",
+        "size_bytes": 123544
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_052.html",
+        "sha256": "5fad9ceb4d802ad2ad56671daf3969f4e5ceb32665480dc05ff581cdf7dc14d8",
+        "size_bytes": 123430
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_053.html",
+        "sha256": "a24c7703c84d7ed1fc48013e441605efb96a56e09ae56b7bff0db240b7b340da",
+        "size_bytes": 123339
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_054.html",
+        "sha256": "973b984066add8fe8642f63e5126ff5e1c0ccf5a6d3ca8541174fc8e2a02a536",
+        "size_bytes": 123389
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_055.html",
+        "sha256": "5996f81177c5864ceb8725d358de117f6f102230e52bdced6d7eef679b876ada",
+        "size_bytes": 123643
+      },
+      {
+        "local_filename": "nrel_fere_gap_page_056.html",
+        "sha256": "0441dd4d44f76005177972e6b7e606c4ca7827d1aff098b806fab731cf4c64de",
+        "size_bytes": 32221
+      }
+    ],
+    "query_date": "2026-08-22",
+    "query_endpoint": "https://materials.nlr.gov/queryStd",
+    "source_recovery_cache_manifest": {
+      "path": "data/external/sun_oxide/source_recovery/cache_manifest.json",
+      "sha256": "472a2f7a2cafdebc0d714efc268577923b6558d0a114a51c39ad43fb21aa0d3e",
+      "size_bytes": 45231
+    },
+    "source_version": "live authoritative NLR MatDB query captured on freeze date"
+  },
+  "schema_version": 1,
+  "selection_rules": {
+    "gw": "For a single-row GW composition, use that row. For a multi-row composition, select the GW row whose sole authoritative wave parent has the lowest finite GGA(+U) total energy per atom; break an exact displayed-energy tie by smaller stable GW MatDB ID. Never use GW band-gap magnitude.",
+    "pbe": "Within each normalized composition in the finite PBE/FERE source domain, select the row with the lowest finite total energy per atom; break an exact displayed-energy tie by smaller stable MatDB ID. Do not use PBE or GW gap values.",
+    "strict_mapping": "Retain a selected GW row only when its normalized composition exists in the PBE/FERE domain and its authoritative GW/wave family anchor is present as exactly one PBE/FERE MatDB row for that composition."
+  },
+  "source_of_truth": {
+    "branch": "main",
+    "repository": "https://github.com/PaulsonLab/energy-inference-bo",
+    "starting_sha": "dc787db704fc7b585ca6002e4d585bfa6d7aedf7"
+  },
+  "strict_mapping": {
+    "all_retained_have_exactly_one_pbe_family_anchor": true,
+    "all_retained_map_to_exactly_one_legacy_composition_key": true,
+    "excluded": [
+      {
+        "display_formula": "CdO",
+        "normalized_formula": "Cd O",
+        "reason_code": "COMPOSITION_ABSENT_FROM_PBE_FERE"
+      },
+      {
+        "display_formula": "Ga2O3",
+        "normalized_formula": "Ga2 O3",
+        "reason_code": "SELECTED_GW_FAMILY_ABSENT_FROM_PBE_FERE"
+      },
+      {
+        "display_formula": "Sb2O3",
+        "normalized_formula": "O3 Sb2",
+        "reason_code": "SELECTED_GW_FAMILY_ABSENT_FROM_PBE_FERE"
+      }
+    ],
+    "retained": 191
+  },
+  "target_isolation": {
+    "gw_target_used_for_candidate_selection": false,
+    "gw_target_used_for_strict_mapping": false,
+    "oracle_columns": [
+      "action_key",
+      "gw_band_gap_ev"
+    ],
+    "oracle_contains_selection_metadata": false,
+    "oracle_status": "WRITTEN_BY_ISOLATED_MECHANICAL_WRITER",
+    "selection_metadata_queries_return_gw_target_magnitudes": false
+  },
+  "validation": {
+    "deterministic_ordering": true,
+    "mapping_one_to_one": true,
+    "oracle_action_keys_match": true,
+    "oracle_complete": true,
+    "oracle_rows": 191,
+    "oracle_targets_finite": true,
+    "selection_target_free": true,
+    "stable_keys_unique": true
+  },
+  "verdict": "PASS_CURRENT_NLR_BENCHMARK"
+}
