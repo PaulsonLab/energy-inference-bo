@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "run_id": "gp2_e3_structural_preflight",
+  "status": "preregistered_frozen",
+  "external_data": {
+    "repository": "HackelLab-UMN/DevRep",
+    "commit": "e05023a8abe7be6c2e22f42d523b20bd76cd8da5",
+    "raw_base_url": "https://raw.githubusercontent.com/HackelLab-UMN/DevRep",
+    "cache_directory": "data/external/gp2_devrep/e05023a8abe7be6c2e22f42d523b20bd76cd8da5",
+    "files": [
+      {
+        "path": "datasets/assay_to_yield_training_sequences.csv",
+        "sha256": "4b2c1697798764eb6c76c9297c77d5e36b548cb0a6bf44b376edfea065beb52f"
+      },
+      {
+        "path": "datasets/test_sequences.csv",
+        "sha256": "eab318cf049552706ad9feb28e2cbf144b457b618135652a5bea2af7aee0a9c2"
+      }
+    ]
+  },
+  "source_roles": {
+    "historical_calibration": "datasets/assay_to_yield_training_sequences.csv",
+    "prospective_actions": "datasets/test_sequences.csv",
+    "union_sources_for_actions": false
+  },
+  "columns": {
+    "sequence": "Paratope",
+    "stop": "Stop",
+    "target": "SH_Average_bc",
+    "proxies": [
+      "Sort1_mean_score",
+      "Sort8_mean_score"
+    ],
+    "heldout_target_permission": "finite_check_and_duplicate_consistency_only"
+  },
+  "preprocessing": {
+    "duplicate_rtol": 1e-12,
+    "duplicate_atol": 1e-12,
+    "minimum_calibration_count": 100,
+    "minimum_largest_component_fraction": 0.9,
+    "minimum_action_count": 150,
+    "minimum_factor_count": 75,
+    "minimum_factor_coverage": 0.4
+  },
+  "calibration": {
+    "features_in_order": [
+      "Sort1_mean_score",
+      "Sort8_mean_score"
+    ],
+    "response": "historically_standardized_SH_Average_bc",
+    "target_standardization_ddof": 1,
+    "minimum_target_standard_deviation": 1e-6,
+    "pipeline": [
+      "StandardScaler",
+      "Ridge"
+    ],
+    "ridge_alpha": 1.0,
+    "ridge_fit_intercept": true,
+    "hyperparameter_search": false,
+    "kfold": {
+      "n_splits": 10,
+      "shuffle": true,
+      "random_state": 0
+    },
+    "oof_metric": "RMSE",
+    "proxy_scale_formula": "sqrt(3)/pi * RMSE_OOF",
+    "minimum_proxy_scale": 1e-6
+  },
+  "graph": {
+    "source": "prospective_actions_only",
+    "distance": "unweighted_hamming_full_Paratope",
+    "literal_X_is_ordinary_symbol": true,
+    "k": 8,
+    "directed_neighbor_tie_break": [
+      "hamming_distance_ascending",
+      "Paratope_lexicographic_ascending",
+      "canonical_action_index_ascending"
+    ],
+    "undirected_construction": "union_of_directed_knn_choices"
+  },
+  "factor": {
+    "availability": "both_proxy_means_finite",
+    "missing_proxy_behavior": "missing_factor_not_missing_action",
+    "count_per_available_action": 1,
+    "energy": "2*log(cosh((z_i-mu_proxy_i)/(2*s_proxy)))",
+    "weight": "none",
+    "candidate_specific_scale": false,
+    "canonical_order": "increasing_action_index"
+  },
+  "reference": {
+    "precision": "I_plus_symmetric_normalized_laplacian",
+    "formula": "Q0=2I-D^(-1/2)WD^(-1/2)",
+    "covariance": "K0=Q0^(-1)",
+    "hyperparameter_optimization": false
+  },
+  "theory_checks": {
+    "matrix_tolerance": 1e-10,
+    "require_q0_symmetric_positive_definite": true,
+    "require_q0_nonpositive_off_diagonal": true,
+    "comparison_matrix": "A=Q0",
+    "influence_operator": "C=A^(-1)=K0",
+    "require_k0_entrywise_nonnegative": true,
+    "graph_distance_covariance_bound": "0<=K0_ij<=2^(-d_G(i,j))",
+    "factor_derivative_finite_differences": true
+  },
+  "structural_gate": {
+    "contribution": "(K0[x,a(j)]+K0[x_hat,a(j)])/s_proxy",
+    "action_pairs": "all_unordered_distinct_pairs",
+    "epsilon_struct": 0.05,
+    "maximum_active_factor_fraction": 0.5,
+    "minimum_passing_pair_fraction": 0.9,
+    "pass_condition": "fraction_pairs_with_R_0_05_at_most_0_50_at_least_0_90"
+  },
+  "diagnostics": {
+    "factor_fraction_guideline": 0.5,
+    "pair_fraction_guideline": 0.9,
+    "ratio_quantiles": [
+      0.5,
+      0.75,
+      0.9,
+      0.95
+    ],
+    "ratio_thresholds": [
+      0.25,
+      0.5
+    ],
+    "plot": "target_blind_ecdf"
+  },
+  "outcome_precedence": [
+    "PREPROCESSING_AMBIGUITY",
+    "PREPROCESSING_INVALID",
+    "THEORY_INSTANTIATION_INVALID",
+    "FAIL_STRUCTURAL_SPARSITY",
+    "PASS_STRUCTURAL_PREFLIGHT"
+  ],
+  "provenance": {
+    "project_repository": "https://github.com/PaulsonLab/energy-inference-bo",
+    "branch": "main",
+    "handoff_design_commit": "6ca1171ae13511b081f4a9c79c112378d4119357",
+    "handoff_path": "project/E3_GP2_STRUCTURAL_PREFLIGHT_HANDOFF.md",
+    "config_hash_recording": "computed_from_exact_file_bytes"
+  }
+}
