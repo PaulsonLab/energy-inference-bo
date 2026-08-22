@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "audit_date": "2026-08-22",
+  "expected": {
+    "pbe_unique_compositions": 2142,
+    "gw_unique_compositions": 194,
+    "mapped_gw_compositions": 194,
+    "descriptor_shape": [2142, 132]
+  },
+  "sources": {
+    "paper": {
+      "title": "Data Integration for Accelerated Materials Design via Preference Learning",
+      "doi": "10.1088/1367-2630/ab82b9",
+      "url": "https://iopscience.iop.org/article/10.1088/1367-2630/ab82b9/meta",
+      "license": "CC BY 4.0"
+    },
+    "publisher_supplement": {
+      "url": "https://content.cld.iop.org/journals/1367-2630/22/5/055001/revision2/NJP_22_5_055001_suppdata.pdf",
+      "archive_cdx_url": "https://web.archive.org/cdx/search/cdx?url=content.cld.iop.org%2Fjournals%2F1367-2630%2F22%2F5%2F055001%2Frevision2%2F%2A&output=json&fl=timestamp%2Coriginal%2Cstatuscode%2Cmimetype%2Cdigest%2Clength&filter=statuscode%3A200&collapse=urlkey",
+      "archive_digest": "4PRVOYPC665ISXOHHWRAMKXFBVQMZ5GL",
+      "local_filename": "NJP_22_5_055001_suppdata.pdf",
+      "license": "CC BY 4.0 with the article",
+      "content_summary": "Three-page Supplementary Table 1 covering 94 molecules; no oxide benchmark assets."
+    },
+    "prefint": {
+      "repository_url": "https://github.com/tsudalab/PrefInt",
+      "requested_commit": "b96a1eb0fc8667127d6fffffd92f8ee37b9641f5",
+      "evidence_commit": "b06606772d08d57301583c51d045b75e67c42161",
+      "evidence_path": "data/.ipynb_checkpoints/matminerpractice-checkpoint.ipynb",
+      "evidence_blob": "3e57d7cc01d7884dd637266f41280a74c0891988",
+      "evidence_url": "https://raw.githubusercontent.com/tsudalab/PrefInt/b06606772d08d57301583c51d045b75e67c42161/data/.ipynb_checkpoints/matminerpractice-checkpoint.ipynb",
+      "local_filename": "prefint_matminerpractice_b066067.ipynb",
+      "license": "MIT",
+      "requested_tree_summary": "The pinned checked-in data/moldata files are molecular benchmark data; the oxide CSV is absent."
+    },
+    "nrel_matdb": {
+      "query_url": "https://materials.nlr.gov/queryStd",
+      "legacy_url": "https://materials.nrel.gov/queryStd",
+      "disclaimer_url": "https://materials.nlr.gov/help?hname=disclaimer",
+      "disclaimer_local_filename": "nlr_data_use_disclaimer.html",
+      "terms": "Use, copy, and distribution are permitted without fee if the complete NLR data-use notice accompanies copies; DOE/NLR/ALLIANCE must be credited in resulting publications."
+    },
+    "nims_samurai": {
+      "url": "https://samurai.nims.go.jp/articles/f0398b93-b66d-4f26-b079-5feb2e61d22a",
+      "note": "The record exposes an MDR heading but no linked MDR item; current MDR exact DOI/title searches returned no record."
+    },
+    "lany": {
+      "doi": "10.1103/PhysRevB.87.085112",
+      "url": "https://doi.org/10.1103/PhysRevB.87.085112"
+    },
+    "pilania": {
+      "doi": "10.1016/j.commatsci.2016.12.004",
+      "url": "https://doi.org/10.1016/j.commatsci.2016.12.004"
+    }
+  },
+  "queries": {
+    "pbe": {
+      "asset_prefix": "nrel_fere_gap",
+      "page_size": 100,
+      "fields": [
+        "mident",
+        "sorted_formula",
+        "icsd_space_group",
+        "final_space_group",
+        "pbe_band_gap_ev",
+        "standards",
+        "parents"
+      ],
+      "form": [
+        ["qset", "superset"],
+        ["qrequires", "O"],
+        ["qforbids", ""],
+        ["qrestrictExpr", "gap >= 0"],
+        ["qstandardStg", "fere"],
+        ["qkeywordStg", ""],
+        ["qviewName", "General"],
+        ["qselectField", "model.mident"],
+        ["qselectField", "model.sortedformula"],
+        ["qselectField", "icsd.symgroupnum"],
+        ["qselectField", "model.finalspacegroupnum"],
+        ["qselectField", "model.bandgapoverall"],
+        ["qselectField", "model.meta_standards"],
+        ["qselectField", "model.parentids"],
+        ["qsortField", "sortedformula,inc"],
+        ["hideDupFere", "on"],
+        ["qfmtName", "HTML"]
+      ]
+    },
+    "gw": {
+      "asset_prefix": "nrel_gwvd_gap",
+      "page_size": 100,
+      "fields": [
+        "mident",
+        "sorted_formula",
+        "icsd_space_group",
+        "final_space_group",
+        "gw_band_gap_ev",
+        "icsd_id",
+        "standards",
+        "parents"
+      ],
+      "form": [
+        ["qset", "superset"],
+        ["qrequires", "O"],
+        ["qforbids", ""],
+        ["qrestrictExpr", "gap >= 0"],
+        ["qstandardStg", "gwvd"],
+        ["qkeywordStg", ""],
+        ["qviewName", "GW_Bandgap"],
+        ["qselectField", "model.mident"],
+        ["qselectField", "model.sortedformula"],
+        ["qselectField", "icsd.symgroupnum"],
+        ["qselectField", "model.finalspacegroupnum"],
+        ["qselectField", "model.bandgapoverall"],
+        ["qselectField", "model.icsdnum"],
+        ["qselectField", "model.meta_standards"],
+        ["qselectField", "model.parentids"],
+        ["qsortField", "sortedformula,inc"],
+        ["hideDupFere", "on"],
+        ["qfmtName", "HTML"]
+      ]
+    }
+  }
+}

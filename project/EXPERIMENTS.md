@@ -31,7 +31,7 @@ conditioning cost when nontrivial fitting is used.
 |---|---|---|---|
 | E1 | Nonlocal reflection symmetry | Main mechanism + certificate | `ACTIVE`; T2-B validation and finite-grid pilot passed; repeats/baselines remain |
 | E2 | Nonlinear PDE expanding-domain scaling | Main scaling/inference consequence | `ACTIVE`; T2-B and family T4 passed; robustness/baselines remain |
-| E3 | Realistic non-PDE sequential BO | Main end-to-end sequential test | `PLANNED`; Sun et al. PBE→GW oxide legacy-data problem is the next candidate, not yet designed |
+| E3 | Realistic non-PDE sequential BO | Main end-to-end sequential test | `SOURCE RECOVERY ACTIVE`; Sun et al. PBE→GW oxide benchmark reconstruction only; no BO design is authorized |
 | E4 | Linear PDE factor graph | Supplementary control | `EXISTING EVIDENCE / SUPPLEMENT` |
 | A1 | Factor-selection ablations | Supplement | `PLANNED` after primary pipelines |
 | A2 | Inference-backend comparison | Supplement/modularity | `PLANNED` after primary pipelines |
@@ -163,13 +163,12 @@ factors.
 
 ## E3 — Realistic non-PDE BO candidate
 
-**Status:** `PLANNED / NOT DESIGNED`.
+**Status:** `SOURCE RECOVERY ACTIVE / BO NOT DESIGNED`.
 
 The next realistic-E3 candidate is the **Sun et al. PBE→GW oxide legacy-data
-problem**. This registry records the candidate only. No data audit, precise BO
-task, factor construction, inference plan, baselines, configuration, failure
-criterion, code, or run is authorized or completed by the repository-hygiene
-commit that added this note.
+problem**. Only its source-recovery and benchmark-reconstruction gate is now
+active. Factor construction, inference, BO design, and performance baselines
+remain unauthorized until that gate closes.
 
 Before implementation, a separate prospective specification must map the case
 to the locked sequential BO claim, establish data/licensing provenance and a
