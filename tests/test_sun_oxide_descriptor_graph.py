@@ -273,6 +273,13 @@ def test_colab_notebook_pins_sha_and_uses_only_the_isolated_venv() -> None:
     assert "git', 'clone', '--branch', 'main'" in code
     assert code.index("RUN_SHA = subprocess.run") < code.index("'checkout', '--detach', RUN_SHA")
     assert "Path('/content/sunoxide_graph_venv')" in code
+    assert "UV_BOOTSTRAP_VERSION = '0.10.11'" in code
+    assert "PYTHON_VERSION = '3.12.13'" in code
+    assert "'uv', 'python', 'install', PYTHON_VERSION" in code
+    assert "'uv', 'venv', '--python', PYTHON_VERSION" in code
+    assert "str(VENV_PYTHON), '-m', 'ensurepip', '--upgrade'" in code
+    assert "'--seed'" not in code
+    assert "Colab base Python" not in code
     assert "str(VENV_PYTHON), '-m', 'pip', 'install', '--require-hashes', '--no-deps'" in code
     assert "str(VENV_PYTHON), '-m', 'pip', 'check'" in code
     assert "str(VENV_PYTHON),\n    str(REPOSITORY_DIR / 'experiments/sun_oxide/descriptor_graph.py')" in code

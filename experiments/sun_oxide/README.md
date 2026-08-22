@@ -53,8 +53,9 @@ method.
 ## Pending descriptor/reference-graph compatibility gate
 
 [`colab_descriptor_graph.ipynb`](colab_descriptor_graph.ipynb) is the
-installation-safe Colab handoff for the next narrow gate. It creates an
-isolated Python 3.12 environment from the fully pinned
+installation-safe Colab handoff for the next narrow gate. It provisions a
+pinned standalone Python 3.12 interpreter when needed, creates an isolated
+environment from the fully pinned
 [`requirements-colab-graph.txt`](requirements-colab-graph.txt), constructs the
 frozen 132-dimensional Magpie composition descriptors, builds the deterministic
 10-NN-plus-MST graph, checks the sparse graph-Gaussian reference precision, and
