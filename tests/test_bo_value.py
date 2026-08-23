@@ -1,7 +1,10 @@
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
+import subprocess
+import sys
 
 import numpy as np
 from scipy import sparse
@@ -300,6 +303,23 @@ def test_driver_smoke_is_explicitly_oracle_isolated_before_run() -> None:
     assert run_source.index("scientific_smoke(") < run_source.index(
         "_load_oracle_after_smoke("
     )
+
+
+def test_driver_overrides_colab_inline_backend_before_matplotlib_import() -> None:
+    source = DRIVER.read_text(encoding="utf-8")
+    assignment = 'os.environ["MPLBACKEND"] = "Agg"'
+    assert source.index(assignment) < source.index("import matplotlib")
+    environment = os.environ.copy()
+    environment["MPLBACKEND"] = "module://matplotlib_inline.backend_inline"
+    completed = subprocess.run(
+        [sys.executable, str(DRIVER), "--help"],
+        cwd=ROOT,
+        env=environment,
+        capture_output=True,
+        text=True,
+        timeout=30,
+    )
+    assert completed.returncode == 0, completed.stderr
 
 
 def test_colab_notebook_reuses_frozen_cpu_bootstrap_and_terminal_contract() -> None:

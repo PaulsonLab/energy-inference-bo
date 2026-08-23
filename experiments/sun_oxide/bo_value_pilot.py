@@ -14,6 +14,7 @@ import hashlib
 import importlib.metadata
 import json
 import math
+import os
 from pathlib import Path
 import platform
 import shutil
@@ -23,9 +24,14 @@ import time
 from typing import Any, Sequence
 import zipfile
 
+# Colab exports its notebook-only inline backend to child processes.  The
+# isolated scientific venv intentionally does not depend on matplotlib-inline,
+# so select the headless artifact backend before Matplotlib reads the inherited
+# environment during import.
+os.environ["MPLBACKEND"] = "Agg"
 import matplotlib
 
-matplotlib.use("Agg")
+matplotlib.use("Agg", force=True)
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
