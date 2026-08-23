@@ -5,6 +5,7 @@ import os
 from pathlib import Path
 import subprocess
 import sys
+from types import SimpleNamespace
 
 import numpy as np
 from scipy import sparse
@@ -186,6 +187,42 @@ def test_strongly_convex_map_laplace_covariance_and_warm_start() -> None:
     samples = draw_laplace_samples(second, 12, np.random.default_rng(77))
     assert samples.shape == (12, 3)
     assert np.all(np.isfinite(samples))
+
+
+def test_first_state_uses_one_deterministic_retry_without_model_change(
+    monkeypatch,
+) -> None:
+    calls: list[np.ndarray] = []
+
+    def fake_minimize(function, start, **kwargs):
+        del function, kwargs
+        calls.append(np.asarray(start, dtype=np.float64).copy())
+        candidate = np.asarray([2e-5, 0.0]) if len(calls) == 1 else np.zeros(2)
+        return SimpleNamespace(
+            x=candidate,
+            success=True,
+            status=0,
+            message="fixture",
+            nit=1,
+            nfev=1,
+        )
+
+    monkeypatch.setattr("conditioned_bo.bo_value.minimize", fake_minimize)
+    bank = TimedFactorBank(
+        np.empty((0, 2), dtype=np.int64),
+        np.empty(0, dtype=np.int8),
+        dimension=2,
+    )
+    state = fit_laplace_approximation(
+        np.zeros(2), np.eye(2), bank, np.zeros(2), gradient_tolerance=1e-5
+    )
+    assert len(calls) == 2
+    np.testing.assert_array_equal(calls[0], np.zeros(2))
+    np.testing.assert_array_equal(calls[1], [2e-5, 0.0])
+    assert [
+        attempt["start_source"] for attempt in state.diagnostics["optimizer_attempts"]
+    ] == ["initial_map", "first_attempt_candidate"]
+    assert state.diagnostics["gradient_infinity_norm"] == 0.0
 
 
 def test_gaussian_ei_matches_formula_and_zero_variance_limit() -> None:

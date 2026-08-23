@@ -423,13 +423,13 @@ def fit_laplace_approximation(
     first = np.asarray(initial_map, dtype=np.float64)
     if precision.shape != (mean.size, mean.size) or first.shape != mean.shape:
         raise ValueError("Laplace dimensions do not align")
-    starts = [first]
+    retry = None
     if retry_map is not None:
         retry = np.asarray(retry_map, dtype=np.float64)
         if retry.shape != mean.shape:
             raise ValueError("Retry MAP dimension does not align")
-        if not np.array_equal(retry, first):
-            starts.append(retry)
+        if np.array_equal(retry, first):
+            retry = None
 
     def objective(values: FloatArray) -> tuple[float, FloatArray]:
         delta = values - mean
@@ -443,7 +443,9 @@ def fit_laplace_approximation(
     attempts: list[dict[str, Any]] = []
     accepted_result = None
     map_started = time.perf_counter()
-    for attempt_index, start in enumerate(starts):
+    start = first
+    start_source = "initial_map"
+    for attempt_index in range(2):
         result = minimize(
             objective,
             start,
@@ -460,6 +462,7 @@ def fit_laplace_approximation(
         gradient_inf = float(np.linalg.norm(gradient, ord=np.inf))
         attempt = {
             "attempt": attempt_index + 1,
+            "start_source": start_source,
             "success": bool(result.success),
             "status": int(result.status),
             "message": str(result.message),
@@ -472,6 +475,18 @@ def fit_laplace_approximation(
         if result.success and gradient_inf <= gradient_tolerance:
             accepted_result = result
             break
+        if attempt_index == 0:
+            if retry is not None:
+                start = retry
+                start_source = "provided_retry_map"
+            else:
+                # The frozen protocol permits one deterministic retry.  At the
+                # first BO state zero is already the fallback, so continue from
+                # the rejected finite optimizer candidate with the identical
+                # objective and identical L-BFGS settings.  This changes no
+                # model or acceptance threshold.
+                start = np.asarray(result.x, dtype=np.float64)
+                start_source = "first_attempt_candidate"
     map_seconds = time.perf_counter() - map_started
     if accepted_result is None:
         raise NumericalFailure(f"FULL_PBE MAP failed frozen acceptance checks: {attempts}")
