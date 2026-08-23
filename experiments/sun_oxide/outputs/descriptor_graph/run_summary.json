@@ -1,0 +1,154 @@
+{
+  "actions": {
+    "expected_actions": 191,
+    "mapped_actions": 191,
+    "mapping_ambiguities": 0,
+    "unique_action_keys": 191,
+    "unique_node_indices": 191
+  },
+  "benchmark": {
+    "actions": 191,
+    "benchmark_name": "CURRENT_NLR_PBE_GW_V1",
+    "checked_artifact_sha256": {
+      "NLR_DATA_USE_NOTICE.txt": "886e5fae4d4a935dd12f548a8e733708d1e8f727b66675b4015e68917c6e224b",
+      "current_nlr_gw_actions.csv": "30db6ea8807f2ed41cfe5830bb6e27f3fe912ae0aefb66661d58b8c57bd947b1",
+      "current_nlr_legacy.csv": "24313a76530dd07c8545d57699ba9abadfb42d5be90573e918f235e39fe505e4"
+    },
+    "gw_values_read": false,
+    "legacy_rows": 2142,
+    "manifest_sha256": "85bfb4102728684c2694162e7a57ec365c4f3e6eb87e4c1b9c358c32710b4156"
+  },
+  "descriptor": {
+    "dtype": "float64",
+    "matrix_sha256": "c85018bc9be1469f76d741e12ba23491b86f7793094ce9340d547b860ebd2148",
+    "nonfinite_count": 0,
+    "row_key_sha256": "bc15fb684f09e1568a0cebb85909618162c3ccf6d01b40c7d1fca5746a79a625",
+    "shape": [
+      2142,
+      132
+    ],
+    "zero_variance_feature_count": 15
+  },
+  "environment": {
+    "packages": {
+      "bibtexparser": "1.4.4",
+      "certifi": "2026.7.22",
+      "charset-normalizer": "3.5.1",
+      "contourpy": "1.3.3",
+      "cycler": "0.12.1",
+      "dnspython": "2.8.0",
+      "fonttools": "4.63.0",
+      "idna": "3.19",
+      "joblib": "1.5.3",
+      "kiwisolver": "1.5.0",
+      "lxml": "6.1.2",
+      "matminer": "0.10.1",
+      "matplotlib": "3.11.1",
+      "monty": "2026.7.16",
+      "mpmath": "1.3.0",
+      "narwhals": "2.25.0",
+      "networkx": "3.6.1",
+      "numpy": "2.3.5",
+      "orjson": "3.12.0",
+      "packaging": "26.3",
+      "palettable": "3.3.3",
+      "pandas": "2.3.3",
+      "pillow": "12.3.0",
+      "plotly": "6.9.0",
+      "pymatgen": "2026.5.4",
+      "pymatgen-core": "2026.8.13",
+      "pymongo": "4.17.0",
+      "pyparsing": "3.3.2",
+      "python-dateutil": "2.9.0.post0",
+      "pytz": "2026.3.post1",
+      "requests": "2.34.2",
+      "ruamel-yaml": "0.19.1",
+      "scikit-learn": "1.9.0",
+      "scipy": "1.18.0",
+      "six": "1.17.0",
+      "spglib": "2.7.0",
+      "sympy": "1.14.0",
+      "tabulate": "0.10.0",
+      "threadpoolctl": "3.6.0",
+      "tqdm": "4.70.0",
+      "typing-extensions": "4.16.0",
+      "tzdata": "2026.3",
+      "uncertainties": "3.2.3",
+      "urllib3": "2.7.0"
+    },
+    "platform": "Linux-6.6.122+-x86_64-with-glibc2.35",
+    "python": "3.12.13",
+    "requirements_lock_sha256": "2dd0cb5ac87b2abce071fa2ff04fb571c7acd2716c1ec313a663b14cc94afb55"
+  },
+  "graph": {
+    "connected_component_count": 1,
+    "degree": {
+      "max": 26,
+      "mean": 13.139122315592903,
+      "median": 13.0,
+      "min": 10
+    },
+    "exact_distance_ties_encountered": 20,
+    "final_unique_edge_count": 14072,
+    "isolated_node_count": 0,
+    "knn_directed_choice_count": 21420,
+    "knn_edge_count": 14063,
+    "knn_tie_diagnostics": {
+      "directed_choice_count": 21420,
+      "exact_distance_tie_adjacencies": 0,
+      "k_boundary_tie_nodes": 0,
+      "k_boundary_unselected_tied_candidates": 0,
+      "undirected_edge_count": 14063
+    },
+    "mst_edge_count": 2141,
+    "mst_edges_already_in_knn": 2132,
+    "mst_tie_diagnostics": {
+      "candidate_edges_scanned": 2215235,
+      "complete_candidate_edge_count": 2293011,
+      "edge_count": 2141,
+      "exact_distance_tie_adjacencies": 20
+    },
+    "node_count": 2142
+  },
+  "reference": {
+    "q0": {
+      "dense_inverse_formed": false,
+      "largest_eigenvalue": 2.4241838462755485,
+      "max_off_diagonal": -0.04170288281141496,
+      "nnz": 30286,
+      "off_diagonal_nonpositive": true,
+      "positive_definite": true,
+      "shape": [
+        2142,
+        2142
+      ],
+      "smallest_eigenvalue": 0.999999999999998,
+      "symmetric": true,
+      "symmetry_max_abs_error": 0.0
+    },
+    "sparse_solves": [
+      {
+        "relative_residual": 9.060869410829694e-16,
+        "rhs": "ones",
+        "wall_seconds": 0.02881398799991075
+      },
+      {
+        "relative_residual": 7.489941091826488e-16,
+        "rhs": "linear_minus_one_to_one",
+        "wall_seconds": 0.026898291999941648
+      },
+      {
+        "relative_residual": 5.888006486024402e-16,
+        "rhs": "sinusoid_index_times_sqrt_two",
+        "wall_seconds": 0.026922048999949766
+      }
+    ]
+  },
+  "run_sha": "843b2173454b70cf12a6199b4d1a32740e60315e",
+  "schema_version": 1,
+  "target_isolation": {
+    "gw_values_read": false,
+    "pbe_values_used_for_descriptors_or_graph": false
+  },
+  "verdict": "PASS_DESCRIPTOR_GRAPH_COLAB"
+}

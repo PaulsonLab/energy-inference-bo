@@ -1,0 +1,51 @@
+{
+  "files": [
+    {
+      "path": "RESULTS.md",
+      "sha256": "5d00a4b24a1879a4ee88f562745682a7597d8c793a08f6678567a712e5a3559b",
+      "size_bytes": 1581
+    },
+    {
+      "path": "descriptor_matrix.npz",
+      "sha256": "8dabfc302eb804e4e20cf6eb365f6095c01144b090a5a35d9adc6f1dc5c41e4d",
+      "size_bytes": 566140
+    },
+    {
+      "path": "descriptor_manifest.json",
+      "sha256": "9cbacd7d52dd11f42131f8d59fce34d5c094579f2a1ece53a7ae37498327ac04",
+      "size_bytes": 7436
+    },
+    {
+      "path": "graph_edges.csv",
+      "sha256": "d721ac934ccf56beba156bddf8c71d05bffaffbf354ab1268dec277a64fac4d1",
+      "size_bytes": 2968808
+    },
+    {
+      "path": "graph_summary.json",
+      "sha256": "b44fdf6b57acc79d0a8ad22a356a7fcd74dfff73b6a3a0db119d156db12b84db",
+      "size_bytes": 797
+    },
+    {
+      "path": "q0_sparse.npz",
+      "sha256": "92c86d2b98d6e60c266e3e9b1018897b4f26c7f4142103d03896f90a0f2a14f1",
+      "size_bytes": 70675
+    },
+    {
+      "path": "action_node_map.csv",
+      "sha256": "b3c0db9d3d8424c3f0a28a8712ebe1cb0822d9c80076208addf77f73c59479c0",
+      "size_bytes": 29307
+    },
+    {
+      "path": "environment_freeze.txt",
+      "sha256": "766309252fefad88649eef87e49c0cd8c5501485a94bd08b25b90b11ef7415f7",
+      "size_bytes": 908
+    },
+    {
+      "path": "run_summary.json",
+      "sha256": "b3d8f1bb1c3f3383f28277242eea3a79247f753b763bab9b171663fd641b38ca",
+      "size_bytes": 4564
+    }
+  ],
+  "run_sha": "843b2173454b70cf12a6199b4d1a32740e60315e",
+  "schema_version": 1
+}

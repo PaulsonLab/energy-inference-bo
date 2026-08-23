@@ -1,0 +1,192 @@
+action_key,composition_key,node_index,normalized_formula
+current-nlr-pbe-gw-v1:gw:matdb:000286913,current-nlr-pbe-gw-v1:composition:200e7dadb9f07b12e1d820065e9ad2de9ecc0c5bcf2e909f9320acf1815a2e53,48,Ag2 O
+current-nlr-pbe-gw-v1:gw:matdb:000289692,current-nlr-pbe-gw-v1:composition:dff2d24c4076c82e94af1420dba81afecc62a472a5a7aec8241ab76e9642204b,76,Al Bi O3
+current-nlr-pbe-gw-v1:gw:matdb:000289828,current-nlr-pbe-gw-v1:composition:fdb5210930a780a827fc45d51a8d28d2fef71cbcf01d520c4d33e71423aacea3,77,Al Ce O3
+current-nlr-pbe-gw-v1:gw:matdb:000009744,current-nlr-pbe-gw-v1:composition:06053993505aacc47eaba12b91e7851de84ac27cd3c67dabd2628cb244e7b25c,78,Al Cu O2
+current-nlr-pbe-gw-v1:gw:matdb:000289861,current-nlr-pbe-gw-v1:composition:65ab19f031d981b671bc9b7db66928370376af77aaafe43481e621c03e41b78c,88,Al La O3
+current-nlr-pbe-gw-v1:gw:matdb:000011924,current-nlr-pbe-gw-v1:composition:5a1e77718cf88a9edd3f8d69315187137624f2d76386da326e33aebba3acf18a,89,Al Li O2
+current-nlr-pbe-gw-v1:gw:matdb:000009985,current-nlr-pbe-gw-v1:composition:92553ca81a375b56cf17c50d42728c8881d2720a3b900845f319b13b73f72194,120,Al2 Cd O4
+current-nlr-pbe-gw-v1:gw:matdb:000009577,current-nlr-pbe-gw-v1:composition:70328d58b819ee144ab22569fc1f7a4f949c480e8d8f6da122c20cad81eb38d1,122,Al2 Co O4
+current-nlr-pbe-gw-v1:gw:matdb:000009995,current-nlr-pbe-gw-v1:composition:6d0a4afe846be473dbe687d67865665ee72de713e79dbbb16b6e3d7a40f0af40,125,Al2 Cu O4
+current-nlr-pbe-gw-v1:gw:matdb:000289592,current-nlr-pbe-gw-v1:composition:10efa4483e7a59d484167ad4a212b11e31fb683a49b09e069e2aeb7d0f58d4d3,126,Al2 Fe O4
+current-nlr-pbe-gw-v1:gw:matdb:000009582,current-nlr-pbe-gw-v1:composition:4ec54278782bdfe004c88db9f618f418ed76f0af4025461281ef31ef6dce5654,131,Al2 Mg O4
+current-nlr-pbe-gw-v1:gw:matdb:000010003,current-nlr-pbe-gw-v1:composition:b13cd6e1d68c6c857da983e7873d5138af4a7e7510d83191bdc211768ab942d6,133,Al2 Mn O4
+current-nlr-pbe-gw-v1:gw:matdb:000009592,current-nlr-pbe-gw-v1:composition:9b2366b9cb19bfd31d7ab51903592335881c053f280d990d0595fda6e7a050ad,138,Al2 Ni O4
+current-nlr-pbe-gw-v1:gw:matdb:000010014,current-nlr-pbe-gw-v1:composition:db68d5cd81e192a0b7bda51f8348e653b27678732839f6c996f3fc30f1a5b3e6,143,Al2 O3
+current-nlr-pbe-gw-v1:gw:matdb:000009613,current-nlr-pbe-gw-v1:composition:622826bb7225cac133db84cdb310697e81ea1bc273e3e1c108d95749c2d90eff,148,Al2 O4 Zn
+current-nlr-pbe-gw-v1:gw:matdb:000010786,current-nlr-pbe-gw-v1:composition:131114703113be5d5aba5a77d23d6726379a9d8867dfd1463ca47f2fefc8388d,203,B2 O3
+current-nlr-pbe-gw-v1:gw:matdb:000289615,current-nlr-pbe-gw-v1:composition:cedd1d613edf7f124052eb855c5a1e1e22457cccc3cf4bf24c2a76dfa852ff27,211,Ba Ce O3
+current-nlr-pbe-gw-v1:gw:matdb:000012394,current-nlr-pbe-gw-v1:composition:805421279fde474cdb9a2f1b27411c4d07debcb73f67c7543411247d1e67ddc1,273,Ba Mn O2
+current-nlr-pbe-gw-v1:gw:matdb:000289620,current-nlr-pbe-gw-v1:composition:00a377c841078b910be1cee88418bce664145efcb4f8efd13f9b637c450380d4,274,Ba Mn O3
+current-nlr-pbe-gw-v1:gw:matdb:000012301,current-nlr-pbe-gw-v1:composition:9e0ad51dc7e098c85c45d5b3f79bdc75c26aa9ecfd9cafa5880f494ee6f77070,294,Ba Ni O2
+current-nlr-pbe-gw-v1:gw:matdb:000286928,current-nlr-pbe-gw-v1:composition:30b61fa5dfd7feaaada8b343ccc9af15cf888eb019bf67b5f0dad6e299504731,295,Ba Ni O3
+current-nlr-pbe-gw-v1:gw:matdb:000010038,current-nlr-pbe-gw-v1:composition:190d0f6b1b7d60984c823cbcccbff6f27477d38d1acbbaadac1ab09bf4709cba,299,Ba O
+current-nlr-pbe-gw-v1:gw:matdb:000011844,current-nlr-pbe-gw-v1:composition:318cf3095b5b9f55bc8f0b11e5983b6b8b69acf2d65eb086f697fc6a433bd08b,310,Ba O2 Zn
+current-nlr-pbe-gw-v1:gw:matdb:000010465,current-nlr-pbe-gw-v1:composition:edc981c9299daf03ef149e162220d52662328a3e13acd0a0b3457a0ddcfcf535,315,Ba O3 Sn
+current-nlr-pbe-gw-v1:gw:matdb:000286938,current-nlr-pbe-gw-v1:composition:260ca2612db2289785338c96231a0d8cc0fd503fa6261f716099cb8fbc6e24ce,316,Ba O3 Ti
+current-nlr-pbe-gw-v1:gw:matdb:000286943,current-nlr-pbe-gw-v1:composition:61ef3c9e7df65ecf9ee295f77a6d29a95ea825593b61d46416633c9947c51822,318,Ba O3 Zr
+current-nlr-pbe-gw-v1:gw:matdb:000289616,current-nlr-pbe-gw-v1:composition:d4c9a5fe9e4547716f005ba2d0671f923578b329e17e394f2cb02d6d94675ccb,326,Ba O6 Sb2
+current-nlr-pbe-gw-v1:gw:matdb:000289674,current-nlr-pbe-gw-v1:composition:7c9eddd5d6779d708a77b0d928271f7ffa59bd8a9a58a11ce34d1626e531f8c2,395,Ba2 O3 Zn
+current-nlr-pbe-gw-v1:gw:matdb:000012353,current-nlr-pbe-gw-v1:composition:64a15ba39d2aedbe6c0cb34ee4395726b7dbe03899311e4785fb992eeda797f2,398,Ba2 O4 Sn
+current-nlr-pbe-gw-v1:gw:matdb:000289656,current-nlr-pbe-gw-v1:composition:bac270a8fba04d7bcdcb13c6f88f6bbce3636865d769170ba297e4b04bc6564d,399,Ba2 O4 Ti
+current-nlr-pbe-gw-v1:gw:matdb:000289701,current-nlr-pbe-gw-v1:composition:af9dc86b3427c8c22ac334891dd34e9b3871288975477a8c21735364d81993da,479,Ba5 Nb4 O15
+current-nlr-pbe-gw-v1:gw:matdb:000286958,current-nlr-pbe-gw-v1:composition:9a6f79e2d9c1d224aa8887f12e2a32225b3f0ca84cde603126bd2dc7aed8e92d,497,Bi Cl O
+current-nlr-pbe-gw-v1:gw:matdb:000012401,current-nlr-pbe-gw-v1:composition:508487e74049c737f1b83faf1d041e0a7996c6c0423c5eb7344c95e57e8b73d0,498,Bi Co O3
+current-nlr-pbe-gw-v1:gw:matdb:000289702,current-nlr-pbe-gw-v1:composition:9ded9597d95c16717b4c54e367b356d1391e2b11d997c38bc2db75dec6803445,499,Bi Cr O3
+current-nlr-pbe-gw-v1:gw:matdb:000289708,current-nlr-pbe-gw-v1:composition:87e4d897747d83b520e6dbd88cc326aa09611bdcf7ae747f5eff27000a015ec7,500,Bi Fe O3
+current-nlr-pbe-gw-v1:gw:matdb:000289723,current-nlr-pbe-gw-v1:composition:8d3f1533bb35d42e0c3dcede4434aefb2ea0272d22f1c6b969b92ccf2dcb71ff,501,Bi Ga O3
+current-nlr-pbe-gw-v1:gw:matdb:000286963,current-nlr-pbe-gw-v1:composition:c1a44fddae1f65cc59092a1f53ed4de1a860e0ea1bbf5785e6cdd8e65e06b5f0,502,Bi I O
+current-nlr-pbe-gw-v1:gw:matdb:000011636,current-nlr-pbe-gw-v1:composition:16875af382ac8f537e38a231d465af418ca874db6e445f6f73cfa4b358cafec7,503,Bi In O3
+current-nlr-pbe-gw-v1:gw:matdb:000286953,current-nlr-pbe-gw-v1:composition:72a9f8931ab3b30a889009c573f644ed3819d7b07ca39986ebfe9e6bf982879e,504,Bi Nb O4
+current-nlr-pbe-gw-v1:gw:matdb:000289712,current-nlr-pbe-gw-v1:composition:b77ed67802fc13261ffaccd375f027539aa0f19004405437768d9d0868f41c36,505,Bi O4 Sb
+current-nlr-pbe-gw-v1:gw:matdb:000286968,current-nlr-pbe-gw-v1:composition:f7c088c99118e08133f32a540923a4e1ec4ed751ce438e8f4279a0fa82180880,506,Bi O4 Ta
+current-nlr-pbe-gw-v1:gw:matdb:000010975,current-nlr-pbe-gw-v1:composition:1afe14e7b30d7a9f52edd2afe8d8bfe8271ad7c275664e3cee60e3176483963a,507,Bi2 Cd O4
+current-nlr-pbe-gw-v1:gw:matdb:000012174,current-nlr-pbe-gw-v1:composition:66a5fbfa7bf7d6d11e6b2be939d95f4b068300b3d3102dec3611baa884807110,508,Bi2 Cu O4
+current-nlr-pbe-gw-v1:gw:matdb:000010575,current-nlr-pbe-gw-v1:composition:c535fc5fb215ba09797678d99ca6e0148fec6347da136e2fde2c70a15b9ee0b0,509,Bi2 O3
+current-nlr-pbe-gw-v1:gw:matdb:000011802,current-nlr-pbe-gw-v1:composition:65be4e207640811ebf752ee8bc0fcd2fee75d5e6dfc7c2037a72d1ba7c26c59f,510,Bi2 O4 Sr
+current-nlr-pbe-gw-v1:gw:matdb:000011201,current-nlr-pbe-gw-v1:composition:48a28b53751d8308a768aed52d5e1789883fb7048d68f3ce065d37b64b600694,511,Bi2 O4 Zn
+current-nlr-pbe-gw-v1:gw:matdb:000289999,current-nlr-pbe-gw-v1:composition:e7b9b30195728e1d94e3e2197a7a27b1a8c003f6895c98b13e2f05adac167a6a,513,Br Li3 O
+current-nlr-pbe-gw-v1:gw:matdb:000290087,current-nlr-pbe-gw-v1:composition:09ce9e8c582ad0062585d056e15000f2fce96831c5016e49ca8bc1a0cf82a2cb,514,Br Na3 O
+current-nlr-pbe-gw-v1:gw:matdb:000289757,current-nlr-pbe-gw-v1:composition:bed4fa4057f3f358e802ae0dbfd0aad6262e5ae9610147c79ccebab6a6b6fb48,519,Ca Ce O3
+current-nlr-pbe-gw-v1:gw:matdb:000010042,current-nlr-pbe-gw-v1:composition:26283c9bad04e871494193a57cb7d6a349493bbdb99909cd31ecf48fbc05c86e,559,Ca O
+current-nlr-pbe-gw-v1:gw:matdb:000289749,current-nlr-pbe-gw-v1:composition:942d9c8ef0ebbfdd36034d8f75f285b76cec34c2a78e95d7416922f78bc94d79,566,Ca O3 Sn
+current-nlr-pbe-gw-v1:gw:matdb:000289780,current-nlr-pbe-gw-v1:composition:065008d77b6a9db58faa0cd51a22d9c78583a7ec171f591165bd89e314ca2afd,567,Ca O3 Ti
+current-nlr-pbe-gw-v1:gw:matdb:000289740,current-nlr-pbe-gw-v1:composition:02175999c8cd8d0dbc5fe4f71e18b98569b4618020138c500145aa4d5aae237d,580,Ca O6 Sb2
+current-nlr-pbe-gw-v1:gw:matdb:000289794,current-nlr-pbe-gw-v1:composition:541d0b4d14926315378a30196a2d9199c48e78fdc5072a66712b66912df9df3b,601,Ca2 Nb2 O7
+current-nlr-pbe-gw-v1:gw:matdb:000289808,current-nlr-pbe-gw-v1:composition:5c7f82fa056058c1edf8ea33ce0d68eda3a11fab85451c75ba6f03bf5e4afe23,614,Ca2 O7 Ta2
+current-nlr-pbe-gw-v1:gw:matdb:000009667,current-nlr-pbe-gw-v1:composition:29ec3f7da6c5cdea7efb8a8217a4ca5b9319ca4f44b26e36ad760794a92e3fdb,648,Cd Co2 O4
+current-nlr-pbe-gw-v1:gw:matdb:000009691,current-nlr-pbe-gw-v1:composition:f2f392a417364ab9ce8465d7289eb32f7f2cb18d93d86d8f20a5c88cf91fa071,650,Cd Cr2 O4
+current-nlr-pbe-gw-v1:gw:matdb:000010286,current-nlr-pbe-gw-v1:composition:3d87705b843a355d26d3cf2d43b77b446e83e475b726f8396410f1af9abc130b,653,Cd Fe2 O4
+current-nlr-pbe-gw-v1:gw:matdb:000009900,current-nlr-pbe-gw-v1:composition:9744f268cf9148d6f48c473dd0083d67b8ff2131d8582ee4a639a091db33ef03,654,Cd Ga2 O4
+current-nlr-pbe-gw-v1:gw:matdb:000010018,current-nlr-pbe-gw-v1:composition:2a3f1a541fc3990b3f0577ab61fc22e506d1abdd1514a2fd218f50a057495259,658,Cd In2 O4
+current-nlr-pbe-gw-v1:gw:matdb:000011892,current-nlr-pbe-gw-v1:composition:200c37b94c03a0afdbd7c93c0230e6bc3d516017b374e9e92f8d665d9ef8ca3a,663,Cd Mn2 O4
+current-nlr-pbe-gw-v1:gw:matdb:000011004,current-nlr-pbe-gw-v1:composition:2e51526b13ce06c1fb34d6a2f65bd87d80ce86346b173ed90e5a33bfec790c00,675,Cd O4 Sb2
+current-nlr-pbe-gw-v1:gw:matdb:000010085,current-nlr-pbe-gw-v1:composition:d34ce30b7a9cc6c5f912e4d12461effb7f2c00667d371945bb88cc0c75cdca63,691,Cd2 O4 Sn
+current-nlr-pbe-gw-v1:gw:matdb:000286978,current-nlr-pbe-gw-v1:composition:5a326213be9b6cba8e620bc7c20801a5b85e1127964bfcd201c571b1f117883d,695,Cd3 Cl2 O2
+current-nlr-pbe-gw-v1:gw:matdb:000289994,current-nlr-pbe-gw-v1:composition:f5d9c456c6404b3e8859381ea4b5a0c65310e8f8207b3c56a1b3d3d2dbcd06e2,702,Ce Mg O3
+current-nlr-pbe-gw-v1:gw:matdb:000289867,current-nlr-pbe-gw-v1:composition:b1479ec6d7ef0d7af2b32be4aba0984a1a0fc36420ea62e4aade03c03f54d5e3,703,Ce O2
+current-nlr-pbe-gw-v1:gw:matdb:000290176,current-nlr-pbe-gw-v1:composition:e13982c3d9009c90d2e4612dc36bdef6794951d3b8b4d20cdf40ee9c9322c133,704,Ce O3 Sr
+current-nlr-pbe-gw-v1:gw:matdb:000290178,current-nlr-pbe-gw-v1:composition:6b38e4c490d3df652e4c376695845ac78e2e9d138f1464ee640f7082df971695,705,Ce O4 Sr2
+current-nlr-pbe-gw-v1:gw:matdb:000289894,current-nlr-pbe-gw-v1:composition:5741f78015c95a8e66ff696129c5be7e62619662563fad8d23eaf3f2630e87a3,706,Ce2 La2 O7
+current-nlr-pbe-gw-v1:gw:matdb:000289849,current-nlr-pbe-gw-v1:composition:ac2a6ccbdebd52d0c53f14a9305762f6da0387029fbd5ed13dd9221308376ad1,707,Ce2 O3
+current-nlr-pbe-gw-v1:gw:matdb:000286988,current-nlr-pbe-gw-v1:composition:e906dbf95fbd861d46bdbb2239333ad604a628609cba71bc51579f1c1c675f6a,708,Cl In O
+current-nlr-pbe-gw-v1:gw:matdb:000289958,current-nlr-pbe-gw-v1:composition:bace706d22c33cedfaeeb0ac34dee033580cb10bf1996090188149b6ca75e26e,709,Cl Li3 O
+current-nlr-pbe-gw-v1:gw:matdb:000290106,current-nlr-pbe-gw-v1:composition:88467e1077156c34db2b1b418028de1715e5644916dcf99900ba10a7a12883ad,710,Cl Na3 O
+current-nlr-pbe-gw-v1:gw:matdb:000011744,current-nlr-pbe-gw-v1:composition:27da5ac79a0bc52eb148d6dc0f4af2dc351cb4a16c185bed68cd16a05e4f2e8c,712,Co Cr2 O4
+current-nlr-pbe-gw-v1:gw:matdb:000011596,current-nlr-pbe-gw-v1:composition:2e7a74218960ad8f281338db47363ffe9337e8cce8339b618630ae99b8fc372d,716,Co Fe2 O4
+current-nlr-pbe-gw-v1:gw:matdb:000010320,current-nlr-pbe-gw-v1:composition:26e620c9df6375349421aba763591551b1851f72bef17afcbbb1c550bfe200fb,717,Co Ga2 O4
+current-nlr-pbe-gw-v1:gw:matdb:000010421,current-nlr-pbe-gw-v1:composition:b2a547348bdee31ae0509d32cd341a31cdc15e4dc50fabfba6360d198cf61ceb,720,Co In2 O4
+current-nlr-pbe-gw-v1:gw:matdb:000011455,current-nlr-pbe-gw-v1:composition:93fc348e1dfe7f5023ae208be1b6652ac876c1734d84af8669cd57c591692c0e,730,Co Li O2
+current-nlr-pbe-gw-v1:gw:matdb:000011269,current-nlr-pbe-gw-v1:composition:cc03880303e4d6164d01b8f157ff95d1d5f4ac63807ce8ea13723bb9eb6b122a,745,Co Ni O4 Sn
+current-nlr-pbe-gw-v1:gw:matdb:000011024,current-nlr-pbe-gw-v1:composition:d9370cdc9701ddebc40908ade300ef0b1b82e19b20257a299c2a519823ad97da,746,Co O
+current-nlr-pbe-gw-v1:gw:matdb:000012255,current-nlr-pbe-gw-v1:composition:5e10c7b001b2628ed97a087604278ff93a88b1a723b05637b6a986e2f941d5f9,761,Co2 Cu O4
+current-nlr-pbe-gw-v1:gw:matdb:000010113,current-nlr-pbe-gw-v1:composition:8835f014a0784ca4299ca953a6aa515f2c4ec943fb72f2949e5f4ef6405256ed,768,Co2 Mg O4
+current-nlr-pbe-gw-v1:gw:matdb:000009677,current-nlr-pbe-gw-v1:composition:3d77b7404a022890db7e958c049df033ead24f07421037f19e8f4b984d31e20c,781,Co2 O4 Zn
+current-nlr-pbe-gw-v1:gw:matdb:000010126,current-nlr-pbe-gw-v1:composition:8fb4e424596e12e84ae5077700dffd966b3ba2868c75d19d3fe53ff4aa9b3451,789,Co3 O4
+current-nlr-pbe-gw-v1:gw:matdb:000010806,current-nlr-pbe-gw-v1:composition:23dae1a0b26ebe02c60201c9521e57481521b5be8569d95d008d076bef4ed436,797,Cr Cu O2
+current-nlr-pbe-gw-v1:gw:matdb:000011426,current-nlr-pbe-gw-v1:composition:19d80399e9537940686106341cb2549e08a566be021a567c76884a301df7139f,816,Cr Li O2
+current-nlr-pbe-gw-v1:gw:matdb:000012300,current-nlr-pbe-gw-v1:composition:0b94e76aa884cb1721d9ca69613a4184b1ca50f21d41e2a6aa1c7b9d4a212d34,841,Cr2 Cu O4
+current-nlr-pbe-gw-v1:gw:matdb:000009700,current-nlr-pbe-gw-v1:composition:63398fda16887e832d9c742d4301da19ac23815f828ae08d633d6815c8ca451a,853,Cr2 Mg O4
+current-nlr-pbe-gw-v1:gw:matdb:000010152,current-nlr-pbe-gw-v1:composition:3a6f16f15cfe05c00e0e4858a0ff8d4bc45dfeeea1f75644a3d33d58867b89dd,855,Cr2 Mn O4
+current-nlr-pbe-gw-v1:gw:matdb:000012367,current-nlr-pbe-gw-v1:composition:30ff1092b71608599e3821d185496cef81424627ef43b49d7cb90c7eeeaef869,861,Cr2 Ni O4
+current-nlr-pbe-gw-v1:gw:matdb:000010163,current-nlr-pbe-gw-v1:composition:14d099e47ad18278b65ff2ff1de6f0c5529ad08e95358e562e956ade0f63d887,863,Cr2 O3
+current-nlr-pbe-gw-v1:gw:matdb:000009737,current-nlr-pbe-gw-v1:composition:e7871bcca8853801aac75ab3bb073a7f84c8891cd29eedfabc68105654c49d85,866,Cr2 O4 Zn
+current-nlr-pbe-gw-v1:gw:matdb:000012050,current-nlr-pbe-gw-v1:composition:1562483fbca6e3f758dbf40f9c004b1b01656af2f8f7bcbba1506bf847e2b1ab,884,Cu Fe O2
+current-nlr-pbe-gw-v1:gw:matdb:000010188,current-nlr-pbe-gw-v1:composition:5eab7424f98d1f6c970a7bd477418be6dca168d7038052bae51d765d2223f37f,885,Cu Ga O2
+current-nlr-pbe-gw-v1:gw:matdb:000009916,current-nlr-pbe-gw-v1:composition:0669176192869438017ecacf659cca193a2b4a74d2b958818435ec0d352d32ef,886,Cu Ga2 O4
+current-nlr-pbe-gw-v1:gw:matdb:000009772,current-nlr-pbe-gw-v1:composition:013b2f365e173f61de380a2ab9cc316f47d427186d77e3816fa2e8f0446d7854,889,Cu In O2
+current-nlr-pbe-gw-v1:gw:matdb:000010033,current-nlr-pbe-gw-v1:composition:f402332060ff87ffe8c2252fac44647f2f09752f8a2338d50f17b151f3c1474a,890,Cu In2 O4
+current-nlr-pbe-gw-v1:gw:matdb:000012095,current-nlr-pbe-gw-v1:composition:05bf42098602ca51710b0a0caa06f5bf437b7b3297f9b10cff7bd5a8746bc361,894,Cu K O
+current-nlr-pbe-gw-v1:gw:matdb:000289909,current-nlr-pbe-gw-v1:composition:ff90d32ab3e0dd95face9e6043204bc3259275d656893b5ce21cbc2ed759982a,901,Cu La2 O4
+current-nlr-pbe-gw-v1:gw:matdb:000012289,current-nlr-pbe-gw-v1:composition:3d96862037347b8da76c0e5dd752aa1a8dff0009bc4b433f857d08a953a01f10,904,Cu Mn O2
+current-nlr-pbe-gw-v1:gw:matdb:000011879,current-nlr-pbe-gw-v1:composition:25e96d1a1cc7fc5491c78601167b3bc7b37be33a40a23913d1e38e61ee50c720,910,Cu Na O
+current-nlr-pbe-gw-v1:gw:matdb:000010236,current-nlr-pbe-gw-v1:composition:1d322f57e54423a870f637708518e6a6c35eaff759e03f1a605294ac9f8f0357,919,Cu O
+current-nlr-pbe-gw-v1:gw:matdb:000011827,current-nlr-pbe-gw-v1:composition:b5b293df2818c04313ea1605f97c0adf5de344959b55017d9008bb4ea39a4a8f,931,Cu O4 Sb2
+current-nlr-pbe-gw-v1:gw:matdb:000010244,current-nlr-pbe-gw-v1:composition:e407429e01b4f19c475f4f97d1790d656eff5ed2c20bb3c493b1c2a62d04fc36,958,Cu2 O
+current-nlr-pbe-gw-v1:gw:matdb:000012241,current-nlr-pbe-gw-v1:composition:be128386b55e62723a62d0ef527ed94a01fcedeecc4142c2c35b7e45a71d8273,988,Cu4 O3
+current-nlr-pbe-gw-v1:gw:matdb:000012079,current-nlr-pbe-gw-v1:composition:09e93bf4a2525036ace387a2dc7840d15779c413c743b37295455fa983b16c31,1026,Fe Li O2
+current-nlr-pbe-gw-v1:gw:matdb:000009856,current-nlr-pbe-gw-v1:composition:38a8774d44e7e1e67e9b9f6c37677a573d03eac891287a66fa2296ddf50aa2b8,1047,Fe O
+current-nlr-pbe-gw-v1:gw:matdb:000012176,current-nlr-pbe-gw-v1:composition:bbd76372cf99b7e25b4287e3a456637a8a26d185dcbf40254d64e27f57c02f9d,1072,Fe2 Mg O4
+current-nlr-pbe-gw-v1:gw:matdb:000011437,current-nlr-pbe-gw-v1:composition:39b32f8ab8171be564751d059e91152ac2487867e19b2f27d33c82ec6830554f,1074,Fe2 Mn O4
+current-nlr-pbe-gw-v1:gw:matdb:000011890,current-nlr-pbe-gw-v1:composition:16057c3caaa38159fec10ed64a78cc8f601c7f4d2137a431e2876d346a8fa7ac,1087,Fe2 Ni O4
+current-nlr-pbe-gw-v1:gw:matdb:000010295,current-nlr-pbe-gw-v1:composition:84937305913bcfa31ac846d2ee7466d51e9f6da6d5937dd66b003cc34a109f22,1089,Fe2 O3
+current-nlr-pbe-gw-v1:gw:matdb:000009877,current-nlr-pbe-gw-v1:composition:2f5368b04dc2c8d9618755c26279a796c63928344b71614ba78966b96bbc5cad,1092,Fe2 O4 Zn
+current-nlr-pbe-gw-v1:gw:matdb:000010334,current-nlr-pbe-gw-v1:composition:b721576214ab474f8b5c6867340375213420300cd15575a8dd6f5735f6b3e263,1147,Ga2 Mg O4
+current-nlr-pbe-gw-v1:gw:matdb:000009927,current-nlr-pbe-gw-v1:composition:94894f2df6e0179a966025cfee3288aed464ea528e5256654e8dbfedcc5eea9c,1148,Ga2 Mn O4
+current-nlr-pbe-gw-v1:gw:matdb:000010348,current-nlr-pbe-gw-v1:composition:1367b243719419b65b13aefc7c73028c68a9d5898ef6569e11cbcd9877db47f6,1150,Ga2 Ni O4
+current-nlr-pbe-gw-v1:gw:matdb:000010393,current-nlr-pbe-gw-v1:composition:e80a318a7592d966440b34fc114d715a880d0daa52c11ecab50c1cdb1bc3b62f,1157,Ga2 O4 Zn
+current-nlr-pbe-gw-v1:gw:matdb:000010518,current-nlr-pbe-gw-v1:composition:2d6443c822c4ca65927d79b94dc5bfd6be04b307667cf78e0a360bfab6179468,1187,Ge Ni2 O4
+current-nlr-pbe-gw-v1:gw:matdb:000010399,current-nlr-pbe-gw-v1:composition:9a0e81d93236f722f2c252add9dcee4dad1c8dd63b68c944d058ccf7ad00e70e,1189,Ge O2
+current-nlr-pbe-gw-v1:gw:matdb:000289858,current-nlr-pbe-gw-v1:composition:6f3bed2cacf402bc3b8d32bdfd7910be2365859abad717c22c3b3a791606b5e8,1249,Hf O2
+current-nlr-pbe-gw-v1:gw:matdb:000289924,current-nlr-pbe-gw-v1:composition:df3181e5959b538f09f4e09ca2af2caec22bdc8c27c2a6656c8e1501e63ed21d,1254,Hf2 La2 O7
+current-nlr-pbe-gw-v1:gw:matdb:000290331,current-nlr-pbe-gw-v1:composition:480d4b9f5e81de56519753a92ee932882c56233bd133432391a4e4ee3ba50083,1256,Hf2 O7 Y2
+current-nlr-pbe-gw-v1:gw:matdb:000010436,current-nlr-pbe-gw-v1:composition:2e199015572e4fc74af6c01997229bedb39cf7fdac5607abc54d91a852da9a37,1306,In2 Mg O4
+current-nlr-pbe-gw-v1:gw:matdb:000010046,current-nlr-pbe-gw-v1:composition:2ee0b96165e9fd58531128693d60cb68b3038e34d7f58a9d9073b00dc68857f4,1307,In2 Mn O4
+current-nlr-pbe-gw-v1:gw:matdb:000010448,current-nlr-pbe-gw-v1:composition:49a5f8d538b56be7b01f633482286551c1228112cf7831bbff2d3387576e655e,1308,In2 Ni O4
+current-nlr-pbe-gw-v1:gw:matdb:000010087,current-nlr-pbe-gw-v1:composition:6693e36c0af5bf0efbd870f8534018e9d51201456a911b08658672b93221a853,1310,In2 O3
+current-nlr-pbe-gw-v1:gw:matdb:000010478,current-nlr-pbe-gw-v1:composition:eb5d6bbbb0249185ce851b4fcac35d4958ca05120d15cc2d1cbafc3258c3f9cc,1315,In2 O4 Zn
+current-nlr-pbe-gw-v1:gw:matdb:000289890,current-nlr-pbe-gw-v1:composition:6237d509ccd037d3bd2033c596fafbd6ce9943da1a5f8d847638148ba3ea0381,1482,La Mn O3
+current-nlr-pbe-gw-v1:gw:matdb:000289918,current-nlr-pbe-gw-v1:composition:8b08595a4ef867bb90e73c8a6014f2f426c3d72b32f84458c7a18c56f9d402a8,1492,La Nb O4
+current-nlr-pbe-gw-v1:gw:matdb:000289881,current-nlr-pbe-gw-v1:composition:6cd81f7261a9a25482f12b38e359c62b527133c61bb78937869813c49051da30,1505,La O4 Ta
+current-nlr-pbe-gw-v1:gw:matdb:000289900,current-nlr-pbe-gw-v1:composition:7bf97e148f3de984b97fb8d7ad846f9dc96ab02bb9db2f19d26da4d7fddd5f66,1519,La2 O2 S
+current-nlr-pbe-gw-v1:gw:matdb:000289977,current-nlr-pbe-gw-v1:composition:d1214ef62b1581612d1675ed55e13170dbdde7d8c41ee33e4e67f4c799067fb5,1520,La2 O2 Se
+current-nlr-pbe-gw-v1:gw:matdb:000289910,current-nlr-pbe-gw-v1:composition:f21a49b5dab18babe09d3646ac1ab8f3874c0dde4040f65e995db1be470d0a4f,1521,La2 O3
+current-nlr-pbe-gw-v1:gw:matdb:000289932,current-nlr-pbe-gw-v1:composition:b43a041f7b92562e3edae51cab0116d55f73253f82b6635fee9db7cb50816375,1531,La2 O7 Zr2
+current-nlr-pbe-gw-v1:gw:matdb:000286998,current-nlr-pbe-gw-v1:composition:b95ff1693d6212f4974a3c5c4806be3c601e56ff8dd07a90d927e96e8734ab66,1553,Li O
+current-nlr-pbe-gw-v1:gw:matdb:000286993,current-nlr-pbe-gw-v1:composition:ea1680e7ed0859f7f86b133cc7f569b158dbcd3d4b95c66aecdc9ec576d65801,1554,Li2 O
+current-nlr-pbe-gw-v1:gw:matdb:000289941,current-nlr-pbe-gw-v1:composition:e82b2a3d133dae3cb9281b5fd80cc93d9a094df5b8d9f7dce608cf043fa61644,1555,Li2 O3 Sn
+current-nlr-pbe-gw-v1:gw:matdb:000011348,current-nlr-pbe-gw-v1:composition:fb997c528c1f4dc4b782b80a92cd06111f1a6d1dba682891bcc561c3620772af,1556,Mg Mn2 O4
+current-nlr-pbe-gw-v1:gw:matdb:000010484,current-nlr-pbe-gw-v1:composition:f5528085e7f1259f6f2025127ebae6ff9e70e6765c501e2d2aab9d0be2a67153,1562,Mg O
+current-nlr-pbe-gw-v1:gw:matdb:000290046,current-nlr-pbe-gw-v1:composition:3c5ff93660dc57332917f7482e44b90b03c2716f833695572a524439675ffb8c,1565,Mg O3 Ti
+current-nlr-pbe-gw-v1:gw:matdb:000290025,current-nlr-pbe-gw-v1:composition:6a06915f556185f18f20f52ffbb13227db9f17a54d27214bb72b66013223e8f8,1571,Mg O5 Ti2
+current-nlr-pbe-gw-v1:gw:matdb:000289987,current-nlr-pbe-gw-v1:composition:86ae630f155319e2ffa9150ff15eaf5901897b45f3ab3177fe65a460f8a0116f,1576,Mg O6 Sb2
+current-nlr-pbe-gw-v1:gw:matdb:000010136,current-nlr-pbe-gw-v1:composition:21ee7a9bf7f15a7231cf0b1c71d6f053e3f7ed2a8b47d213bc40ea071954ccd7,1584,Mg2 O4 Sn
+current-nlr-pbe-gw-v1:gw:matdb:000290107,current-nlr-pbe-gw-v1:composition:2516cf0e4ce0e0b2e122a48cee7a103036602ea8cb2224e9b8462da16cb7afea,1585,Mg2 O4 Ti
+current-nlr-pbe-gw-v1:gw:matdb:000011392,current-nlr-pbe-gw-v1:composition:6269044c8608d9d3ef8712f5ec51fa3280b911b4337b537b16bdd5d05a83b913,1609,Mn Ni O3
+current-nlr-pbe-gw-v1:gw:matdb:000011288,current-nlr-pbe-gw-v1:composition:af0fb650417ab17bb035dadc58a5e3efacf379effdd7519d5d2ccf4ae7a71299,1610,Mn Ni O4 Sn
+current-nlr-pbe-gw-v1:gw:matdb:000011066,current-nlr-pbe-gw-v1:composition:b4e944674726ab28d9a04d7e5575696e5657a7b4e3a6d1eecf566be75b252df0,1612,Mn O
+current-nlr-pbe-gw-v1:gw:matdb:000011962,current-nlr-pbe-gw-v1:composition:221acb7dd81344f6c0ff320bfbd824eb830d5710083eea7cd8c2a1c25050d098,1613,Mn O2
+current-nlr-pbe-gw-v1:gw:matdb:000011961,current-nlr-pbe-gw-v1:composition:268ab60b93b3f19bdc5011f074857c2f19000fc09f061e7155f392440b74f9cd,1644,Mn2 Ni O4
+current-nlr-pbe-gw-v1:gw:matdb:000010195,current-nlr-pbe-gw-v1:composition:b131adad3ee902c0d41a0eb1e2f1e624ea84641f0a4879cb7133c17322fc25f0,1647,Mn2 O4 Sn
+current-nlr-pbe-gw-v1:gw:matdb:000011568,current-nlr-pbe-gw-v1:composition:4c4e90b9edcff5efcce24afd5be6ccaeca1472e69472066d08e8d4b117cc2bb2,1649,Mn2 O4 Zn
+current-nlr-pbe-gw-v1:gw:matdb:000011727,current-nlr-pbe-gw-v1:composition:e8d70f827b0541218641cc882e122c09a707ede9dcc257f750ec40959acf38c6,1663,Mn3 O4
+current-nlr-pbe-gw-v1:gw:matdb:000290117,current-nlr-pbe-gw-v1:composition:ca0db7e34795e775eb3e2843b651448636c1b51afb754d031de0d9be193c8c95,1765,Na O
+current-nlr-pbe-gw-v1:gw:matdb:000290129,current-nlr-pbe-gw-v1:composition:41f23ca406a1edb6e60887dd69b6783e1373c7cef38f141bbe5eed69d37425b4,1797,Na2 O
+current-nlr-pbe-gw-v1:gw:matdb:000287048,current-nlr-pbe-gw-v1:composition:56b66de969f5425f01d3fda9d6ff0bbe65d71a831a23a553a07da483e9164e3e,1864,Nb O4 Sb
+current-nlr-pbe-gw-v1:gw:matdb:000290272,current-nlr-pbe-gw-v1:composition:445a6d2f821f332ca85329eac4cc2282c242e15fda1c7903dd0be20166bd8526,1866,Nb O4 Y
+current-nlr-pbe-gw-v1:gw:matdb:000290153,current-nlr-pbe-gw-v1:composition:cd7fd14df01a62f71d5f19833c1124151add66c2f0b724a9c63da65423d587af,1875,Nb2 O5
+current-nlr-pbe-gw-v1:gw:matdb:000290207,current-nlr-pbe-gw-v1:composition:dffd4d6571406db75c12791cf040ef05aaf604e17653d91f003841a9fca899a9,1880,Nb2 O7 Sr2
+current-nlr-pbe-gw-v1:gw:matdb:000010543,current-nlr-pbe-gw-v1:composition:7a3eabfe8b7ca6f397d3929015ae41c47c511b789d7e5e71db6d2458a25c4e51,1895,Ni O
+current-nlr-pbe-gw-v1:gw:matdb:000290197,current-nlr-pbe-gw-v1:composition:807cc57aee20386a0ef7a332b177eba0accfb93c611963a86dd3297585e7d4d9,1899,Ni O3 Sn
+current-nlr-pbe-gw-v1:gw:matdb:000290146,current-nlr-pbe-gw-v1:composition:e847d0b70ebd40c24bc832c65fe0e3cebb15abe36414cf756fbf685411b119c0,1911,Ni2 O4 Sn
+current-nlr-pbe-gw-v1:gw:matdb:000010765,current-nlr-pbe-gw-v1:composition:9cd038ca976f4fbe652e141cc0b6514052d980836a420a8ece0ada117fbf2742,1918,O Pb
+current-nlr-pbe-gw-v1:gw:matdb:000010256,current-nlr-pbe-gw-v1:composition:9e0a98f1ad78301737ece547c76bca46f0acd1e75860d9ab7a1f86f77ab2262d,1926,O Sn
+current-nlr-pbe-gw-v1:gw:matdb:000010290,current-nlr-pbe-gw-v1:composition:e9fac0e23e5ce1ebd3bc10bf3b11f3bd7fb2a80c11a0fb84602f0b96e4d11dd7,1927,O Sr
+current-nlr-pbe-gw-v1:gw:matdb:000010337,current-nlr-pbe-gw-v1:composition:d656df65544a911e926cbde008ed17c82762e94b97ba1cbb1c6c338e99b22aea,1932,O Zn
+current-nlr-pbe-gw-v1:gw:matdb:000011873,current-nlr-pbe-gw-v1:composition:6523928fd5485073bec2572e48b522da25bd00f3652e39046494f288b07c5947,1970,O2 Sb
+current-nlr-pbe-gw-v1:gw:matdb:000010579,current-nlr-pbe-gw-v1:composition:c6b7c80f6a092448302c44b2537d521ef887cdfbf3e1273379b1d5b8c6059c38,1971,O2 Si
+current-nlr-pbe-gw-v1:gw:matdb:000010269,current-nlr-pbe-gw-v1:composition:db5b698b45b68b29f6dd2ae7bffb551404d870e3f7a5487f11c8d94ec5de96ab,1972,O2 Sn
+current-nlr-pbe-gw-v1:gw:matdb:000010851,current-nlr-pbe-gw-v1:composition:8818fb90b5fd735e55c087b0ff3ce1e6d7d6532a6edde721fffc7f10f450116f,1976,O2 Ti
+current-nlr-pbe-gw-v1:gw:matdb:000010666,current-nlr-pbe-gw-v1:composition:a1c685c1453f513ce471dcab834bdb02bff03664fe3832750539876a25e4c4a5,1977,O2 V
+current-nlr-pbe-gw-v1:gw:matdb:000290368,current-nlr-pbe-gw-v1:composition:5d0ea1f6172ad9cbd6e4a01437ad059705a6dc20ae42dc21832c71c062cbd8f3,1980,O2 Zr
+current-nlr-pbe-gw-v1:gw:matdb:000011153,current-nlr-pbe-gw-v1:composition:ce6436ee93264c9a54289bd2877d5561d1cb1f2e6c30314e08f0686c4cea7278,2005,O3 Sc2
+current-nlr-pbe-gw-v1:gw:matdb:000290229,current-nlr-pbe-gw-v1:composition:944c8f8cd67b95c3b5199346f1943c850061573da22345b2299747a28c5220a0,2008,O3 Sn Sr
+current-nlr-pbe-gw-v1:gw:matdb:000010842,current-nlr-pbe-gw-v1:composition:db3c48da7555b77beb14417148c475775893564b81530a1b419ae81574e473a1,2011,O3 Sr Ti
+current-nlr-pbe-gw-v1:gw:matdb:000010309,current-nlr-pbe-gw-v1:composition:e5c547362e6df680ab02207e9e7e2d24a8cf7d03858bb2692f48982dd3fc1d49,2017,O3 V2
+current-nlr-pbe-gw-v1:gw:matdb:000287088,current-nlr-pbe-gw-v1:composition:f510081ca74621711b1e5951e887198ea25fb01f19f3a4599d2747f79fb8b133,2019,O3 W
+current-nlr-pbe-gw-v1:gw:matdb:000290273,current-nlr-pbe-gw-v1:composition:0b46b8eb4c17a67610c210cd2bc9981f146910d74b9a54439cabadda691905bd,2020,O3 Y2
+current-nlr-pbe-gw-v1:gw:matdb:000287053,current-nlr-pbe-gw-v1:composition:9667c15ce567055fdafbd690b9ba55da86fb9ae013fef0f61dc4bd3a5ab8c7be,2037,O4 Sb Ta
+current-nlr-pbe-gw-v1:gw:matdb:000010890,current-nlr-pbe-gw-v1:composition:c407ea9a95e387a787573e935bf9c128cc811abbb967096e5854c5c1decfd13e,2038,O4 Sb2 Zn
+current-nlr-pbe-gw-v1:gw:matdb:000287083,current-nlr-pbe-gw-v1:composition:9ebb877b86f2d8fc73c4a77d41570fba1b9d4e08f2bb29c67d8d23fb8a0d47c4,2046,O4 Sn W
+current-nlr-pbe-gw-v1:gw:matdb:000010746,current-nlr-pbe-gw-v1:composition:80b7cc6422cf634046c330ceb728b05bb6f0cd7a785f925a96c8cd52bc682828,2047,O4 Sn Zn2
+current-nlr-pbe-gw-v1:gw:matdb:000011761,current-nlr-pbe-gw-v1:composition:24757342d3b731ecdd8b2cf0b36462ddd67bec8b1ad8d7fc28f9682a91b0aaa5,2048,O4 Sn2 Ti
+current-nlr-pbe-gw-v1:gw:matdb:000290216,current-nlr-pbe-gw-v1:composition:3d0b667c635dafe3a01ab8909d158c99d890de7eee2f2d9cbb6185a8cfa64d30,2053,O4 Sr2 Ti
+current-nlr-pbe-gw-v1:gw:matdb:000290238,current-nlr-pbe-gw-v1:composition:bedd57af60c5499a507c3979375b2d6b7167771f356f8a51729c6317ffc8a93e,2055,O4 Ta Y
+current-nlr-pbe-gw-v1:gw:matdb:000010902,current-nlr-pbe-gw-v1:composition:0804a5015e09a262534668d8e3b353feb22bcd75e0580f6c1ad59becfd43f428,2056,O4 Ti Zn2
+current-nlr-pbe-gw-v1:gw:matdb:000010790,current-nlr-pbe-gw-v1:composition:64ad867f1a1df0fe15fd01b303015da90c0b0a4a46214d321f46b6a441d8745b,2063,O5 Sb2
+current-nlr-pbe-gw-v1:gw:matdb:000290276,current-nlr-pbe-gw-v1:composition:272b230cf078617ce2d25967a55809d51db6826418828942d6d94ac5c659ef47,2071,O5 Ta2
+current-nlr-pbe-gw-v1:gw:matdb:000010678,current-nlr-pbe-gw-v1:composition:7fb433cc270031b27c46fcbe64875fa65a34cbb5645b45b7534b5ade767795de,2075,O5 V2
+current-nlr-pbe-gw-v1:gw:matdb:000290154,current-nlr-pbe-gw-v1:composition:710310030e1a7b9e355494bfc330f9376d969e6ae71b76886675c7b12bce6dbe,2086,O6 Sb2 Sr
+current-nlr-pbe-gw-v1:gw:matdb:000011210,current-nlr-pbe-gw-v1:composition:102b8e62de719f1a8339acfed01ad117664f9e2374a557fabf9c86b3f71fea13,2087,O6 Sb2 Zn
+current-nlr-pbe-gw-v1:gw:matdb:000290236,current-nlr-pbe-gw-v1:composition:d887f58cd09bbcad3a926842eb6afd7ad03508335f956512244e5600fc29a0b3,2112,O7 Sr2 Ta2
+current-nlr-pbe-gw-v1:gw:matdb:000290308,current-nlr-pbe-gw-v1:composition:25d66f188a2f1cd5cfa180a38337a398e7a86e6428f5dd42b5d6a28a2168c022,2124,O7 Y2 Zr2

@@ -31,7 +31,7 @@ conditioning cost when nontrivial fitting is used.
 |---|---|---|---|
 | E1 | Nonlocal reflection symmetry | Main mechanism + certificate | `ACTIVE`; T2-B validation and finite-grid pilot passed; repeats/baselines remain |
 | E2 | Nonlinear PDE expanding-domain scaling | Main scaling/inference consequence | `ACTIVE`; T2-B and family T4 passed; robustness/baselines remain |
-| E3 | Realistic non-PDE sequential BO | Main end-to-end sequential test | Historical reproduction `JOIN_AMBIGUOUS`; separate current-NLR benchmark `CURRENT_NLR_PBE_GW_V1` frozen and validated; no BO designed |
+| E3 | Realistic non-PDE sequential BO | Main end-to-end sequential test | Historical reproduction `JOIN_AMBIGUOUS`; current-NLR benchmark frozen; descriptor/reference-graph gate `PASS_DESCRIPTOR_GRAPH`; no factors or BO designed |
 | E4 | Linear PDE factor graph | Supplementary control | `EXISTING EVIDENCE / SUPPLEMENT` |
 | A1 | Factor-selection ablations | Supplement | `PLANNED` after primary pipelines |
 | A2 | Inference-backend comparison | Supplement/modularity | `PLANNED` after primary pipelines |
@@ -163,7 +163,7 @@ factors.
 
 ## E3 — Realistic non-PDE BO candidate
 
-**Status:** `CURRENT NLR BENCHMARK FROZEN / HISTORICAL REPRODUCTION JOIN_AMBIGUOUS / BO NOT DESIGNED`.
+**Status:** `DESCRIPTOR/REFERENCE GRAPH PASSED / CURRENT NLR BENCHMARK FROZEN / HISTORICAL REPRODUCTION JOIN_AMBIGUOUS / BO NOT DESIGNED`.
 
 The exact historical **Sun et al. PBE→GW oxide legacy-data problem** failed its
 first source-recovery gate. The current authoritative NREL/NLR queries reproduce
@@ -201,10 +201,20 @@ terminal verdict `PASS_CURRENT_NLR_BENCHMARK`.
 Committed benchmark record:
 [`experiments/sun_oxide/benchmark/benchmark_manifest.json`](../experiments/sun_oxide/benchmark/benchmark_manifest.json).
 GW magnitudes live only in the isolated two-column `gw_oracle.csv` and did not
-enter selection or mapping. No descriptors, graph, factors, theory calculation,
-inference, or BO were produced. Any downstream modeling gate requires its own
-prospective specification; do not reuse Gp2 or tune another synthetic
-preference bank as an E3 rescue.
+enter selection or mapping.
+
+The separately preregistered descriptor/reference-graph compatibility gate ran
+from implementation SHA `843b2173454b70cf12a6199b4d1a32740e60315e` in a
+fully pinned Python 3.12.13 environment and passed as
+`PASS_DESCRIPTOR_GRAPH`. It produced a finite `(2142, 132)` raw Magpie matrix
+with 15 zero-variance features, a connected deterministic 10-NN-plus-MST graph
+with 14,072 unique edges, and a sparse positive-definite `Q0` whose independent
+extremal eigenvalue checks are approximately `1.0000000000000024` and
+`2.424183846275552`. All three sparse-solve residuals are below `1e-10`, and
+all 191 actions map uniquely. No GW value was read and no benchmark PBE value
+entered descriptor or graph construction. This is a representation/reference
+compatibility result, not theory, inference, or BO evidence. Committed result:
+[`outputs/descriptor_graph/VERIFICATION.md`](../experiments/sun_oxide/outputs/descriptor_graph/VERIFICATION.md).
 
 ### Closed E3 evidence
 
@@ -270,9 +280,11 @@ on screenshots or notebook output alone.
 
 1. **Completed:** reflection-symmetry T2-B validation and rigorous finite-grid
    end-to-end pilot.
-2. **Next:** E1 repeated mechanism/coverage experiment and frozen baselines.
-3. Prospectively specify and gate the Sun et al. oxide candidate before any E3
-   implementation.
-4. Expand E2 across source fields/BO states with the smallest necessary
+2. **Completed:** current-NLR oxide benchmark freeze and descriptor/reference-
+   graph compatibility gate.
+3. **Next:** construct the sparse PBE-order legacy factor bank and verify
+   existing-theory compatibility.
+4. Run the E1 repeated mechanism/coverage experiment and frozen baselines.
+5. Expand E2 across source fields/BO states with the smallest necessary
    baseline set.
-5. Run broad supplementary sampler/factor-selection ablations only afterward.
+6. Run broad supplementary sampler/factor-selection ablations only afterward.

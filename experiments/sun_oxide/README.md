@@ -50,7 +50,7 @@ The terminal benchmark verdict is `PASS_CURRENT_NLR_BENCHMARK`. This does not
 alter the historical `JOIN_AMBIGUOUS` verdict and is not evidence for the paper
 method.
 
-## Pending descriptor/reference-graph compatibility gate
+## Descriptor/reference-graph compatibility gate
 
 [`colab_descriptor_graph.ipynb`](colab_descriptor_graph.ipynb) is the
 installation-safe Colab handoff for the next narrow gate. It provisions a
@@ -61,7 +61,12 @@ frozen 132-dimensional Magpie composition descriptors, builds the deterministic
 10-NN-plus-MST graph, checks the sparse graph-Gaussian reference precision, and
 maps the 191 actions to latent nodes.
 
-This gate is `PENDING_COLAB`: no 2,142-row descriptor calculation or result is
-committed yet. The implementation does not read GW values or use PBE values for
-descriptor or graph construction, and it contains no preference-factor,
-influence, inference, or BO code.
+The returned Colab artifacts are committed under
+[`outputs/descriptor_graph/`](outputs/descriptor_graph/) and passed independent
+ZIP, descriptor, deterministic-edge, sparse-Q0, solve-residual, and 191-action
+mapping checks. The terminal verdict is `PASS_DESCRIPTOR_GRAPH`; see the
+independent [`VERIFICATION.md`](outputs/descriptor_graph/VERIFICATION.md).
+The prospective config's `PENDING_COLAB` field is preserved as run provenance.
+The committed result directory carries the full NLR data-use notice.
+No GW value was read, no benchmark PBE value entered descriptor or graph
+construction, and no preference-factor, influence, inference, or BO code ran.

@@ -108,7 +108,7 @@ Details: [`experiments/symmetry/`](../experiments/symmetry/) and its immutable
 Details: [`experiments/nonlinear_pde/`](../experiments/nonlinear_pde/) and its
 immutable [`RESULTS.md`](../experiments/nonlinear_pde/outputs/t2b_structural_validation/RESULTS.md).
 
-### E3 — Sun oxide source gate and current-NLR benchmark
+### E3 — Sun oxide source, benchmark, and descriptor/reference-graph gates
 
 - Source recovery closed with terminal verdict `JOIN_AMBIGUOUS`; this is a
   historical data-provenance result, not evidence for the paper method, and it
@@ -124,13 +124,21 @@ immutable [`RESULTS.md`](../experiments/nonlinear_pde/outputs/t2b_structural_val
   Sb2O3, and every retained action maps to one legacy composition key.
 - Terminal benchmark verdict: `PASS_CURRENT_NLR_BENCHMARK`. GW magnitudes are
   confined to the isolated two-column oracle and were not used for selection
-  or mapping. No descriptors, graph, factors, theory calculation, inference,
-  or BO were produced.
+  or mapping.
+- The separately preregistered Magpie/reference-graph gate passed as
+  `PASS_DESCRIPTOR_GRAPH`: the finite raw descriptor matrix is `(2142, 132)`;
+  the deterministic 14,072-edge 10-NN-plus-MST graph is connected; sparse `Q0`
+  passed its sign, symmetry, eigenvalue, positive-definiteness, and three-solve
+  checks; and all 191 actions map uniquely. No GW value was read and no
+  benchmark PBE value entered descriptor or graph construction. No preference
+  factors, theory calculation, inference, or BO were produced.
 
 Details: [`experiments/sun_oxide/`](../experiments/sun_oxide/) and its immutable
 [`SOURCE_AUDIT.md`](../experiments/sun_oxide/outputs/source_recovery/SOURCE_AUDIT.md),
 plus the current-NLR
-[`benchmark_manifest.json`](../experiments/sun_oxide/benchmark/benchmark_manifest.json).
+[`benchmark_manifest.json`](../experiments/sun_oxide/benchmark/benchmark_manifest.json)
+and independently checked descriptor/graph
+[`VERIFICATION.md`](../experiments/sun_oxide/outputs/descriptor_graph/VERIFICATION.md).
 
 ### E4 — linear PDE supplementary control
 
@@ -172,17 +180,8 @@ remain in place; see [`experiments/README.md`](../experiments/README.md) and
 
 ## Next work
 
-Immediate scientific task after this hygiene commit: upgrade E1 into the
-reproducible repeated mechanism/coverage experiment with its already specified
-random, Euclidean-local, and static baselines. Do not substitute a broad generic
-benchmark suite.
-
-The exact historical Sun et al. reproduction remains closed as
-`JOIN_AMBIGUOUS`. The distinct `CURRENT_NLR_PBE_GW_V1` benchmark is frozen, but
-no downstream descriptor, graph, factor, inference, or BO gate has begun; any
-such gate requires a separate prospective decision. E2 robustness and the
-smallest necessary baselines remain later work; broad supplementary
-sampler/ablation work comes last.
+Construct the sparse PBE-order legacy factor bank and verify existing-theory
+compatibility.
 
 ## Operating rules
 

@@ -16,8 +16,9 @@ order live in [`project/EXPERIMENTS.md`](../project/EXPERIMENTS.md).
 The exact historical Sun et al. PBE→GW oxide reconstruction remains closed as
 `JOIN_AMBIGUOUS`. The separately specified current-data benchmark
 `CURRENT_NLR_PBE_GW_V1` is frozen under [`sun_oxide/`](sun_oxide/) with terminal
-verdict `PASS_CURRENT_NLR_BENCHMARK`; no descriptors, factors, inference, or BO
-have been designed or run. See the
+verdict `PASS_CURRENT_NLR_BENCHMARK`; its 132-dimensional descriptor and sparse
+reference-graph compatibility gate also passed as `PASS_DESCRIPTOR_GRAPH`.
+No factors, inference, or BO have been designed or run. See the
 [E3 registry entry](../project/EXPERIMENTS.md#e3--realistic-non-pde-bo-candidate).
 
 ## Supplementary

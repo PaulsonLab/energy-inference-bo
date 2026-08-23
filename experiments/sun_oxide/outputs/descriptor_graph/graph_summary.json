@@ -1,0 +1,30 @@
+{
+  "connected_component_count": 1,
+  "degree": {
+    "max": 26,
+    "mean": 13.139122315592903,
+    "median": 13.0,
+    "min": 10
+  },
+  "exact_distance_ties_encountered": 20,
+  "final_unique_edge_count": 14072,
+  "isolated_node_count": 0,
+  "knn_directed_choice_count": 21420,
+  "knn_edge_count": 14063,
+  "knn_tie_diagnostics": {
+    "directed_choice_count": 21420,
+    "exact_distance_tie_adjacencies": 0,
+    "k_boundary_tie_nodes": 0,
+    "k_boundary_unselected_tied_candidates": 0,
+    "undirected_edge_count": 14063
+  },
+  "mst_edge_count": 2141,
+  "mst_edges_already_in_knn": 2132,
+  "mst_tie_diagnostics": {
+    "candidate_edges_scanned": 2215235,
+    "complete_candidate_edge_count": 2293011,
+    "edge_count": 2141,
+    "exact_distance_tie_adjacencies": 20
+  },
+  "node_count": 2142
+}
