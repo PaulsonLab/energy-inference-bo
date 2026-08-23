@@ -1,8 +1,8 @@
-# Sun oxide source records and current-NLR benchmark
+# Sun oxide source, benchmark, reference, and frozen legacy-factor records
 
-This directory contains two distinct records for the realistic E3 oxide case.
-It contains no descriptors, graph, preference factors, theory calculation,
-inference, performance baseline, or Bayesian optimization.
+This directory contains the target-blind source/benchmark, descriptor/reference-
+graph, and frozen legacy-factor records for the realistic E3 oxide case. It
+contains no posterior inference, performance baseline, or Bayesian optimization.
 
 ## Historical Sun reproduction
 
@@ -70,3 +70,20 @@ The prospective config's `PENDING_COLAB` field is preserved as run provenance.
 The committed result directory carries the full NLR data-use notice.
 No GW value was read, no benchmark PBE value entered descriptor or graph
 construction, and no preference-factor, influence, inference, or BO code ran.
+
+## Frozen PBE-order factor and existing-theory gate
+
+[`pbe_factor_theory.py`](pbe_factor_theory.py) constructs
+`ADJACENT_STRICT_PBE_ORDER_V1` from the committed PBE gaps in
+`current_nlr_legacy.csv`. It sorts all 2,142 nodes by increasing exact-decimal
+PBE gap and then stable composition key, adds a temperature-one logistic factor
+only across a strict consecutive increase, and omits every exact adjacent tie.
+
+This is not Sun et al.'s all-pairs likelihood. It is a sparse, transparent
+ordinal legacy-information model: every included relation is a true strict
+ordering in the frozen PBE data, and no PBE numerical value is compared with a
+GW numerical value. The model-specific existing-Menz-theory check passed as
+`PASS_PBE_FACTOR_THEORY`; see the immutable
+[`RESULTS.md`](outputs/pbe_factor_theory/RESULTS.md). The 90/95/99%-influence
+factor fractions are target-blind diagnostics, not sparsity gates. This run
+performed no posterior sampling, Laplace inference, or BO.

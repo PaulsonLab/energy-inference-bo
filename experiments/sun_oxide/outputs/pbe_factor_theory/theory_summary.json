@@ -1,0 +1,112 @@
+{
+  "benchmark_name": "CURRENT_NLR_PBE_GW_V1",
+  "comparison": {
+    "analytic_smallest_eigenvalue_lower_bound": 0.5,
+    "factor_graph_analytic_spectral_norm_upper_bound": 2.0,
+    "identity_max_abs_error": 0.0,
+    "maximum_off_diagonal": -0.04170288281141496,
+    "nnz": 33592,
+    "numerical_floor_check": true,
+    "off_diagonals_nonpositive": true,
+    "positive_definite": true,
+    "q0_analytic_smallest_eigenvalue_lower_bound": 1.0,
+    "smallest_eigenvalue_numerical": 0.5896249844278044,
+    "symmetric": true,
+    "symmetry_max_abs_error": 0.0
+  },
+  "comparison_definition": "A0 = Q0 - 0.25 R",
+  "dense_inverse_formed": false,
+  "factor_bank": "ADJACENT_STRICT_PBE_ORDER_V1",
+  "factor_calculus": {
+    "endpoint_gradient_absolute_bound": 1.0,
+    "energy": "softplus(z_a - z_b) = log(1 + exp(-(z_b - z_a)))",
+    "gradient": "[sigmoid(z_a-z_b), -sigmoid(z_a-z_b)]",
+    "hessian": "sigmoid(d)(1-sigmoid(d)) * [[1,-1],[-1,1]]",
+    "hessian_positive_semidefinite": true,
+    "maximum_endpoint_gradient_on_regression_grid": 1.0,
+    "maximum_mixed_curvature_on_regression_grid": 0.25,
+    "minimum_hessian_eigenvalue_on_regression_grid": 0.0,
+    "mixed_hessian_absolute_bound": 0.25,
+    "stable_softplus_and_sigmoid": true
+  },
+  "full_size_observation_checks_seconds": 0.8064561251085252,
+  "full_size_observation_patterns": [
+    {
+      "dense_inverse_formed": false,
+      "diagonal_precision": 0.25,
+      "factor_mixed_curvature_bound": 0.25,
+      "minimum_a0_inverse_probe_entry": 1.686672977274159e-05,
+      "minimum_a0_minus_at_inverse_probe_entry": 1.1194922545671327e-09,
+      "minimum_at_inverse_probe_entry": 1.6865170957717545e-05,
+      "name": "single_first_action",
+      "observation_count": 1,
+      "positive_definite": true,
+      "probe_indices": [
+        48,
+        889,
+        2124
+      ],
+      "resolvent_identity_max_abs_error": 9.159339953157541e-16,
+      "same_factor_hessian_bound": true,
+      "sampled_inverse_columns_entrywise_nonnegative": true,
+      "sampled_inverse_monotonicity": true,
+      "smallest_eigenvalue": 0.5897515055392873
+    },
+    {
+      "dense_inverse_formed": false,
+      "diagonal_precision": 1.0,
+      "factor_mixed_curvature_bound": 0.25,
+      "minimum_a0_inverse_probe_entry": 1.686672977274159e-05,
+      "minimum_a0_minus_at_inverse_probe_entry": 5.958094705320286e-06,
+      "minimum_at_inverse_probe_entry": 1.0908635067421303e-05,
+      "name": "eleven_spread_actions",
+      "observation_count": 11,
+      "positive_definite": true,
+      "probe_indices": [
+        48,
+        889,
+        2124
+      ],
+      "resolvent_identity_max_abs_error": 2.192690473634684e-15,
+      "same_factor_hessian_bound": true,
+      "sampled_inverse_columns_entrywise_nonnegative": true,
+      "sampled_inverse_monotonicity": true,
+      "smallest_eigenvalue": 0.592144636010869
+    },
+    {
+      "dense_inverse_formed": false,
+      "diagonal_precision": 4.0,
+      "factor_mixed_curvature_bound": 0.25,
+      "minimum_a0_inverse_probe_entry": 1.686672977274159e-05,
+      "minimum_a0_minus_at_inverse_probe_entry": 1.368211572290207e-05,
+      "minimum_at_inverse_probe_entry": 8.456506992414868e-07,
+      "name": "all_actions",
+      "observation_count": 191,
+      "positive_definite": true,
+      "probe_indices": [
+        48,
+        889,
+        2124
+      ],
+      "resolvent_identity_max_abs_error": 1.9984014443252818e-15,
+      "same_factor_hessian_bound": true,
+      "sampled_inverse_columns_entrywise_nonnegative": true,
+      "sampled_inverse_monotonicity": true,
+      "smallest_eigenvalue": 0.6440274208408714
+    }
+  ],
+  "menz_blocks": "one scalar coordinate per block",
+  "new_covariance_theorem_introduced": false,
+  "q0": {
+    "maximum_off_diagonal": -0.04170288281141496,
+    "nnz": 30286,
+    "shape": [
+      2142,
+      2142
+    ],
+    "smallest_eigenvalue_numerical": 1.0000000000000022,
+    "symmetry_max_abs_error": 0.0
+  },
+  "schema_version": 1,
+  "uniformity_argument": "Qt=Q0+Dt with Dt nonnegative diagonal gives At=A0+Dt; symmetric nonsingular M-matrix inverse monotonicity makes C=A0^-1 conservative"
+}

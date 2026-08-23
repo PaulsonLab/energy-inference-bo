@@ -1,0 +1,42 @@
+{
+  "files": [
+    {
+      "path": "RESULTS.md",
+      "sha256": "1875eebd500c6949fe0db2b703650e1b193d18a24baf53ca493515edc17e983b",
+      "size_bytes": 3586
+    },
+    {
+      "path": "pbe_factor_bank.csv",
+      "sha256": "ad84fd5676dce613f3c9a8942002245beac692567f390cc4da9d9d171ebaf4d5",
+      "size_bytes": 555136
+    },
+    {
+      "path": "factor_summary.json",
+      "sha256": "c0680a7b8603ab7701a45507384b7961daa07fd259c50b7c407ce43791d0b1a7",
+      "size_bytes": 192549
+    },
+    {
+      "path": "theory_summary.json",
+      "sha256": "3e22dab6af70057c1552d37a2a7c1ee0490067c5d256ead0b17fa6153911c0bc",
+      "size_bytes": 4118
+    },
+    {
+      "path": "influence_summary.json",
+      "sha256": "4327824cc482f362ca37ca169640e505b51bf1701d61a71fe7d35b5b1a5c3485",
+      "size_bytes": 3808
+    },
+    {
+      "path": "influence_pair_summary.csv",
+      "sha256": "d327d1b965d87c31a03fa6ebcd8a506678a9299e61c4ef4581fe0d6801afaf7a",
+      "size_bytes": 7030996
+    },
+    {
+      "path": "NLR_DATA_USE_NOTICE.txt",
+      "sha256": "886e5fae4d4a935dd12f548a8e733708d1e8f727b66675b4015e68917c6e224b",
+      "size_bytes": 2025
+    }
+  ],
+  "schema_version": 1,
+  "starting_sha": "903f61930e8e46f5e124083fb728084b62912d51",
+  "verdict": "PASS_PBE_FACTOR_THEORY"
+}

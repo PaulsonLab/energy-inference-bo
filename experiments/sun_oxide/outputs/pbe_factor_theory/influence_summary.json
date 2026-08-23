@@ -1,0 +1,103 @@
+{
+  "benchmark_name": "CURRENT_NLR_PBE_GW_V1",
+  "diagnostic_not_gate": true,
+  "factor_bank": "ADJACENT_STRICT_PBE_ORDER_V1",
+  "pair_diagnostics": {
+    "distance_definition": "minimum unweighted committed reference-graph distance from either action node to either endpoint of the single highest-ranked factor",
+    "factor_count": 1681,
+    "factor_fraction_required": {
+      "90_percent": {
+        "median": 0.32837596668649616,
+        "p90": 0.37180249851279,
+        "q25": 0.30517549077929806,
+        "q75": 0.3509815585960738
+      },
+      "95_percent": {
+        "median": 0.5597858417608567,
+        "p90": 0.5990481856038072,
+        "q25": 0.535990481856038,
+        "q75": 0.5812016656751934
+      },
+      "99_percent": {
+        "median": 0.8685306365258775,
+        "p90": 0.8857822724568709,
+        "q25": 0.8530636525877454,
+        "q75": 0.8786436644854253
+      }
+    },
+    "highest_influence_factor_reference_graph_distance": {
+      "histogram": {
+        "0": 18117,
+        "1": 28
+      },
+      "max": 1,
+      "median": 0.0,
+      "min": 0,
+      "p90": 0.0,
+      "q25": 0.0,
+      "q75": 0.0
+    },
+    "highest_influence_factor_variation": {
+      "distinct_factor_count": 278,
+      "modal_factor_index": 1568,
+      "modal_factor_pair_count": 378,
+      "modal_factor_pair_fraction": 0.020832185174979333
+    },
+    "minimum_unclipped_action_factor_load": 1.733494296306659e-05,
+    "set_definition": "minimal deterministically ranked factor-index set reaching the stated fraction; ties break by factor index and sets are hashed after index sorting",
+    "top_factor_set_variation": {
+      "90_percent": {
+        "distinct_factor_sets": 18145,
+        "distinct_set_fraction": 1.0,
+        "modal_set_pair_count": 1,
+        "modal_set_pair_fraction": 5.511160099200882e-05,
+        "modal_set_sha256": "529fa1b0edc65db26db2a72bc4205ea4a585f450ed1aaaac01cd3dc008ad5a9a",
+        "pair_count": 18145
+      },
+      "95_percent": {
+        "distinct_factor_sets": 18145,
+        "distinct_set_fraction": 1.0,
+        "modal_set_pair_count": 1,
+        "modal_set_pair_fraction": 5.511160099200882e-05,
+        "modal_set_sha256": "8aa610b2770ccfcdb7c8d77b5bfdd0545a10c7455feed5536100c4b7d66fa62a",
+        "pair_count": 18145
+      },
+      "99_percent": {
+        "distinct_factor_sets": 18145,
+        "distinct_set_fraction": 1.0,
+        "modal_set_pair_count": 1,
+        "modal_set_pair_fraction": 5.511160099200882e-05,
+        "modal_set_sha256": "60c57166ae15b253f54bf184727cec4a915884b677693c1262baab0f18979a32",
+        "pair_count": 18145
+      }
+    },
+    "unordered_action_pair_count": 18145
+  },
+  "pair_influence_computation_seconds": 2.1365762918721884,
+  "schema_version": 1,
+  "sensitivity_bounds": {
+    "ei_gap": "L_i(F_x_xhat) <= 1{i=x} + 1{i=xhat}",
+    "factor": "L_i(e_j) <= 1{i=a} + 1{i=b}",
+    "factor_contribution": "C[x,a] + C[x,b] + C[xhat,a] + C[xhat,b]"
+  },
+  "sparse_a0": {
+    "action_multiple_rhs_count": 191,
+    "action_multiple_rhs_solve_seconds": 0.12354254117235541,
+    "action_selected_submatrix_symmetry_max_abs_error": 5.828670879282072e-16,
+    "action_solve_relative_frobenius_residual": 1.955987205224825e-15,
+    "factorization_count": 1,
+    "factorization_seconds": 0.22124691610224545,
+    "full_dense_inverse_formed": false,
+    "minimum_selected_inverse_entry": 5.683696810659045e-06
+  },
+  "target_isolation": {
+    "allowed_scientific_input_paths": [
+      "experiments/sun_oxide/outputs/descriptor_graph/action_node_map.csv",
+      "experiments/sun_oxide/benchmark/current_nlr_legacy.csv",
+      "experiments/sun_oxide/benchmark/NLR_DATA_USE_NOTICE.txt",
+      "experiments/sun_oxide/outputs/descriptor_graph/q0_sparse.npz"
+    ],
+    "gw_target_statistics_computed": false,
+    "gw_values_read": false
+  }
+}

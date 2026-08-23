@@ -108,7 +108,7 @@ Details: [`experiments/symmetry/`](../experiments/symmetry/) and its immutable
 Details: [`experiments/nonlinear_pde/`](../experiments/nonlinear_pde/) and its
 immutable [`RESULTS.md`](../experiments/nonlinear_pde/outputs/t2b_structural_validation/RESULTS.md).
 
-### E3 — Sun oxide source, benchmark, and descriptor/reference-graph gates
+### E3 — Sun oxide source, benchmark, reference graph, and PBE-factor theory gate
 
 - Source recovery closed with terminal verdict `JOIN_AMBIGUOUS`; this is a
   historical data-provenance result, not evidence for the paper method, and it
@@ -132,13 +132,23 @@ immutable [`RESULTS.md`](../experiments/nonlinear_pde/outputs/t2b_structural_val
   checks; and all 191 actions map uniquely. No GW value was read and no
   benchmark PBE value entered descriptor or graph construction. No preference
   factors, theory calculation, inference, or BO were produced.
+- The frozen `ADJACENT_STRICT_PBE_ORDER_V1` bank passed the model-specific
+  existing-Menz-theory gate as `PASS_PBE_FACTOR_THEORY`: 1,681 strict adjacent
+  factors remain after 460 exact-tie omissions; the path-subgraph adjacency has
+  maximum degree two and norm `1.988275914308721`; and
+  `A0=Q0-0.25R` has analytic eigenvalue floor `0.5` and numerical minimum
+  `0.5896249844278044`. Sparse solves and all 18,145 target-blind action-pair
+  diagnostics completed without a dense inverse. No GW value, inference, or
+  BO entered this gate, and `THEORY.tex` was unchanged.
 
 Details: [`experiments/sun_oxide/`](../experiments/sun_oxide/) and its immutable
 [`SOURCE_AUDIT.md`](../experiments/sun_oxide/outputs/source_recovery/SOURCE_AUDIT.md),
 plus the current-NLR
 [`benchmark_manifest.json`](../experiments/sun_oxide/benchmark/benchmark_manifest.json)
 and independently checked descriptor/graph
-[`VERIFICATION.md`](../experiments/sun_oxide/outputs/descriptor_graph/VERIFICATION.md).
+[`VERIFICATION.md`](../experiments/sun_oxide/outputs/descriptor_graph/VERIFICATION.md),
+plus the frozen factor/theory
+[`RESULTS.md`](../experiments/sun_oxide/outputs/pbe_factor_theory/RESULTS.md).
 
 ### E4 — linear PDE supplementary control
 
@@ -180,8 +190,8 @@ remain in place; see [`experiments/README.md`](../experiments/README.md) and
 
 ## Next work
 
-Construct the sparse PBE-order legacy factor bank and verify existing-theory
-compatibility.
+Run the minimal sequential BO value pilot comparing no legacy factors versus
+full PBE-order conditioning using the same graph-Gaussian reference.
 
 ## Operating rules
 

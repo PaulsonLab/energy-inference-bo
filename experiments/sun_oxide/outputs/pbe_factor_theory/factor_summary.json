@@ -1,0 +1,6603 @@
+{
+  "benchmark_name": "CURRENT_NLR_PBE_GW_V1",
+  "construction_deterministic": true,
+  "exact_ties_omitted": true,
+  "factor_bank": "ADJACENT_STRICT_PBE_ORDER_V1",
+  "factor_bank_csv_sha256": "ad84fd5676dce613f3c9a8942002245beac692567f390cc4da9d9d171ebaf4d5",
+  "factor_count": 1681,
+  "factor_graph": {
+    "binary": true,
+    "connected_component_count_including_isolates": 461,
+    "degree_distribution": {
+      "0": 92,
+      "1": 738,
+      "2": 1312
+    },
+    "edge_count": 1681,
+    "incident_node_count": 2050,
+    "incident_node_fraction": 0.9570494864612512,
+    "maximum_degree": 2,
+    "maximum_nontrivial_component_size": 28,
+    "nontrivial_component_count": 369,
+    "path_subgraph": true,
+    "spectral_norm_formula_eigensolver_abs_difference": 1.7763568394002505e-15,
+    "spectral_norm_numerical": 1.988275914308721,
+    "spectral_norm_path_formula": 1.9882759143087192,
+    "symmetric": true
+  },
+  "input_sha256": {
+    "action_node_mapping": "b3c0db9d3d8424c3f0a28a8712ebe1cb0822d9c80076208addf77f73c59479c0",
+    "legacy_pbe": "24313a76530dd07c8545d57699ba9abadfb42d5be90573e918f235e39fe505e4",
+    "nlr_data_use_notice": "886e5fae4d4a935dd12f548a8e733708d1e8f727b66675b4015e68917c6e224b",
+    "q0": "92c86d2b98d6e60c266e3e9b1018897b4f26c7f4142103d03896f90a0f2a14f1"
+  },
+  "legacy_node_count": 2142,
+  "ordering": [
+    "pbe_band_gap_ev increasing (exact decimal)",
+    "composition_key increasing"
+  ],
+  "schema_version": 1,
+  "temperature": 1.0,
+  "ties": {
+    "exact_pbe_tie_group_count": 369,
+    "exact_pbe_tie_group_size_histogram": {
+      "2": 296,
+      "3": 57,
+      "4": 14,
+      "5": 2
+    },
+    "exact_pbe_tie_group_sizes": [
+      3,
+      2,
+      2,
+      5,
+      4,
+      5,
+      2,
+      2,
+      3,
+      4,
+      4,
+      3,
+      4,
+      2,
+      3,
+      3,
+      2,
+      3,
+      2,
+      2,
+      2,
+      4,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      2,
+      2,
+      3,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      2,
+      2,
+      3,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      4,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      2,
+      3,
+      2,
+      2,
+      2,
+      2,
+      3,
+      2,
+      2,
+      4,
+      3,
+      2,
+      2,
+      3,
+      3,
+      2,
+      3,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      2,
+      3,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      4,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      2,
+      2,
+      2,
+      3,
+      2,
+      3,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      2,
+      2,
+      2,
+      2,
+      3,
+      2,
+      2,
+      2,
+      3,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      2,
+      3,
+      2,
+      2,
+      4,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      2,
+      2,
+      2,
+      3,
+      3,
+      2,
+      2,
+      2,
+      3,
+      3,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      4,
+      3,
+      3,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      2,
+      4,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      2,
+      2,
+      2,
+      3,
+      4,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      4,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      2,
+      2,
+      2,
+      3,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      4,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      2,
+      2,
+      2,
+      3,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      2,
+      2,
+      2,
+      2
+    ],
+    "fraction_of_nodes_in_exact_pbe_tie_groups": 0.3870214752567694,
+    "nodes_in_exact_pbe_tie_groups": 829,
+    "skipped_adjacent_ties": 460,
+    "tie_groups": [
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:8c6cd1fb609bd7492d6043d36782d3148ddb8d681281b32968eacff74b46ccc1",
+          "current-nlr-pbe-gw-v1:composition:9647929417377defc60c47d680956aee1664e607c059d32b5bb705bcb611448d",
+          "current-nlr-pbe-gw-v1:composition:af024fb286debb73b9f41b3dec3620ef88a80395b756cb754a91c2889437c7b7"
+        ],
+        "node_indices": [
+          1941,
+          241,
+          1933
+        ],
+        "pbe_band_gap_ev": "0.033",
+        "size": 3,
+        "sorted_positions": [
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:6b16993b9ffa7b4a7e8fd97c430bc59f1ac028887e060b0eefa06972b80407f2",
+          "current-nlr-pbe-gw-v1:composition:9cd50cb92068e8f1a818efac86a71c8408b28ed55403adca8bf8b00ec6fb2bf2"
+        ],
+        "node_indices": [
+          1931,
+          278
+        ],
+        "pbe_band_gap_ev": "0.034",
+        "size": 2,
+        "sorted_positions": [
+          3,
+          4
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:3c7cd3dfceef34d6127181087ddc91191367c598ac8066cc971db5e8d683aa1b",
+          "current-nlr-pbe-gw-v1:composition:76a590880842eeefb1201dfaf35e081a05ead8993219ec86421900cf50840594"
+        ],
+        "node_indices": [
+          1621,
+          1719
+        ],
+        "pbe_band_gap_ev": "0.035",
+        "size": 2,
+        "sorted_positions": [
+          5,
+          6
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:17af1a3b62c89e6869c2c9c8f0b9ff3a531fe350ea1b283159c9edd3bb9bde4a",
+          "current-nlr-pbe-gw-v1:composition:3be249c8b33bccd5fa616f5392800f695084a45f530ce3c4fde85a6cb44207ca",
+          "current-nlr-pbe-gw-v1:composition:8498ebcbe5a2326f56060dfc87ec554daee6bc02ea2abba1b7c52ce74bf012f0",
+          "current-nlr-pbe-gw-v1:composition:8e3622fa217d79cb57351a0c3c836d0dad927b420ebd7dd183777c05fd8011f6",
+          "current-nlr-pbe-gw-v1:composition:e349ee0782aa54c5910f8b06ff5794463a81c375fcb5dd614d5f470b1f7fa22a"
+        ],
+        "node_indices": [
+          61,
+          1498,
+          772,
+          1930,
+          1100
+        ],
+        "pbe_band_gap_ev": "0.036",
+        "size": 5,
+        "sorted_positions": [
+          7,
+          8,
+          9,
+          10,
+          11
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:02d500273c00e8d59dd0aa99823ee08ab569452bad7b557fd7358d6b7705146b",
+          "current-nlr-pbe-gw-v1:composition:234b96cc5378588c156ec5827a57621a13f9b3acec31d0cf4027b24e3351a151",
+          "current-nlr-pbe-gw-v1:composition:23d0052e7af62c55967d62226672995934574eedfbe9631aafd303cd8b37abc8",
+          "current-nlr-pbe-gw-v1:composition:7af09777151576177a80106602170dda9fd2676a33705403086e3d51f45c353a"
+        ],
+        "node_indices": [
+          355,
+          978,
+          1870,
+          1686
+        ],
+        "pbe_band_gap_ev": "0.037",
+        "size": 4,
+        "sorted_positions": [
+          12,
+          13,
+          14,
+          15
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:208aaaa07a0ac9d2b44f5ed48ceb7062475340a27314119421262395b5478ac1",
+          "current-nlr-pbe-gw-v1:composition:87c40fecc6ef4fafb41a083369b71ba0a54ec2de61319e2029c3615775f33976",
+          "current-nlr-pbe-gw-v1:composition:a6656dbe29499e226043161b05d0b58382fe53277cc04b689a1509f233f411c2",
+          "current-nlr-pbe-gw-v1:composition:c9cbb823d057da351c25406ee18a95f4a30a8a2da3f9b80f3457f0aef8a54b20",
+          "current-nlr-pbe-gw-v1:composition:e328ada23a84eee6ddbefefdf73e9eeb5eaee5a59946c9d12290f797f9fceb53"
+        ],
+        "node_indices": [
+          1083,
+          1914,
+          1934,
+          1888,
+          473
+        ],
+        "pbe_band_gap_ev": "0.038",
+        "size": 5,
+        "sorted_positions": [
+          16,
+          17,
+          18,
+          19,
+          20
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:29ace4f429c1ba14b917dc2f29ffe7e99053def67bf56d854fd82a8e86132a98",
+          "current-nlr-pbe-gw-v1:composition:7a3d582f51ee78f5465645bd9ce46928aa8f2ba8fc5da70674b4f48662458352"
+        ],
+        "node_indices": [
+          1891,
+          788
+        ],
+        "pbe_band_gap_ev": "0.039",
+        "size": 2,
+        "sorted_positions": [
+          21,
+          22
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:360020f81a765f0edab22ab4cc89fee19f2264ccb3e30bd171f7d2e2bdb65910",
+          "current-nlr-pbe-gw-v1:composition:e381921700e6e747a8af6feee24c2d4e224ab5c65f8e5a1139db858570922f06"
+        ],
+        "node_indices": [
+          1636,
+          1333
+        ],
+        "pbe_band_gap_ev": "0.04",
+        "size": 2,
+        "sorted_positions": [
+          23,
+          24
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:554dbd130ccb486a0218a577fcf9878b9011a5b1dba3212cf5ed2e9cad279b70",
+          "current-nlr-pbe-gw-v1:composition:aad4989f4f59a0c1ac81960a03538eb4cbb4e6c0598ef828d367f472d82a729a",
+          "current-nlr-pbe-gw-v1:composition:cea019b88d02bc9ea00e49d149681f3d8c95efddde970b10492989e174165fa6"
+        ],
+        "node_indices": [
+          1890,
+          304,
+          391
+        ],
+        "pbe_band_gap_ev": "0.041",
+        "size": 3,
+        "sorted_positions": [
+          25,
+          26,
+          27
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:0c8cc6224e71a7242e5f02ebf55a4ba1692e2a700d80d3e32414377d34e94818",
+          "current-nlr-pbe-gw-v1:composition:312978c759eeb06b1adcb54a37b9d685904996ac36916cbc119576ba003346aa",
+          "current-nlr-pbe-gw-v1:composition:b47bfeaaad8c382cff58bfbee58a11a619ae6f630b9150ef0367ce5debc2acd1",
+          "current-nlr-pbe-gw-v1:composition:d9b297edfe1ce4d16566ad7dd52a7ae6432f2f796de30e0df63d8ab2a8596986"
+        ],
+        "node_indices": [
+          1718,
+          1343,
+          1928,
+          748
+        ],
+        "pbe_band_gap_ev": "0.042",
+        "size": 4,
+        "sorted_positions": [
+          28,
+          29,
+          30,
+          31
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:22cbd5068557eba41d14319953259fb00abbff82dbfe4530abdd3712d7696785",
+          "current-nlr-pbe-gw-v1:composition:4b77a4860f11a77690c5292cd7e98dc3f9ba4fb513a100572eceec1abdf8cef3",
+          "current-nlr-pbe-gw-v1:composition:9f6dda0dda06d881a2aa62a5510051235ebaef5fae97feb7f629442cfe68b4a0",
+          "current-nlr-pbe-gw-v1:composition:e3d9e5ba5ab595cd2a394720fbb6d1c5fe946eb5e9c27cd7ef6ac6047e051111"
+        ],
+        "node_indices": [
+          358,
+          1282,
+          1978,
+          105
+        ],
+        "pbe_band_gap_ev": "0.043",
+        "size": 4,
+        "sorted_positions": [
+          32,
+          33,
+          34,
+          35
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:30dcf4244483903ef50f4fb37c52f6eb9faf6a255239363e443012611cab90a4",
+          "current-nlr-pbe-gw-v1:composition:852215d0f6fb59dd99be976779e369405ea3626d1d048e5076a4c23e28c9cae3",
+          "current-nlr-pbe-gw-v1:composition:a8234cea832f0597473c76605166211def33770e76aba50fff07412e48a4b8ad"
+        ],
+        "node_indices": [
+          292,
+          1670,
+          1645
+        ],
+        "pbe_band_gap_ev": "0.044",
+        "size": 3,
+        "sorted_positions": [
+          36,
+          37,
+          38
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:29bfa280975831392e1869825f335a5e61a38f458a0e811b5a58c745c46b0d4c",
+          "current-nlr-pbe-gw-v1:composition:385c6df29d377f59d3b1117f6412f48b403f850f81d21e2344198708b0c57eae",
+          "current-nlr-pbe-gw-v1:composition:afe459b6be3037f8926f478891d7e712a8769997dc68268fbb751125ef3899e9",
+          "current-nlr-pbe-gw-v1:composition:cbb84f393f6a7e97887b39a8bce3221ea11db2b36356b855d8383147180737f1"
+        ],
+        "node_indices": [
+          1716,
+          291,
+          1969,
+          1893
+        ],
+        "pbe_band_gap_ev": "0.046",
+        "size": 4,
+        "sorted_positions": [
+          39,
+          40,
+          41,
+          42
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:7731f48bd6b52e65874f77fbd04b4282143239dc8bfa1f785b38516d913d8c66",
+          "current-nlr-pbe-gw-v1:composition:9964e43b113827c5cae94e500d990080c7fe814febb1e080f7aa697e1c7d5fa9"
+        ],
+        "node_indices": [
+          1547,
+          1504
+        ],
+        "pbe_band_gap_ev": "0.048",
+        "size": 2,
+        "sorted_positions": [
+          43,
+          44
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:aae15e68b5cedeb08874a1388f464224454f5372afbd7c7646f6348e10225736",
+          "current-nlr-pbe-gw-v1:composition:c1c70df5f359918669c88a738fd03d1c6d34d4a676a625244254a4404343bedb",
+          "current-nlr-pbe-gw-v1:composition:f9b6ff4ae090640958a754a70cb74bc4385dddbaf0e9ba1de83070af446951aa"
+        ],
+        "node_indices": [
+          1968,
+          1358,
+          1749
+        ],
+        "pbe_band_gap_ev": "0.049",
+        "size": 3,
+        "sorted_positions": [
+          45,
+          46,
+          47
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:2be3a2dc13029b88dfe113142f1039138c6045091c2a2a96a7d37361340f7497",
+          "current-nlr-pbe-gw-v1:composition:441b4b8d7381be6207e8d35f5f611391e5d99e9830cfb2a558e462ce674192e8",
+          "current-nlr-pbe-gw-v1:composition:adc38f91c67ad8bc07198e3655f8b9a8c6a25337deda17f39840d5895d779157"
+        ],
+        "node_indices": [
+          1887,
+          1678,
+          443
+        ],
+        "pbe_band_gap_ev": "0.051",
+        "size": 3,
+        "sorted_positions": [
+          48,
+          49,
+          50
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:913516ae9f0efec8ea301713cf225db2f58f332e17e882ac51e63edd636e0f90",
+          "current-nlr-pbe-gw-v1:composition:d6cd0372bed6641954ad8f896c809a1c6adebf9bd653d3d5af698ebf1629f865"
+        ],
+        "node_indices": [
+          1049,
+          182
+        ],
+        "pbe_band_gap_ev": "0.052",
+        "size": 2,
+        "sorted_positions": [
+          51,
+          52
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:092a5907e089843ad71e69bfcdaedad2ec2dbb166b7c2b953d790839e198c619",
+          "current-nlr-pbe-gw-v1:composition:3ff5c8a68e3811bc49c57fd035fa806f8050a130739f5f590c6653c7feb20c3a",
+          "current-nlr-pbe-gw-v1:composition:614dcdbbe0d60f7bd976fae751ddc21b89cb380cc6a1d4796afe01166f5e7f6c"
+        ],
+        "node_indices": [
+          469,
+          47,
+          1729
+        ],
+        "pbe_band_gap_ev": "0.054",
+        "size": 3,
+        "sorted_positions": [
+          54,
+          55,
+          56
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:a6b6a3face2890a881bc448abbfbc4a7d21ab3f148a0fe0445236d6153b96b7c",
+          "current-nlr-pbe-gw-v1:composition:c111c5a32f6f7488f4e4b42445f41c9e91b27906b2068ce60afe6ac73d1bef3e"
+        ],
+        "node_indices": [
+          1030,
+          1444
+        ],
+        "pbe_band_gap_ev": "0.062",
+        "size": 2,
+        "sorted_positions": [
+          58,
+          59
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:7223d0b3ff62b25a6280d04bdb3135832dbe99419ccb5f74945dafdb56d5e269",
+          "current-nlr-pbe-gw-v1:composition:c6287b65f122bfbf3e0b65c9ca5c448bd39e42b1cd57000f88d901cfa3460c26"
+        ],
+        "node_indices": [
+          1657,
+          558
+        ],
+        "pbe_band_gap_ev": "0.064",
+        "size": 2,
+        "sorted_positions": [
+          61,
+          62
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:636a5b68a8487dd9d89d2fc4a27d8a4224fe796cd39bd6850588fc141b83dd85",
+          "current-nlr-pbe-gw-v1:composition:7c077a7d006a30e92cea71dd1ca16388eef8ae97e0c42f07084a9f3473c24b44"
+        ],
+        "node_indices": [
+          1637,
+          176
+        ],
+        "pbe_band_gap_ev": "0.067",
+        "size": 2,
+        "sorted_positions": [
+          63,
+          64
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:4003267e9709b36ae139666566a25f9255a8b06b099d554b9b74ef670127a4a1",
+          "current-nlr-pbe-gw-v1:composition:5af090d76d75198cc19df7ce3577bbac135b040d47a9ef8130c3f32fac3bb33e",
+          "current-nlr-pbe-gw-v1:composition:6d6e7ff21c86028a7f4a2581ea0b61540e9d99d5d4d344a3f76fb29b20ae5691",
+          "current-nlr-pbe-gw-v1:composition:76cefcee0082a3431c4508dc657420bc53f78abff8de0bd39a3e3eb1208d8fb9"
+        ],
+        "node_indices": [
+          2029,
+          360,
+          928,
+          1916
+        ],
+        "pbe_band_gap_ev": "0.075",
+        "size": 4,
+        "sorted_positions": [
+          67,
+          68,
+          69,
+          70
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:6c1766b515155503abc04b81d4bde927e7c47753d2d7eb868cfe947421f1de85",
+          "current-nlr-pbe-gw-v1:composition:e7c4e27e4fe82435cbfb0140ff3b28bc1017b711532215e9c5f5144b6bcaf516"
+        ],
+        "node_indices": [
+          1541,
+          60
+        ],
+        "pbe_band_gap_ev": "0.083",
+        "size": 2,
+        "sorted_positions": [
+          77,
+          78
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:be8560975bb17218396a992cfdda62f593f57b962220c354477209b462e1e961",
+          "current-nlr-pbe-gw-v1:composition:c66aef35ae85e4a2ab469a9d535ef98a64901687dc3d48c7d1b874355d820c48"
+        ],
+        "node_indices": [
+          1730,
+          1453
+        ],
+        "pbe_band_gap_ev": "0.092",
+        "size": 2,
+        "sorted_positions": [
+          82,
+          83
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:151deb5dbd62c621391e6ec4e8c284e631587fcf9f0630353964091a3716534b",
+          "current-nlr-pbe-gw-v1:composition:f75cc287bd62b0780b747d71a02eaf74da47ccb60c980b12d11546d1c0fbeb19"
+        ],
+        "node_indices": [
+          1783,
+          1259
+        ],
+        "pbe_band_gap_ev": "0.093",
+        "size": 2,
+        "sorted_positions": [
+          84,
+          85
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:204b631d0da298c4b797606e713362317d0975f6d3f2570157db7cf6be0159b6",
+          "current-nlr-pbe-gw-v1:composition:d9b45de921fa293016a2aae0206d4b4d1ae86dd14682faf38cabd5ffedd27147"
+        ],
+        "node_indices": [
+          1779,
+          168
+        ],
+        "pbe_band_gap_ev": "0.103",
+        "size": 2,
+        "sorted_positions": [
+          87,
+          88
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:2c12992822ae262d90baaca3068fd9eed59f3383c5f7bd6797f864c18780cc67",
+          "current-nlr-pbe-gw-v1:composition:6449d8e072c87816eb15551647656cd1f7d479fb048660296f230ac2a4ebf3bb"
+        ],
+        "node_indices": [
+          1920,
+          448
+        ],
+        "pbe_band_gap_ev": "0.106",
+        "size": 2,
+        "sorted_positions": [
+          90,
+          91
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:7bea02300010859d7d7a9b654bc54caf38d645ec19a005bb0052f70973b61195",
+          "current-nlr-pbe-gw-v1:composition:90b561822f90e1b68f7c316c49c176a3a1b87b8bd38e415493e9617dbcece6e6"
+        ],
+        "node_indices": [
+          282,
+          430
+        ],
+        "pbe_band_gap_ev": "0.118",
+        "size": 2,
+        "sorted_positions": [
+          96,
+          97
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:6237d509ccd037d3bd2033c596fafbd6ce9943da1a5f8d847638148ba3ea0381",
+          "current-nlr-pbe-gw-v1:composition:aca38a0dd16143d4c100f226541a6137992db5b4b6f3c252e82f5edfd59c550f"
+        ],
+        "node_indices": [
+          1482,
+          962
+        ],
+        "pbe_band_gap_ev": "0.123",
+        "size": 2,
+        "sorted_positions": [
+          100,
+          101
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:59d1a172c8f7e9fd5d2dee7f447caae0aecfaa99de6bd15913a7e8dbefe8c829",
+          "current-nlr-pbe-gw-v1:composition:cb0edf75c181a554c996013fb5b435d3e5f7602e80dac68bc6b10c71e587a4af"
+        ],
+        "node_indices": [
+          350,
+          2060
+        ],
+        "pbe_band_gap_ev": "0.132",
+        "size": 2,
+        "sorted_positions": [
+          104,
+          105
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:5a5cc9252ddcd584b81269e586d37f6c220c49b8922fefe7f11ff47d804c6312",
+          "current-nlr-pbe-gw-v1:composition:c9dceec0546e14e78d8969387879c48a7df08951fa7ed31a6064a01266a180cf"
+        ],
+        "node_indices": [
+          1080,
+          1919
+        ],
+        "pbe_band_gap_ev": "0.144",
+        "size": 2,
+        "sorted_positions": [
+          109,
+          110
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:39bbdce53bb2c74d3f9d537708d24622999e9bd8f79b5fdfed57450f76cfea64",
+          "current-nlr-pbe-gw-v1:composition:90fa54fc76f93ad1b43afb849d3aca739d2e0f53ac85bc2777e2e872a08414b4"
+        ],
+        "node_indices": [
+          1748,
+          926
+        ],
+        "pbe_band_gap_ev": "0.147",
+        "size": 2,
+        "sorted_positions": [
+          111,
+          112
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:452fb52a05668097ca7151c527519b051460e271d2c86153e588d2b612fc2558",
+          "current-nlr-pbe-gw-v1:composition:7c6d68b2a3250aaa062a0a9aa443940219edffba0c2b39a8d8e185f212fb92bd"
+        ],
+        "node_indices": [
+          1322,
+          54
+        ],
+        "pbe_band_gap_ev": "0.173",
+        "size": 2,
+        "sorted_positions": [
+          122,
+          123
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:78cc399f4c8d23b455314bf13e36f49408b13ed4d2ba9960cf3a49167ad1d6d0",
+          "current-nlr-pbe-gw-v1:composition:9b4c40a21684bf4143329141e620683e921837405c72c8150ebc4c3cf82fbd08"
+        ],
+        "node_indices": [
+          693,
+          1744
+        ],
+        "pbe_band_gap_ev": "0.185",
+        "size": 2,
+        "sorted_positions": [
+          129,
+          130
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:cac31618b8d210f88e5fc59366a2d090e58149fb8b6e31fdaf7e0626c7e5c126",
+          "current-nlr-pbe-gw-v1:composition:fd78fc5425b305bca2b66a6f2aedd60ed49c8613c8790fbb63fb2684939331a1"
+        ],
+        "node_indices": [
+          1484,
+          1780
+        ],
+        "pbe_band_gap_ev": "0.211",
+        "size": 2,
+        "sorted_positions": [
+          139,
+          140
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:2f4d8e9c42bc2f4d99e8925b97b08e37a21434fafc6eed4d6eb3e4486af71d31",
+          "current-nlr-pbe-gw-v1:composition:6a1b03159e3d68d7e9cc6358366a023609861eb824ce7dada9d0bb6f2f976fa2"
+        ],
+        "node_indices": [
+          422,
+          25
+        ],
+        "pbe_band_gap_ev": "0.228",
+        "size": 2,
+        "sorted_positions": [
+          149,
+          150
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:706ee8d2697a446a8e76e391cfb7ca3560ffe2a6ad4983a9cfcf33b16676015e",
+          "current-nlr-pbe-gw-v1:composition:f91e7341458f0fa3e9a6aed156d252cb0b433ac86f2c80cabbfe39e2c5aa869a"
+        ],
+        "node_indices": [
+          191,
+          1071
+        ],
+        "pbe_band_gap_ev": "0.23",
+        "size": 2,
+        "sorted_positions": [
+          151,
+          152
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:2867465d9776f3ce0825c85bd612e06b4126208af7b3bbee7937377d93dcf5f8",
+          "current-nlr-pbe-gw-v1:composition:9e0a98f1ad78301737ece547c76bca46f0acd1e75860d9ab7a1f86f77ab2262d"
+        ],
+        "node_indices": [
+          377,
+          1926
+        ],
+        "pbe_band_gap_ev": "0.241",
+        "size": 2,
+        "sorted_positions": [
+          159,
+          160
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:0e9b8899cfd8c9f24c15d00892f486e8d77e34fadf5bc70f9c522dcde5a0f6ec",
+          "current-nlr-pbe-gw-v1:composition:787042353fe0e6d92369283c8168b807cc33ddf9e288fed29056912bc652d99c",
+          "current-nlr-pbe-gw-v1:composition:c29f5a2a25cd10a78d60b741ac3a68c47d2081be15d7d3cf218040f2162754fc"
+        ],
+        "node_indices": [
+          2036,
+          899,
+          1344
+        ],
+        "pbe_band_gap_ev": "0.256",
+        "size": 3,
+        "sorted_positions": [
+          166,
+          167,
+          168
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:c0493b31690f7cbf1e04f67292dc5c7ccea6dcc99523ebe999e05938ddf7b1c9",
+          "current-nlr-pbe-gw-v1:composition:d0688763ad0254c6846601cefed28cab7d32f9d7616a5561a631b71c371db5d4"
+        ],
+        "node_indices": [
+          224,
+          362
+        ],
+        "pbe_band_gap_ev": "0.305",
+        "size": 2,
+        "sorted_positions": [
+          184,
+          185
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:6da689aeae2d7a2354604a41d4882005e800534de0e7af08bce62094cbd788e2",
+          "current-nlr-pbe-gw-v1:composition:7741827455d53c724ba421a78ad81b2df4708afb19e6df9a30d43806f239b2ca"
+        ],
+        "node_indices": [
+          243,
+          991
+        ],
+        "pbe_band_gap_ev": "0.317",
+        "size": 2,
+        "sorted_positions": [
+          190,
+          191
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:042547014d4e791c5851066b4aa2a3451aafcf293476352900ce43faeff870fa",
+          "current-nlr-pbe-gw-v1:composition:2c99f5b979c9371d4c0d533a3050c47a5d8de5fa54f0de225d207416e5f9cced",
+          "current-nlr-pbe-gw-v1:composition:ff101273e6c4c1939cdfc6880c15f2fa04ab618e9481dd24377e60e4b2c88850"
+        ],
+        "node_indices": [
+          1684,
+          1728,
+          1001
+        ],
+        "pbe_band_gap_ev": "0.322",
+        "size": 3,
+        "sorted_positions": [
+          193,
+          194,
+          195
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:0312d3a73606492eb6982dd1018877dfba0be1990f8b6980d4b707b0c573d576",
+          "current-nlr-pbe-gw-v1:composition:be57e73b382edadd5b8cbc045104b634ac487f29c8fbb6c52b2ebe9b23fcb915"
+        ],
+        "node_indices": [
+          1338,
+          1956
+        ],
+        "pbe_band_gap_ev": "0.332",
+        "size": 2,
+        "sorted_positions": [
+          196,
+          197
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:d1d3ffc6ecc7513dc3c11f729fd449c544842941bc2f73b378306876794d4411",
+          "current-nlr-pbe-gw-v1:composition:db28b019384e17364ddd0418985cb7b4cd7f3e4e4b3acd666cfda996d9d90636"
+        ],
+        "node_indices": [
+          411,
+          1346
+        ],
+        "pbe_band_gap_ev": "0.378",
+        "size": 2,
+        "sorted_positions": [
+          212,
+          213
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:427aae454e03a93d4f73938cdacdac082b69de9589754229c41ac294a6b38469",
+          "current-nlr-pbe-gw-v1:composition:789cded3f6205d36e609ce4a0acf6cf9eecac6567c3dc7b0bc89a6ba4d781f95"
+        ],
+        "node_indices": [
+          1097,
+          1717
+        ],
+        "pbe_band_gap_ev": "0.388",
+        "size": 2,
+        "sorted_positions": [
+          216,
+          217
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:ce9114c8e99c882bb467ff85c1999fc130f1962367816166b72e1042e664c10b",
+          "current-nlr-pbe-gw-v1:composition:e01ab0fb36e904c5bdba73010876ecd8ec9cbb87b05e92862eefaf147b539c58"
+        ],
+        "node_indices": [
+          624,
+          553
+        ],
+        "pbe_band_gap_ev": "0.397",
+        "size": 2,
+        "sorted_positions": [
+          219,
+          220
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:515168a57af33c9d0f2e7ceab5ebbb0ddf4e8b1af0d6c9906af38a1f2eb816ab",
+          "current-nlr-pbe-gw-v1:composition:f3a91c68347914522e5a0626e8c4ce86044f27a10372b3e551fc75161002aadd"
+        ],
+        "node_indices": [
+          1725,
+          374
+        ],
+        "pbe_band_gap_ev": "0.401",
+        "size": 2,
+        "sorted_positions": [
+          221,
+          222
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:5eca39bd28525d479a1455d7446e6a5f90216dca67cfab3c89f0995f7b074fae",
+          "current-nlr-pbe-gw-v1:composition:8ce73a8b4a35a3fdac37e4f90490848ff853a162839df1464560383e9a21c2e3"
+        ],
+        "node_indices": [
+          487,
+          2016
+        ],
+        "pbe_band_gap_ev": "0.402",
+        "size": 2,
+        "sorted_positions": [
+          223,
+          224
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:96bb10344e94ad46212736147b956e08fb94f84ddf285bf0b94226115d74edea",
+          "current-nlr-pbe-gw-v1:composition:b9d665f7dd588c62d45de07cc5d2fb7bfe81973352ad4e6cdc733c8bf9209b39"
+        ],
+        "node_indices": [
+          491,
+          339
+        ],
+        "pbe_band_gap_ev": "0.448",
+        "size": 2,
+        "sorted_positions": [
+          237,
+          238
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:8874ab2e7d7dd6873160f74db17839a337436d8580beee9f8669c4065e678041",
+          "current-nlr-pbe-gw-v1:composition:d8c7aeb47644a994029a7dda23f2df3014c9aca149ec8d2a35fabe9c5275f778"
+        ],
+        "node_indices": [
+          465,
+          1082
+        ],
+        "pbe_band_gap_ev": "0.458",
+        "size": 2,
+        "sorted_positions": [
+          242,
+          243
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:9b898c3ee2669351566d997c7dfc4d701a71492ffab5909c16d72ecb180b2a7f",
+          "current-nlr-pbe-gw-v1:composition:b6442b243bef52e7f77f1c1b02e82484566424659aebc884e706ccdc09a15de7"
+        ],
+        "node_indices": [
+          1103,
+          433
+        ],
+        "pbe_band_gap_ev": "0.459",
+        "size": 2,
+        "sorted_positions": [
+          244,
+          245
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:19921e620e145fe714742239c0a080246b4d4f4467f8619a75efde3f05db5c96",
+          "current-nlr-pbe-gw-v1:composition:3e9e4c8df2553a6e494c7ee993c2ddde6ccadd3c7811b0e7b0811dd989832398"
+        ],
+        "node_indices": [
+          293,
+          1750
+        ],
+        "pbe_band_gap_ev": "0.479",
+        "size": 2,
+        "sorted_positions": [
+          251,
+          252
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:86fd914123590777dd4b06676678b3d446f4ae64bef88f3d5f71ebe0279ef5a2",
+          "current-nlr-pbe-gw-v1:composition:e860e709dc35a874cbf510f0a88a0f16ab62dac241ee1ab7349dac68368d1974"
+        ],
+        "node_indices": [
+          432,
+          1445
+        ],
+        "pbe_band_gap_ev": "0.48",
+        "size": 2,
+        "sorted_positions": [
+          253,
+          254
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:00204b517bbd9e7ee624fd5453c8c6d110ef7128c049015ced28e60735560902",
+          "current-nlr-pbe-gw-v1:composition:48a91b9de100938047f409f472708ae45770b3f9219e15063de3020d5dee65d4"
+        ],
+        "node_indices": [
+          221,
+          39
+        ],
+        "pbe_band_gap_ev": "0.497",
+        "size": 2,
+        "sorted_positions": [
+          260,
+          261
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:1a8398800d2a54f28445515eabcfa02e4da8f7ba784012c345d21398b9430780",
+          "current-nlr-pbe-gw-v1:composition:c15d453740d823e84fb9d0b237257de7d555fe99db186e4e9d07cb11ee097698"
+        ],
+        "node_indices": [
+          1676,
+          1720
+        ],
+        "pbe_band_gap_ev": "0.5",
+        "size": 2,
+        "sorted_positions": [
+          263,
+          264
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:0426c059066bb7e1bb55abc72e9cced5db129108d682e2ee678244886f793ad9",
+          "current-nlr-pbe-gw-v1:composition:a83999eacc33f26ba88adaccb0a9b019e08d5b36915e8b33da798c4e8c219a46"
+        ],
+        "node_indices": [
+          1672,
+          52
+        ],
+        "pbe_band_gap_ev": "0.501",
+        "size": 2,
+        "sorted_positions": [
+          265,
+          266
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:b52408628c1da07a1f6f164afc0aa09ee15be7ade6128f098f3a56a8d5288be7",
+          "current-nlr-pbe-gw-v1:composition:dc58389ca1ddc1463e1b2d46c1c0ff1223d15a174c15ea7d28153e251846d74a"
+        ],
+        "node_indices": [
+          1721,
+          1536
+        ],
+        "pbe_band_gap_ev": "0.529",
+        "size": 2,
+        "sorted_positions": [
+          276,
+          277
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:532a366c3c384c149f50835556d105a2c6b97e100c6e297abe0a2a871f077f9a",
+          "current-nlr-pbe-gw-v1:composition:fda0dad2324290295a6158491017afa66dd633b6c00047b1b5b2ea01832cce04"
+        ],
+        "node_indices": [
+          618,
+          871
+        ],
+        "pbe_band_gap_ev": "0.536",
+        "size": 2,
+        "sorted_positions": [
+          280,
+          281
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:6d4af465cc6df1b4cd2fe282ed0ea042b56af7d7e1243b724c7028b46092f34e",
+          "current-nlr-pbe-gw-v1:composition:ef82788faf8a525181cb644f095c91663e42bc7f8572f4d76b57fb740218a731"
+        ],
+        "node_indices": [
+          1894,
+          137
+        ],
+        "pbe_band_gap_ev": "0.54",
+        "size": 2,
+        "sorted_positions": [
+          282,
+          283
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:40d759d831dad9e53555dba1b0be60186ef7bd39d7f3c946400aa3ef09be2f6f",
+          "current-nlr-pbe-gw-v1:composition:6a4a5a579ee35ddb3a2fdeb17ae70a99bb5c516abcb9851b5d65326187b3d99b"
+        ],
+        "node_indices": [
+          2084,
+          375
+        ],
+        "pbe_band_gap_ev": "0.55",
+        "size": 2,
+        "sorted_positions": [
+          286,
+          287
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:4db3bfa2dfbb6b7db510690062b68d7fad8e96d11f7d0b04d45b69957ca16e8f",
+          "current-nlr-pbe-gw-v1:composition:7741f8c6ba9e09548a145b758152bbf69478f69be8321f80c361ee3b5c2b0a19"
+        ],
+        "node_indices": [
+          2003,
+          564
+        ],
+        "pbe_band_gap_ev": "0.567",
+        "size": 2,
+        "sorted_positions": [
+          292,
+          293
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:b280951a04cb2e45dfed71aaa13a535d422f9b1bec354ec84bb27faa5baf4868",
+          "current-nlr-pbe-gw-v1:composition:e1bb4056f18998c6415d1796e0c78154d42751b9d9a6a3e57a8f46a1e370fe35",
+          "current-nlr-pbe-gw-v1:composition:ef5366cefe3f4dd2c62824cd820065eaf64a2bc0b5f823418a5f78a7027c40e3"
+        ],
+        "node_indices": [
+          964,
+          1111,
+          1906
+        ],
+        "pbe_band_gap_ev": "0.572",
+        "size": 3,
+        "sorted_positions": [
+          295,
+          296,
+          297
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:3811ea0ae2079baa408838e3b4fbbc9ae8619c111bf6e5a015265f7abf4825f8",
+          "current-nlr-pbe-gw-v1:composition:4b0a508265ed94a8d2cb66b44a3250a17a749055ea1b1b541c161b1e9d92a768"
+        ],
+        "node_indices": [
+          2080,
+          1005
+        ],
+        "pbe_band_gap_ev": "0.575",
+        "size": 2,
+        "sorted_positions": [
+          298,
+          299
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:24219f4e22ec1c5d6d4559586e7a3c79b6f70e333684892c167fd7827f55386d",
+          "current-nlr-pbe-gw-v1:composition:863faa3caf7da5757a31a0e1551257e3975ed57d35e3b02041d2f495880f3525"
+        ],
+        "node_indices": [
+          1021,
+          1102
+        ],
+        "pbe_band_gap_ev": "0.579",
+        "size": 2,
+        "sorted_positions": [
+          303,
+          304
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:2219ea7f752992f82c385b938f58300c4ee3af1187bde92c159248d518bc2292",
+          "current-nlr-pbe-gw-v1:composition:f7438a654b35c9e9615ea7ff7b484adbaa8f877487ad5212bc2efd5ba6368e41",
+          "current-nlr-pbe-gw-v1:composition:fad42aa79bba71267e5ea3cbfd400d0c39044d10f9ed42c8e4062707453993c2"
+        ],
+        "node_indices": [
+          71,
+          2018,
+          1955
+        ],
+        "pbe_band_gap_ev": "0.644",
+        "size": 3,
+        "sorted_positions": [
+          328,
+          329,
+          330
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:0b5f46debebca72a111e0ca87a623159de12241543637357a5cde0ced8042f03",
+          "current-nlr-pbe-gw-v1:composition:34de16b3ed3e5b167ef674dc16b4a12466f6cd805a27392e7224d7da73d874e9"
+        ],
+        "node_indices": [
+          1120,
+          1677
+        ],
+        "pbe_band_gap_ev": "0.652",
+        "size": 2,
+        "sorted_positions": [
+          332,
+          333
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:47ab53c10a0558dc6629cfa118e31a323c1fe32357e056672afb5681d2c19ac5",
+          "current-nlr-pbe-gw-v1:composition:4b7c66ffb0607ef2729513398d45b0b52fc293eeade1ca285802f055d723fae9"
+        ],
+        "node_indices": [
+          1441,
+          819
+        ],
+        "pbe_band_gap_ev": "0.659",
+        "size": 2,
+        "sorted_positions": [
+          335,
+          336
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:04717629ffa440b622cc500632b1b12dc971d8decd9bed759af478745e139261",
+          "current-nlr-pbe-gw-v1:composition:05bf8b4c91a0d5c6ffb888d182422e343573af7cc682b2d1bf3c6ace2a030aed"
+        ],
+        "node_indices": [
+          493,
+          685
+        ],
+        "pbe_band_gap_ev": "0.664",
+        "size": 2,
+        "sorted_positions": [
+          340,
+          341
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:02d13fa7865e9968c1fe1bec01f93c176a343ba05029c4cf68af87acce8bf240",
+          "current-nlr-pbe-gw-v1:composition:6a08d90ef6f817ef9a05611ccba6554a31ef0ae82a994d12aafc343448a4dc63"
+        ],
+        "node_indices": [
+          1723,
+          1063
+        ],
+        "pbe_band_gap_ev": "0.669",
+        "size": 2,
+        "sorted_positions": [
+          344,
+          345
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:4ea156a49d62e71b0f47584df2bcad60a06cccf06814fd6d06e059acb1d191ad",
+          "current-nlr-pbe-gw-v1:composition:e5e187b4c866fc1f6d79e374850f5e200375e50745ce2cda4d138c827539d30c"
+        ],
+        "node_indices": [
+          1574,
+          217
+        ],
+        "pbe_band_gap_ev": "0.701",
+        "size": 2,
+        "sorted_positions": [
+          357,
+          358
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:75863d49bd99f2f85b32d1ec9dbf440ef7ce8fab62474d3bc28fd525c7ad82da",
+          "current-nlr-pbe-gw-v1:composition:ee3ebbee85d9d7b4753ae1f24abe8b62b83100511b683e1a70ea74c8f98dc3d0"
+        ],
+        "node_indices": [
+          1702,
+          1640
+        ],
+        "pbe_band_gap_ev": "0.711",
+        "size": 2,
+        "sorted_positions": [
+          362,
+          363
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:0961ec0c3b4c5a2ae37c090e161e87e480d9d4ef68b9720e1e0915e1b681b0e1",
+          "current-nlr-pbe-gw-v1:composition:0b08168c37d84e71081640912705e714db1d1cf1413e1c50a7181d3f616c5dda"
+        ],
+        "node_indices": [
+          1334,
+          796
+        ],
+        "pbe_band_gap_ev": "0.715",
+        "size": 2,
+        "sorted_positions": [
+          365,
+          366
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:a2eb751e130bc4e52c916be7fa7b6d9cb88fbf0ce7f61189030be5a5e0661b96",
+          "current-nlr-pbe-gw-v1:composition:e0c52f5b898f3190a6ae2b4efef665710c4ab076afe1ba96c738bcc17fa1d72b"
+        ],
+        "node_indices": [
+          363,
+          1907
+        ],
+        "pbe_band_gap_ev": "0.722",
+        "size": 2,
+        "sorted_positions": [
+          368,
+          369
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:0182132fffdd0c80c7b6c5a8e74711cbd69b15420c4be9a549aa4a50eec13414",
+          "current-nlr-pbe-gw-v1:composition:3e9057ef3e9c36a6c0bae419ca186cb11fb0592a6d499185ed3363beeccafc8e",
+          "current-nlr-pbe-gw-v1:composition:d56686f93fb46340da8b180aff7ef42f00df1d0f82c4801f964eeb3fd5145385",
+          "current-nlr-pbe-gw-v1:composition:d656df65544a911e926cbde008ed17c82762e94b97ba1cbb1c6c338e99b22aea"
+        ],
+        "node_indices": [
+          721,
+          489,
+          544,
+          1932
+        ],
+        "pbe_band_gap_ev": "0.738",
+        "size": 4,
+        "sorted_positions": [
+          375,
+          376,
+          377,
+          378
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:c684ab97a562614ebc263f23bf1c97052d93f873d152924bc27cc3423fbfe054",
+          "current-nlr-pbe-gw-v1:composition:e407429e01b4f19c475f4f97d1790d656eff5ed2c20bb3c493b1c2a62d04fc36"
+        ],
+        "node_indices": [
+          41,
+          958
+        ],
+        "pbe_band_gap_ev": "0.742",
+        "size": 2,
+        "sorted_positions": [
+          381,
+          382
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:47299126f2a6b35076871d0121b236501af71a8f4a4ec00f8e7f5b23de313b82",
+          "current-nlr-pbe-gw-v1:composition:fd841e81f0a0cc34c237f6fac389b76a56c81beb33d311d725a59ad32d4eb7e6"
+        ],
+        "node_indices": [
+          1639,
+          997
+        ],
+        "pbe_band_gap_ev": "0.747",
+        "size": 2,
+        "sorted_positions": [
+          386,
+          387
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:1c37447c5d6613f5b3b9a08429bc6d1f9bbf288387078eb4bf5a62d5cfd106e7",
+          "current-nlr-pbe-gw-v1:composition:d6b8a53d77d81637045699a4ea739eb9cc981920c9d0e195a9caba4f510097ad"
+        ],
+        "node_indices": [
+          1767,
+          1942
+        ],
+        "pbe_band_gap_ev": "0.748",
+        "size": 2,
+        "sorted_positions": [
+          388,
+          389
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:0207ccfcea79317f72c50804df3eb292c77093706a1ae8c9c81a68acfe25717d",
+          "current-nlr-pbe-gw-v1:composition:baaae48431e773ce7b4301f8c1be0269f59f91bb1e97e9f077f7f61b36475646",
+          "current-nlr-pbe-gw-v1:composition:c703715b8607a91d67d31a9bea8e7d6e17196f2c83a6fb797af81ff1eb40853b"
+        ],
+        "node_indices": [
+          943,
+          1608,
+          1674
+        ],
+        "pbe_band_gap_ev": "0.749",
+        "size": 3,
+        "sorted_positions": [
+          390,
+          391,
+          392
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:4fb9763e0eda4cad886819680d00039b674a26dfcf5227ace04bb2c11ba31d8e",
+          "current-nlr-pbe-gw-v1:composition:9f625453e319104abecdd0756aa1ba552771d14d63e5d1c67080ec3512145a7f",
+          "current-nlr-pbe-gw-v1:composition:cb344d72b41b94f90e7a729bac201b7c6050a9c6ad33e1d530dfd64bbb75db52"
+        ],
+        "node_indices": [
+          1433,
+          1331,
+          236
+        ],
+        "pbe_band_gap_ev": "0.751",
+        "size": 3,
+        "sorted_positions": [
+          393,
+          394,
+          395
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:5c3b71400865c1bae5228231f20e4589e05ad424a7215a9423e151dc0c5c68e8",
+          "current-nlr-pbe-gw-v1:composition:a23eb43ff602d21d7891a6810e6af73703bd616bcbe75ae41eaeb76edc8e718e",
+          "current-nlr-pbe-gw-v1:composition:bc0452a2c4c7a48688016fad5dbbdd2879fe3197d92160320d6aef5909e7d65f"
+        ],
+        "node_indices": [
+          1342,
+          895,
+          65
+        ],
+        "pbe_band_gap_ev": "0.764",
+        "size": 3,
+        "sorted_positions": [
+          399,
+          400,
+          401
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:7a22819ab31c1b39c2566ca50c2518ff452367d3bb7a6adaa2c7b8b991302259",
+          "current-nlr-pbe-gw-v1:composition:ef3ee973183ea579a18138056f68276e9cd9785d342d4161f6eb5b7b4bd509af"
+        ],
+        "node_indices": [
+          911,
+          1861
+        ],
+        "pbe_band_gap_ev": "0.788",
+        "size": 2,
+        "sorted_positions": [
+          409,
+          410
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:5455119fc7e2d89e4991f79b058aa66179dbfb5624daf27d07065a9ec4c0ffa0",
+          "current-nlr-pbe-gw-v1:composition:8287bcdde21e21cf4a371424c3eb714446df5dc7e10a2f8c111992baed04c158",
+          "current-nlr-pbe-gw-v1:composition:8ac6915e0d02d963542ca6efce7fcf16bb0ac45025afa1c7a3bdf89fbbea5106"
+        ],
+        "node_indices": [
+          870,
+          944,
+          1357
+        ],
+        "pbe_band_gap_ev": "0.801",
+        "size": 3,
+        "sorted_positions": [
+          415,
+          416,
+          417
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:1753c0d3351fd661a44069b8ad0b045bb88454769a8434d6aeb6628d4af4e734",
+          "current-nlr-pbe-gw-v1:composition:5d6803fb9ab012aead5d19b87c5e79a87da38ab2121d631fd778ffdb06a30759"
+        ],
+        "node_indices": [
+          202,
+          2076
+        ],
+        "pbe_band_gap_ev": "0.827",
+        "size": 2,
+        "sorted_positions": [
+          425,
+          426
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:38f6d699133a769941e942621c2edb3542e5a600d786cdb9526616431a0a78f6",
+          "current-nlr-pbe-gw-v1:composition:fbd0e15b0f9d37637d83e7399a71bcb8c04c25c0bf239b06d46aef327191efa4"
+        ],
+        "node_indices": [
+          62,
+          1959
+        ],
+        "pbe_band_gap_ev": "0.851",
+        "size": 2,
+        "sorted_positions": [
+          434,
+          435
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:441ef681650a9852c8174e45dfd11c9ca88aa6b566b27d06b53cddfa92f7c7d7",
+          "current-nlr-pbe-gw-v1:composition:86ef8892235ca301960b6fe6d78e88e658cb2612171ec0372c71e5b673aaacf1"
+        ],
+        "node_indices": [
+          1734,
+          620
+        ],
+        "pbe_band_gap_ev": "0.88",
+        "size": 2,
+        "sorted_positions": [
+          445,
+          446
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:583303820a2479599ed9d17f85e318429ab07b249257d8ba1ea7095d951ec943",
+          "current-nlr-pbe-gw-v1:composition:c732590f2d06036a76c21eafd0eae6fff00f1f668c1d05d6095b1a297f2aec6b"
+        ],
+        "node_indices": [
+          1654,
+          1341
+        ],
+        "pbe_band_gap_ev": "0.881",
+        "size": 2,
+        "sorted_positions": [
+          447,
+          448
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:3abe8a5c6dacc243e34039226ec6764ebd156680046073d0625b7020138528a9",
+          "current-nlr-pbe-gw-v1:composition:5aefd9b80e38761296bfde5fb27661081b091994f7a26835edb110a871b2cb27",
+          "current-nlr-pbe-gw-v1:composition:c8ef9875d0bf71e6346250b39347ffd3878472be3e28660998b372b22391ee3e"
+        ],
+        "node_indices": [
+          977,
+          383,
+          1337
+        ],
+        "pbe_band_gap_ev": "0.891",
+        "size": 3,
+        "sorted_positions": [
+          450,
+          451,
+          452
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:5a66c4bae6a9347040453e050a5650652fc1cc81098d9ef7cab2dc64c873c237",
+          "current-nlr-pbe-gw-v1:composition:5fa23493da9f8298b02ca966ab89e15d33967176fa60d4d3eeeb5da513a907cb"
+        ],
+        "node_indices": [
+          619,
+          247
+        ],
+        "pbe_band_gap_ev": "0.894",
+        "size": 2,
+        "sorted_positions": [
+          454,
+          455
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:84e6e258c664d214b5c7dceda68db707dc7b0504d93da208b10a514fea8575e4",
+          "current-nlr-pbe-gw-v1:composition:9c73074d63ba1def9efbbd2e7caa30ca3d0078f8effeb5f940de8033bb32a5ea"
+        ],
+        "node_indices": [
+          1777,
+          277
+        ],
+        "pbe_band_gap_ev": "0.896",
+        "size": 2,
+        "sorted_positions": [
+          456,
+          457
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:3929808d4a97ab77f2ac8a9f6ef1a03461023c476d25ce8ef23d0651d078b5f8",
+          "current-nlr-pbe-gw-v1:composition:97f9a5532edd3e3dea0993e3454c434b3ea5b45e44b439e5a50930434ae59d8a",
+          "current-nlr-pbe-gw-v1:composition:a8fab85b8ea567d6475dfb994e9fc07bf85e55074fbdd65d87ce1f8df21460bb",
+          "current-nlr-pbe-gw-v1:composition:cb36541bff1534cdc5bb86b35547b9fe96e908ec3e04e317fe1443a7b77da385"
+        ],
+        "node_indices": [
+          352,
+          1095,
+          1544,
+          481
+        ],
+        "pbe_band_gap_ev": "0.903",
+        "size": 4,
+        "sorted_positions": [
+          458,
+          459,
+          460,
+          461
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:42b3bb286e5e16017aa29d3b54f7ebb91890c4072d4fdf20e3d57c31f2192c68",
+          "current-nlr-pbe-gw-v1:composition:60af5f44dc71fe9c80a5ce73745975de759a497de60f93bba9e55b302db5c502",
+          "current-nlr-pbe-gw-v1:composition:e0daca02c51548b7c37a775852f0fac229e8d632654938ef0cab45d948ddd536"
+        ],
+        "node_indices": [
+          1626,
+          1599,
+          1741
+        ],
+        "pbe_band_gap_ev": "0.906",
+        "size": 3,
+        "sorted_positions": [
+          462,
+          463,
+          464
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:9111c7ee2fcc8bb3432f9126018c83edcc9f2a18477042b3933312f0f1fa25c5",
+          "current-nlr-pbe-gw-v1:composition:93cb612d441302a5f3234c4a59b36ed7232ab847034e8d3c2f42092cd124dfc4"
+        ],
+        "node_indices": [
+          999,
+          1884
+        ],
+        "pbe_band_gap_ev": "0.911",
+        "size": 2,
+        "sorted_positions": [
+          466,
+          467
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:10077c5690c412a27cdec57d0c294346199f8b832c9e271983329ac774face41",
+          "current-nlr-pbe-gw-v1:composition:fee90fa2bb40a1ec42fbff182efa312729eb79061fae294bb095ff3bfa278025"
+        ],
+        "node_indices": [
+          313,
+          1698
+        ],
+        "pbe_band_gap_ev": "0.913",
+        "size": 2,
+        "sorted_positions": [
+          468,
+          469
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:5e10c7b001b2628ed97a087604278ff93a88b1a723b05637b6a986e2f941d5f9",
+          "current-nlr-pbe-gw-v1:composition:ddcf0adbb561eace068227407be600395c7b7a42b3a4abf19e1e2f132142b909",
+          "current-nlr-pbe-gw-v1:composition:deadbe33d77baac0dafe8162fc69adc26897b125d1a069f7074708e5b2a7bb9d"
+        ],
+        "node_indices": [
+          761,
+          1077,
+          1167
+        ],
+        "pbe_band_gap_ev": "0.932",
+        "size": 3,
+        "sorted_positions": [
+          476,
+          477,
+          478
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:6693e36c0af5bf0efbd870f8534018e9d51201456a911b08658672b93221a853",
+          "current-nlr-pbe-gw-v1:composition:b4086c8ce36431d42dec38fa6ba2b50bded374de681922bf5ca28981bc6e5e57",
+          "current-nlr-pbe-gw-v1:composition:dbc99bb21d3485f6b1e4ec86b7fd9dfd0f4f3615d295493c98db5312dd88aceb"
+        ],
+        "node_indices": [
+          1310,
+          699,
+          476
+        ],
+        "pbe_band_gap_ev": "0.97",
+        "size": 3,
+        "sorted_positions": [
+          495,
+          496,
+          497
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:26903e4e573415a170955570b3b8a037a74d8e1b0664cb93b7a9dd17e46ee1df",
+          "current-nlr-pbe-gw-v1:composition:4c2612a55a2a6c413e6cf9038412dc53b9775ef09c677b52cdf6a7c37b38049f"
+        ],
+        "node_indices": [
+          458,
+          209
+        ],
+        "pbe_band_gap_ev": "0.971",
+        "size": 2,
+        "sorted_positions": [
+          498,
+          499
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:2440fc112e060fc90ec83fa44eda5697d66fc3e8726319a14c6d23769a9907a3",
+          "current-nlr-pbe-gw-v1:composition:ab09f60a720fd17175e2df9876460039e706564a153af781244438c5e264c6ae",
+          "current-nlr-pbe-gw-v1:composition:eeeb9e01456d4abece6f5dac8014d95a6f986d508f1f5bbd4f4203e7066ac402"
+        ],
+        "node_indices": [
+          1595,
+          960,
+          734
+        ],
+        "pbe_band_gap_ev": "0.982",
+        "size": 3,
+        "sorted_positions": [
+          503,
+          504,
+          505
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:195c94a6027b43f69b42e6af2b4b21ddf319b4570d2b851a73be87e303c8a2ae",
+          "current-nlr-pbe-gw-v1:composition:71ef86c972d24d1b6605a50a7fcbf8a152da35786e855ac63c5cbec602c199f8"
+        ],
+        "node_indices": [
+          722,
+          1618
+        ],
+        "pbe_band_gap_ev": "0.991",
+        "size": 2,
+        "sorted_positions": [
+          507,
+          508
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:544476fa19b65b0097d69e4ef1e21fa9d465161e4a21e05140d97c8a38cde60c",
+          "current-nlr-pbe-gw-v1:composition:55f5edeb5ba6775ec76a71bf88d6496c07d8387dc2291fab9eba8b09e7636558"
+        ],
+        "node_indices": [
+          1349,
+          811
+        ],
+        "pbe_band_gap_ev": "1.02",
+        "size": 2,
+        "sorted_positions": [
+          520,
+          521
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:2ee0b96165e9fd58531128693d60cb68b3038e34d7f58a9d9073b00dc68857f4",
+          "current-nlr-pbe-gw-v1:composition:4280eb9f28ce7804fc88d8eca4fac73a1bc084f19ac29d8fa15ffc93f53efeb6"
+        ],
+        "node_indices": [
+          1307,
+          1616
+        ],
+        "pbe_band_gap_ev": "1.022",
+        "size": 2,
+        "sorted_positions": [
+          522,
+          523
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:6b360cc69310ccedaac9a334d47160abc0cc1723b4dd8476f08e3dbd503873d2",
+          "current-nlr-pbe-gw-v1:composition:e0c5d25d803209ea8f44b8a8ecd00dd3ae3fbb54b1d486cf410470881a140c11"
+        ],
+        "node_indices": [
+          1789,
+          1110
+        ],
+        "pbe_band_gap_ev": "1.032",
+        "size": 2,
+        "sorted_positions": [
+          525,
+          526
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:6dc1a5f03cd8fb4e0514758d692b69c798a82bfd94bbba750a144efffadb4aab",
+          "current-nlr-pbe-gw-v1:composition:ea64eb69dfeb46c46f9f17a1081eeafb03cdaf7deb53281f058748e1d8c1a4e7"
+        ],
+        "node_indices": [
+          1545,
+          1837
+        ],
+        "pbe_band_gap_ev": "1.052",
+        "size": 2,
+        "sorted_positions": [
+          532,
+          533
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:82eee64443257c8352043f69891e4ab3b579ec1ed4f903638e2c280d02d3c7e7",
+          "current-nlr-pbe-gw-v1:composition:adfc60927dbcec7beb160872b5610ea8a9310b5672f5de04ca6908ec487f0be9"
+        ],
+        "node_indices": [
+          1523,
+          592
+        ],
+        "pbe_band_gap_ev": "1.063",
+        "size": 2,
+        "sorted_positions": [
+          535,
+          536
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:41aa476b7292b315fe2a10b1adcecac1fc3e16a75db3aad52d9e2a694706f51d",
+          "current-nlr-pbe-gw-v1:composition:42db2e21c4cc17a95b154f380882345c487653b0ec0d033a9295d3083a4a08f0",
+          "current-nlr-pbe-gw-v1:composition:50b4fcb6ee9f86b27cc3483f6ffa8f321889ed3f0b81f38de35979730cdcc50d"
+        ],
+        "node_indices": [
+          929,
+          981,
+          2101
+        ],
+        "pbe_band_gap_ev": "1.068",
+        "size": 3,
+        "sorted_positions": [
+          537,
+          538,
+          539
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:2001315a5e95f975d76896258494eeec4b97ddd990055e111c6654ad145d5ab7",
+          "current-nlr-pbe-gw-v1:composition:c30a26ea7fa9cce315a114bada8b0cd780b2e52f20fb835e64e7ddf7c5c2747b"
+        ],
+        "node_indices": [
+          682,
+          124
+        ],
+        "pbe_band_gap_ev": "1.087",
+        "size": 2,
+        "sorted_positions": [
+          541,
+          542
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:29c355a4464a2cfd4697d5464fdb472599d5f835ba67e200b06c7e7a3c407c81",
+          "current-nlr-pbe-gw-v1:composition:42152803aa54bafdac28617936cc79f4bbaa12a610e3541565dffeab44c0dd95",
+          "current-nlr-pbe-gw-v1:composition:9f1c33581187a3ca29615d67e25639a1df39a01c83530a6cff0e18e35699af36"
+        ],
+        "node_indices": [
+          1264,
+          1059,
+          1855
+        ],
+        "pbe_band_gap_ev": "1.092",
+        "size": 3,
+        "sorted_positions": [
+          545,
+          546,
+          547
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:79e4d15a9d63ccb8e806e36150f04fc1beeef75f4d2d17eb58d866cc87039a12",
+          "current-nlr-pbe-gw-v1:composition:df6f413b7bf22d5251ce42078c0eb0225db93f37f516c22d93c2d0cc733b5fb8"
+        ],
+        "node_indices": [
+          259,
+          1995
+        ],
+        "pbe_band_gap_ev": "1.103",
+        "size": 2,
+        "sorted_positions": [
+          550,
+          551
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:56441f4481d94683fa08059f9166f510bffa053c8b486e5dbde51c499653cef3",
+          "current-nlr-pbe-gw-v1:composition:879c425bacde5faa23a88e828abfdea9841b7fe0a34a1d5834a1f58904f18168"
+        ],
+        "node_indices": [
+          728,
+          2022
+        ],
+        "pbe_band_gap_ev": "1.106",
+        "size": 2,
+        "sorted_positions": [
+          552,
+          553
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:3a41f44093bc95fa968f09eb97e4a9439842637b6cee6ced97186ea65a9d67d9",
+          "current-nlr-pbe-gw-v1:composition:94ba91843486278d592b382f2fbd7b2548b1cbdf15a529b17d807de4f2643d0b"
+        ],
+        "node_indices": [
+          198,
+          516
+        ],
+        "pbe_band_gap_ev": "1.108",
+        "size": 2,
+        "sorted_positions": [
+          555,
+          556
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:0669176192869438017ecacf659cca193a2b4a74d2b958818435ec0d352d32ef",
+          "current-nlr-pbe-gw-v1:composition:5f8c0169c3e6fe226fec903e609ff09462193ba3ca0f126f42da9557cae0536a"
+        ],
+        "node_indices": [
+          886,
+          1711
+        ],
+        "pbe_band_gap_ev": "1.141",
+        "size": 2,
+        "sorted_positions": [
+          568,
+          569
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:2dbe0bdf8bc86529a88c33bbe728881e71c22292565be448d7ed32f410a4e6b9",
+          "current-nlr-pbe-gw-v1:composition:bbd76372cf99b7e25b4287e3a456637a8a26d185dcbf40254d64e27f57c02f9d"
+        ],
+        "node_indices": [
+          1546,
+          1072
+        ],
+        "pbe_band_gap_ev": "1.153",
+        "size": 2,
+        "sorted_positions": [
+          572,
+          573
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:1679276f23a2dcda1ba811a7a53ea9f21554e3b83d37c651eaa0acc0dea4fa6b",
+          "current-nlr-pbe-gw-v1:composition:299642e84cf49cbd5e832d9d898e4d90263ba28a36f970b91f8c12d283d652e3"
+        ],
+        "node_indices": [
+          212,
+          903
+        ],
+        "pbe_band_gap_ev": "1.156",
+        "size": 2,
+        "sorted_positions": [
+          574,
+          575
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:57d97638fe558993afa565ecbda71c049ec56fc5b90610379a0e9b6471a38648",
+          "current-nlr-pbe-gw-v1:composition:65d1348cc88731bc152b53706c14f56e50651b67eefc51d4f44209fa38368b17"
+        ],
+        "node_indices": [
+          181,
+          2064
+        ],
+        "pbe_band_gap_ev": "1.159",
+        "size": 2,
+        "sorted_positions": [
+          576,
+          577
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:28ca47ed3ad55a4ee836ba0842ad7d68571154de4f6ef006ef9f45e6129bb983",
+          "current-nlr-pbe-gw-v1:composition:6d0a4afe846be473dbe687d67865665ee72de713e79dbbb16b6e3d7a40f0af40"
+        ],
+        "node_indices": [
+          935,
+          125
+        ],
+        "pbe_band_gap_ev": "1.16",
+        "size": 2,
+        "sorted_positions": [
+          578,
+          579
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:a1c3608eaca29013a3169d39f6433c136d965595bdfc9c9ffc399cae000d4f59",
+          "current-nlr-pbe-gw-v1:composition:fc7ed4e018efbb823dccd510dad665630474ae7b61a0965ca8eb45efcb3fabb9"
+        ],
+        "node_indices": [
+          1653,
+          1671
+        ],
+        "pbe_band_gap_ev": "1.165",
+        "size": 2,
+        "sorted_positions": [
+          583,
+          584
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:36d595e58dfca524ae3ab9486a14d2fb8cab2017ae346931c0355f40ade901a0",
+          "current-nlr-pbe-gw-v1:composition:cc03880303e4d6164d01b8f157ff95d1d5f4ac63807ce8ea13723bb9eb6b122a"
+        ],
+        "node_indices": [
+          1586,
+          745
+        ],
+        "pbe_band_gap_ev": "1.172",
+        "size": 2,
+        "sorted_positions": [
+          587,
+          588
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:5a326213be9b6cba8e620bc7c20801a5b85e1127964bfcd201c571b1f117883d",
+          "current-nlr-pbe-gw-v1:composition:637170969ca7257fa4f1de087e2904fd69b571098c0de80515714ab48ed911c0"
+        ],
+        "node_indices": [
+          695,
+          1769
+        ],
+        "pbe_band_gap_ev": "1.184",
+        "size": 2,
+        "sorted_positions": [
+          593,
+          594
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:2c4ec2f81c8f7f74584645c8c0367ffb6536a19b753455145b82ebc8bd439f66",
+          "current-nlr-pbe-gw-v1:composition:46e8abbf62c30e381b04e1745570bbbc9328588b26e0a41e7e62e1fff076db94",
+          "current-nlr-pbe-gw-v1:composition:e7dc6c0dd2f13197d0e733616b59fe6e14cfec4494cf4637e77fe7d785adfd6c",
+          "current-nlr-pbe-gw-v1:composition:fb6d50ccbb7c9753cbe20003a938729cdae64a7a802aa3e75ed6ca59a01aff98"
+        ],
+        "node_indices": [
+          40,
+          776,
+          10,
+          1814
+        ],
+        "pbe_band_gap_ev": "1.19",
+        "size": 4,
+        "sorted_positions": [
+          599,
+          600,
+          601,
+          602
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:99e11aef6544368f95e1157bf0df7d6517db1e6cf83ac6bd43bcd07083f514b4",
+          "current-nlr-pbe-gw-v1:composition:b0acde0e74593c00ac425af822470e4403a5c610e2fe3a5c0a03ce0070590256"
+        ],
+        "node_indices": [
+          344,
+          686
+        ],
+        "pbe_band_gap_ev": "1.215",
+        "size": 2,
+        "sorted_positions": [
+          613,
+          614
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:429298da7c6ea416795d5fb7664f9e2e83f97da25915d117c962074149867c0e",
+          "current-nlr-pbe-gw-v1:composition:629d32f0daed0b7f4cc6a18d383221bf5c2b96b49e4b976b49abb1138f840956"
+        ],
+        "node_indices": [
+          478,
+          711
+        ],
+        "pbe_band_gap_ev": "1.223",
+        "size": 2,
+        "sorted_positions": [
+          617,
+          618
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:43d5d3c3756c1fdc5a87c68ffc226ea3bd6fa3461a3698f9ac1ab3250b7d00fb",
+          "current-nlr-pbe-gw-v1:composition:8a93a21e6a007c6660a72b7f4445b6006448b6f811fd8124b8514ad79763eef7"
+        ],
+        "node_indices": [
+          1118,
+          1277
+        ],
+        "pbe_band_gap_ev": "1.227",
+        "size": 2,
+        "sorted_positions": [
+          622,
+          623
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:63f75e5e4389d37db60421bf1dde840e417f7e14fe99ecc1e71eee3fd6b3c8ae",
+          "current-nlr-pbe-gw-v1:composition:9a0e81d93236f722f2c252add9dcee4dad1c8dd63b68c944d058ccf7ad00e70e"
+        ],
+        "node_indices": [
+          19,
+          1189
+        ],
+        "pbe_band_gap_ev": "1.232",
+        "size": 2,
+        "sorted_positions": [
+          626,
+          627
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:36795f2daf01bedd7514dcc4adc6df9880a87f8866addaa457963bb7d72b6da1",
+          "current-nlr-pbe-gw-v1:composition:c628417bda568712d70c03fd4622c3f1bda1a3c302358c090afed80c313bd2f9"
+        ],
+        "node_indices": [
+          602,
+          53
+        ],
+        "pbe_band_gap_ev": "1.236",
+        "size": 2,
+        "sorted_positions": [
+          628,
+          629
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:09e93bf4a2525036ace387a2dc7840d15779c413c743b37295455fa983b16c31",
+          "current-nlr-pbe-gw-v1:composition:bbe293ff6c50dcb7e48c4c89cb0503f2f3322cdaa5c4d6db86300434b5020eb8"
+        ],
+        "node_indices": [
+          1026,
+          528
+        ],
+        "pbe_band_gap_ev": "1.244",
+        "size": 2,
+        "sorted_positions": [
+          632,
+          633
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:c47fc8cb7a8107a2b54de3aa9cf0ae3bd3c8693722a405b64b0c0be804fc9587",
+          "current-nlr-pbe-gw-v1:composition:f6c1feb811d1ec79d38ba3cae865bdfa7a3574bfa03848ad484d42d30db8aa7f"
+        ],
+        "node_indices": [
+          974,
+          986
+        ],
+        "pbe_band_gap_ev": "1.252",
+        "size": 2,
+        "sorted_positions": [
+          638,
+          639
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:4334e54484654872454860f572b169cb60b17414c623dbd8096bd0b55cbaa37d",
+          "current-nlr-pbe-gw-v1:composition:9b831b55dc85b0e9ab445ad59a5f410342c80e5f5a6290174a4a0b4d3f3e5728"
+        ],
+        "node_indices": [
+          968,
+          777
+        ],
+        "pbe_band_gap_ev": "1.297",
+        "size": 2,
+        "sorted_positions": [
+          650,
+          651
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:4174385a152f23dea004ea77a9b190dba2ac58e86c23419ab76be397f7c33b29",
+          "current-nlr-pbe-gw-v1:composition:e5c547362e6df680ab02207e9e7e2d24a8cf7d03858bb2692f48982dd3fc1d49"
+        ],
+        "node_indices": [
+          1843,
+          2017
+        ],
+        "pbe_band_gap_ev": "1.299",
+        "size": 2,
+        "sorted_positions": [
+          653,
+          654
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:10a406eb6056a78232bc0ca9b16b376a4cfdc138892b9b7b0b15b70a9356a1f0",
+          "current-nlr-pbe-gw-v1:composition:8257c902b96247fe03bd793fd4f1b9d1dbf73cc0c0307236cb69520b6685fce7",
+          "current-nlr-pbe-gw-v1:composition:dea7b018e727a12a27a5f61b8f7554299bafebc522bc44e740a551b7efef4e8c"
+        ],
+        "node_indices": [
+          1280,
+          1423,
+          1859
+        ],
+        "pbe_band_gap_ev": "1.304",
+        "size": 3,
+        "sorted_positions": [
+          658,
+          659,
+          660
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:1b1bc60f2af9aecf6c88a6c4d8e6263e776cc84f86716837a5009c4d10849191",
+          "current-nlr-pbe-gw-v1:composition:e6e12eb9521d07850b8b45657b55345b742cd5229e95c1e86a1ac8da4c250c9d"
+        ],
+        "node_indices": [
+          22,
+          982
+        ],
+        "pbe_band_gap_ev": "1.305",
+        "size": 2,
+        "sorted_positions": [
+          661,
+          662
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:10592278635ecce77ec137f8d5c9212976826fb04cd9def080da0f5bec52d5ee",
+          "current-nlr-pbe-gw-v1:composition:a15c4c31c5b8eba196ca97439d584ccac3a88ff1027b7363412ceac3f02526dd"
+        ],
+        "node_indices": [
+          741,
+          32
+        ],
+        "pbe_band_gap_ev": "1.327",
+        "size": 2,
+        "sorted_positions": [
+          672,
+          673
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:1f1701cf9b13d880716b4581afbca78bed7bd38b2b9b8e9071ba7c70c000f392",
+          "current-nlr-pbe-gw-v1:composition:24757342d3b731ecdd8b2cf0b36462ddd67bec8b1ad8d7fc28f9682a91b0aaa5"
+        ],
+        "node_indices": [
+          779,
+          2048
+        ],
+        "pbe_band_gap_ev": "1.342",
+        "size": 2,
+        "sorted_positions": [
+          680,
+          681
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:542f7c64ed1d927eabc217a3873fe804f782ab3ec6737b0300cbb16a7f190a3b",
+          "current-nlr-pbe-gw-v1:composition:7ab44c87ce1c34e3ff3611e752c311d6f6d1be4e737637bb25029e233ec4ccd1",
+          "current-nlr-pbe-gw-v1:composition:f09f13d4c48f34e10aa22e83906161b150fda82c153f9b3cc8c3e18e709dcf1e"
+        ],
+        "node_indices": [
+          1122,
+          2092,
+          129
+        ],
+        "pbe_band_gap_ev": "1.36",
+        "size": 3,
+        "sorted_positions": [
+          690,
+          691,
+          692
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:319f9b2be8895e5ecf4d8dda280968c848b7a09844bcc823aa7c8707d9464407",
+          "current-nlr-pbe-gw-v1:composition:f510081ca74621711b1e5951e887198ea25fb01f19f3a4599d2747f79fb8b133"
+        ],
+        "node_indices": [
+          1792,
+          2019
+        ],
+        "pbe_band_gap_ev": "1.363",
+        "size": 2,
+        "sorted_positions": [
+          695,
+          696
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:6099d4d2206cc8f22dc6286aa588b7756a2c6f129b987321efd64e9bfc1ee99b",
+          "current-nlr-pbe-gw-v1:composition:6a5b74d28dbb50e78fa57b8aabf0d8892c96f470cd61ed2b7f043780e7a4aa41",
+          "current-nlr-pbe-gw-v1:composition:b72b92163394dd3a260a84ebec9d70254867191f0f08c309ef3f61f6a7f231bc"
+        ],
+        "node_indices": [
+          1896,
+          1269,
+          1923
+        ],
+        "pbe_band_gap_ev": "1.371",
+        "size": 3,
+        "sorted_positions": [
+          699,
+          700,
+          701
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:6dc9c1cd72198e0937adebcb23d9d763e646ae8da8c6104b1f32e056d8290a9f",
+          "current-nlr-pbe-gw-v1:composition:e9971d52254946ff3fe681d8d4939de385c07727fb728159ad178715ffa5d9e0"
+        ],
+        "node_indices": [
+          1352,
+          687
+        ],
+        "pbe_band_gap_ev": "1.401",
+        "size": 2,
+        "sorted_positions": [
+          716,
+          717
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:7235fd94579f1c2cda348c5a06f281e72efaba94e7cccc853a832c479aade0bd",
+          "current-nlr-pbe-gw-v1:composition:7a131f34ae5c5ba0344284427abaf86e3729d1cb10d484f83cf615c7cacf530e"
+        ],
+        "node_indices": [
+          1323,
+          532
+        ],
+        "pbe_band_gap_ev": "1.407",
+        "size": 2,
+        "sorted_positions": [
+          719,
+          720
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:a7465d6ee3a280c6681ee86afacf6d29bfc8b9b26f87dfad6a11a26274b157fa",
+          "current-nlr-pbe-gw-v1:composition:f9ca0cbab20ab78050c0a11f92a48f77b5580670eacf7d008e09d645d2b1e66a"
+        ],
+        "node_indices": [
+          1335,
+          2024
+        ],
+        "pbe_band_gap_ev": "1.412",
+        "size": 2,
+        "sorted_positions": [
+          721,
+          722
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:32cd6bcdfc88cf1771f55b1095a94bda0d7cedd81d8755b8dae5024c4e374c5e",
+          "current-nlr-pbe-gw-v1:composition:a6a3d9b1ec7bb16b61e9aeef2b3ba21192b0d61c189ac0bfcc5e72cead1357ec"
+        ],
+        "node_indices": [
+          740,
+          2032
+        ],
+        "pbe_band_gap_ev": "1.417",
+        "size": 2,
+        "sorted_positions": [
+          723,
+          724
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:232e8e9115aa531f9bc0266e09028f17728ba8e02415de39e49b5ad22183947b",
+          "current-nlr-pbe-gw-v1:composition:8499dbf8dcf946c6263db079c1683590d6f162434c36cfe2e63111c506e7786b",
+          "current-nlr-pbe-gw-v1:composition:8569fed2c6a440b12bf13d91cbecd0bcdb60b99d1c24dcd7a2dd76e903ec63c9"
+        ],
+        "node_indices": [
+          762,
+          842,
+          902
+        ],
+        "pbe_band_gap_ev": "1.42",
+        "size": 3,
+        "sorted_positions": [
+          725,
+          726,
+          727
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:221acb7dd81344f6c0ff320bfbd824eb830d5710083eea7cd8c2a1c25050d098",
+          "current-nlr-pbe-gw-v1:composition:7fab9c6e5566bcbd13bcc37e6b39f4c53a65c1208fe76ac9a92403423ad6aa1c",
+          "current-nlr-pbe-gw-v1:composition:be911f592e9395943535a99dcd793485cf6899e37233aeb12c14214dffdc8ce6"
+        ],
+        "node_indices": [
+          1613,
+          6,
+          1426
+        ],
+        "pbe_band_gap_ev": "1.421",
+        "size": 3,
+        "sorted_positions": [
+          728,
+          729,
+          730
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:f2a8bfa911f9032328d09c34ea4626c57f14bb8500db00bd4cb627b52ea62cc4",
+          "current-nlr-pbe-gw-v1:composition:fb997c528c1f4dc4b782b80a92cd06111f1a6d1dba682891bcc561c3620772af"
+        ],
+        "node_indices": [
+          1951,
+          1556
+        ],
+        "pbe_band_gap_ev": "1.426",
+        "size": 2,
+        "sorted_positions": [
+          733,
+          734
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:1cc383f496da1760edbfed8a71f581746a9e2664cae69c75a4f9b58ca05b61f7",
+          "current-nlr-pbe-gw-v1:composition:44fd36d097163f6f996fcff2e067555a4111440a26093874d7917f4c22e9f284"
+        ],
+        "node_indices": [
+          1114,
+          49
+        ],
+        "pbe_band_gap_ev": "1.428",
+        "size": 2,
+        "sorted_positions": [
+          736,
+          737
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:386951d06bca1bed5aad2c5b3915a1b568b28ba11eb1401d70eaf982993cf2a5",
+          "current-nlr-pbe-gw-v1:composition:5b077c2b4470a6e897371df7c7e7d98b1282b2e64a0d8efbdee6dab163353903"
+        ],
+        "node_indices": [
+          2138,
+          718
+        ],
+        "pbe_band_gap_ev": "1.444",
+        "size": 2,
+        "sorted_positions": [
+          744,
+          745
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:4ea783a88969b1d5165c4142ede2939f1885b297a424313ede2e3633d96e2321",
+          "current-nlr-pbe-gw-v1:composition:89a91c1e346bf870bb4aa5e0b313826c96befa495479cf705819df63d76220a8"
+        ],
+        "node_indices": [
+          3,
+          0
+        ],
+        "pbe_band_gap_ev": "1.45",
+        "size": 2,
+        "sorted_positions": [
+          748,
+          749
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:441c24b6e4d05ac644ec13395515bb2c145b47a43928cce7244f3a0572668007",
+          "current-nlr-pbe-gw-v1:composition:dc75ccd7d490b583830a645952fe657e0b25461cae1d2a841b5d3f0f0c045ac6"
+        ],
+        "node_indices": [
+          1808,
+          965
+        ],
+        "pbe_band_gap_ev": "1.466",
+        "size": 2,
+        "sorted_positions": [
+          755,
+          756
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:32aeecb39aedc7eee87f41274ff3dccdbebb797bcf2b6c6ec465e14988dd1da6",
+          "current-nlr-pbe-gw-v1:composition:5f5d12aaf70b11363c1bb00c10204302785d54d54f11b3fd57f5c709147cb3f2"
+        ],
+        "node_indices": [
+          655,
+          690
+        ],
+        "pbe_band_gap_ev": "1.486",
+        "size": 2,
+        "sorted_positions": [
+          762,
+          763
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:1649cd9e64d646878ed411bb72116ce0aa4f33604bf3a394092d6178be3801b5",
+          "current-nlr-pbe-gw-v1:composition:be3671546ce29cb18bb5deb9608533fe4ff0bb73a6e5e76934a12408af19adb0",
+          "current-nlr-pbe-gw-v1:composition:fbaa3a8177d31688c81739e577acd463200b6370d3672a2e997bf904f98b13e2"
+        ],
+        "node_indices": [
+          1853,
+          1066,
+          1098
+        ],
+        "pbe_band_gap_ev": "1.489",
+        "size": 3,
+        "sorted_positions": [
+          764,
+          765,
+          766
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:170316842876b41e1949571ffbae2fc2b398b220acb6b5e0c154a6bb408762fd",
+          "current-nlr-pbe-gw-v1:composition:d50b6a094b22c8869fb69c0175288680aefe81cffbcdd8cd1262498345a7640b"
+        ],
+        "node_indices": [
+          4,
+          1321
+        ],
+        "pbe_band_gap_ev": "1.493",
+        "size": 2,
+        "sorted_positions": [
+          767,
+          768
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:1b23ebcfae29b6aa42ab5a22cdd41ebacbde9408db0563de3b45bf3f881e9803",
+          "current-nlr-pbe-gw-v1:composition:6b4021727bf801662a3ebfc0f944bcb6b4dabafdda83bd3e39f68fc70f108b49"
+        ],
+        "node_indices": [
+          924,
+          933
+        ],
+        "pbe_band_gap_ev": "1.502",
+        "size": 2,
+        "sorted_positions": [
+          772,
+          773
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:6bf3fe0f2bda1a46e0b6d19f35830acf9a7b0ced31f7c622537b27a237cdec89",
+          "current-nlr-pbe-gw-v1:composition:b64a3795ff715e2f4575694e7010f6ba1e017f81a11ddbbe46511658907606c8"
+        ],
+        "node_indices": [
+          1099,
+          1284
+        ],
+        "pbe_band_gap_ev": "1.509",
+        "size": 2,
+        "sorted_positions": [
+          778,
+          779
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:a492ccf13429683b08edb3fa65dfda2d9a3c1f0a29f835a9af4fe2e5ca5b76e1",
+          "current-nlr-pbe-gw-v1:composition:d6067fe2bbf7eab83d60bed3fb904c5478f5f3d36a58113891dd3e1e961ccc15"
+        ],
+        "node_indices": [
+          1508,
+          984
+        ],
+        "pbe_band_gap_ev": "1.514",
+        "size": 2,
+        "sorted_positions": [
+          782,
+          783
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:0fac8b3f3dfb337d5a441134b76b8b3189849e8e1cb4ff261d7fe424d67070f9",
+          "current-nlr-pbe-gw-v1:composition:de8428a9730fc3e733ea3c63923470d2bf63111dcf6de0796dc4dfa8d2cd95e3",
+          "current-nlr-pbe-gw-v1:composition:f3362003db4035c5f82cd4d84bb2f99f0501c080f4cdf5746f081557ab83cd07"
+        ],
+        "node_indices": [
+          875,
+          400,
+          2140
+        ],
+        "pbe_band_gap_ev": "1.524",
+        "size": 3,
+        "sorted_positions": [
+          787,
+          788,
+          789
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:23ffab2ee41665c22e50f241467f3756fdfaadd6a2ed04426a6f8bdba822a747",
+          "current-nlr-pbe-gw-v1:composition:3f67e9710cec61d27e24e253614284f67f2db307f7a30cfb9c4e0a1952e05b14"
+        ],
+        "node_indices": [
+          380,
+          438
+        ],
+        "pbe_band_gap_ev": "1.533",
+        "size": 2,
+        "sorted_positions": [
+          792,
+          793
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:3ba217838d7ac47b45eb520c1a53a3ce2b823d7dc726b8464c2db421a04783a4",
+          "current-nlr-pbe-gw-v1:composition:3eb5d0fc4d16c58136715388eef3d9b85b8f0b0c548ed9f09f7da4581fff8f53"
+        ],
+        "node_indices": [
+          2085,
+          17
+        ],
+        "pbe_band_gap_ev": "1.545",
+        "size": 2,
+        "sorted_positions": [
+          797,
+          798
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:66a5fbfa7bf7d6d11e6b2be939d95f4b068300b3d3102dec3611baa884807110",
+          "current-nlr-pbe-gw-v1:composition:83a5a938dfb8a4238faea55418f945394a6a2d5ecd1e33357b45adcaf99507d8"
+        ],
+        "node_indices": [
+          508,
+          1854
+        ],
+        "pbe_band_gap_ev": "1.548",
+        "size": 2,
+        "sorted_positions": [
+          799,
+          800
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:5031d111b053f45ec52afa7d996b97fde3502e4a0c0fd587439e6d49f7dbc84a",
+          "current-nlr-pbe-gw-v1:composition:7f231dbda5658033a5d4ae87278c8d592b1b3b911da500d22f6857ffca263749",
+          "current-nlr-pbe-gw-v1:composition:a850f5bff1717459d69b8ae2e549cc97e8267f15d5690e04bf22a223b7d9e1ef"
+        ],
+        "node_indices": [
+          2010,
+          102,
+          1786
+        ],
+        "pbe_band_gap_ev": "1.571",
+        "size": 3,
+        "sorted_positions": [
+          807,
+          808,
+          809
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:0b0cd85941294e523d970ac91043e96150bec86f367151ee1d47a82f19eabae8",
+          "current-nlr-pbe-gw-v1:composition:c17d77357f4688cd4f7eb98fb0cd701970c92351e3a47fdfef8a77cd53cd302b"
+        ],
+        "node_indices": [
+          27,
+          1156
+        ],
+        "pbe_band_gap_ev": "1.591",
+        "size": 2,
+        "sorted_positions": [
+          815,
+          816
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:3ccff88ece957c79ddc6ef2db242e0b7aaf8bd0a2d774e89cb25da452dbab899",
+          "current-nlr-pbe-gw-v1:composition:58e5d00fc68a523833500b4511ab8826525fbb8f7ba7d0b1749b025ff05e0301"
+        ],
+        "node_indices": [
+          1771,
+          349
+        ],
+        "pbe_band_gap_ev": "1.596",
+        "size": 2,
+        "sorted_positions": [
+          819,
+          820
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:9c3bd681c0225524161cca9287e1349581f066a7d3e34132af0b7d54682b9a7f",
+          "current-nlr-pbe-gw-v1:composition:d93b2bc71a22ba95026f4f6480931b85fc7c676d7c226cbd155bc5fb319c2786"
+        ],
+        "node_indices": [
+          440,
+          1029
+        ],
+        "pbe_band_gap_ev": "1.598",
+        "size": 2,
+        "sorted_positions": [
+          821,
+          822
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:897692b8c4d79462a995ad184b769ba5c1f2d2789a4ec5a0f373f261df2f4d64",
+          "current-nlr-pbe-gw-v1:composition:cfb6108dddb3c417f2c237cf24bb571da4476f01f748ba1e6b10c7bbbddb83a9"
+        ],
+        "node_indices": [
+          106,
+          416
+        ],
+        "pbe_band_gap_ev": "1.605",
+        "size": 2,
+        "sorted_positions": [
+          828,
+          829
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:399b48bb2b16ce84cd63c79fccb67d8195567581e27442ffa47bc92d829b64f8",
+          "current-nlr-pbe-gw-v1:composition:cb97c1562e7ad1867cb6517e015a0742dfc0e0f7854c3a693fa0eea10b52ce11"
+        ],
+        "node_indices": [
+          1017,
+          2074
+        ],
+        "pbe_band_gap_ev": "1.609",
+        "size": 2,
+        "sorted_positions": [
+          830,
+          831
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:23cf771aff98d1dd66b054f46aea16ce34b336f62ca476f7ddfc9d583b0429dc",
+          "current-nlr-pbe-gw-v1:composition:93815ca05760cdc0db4c35a43fff283a09c08bd57a78447ad18b1a2aef47a602"
+        ],
+        "node_indices": [
+          482,
+          662
+        ],
+        "pbe_band_gap_ev": "1.632",
+        "size": 2,
+        "sorted_positions": [
+          844,
+          845
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:99bd908ccf39b41f33e748b875e4aeddc44858b6a35512efc6e9f1bcd356c22c",
+          "current-nlr-pbe-gw-v1:composition:d47229db4c4792a55e7e4fc3d94d7564989f50123dd1cfa797aae9586e623128",
+          "current-nlr-pbe-gw-v1:composition:dd949c9846c190332311c55dba1ac45787d32af856714260b2e03ef3a7f6b727"
+        ],
+        "node_indices": [
+          229,
+          190,
+          1391
+        ],
+        "pbe_band_gap_ev": "1.649",
+        "size": 3,
+        "sorted_positions": [
+          850,
+          851,
+          852
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:88ce341b547a29545e1db21ecacfc88b3a8f08dc00b8a605627acbf1a83abc56",
+          "current-nlr-pbe-gw-v1:composition:94894f2df6e0179a966025cfee3288aed464ea528e5256654e8dbfedcc5eea9c",
+          "current-nlr-pbe-gw-v1:composition:b449e2028213eac1250a45b276a750e2f1f87a5ea07743d26cd5c3ec05901a80"
+        ],
+        "node_indices": [
+          55,
+          1148,
+          1460
+        ],
+        "pbe_band_gap_ev": "1.651",
+        "size": 3,
+        "sorted_positions": [
+          853,
+          854,
+          855
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:25e96d1a1cc7fc5491c78601167b3bc7b37be33a40a23913d1e38e61ee50c720",
+          "current-nlr-pbe-gw-v1:composition:28b8e4a87d16e153d5263b44279cc53b11ac9e25936a059c74f7e9387c357ece",
+          "current-nlr-pbe-gw-v1:composition:5bbdcea70fac4c2cdddf7b2d569bc306fbd7962cb96c8ffcf1c8938f39ee6849"
+        ],
+        "node_indices": [
+          910,
+          1052,
+          1395
+        ],
+        "pbe_band_gap_ev": "1.654",
+        "size": 3,
+        "sorted_positions": [
+          856,
+          857,
+          858
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:91c729fe7b88d3daa24dcf57a7cb56713ceeb16aafec457ddc1447a7c05e67fc",
+          "current-nlr-pbe-gw-v1:composition:e0c4ff840310b10a23862d81a3e3f4708738b2db95c7ae876721e3e3a5e4a1ef"
+        ],
+        "node_indices": [
+          385,
+          1615
+        ],
+        "pbe_band_gap_ev": "1.656",
+        "size": 2,
+        "sorted_positions": [
+          860,
+          861
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:df93865890fa883126ccd4a33ca5de75242080d71f781b0213962e10ccbcd4a3",
+          "current-nlr-pbe-gw-v1:composition:fa63f7db878c809e4ede967d1f35096841b648d21d9610fc25767e18a3a0c921"
+        ],
+        "node_indices": [
+          898,
+          1680
+        ],
+        "pbe_band_gap_ev": "1.667",
+        "size": 2,
+        "sorted_positions": [
+          869,
+          870
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:15e00825c33db3a4aaa0b22894ed6cd7cf06d2d2d82bf0443b367c3aebfabcc3",
+          "current-nlr-pbe-gw-v1:composition:25b10a7710321a0becab3b4d61e05fe9262e99ae1ee6fbc9f69c9d6b56285638"
+        ],
+        "node_indices": [
+          1515,
+          420
+        ],
+        "pbe_band_gap_ev": "1.673",
+        "size": 2,
+        "sorted_positions": [
+          873,
+          874
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:3a7ae4eec0ed5751c8dd9d4f56c39f3af96cc1b5903b113ce9961952cb97fe95",
+          "current-nlr-pbe-gw-v1:composition:8084f30aae2f296771933146f70b9f304fe4d815c15a7cc0fb70d42fb7954227"
+        ],
+        "node_indices": [
+          1625,
+          1311
+        ],
+        "pbe_band_gap_ev": "1.677",
+        "size": 2,
+        "sorted_positions": [
+          877,
+          878
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:2b233ca6a8264ded5e5a5c5638f92e345bb797a2eae5f5196b535a5f15136366",
+          "current-nlr-pbe-gw-v1:composition:508487e74049c737f1b83faf1d041e0a7996c6c0423c5eb7344c95e57e8b73d0",
+          "current-nlr-pbe-gw-v1:composition:a19da06174e9361571d5f69ad78cce309719d69e2e9bab0bfbc3b7b8320d4133"
+        ],
+        "node_indices": [
+          738,
+          498,
+          916
+        ],
+        "pbe_band_gap_ev": "1.687",
+        "size": 3,
+        "sorted_positions": [
+          879,
+          880,
+          881
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:5222f352a69015eff19ed8a44c1808b9e156002e8bdea86ac423ff8c1a993d61",
+          "current-nlr-pbe-gw-v1:composition:a96263f9b59c30e57594284410ba446859979005013a19139e1de9d831d48cab",
+          "current-nlr-pbe-gw-v1:composition:d9423a8de97916d1f4acc80dec549931d7767fed586f5f327327ee8448595b13"
+        ],
+        "node_indices": [
+          1502,
+          58,
+          839
+        ],
+        "pbe_band_gap_ev": "1.691",
+        "size": 3,
+        "sorted_positions": [
+          883,
+          884,
+          885
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:ccff0de8cbdc33ba17cb1d15f38ccca09c3a5854e8ac16a9a4e9a6cc52ecc0c2",
+          "current-nlr-pbe-gw-v1:composition:d25123b64c5e298d6a190738403962b4a81f53275b2d572434a555cd829c56fd"
+        ],
+        "node_indices": [
+          1036,
+          1057
+        ],
+        "pbe_band_gap_ev": "1.692",
+        "size": 2,
+        "sorted_positions": [
+          886,
+          887
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:3bf44ffc1f466533e8b8fbcaf89ea0f247d184598995281c05e7666fcd3cc3ee",
+          "current-nlr-pbe-gw-v1:composition:805421279fde474cdb9a2f1b27411c4d07debcb73f67c7543411247d1e67ddc1",
+          "current-nlr-pbe-gw-v1:composition:dbaa0edde68fa0fb6199d565c2dcd1474d969b4705bc69bd96cd1166d573222d"
+        ],
+        "node_indices": [
+          760,
+          273,
+          1683
+        ],
+        "pbe_band_gap_ev": "1.694",
+        "size": 3,
+        "sorted_positions": [
+          888,
+          889,
+          890
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:78389fc673627f30826a90b219bfa53fc3e0a628211aee2b7e69c97916058e13",
+          "current-nlr-pbe-gw-v1:composition:c404429b6a7da17f490c23522e7349216a1cae5070196ddb86efc7c60e9e42b4"
+        ],
+        "node_indices": [
+          199,
+          562
+        ],
+        "pbe_band_gap_ev": "1.701",
+        "size": 2,
+        "sorted_positions": [
+          892,
+          893
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:7a03621445b7332e9ba618ec0ea1cebc3ca7c2d9de4dc646296349f2c955dd82",
+          "current-nlr-pbe-gw-v1:composition:e135a97b79a15f03b9b44fa53a81485de9ac610823ae0c6810b633ed840e007f"
+        ],
+        "node_indices": [
+          1469,
+          275
+        ],
+        "pbe_band_gap_ev": "1.704",
+        "size": 2,
+        "sorted_positions": [
+          895,
+          896
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:2adec235c350c335402d466681d55ec886e54832990c01066291b8e1f7c79cd4",
+          "current-nlr-pbe-gw-v1:composition:33b9b7eeabbefd3f6dcf93fb0082ee1eb7e4871c1ffc24674b7c442e8ba11943",
+          "current-nlr-pbe-gw-v1:composition:6c5b71da99d8b076e7547d71fb0068fe92ec05b4854109824471b8f1f3e89b4d",
+          "current-nlr-pbe-gw-v1:composition:fb1e970b79cab35dc719e2c6fda7e9a87d32f0a9ef8c8c7088fe0d55f0ed4fe4"
+        ],
+        "node_indices": [
+          778,
+          773,
+          1475,
+          410
+        ],
+        "pbe_band_gap_ev": "1.712",
+        "size": 4,
+        "sorted_positions": [
+          900,
+          901,
+          902,
+          903
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:39780e3f618c5b5690c76f863ff2e0e251abec755e7d0732faf663f3fd44a6b1",
+          "current-nlr-pbe-gw-v1:composition:62f8bd9d0cd79c54ab117bb5f5989d8aa4a9a0c03e9f4dce4df894b5d3bf4211"
+        ],
+        "node_indices": [
+          1069,
+          522
+        ],
+        "pbe_band_gap_ev": "1.727",
+        "size": 2,
+        "sorted_positions": [
+          911,
+          912
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:022fa7f4da5bc619420f25054a4b99b7b5faa33c78391b087fbbdc19f63e8cb7",
+          "current-nlr-pbe-gw-v1:composition:b6a73d29379ac4ff6430f94b3469d5433940281b853dd0919be9ab622d61736c"
+        ],
+        "node_indices": [
+          1204,
+          1298
+        ],
+        "pbe_band_gap_ev": "1.73",
+        "size": 2,
+        "sorted_positions": [
+          913,
+          914
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:13c2e085a0fdbd3c510633c24f6110b2966ce937836cc5122f38b8af1fbbed9f",
+          "current-nlr-pbe-gw-v1:composition:944c8f8cd67b95c3b5199346f1943c850061573da22345b2299747a28c5220a0"
+        ],
+        "node_indices": [
+          1406,
+          2008
+        ],
+        "pbe_band_gap_ev": "1.733",
+        "size": 2,
+        "sorted_positions": [
+          916,
+          917
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:c82286c4cee14b29ba390ef463ed1b4c52b49f84fe2fac0317ab54ba3a24566a",
+          "current-nlr-pbe-gw-v1:composition:ea011aee19b79c637a25268d44c4f791ada69a162690a583aa75f56f3bdbdce6"
+        ],
+        "node_indices": [
+          1909,
+          439
+        ],
+        "pbe_band_gap_ev": "1.764",
+        "size": 2,
+        "sorted_positions": [
+          928,
+          929
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:3bcf29e9dd3ba2a6dcc86e41278d3eed98ec41f97c6cebc96d2de6b14e19e5d3",
+          "current-nlr-pbe-gw-v1:composition:fd261027234c6c3078b9deff399821eb3d4617117510d46d3cbdc578c95e2b76"
+        ],
+        "node_indices": [
+          2131,
+          246
+        ],
+        "pbe_band_gap_ev": "1.774",
+        "size": 2,
+        "sorted_positions": [
+          934,
+          935
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:02e6e87cb8e34a4affc90d3b40b0e181b9846a678156434dbe651d10b2f730cd",
+          "current-nlr-pbe-gw-v1:composition:4afc55e51a1a11abe681c40cf07962c468b128346902be9d92292b20a713f2f9"
+        ],
+        "node_indices": [
+          1758,
+          1668
+        ],
+        "pbe_band_gap_ev": "1.781",
+        "size": 2,
+        "sorted_positions": [
+          938,
+          939
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:41da3f62c940eb7d46fd84b62de16f846ef63480854098aedc7bedbb24664d28",
+          "current-nlr-pbe-gw-v1:composition:8c38650353bde49259b7b3bb760763d8025f9c0c3ca01b26966a3bbf5465ac14"
+        ],
+        "node_indices": [
+          1116,
+          804
+        ],
+        "pbe_band_gap_ev": "1.782",
+        "size": 2,
+        "sorted_positions": [
+          940,
+          941
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:84937305913bcfa31ac846d2ee7466d51e9f6da6d5937dd66b003cc34a109f22",
+          "current-nlr-pbe-gw-v1:composition:a200c3fc765f54bc1726270362316264362878e675e74da31822f1715da4ad34"
+        ],
+        "node_indices": [
+          1089,
+          14
+        ],
+        "pbe_band_gap_ev": "1.787",
+        "size": 2,
+        "sorted_positions": [
+          942,
+          943
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:9719ddb9eecaac0b91b7ee71ee2184e782ee35201d647c3bd0a0a070c1df768c",
+          "current-nlr-pbe-gw-v1:composition:a5ba840a9fa5c927f3f2ffd54f6c65ac95bdfcd8cd3d96335f062e90801159fa"
+        ],
+        "node_indices": [
+          833,
+          1442
+        ],
+        "pbe_band_gap_ev": "1.789",
+        "size": 2,
+        "sorted_positions": [
+          944,
+          945
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:8b0d63d94af6824fc02191f80070254e04b93b27629e6e513d48831229e93b17",
+          "current-nlr-pbe-gw-v1:composition:e4636c59af56b85c19ca3bd11edca5f1d2eb6faf3a86179cd3449bf47b852375"
+        ],
+        "node_indices": [
+          34,
+          1075
+        ],
+        "pbe_band_gap_ev": "1.798",
+        "size": 2,
+        "sorted_positions": [
+          951,
+          952
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:8c068dbd2019b41c730b9489b133be630fb697b9f1e4f72f9b6c2f56511c6add",
+          "current-nlr-pbe-gw-v1:composition:e4e51afdcf4e6abd5b3f4b209b0d25e139e1741dcbdcc3a5bdb9bf243974e202"
+        ],
+        "node_indices": [
+          1119,
+          1877
+        ],
+        "pbe_band_gap_ev": "1.804",
+        "size": 2,
+        "sorted_positions": [
+          957,
+          958
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:2f65d518b4c8adcf252990b236a0fca6b39f937410e8979f38441cf4e2ca910d",
+          "current-nlr-pbe-gw-v1:composition:be7dabb7acf5006d1b65e05acdbbbb36031d57fb0655207b7db0f2544e51d71b"
+        ],
+        "node_indices": [
+          2034,
+          415
+        ],
+        "pbe_band_gap_ev": "1.813",
+        "size": 2,
+        "sorted_positions": [
+          962,
+          963
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:29cd2c6757ee2b15883ddd4e92af208274c99bef1d34352dfa318d0f4eb27aa3",
+          "current-nlr-pbe-gw-v1:composition:a5b19e42095f0ddd02a275371dfc6b364aea68b9671ce8a6e7c38ac9b2c40031"
+        ],
+        "node_indices": [
+          1787,
+          2127
+        ],
+        "pbe_band_gap_ev": "1.819",
+        "size": 2,
+        "sorted_positions": [
+          967,
+          968
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:30ff1092b71608599e3821d185496cef81424627ef43b49d7cb90c7eeeaef869",
+          "current-nlr-pbe-gw-v1:composition:c72ac6133a47d1809df88f647118cf25e8c6e327563ce01389dca35e9406f486"
+        ],
+        "node_indices": [
+          861,
+          1207
+        ],
+        "pbe_band_gap_ev": "1.825",
+        "size": 2,
+        "sorted_positions": [
+          971,
+          972
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:f6bb98b670a21b50fbe03083c43f3372d2ccc9cb3974833cddc452bdbee5ae36",
+          "current-nlr-pbe-gw-v1:composition:fc406f0e3666efa1f9244b2c418ec48ae0bd84c51aad73c52b5bbbc91311e51c"
+        ],
+        "node_indices": [
+          1312,
+          1019
+        ],
+        "pbe_band_gap_ev": "1.83",
+        "size": 2,
+        "sorted_positions": [
+          974,
+          975
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:5560c58db36e05c1a44a745b9a1260e7f1db275736f9165e11efd09bbf3a6719",
+          "current-nlr-pbe-gw-v1:composition:9ba1305356ec7292b2529e0cc504443d22c789c44e7ebb70d405f1163bcf53c8"
+        ],
+        "node_indices": [
+          897,
+          1434
+        ],
+        "pbe_band_gap_ev": "1.841",
+        "size": 2,
+        "sorted_positions": [
+          983,
+          984
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:24023fecc18bdab4fc887fabdc59977fb5b421460c0794bbe1858891a1090d95",
+          "current-nlr-pbe-gw-v1:composition:bd44523b245b03042bd1f435904fd7586e0b39b65e9718cf421605f55df8af29"
+        ],
+        "node_indices": [
+          1597,
+          1397
+        ],
+        "pbe_band_gap_ev": "1.855",
+        "size": 2,
+        "sorted_positions": [
+          991,
+          992
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:581e08987e898bcf1aa3610da578b7a5c78bc06d19ac1de08eb9d1ef9a2b74de",
+          "current-nlr-pbe-gw-v1:composition:5b60fe8d72edc1d6321d1a07f6c8ce4108aa704ebada8d56cee10798d97f3d08"
+        ],
+        "node_indices": [
+          1107,
+          488
+        ],
+        "pbe_band_gap_ev": "1.856",
+        "size": 2,
+        "sorted_positions": [
+          993,
+          994
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:b522f65f02c815f8eadab12f7d205a26083103457ad6e82190cf58072ced05ff",
+          "current-nlr-pbe-gw-v1:composition:c4013857ef972c454f37d54fb58755dfba551a9b3b8fa5b52ba5603135945344"
+        ],
+        "node_indices": [
+          692,
+          759
+        ],
+        "pbe_band_gap_ev": "1.863",
+        "size": 2,
+        "sorted_positions": [
+          997,
+          998
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:98858ed43d6aaadf8069f2d8126b5b3f9ff9e483c4cc7dc659140301b6fc4d78",
+          "current-nlr-pbe-gw-v1:composition:b95ff1693d6212f4974a3c5c4806be3c601e56ff8dd07a90d927e96e8734ab66",
+          "current-nlr-pbe-gw-v1:composition:cc81ee56176e733a0aa2b521b5f1c10ea920eef2ee0ed1e45662db2270000d6b"
+        ],
+        "node_indices": [
+          43,
+          1553,
+          1113
+        ],
+        "pbe_band_gap_ev": "1.869",
+        "size": 3,
+        "sorted_positions": [
+          1002,
+          1003,
+          1004
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:432a0685d16ea16e6fffe3a907dc75f2943f30dfb92e0225af45545b6a2a24fc",
+          "current-nlr-pbe-gw-v1:composition:8d3f1533bb35d42e0c3dcede4434aefb2ea0272d22f1c6b969b92ccf2dcb71ff",
+          "current-nlr-pbe-gw-v1:composition:aaffa4b083bb30a2d4fb199a69520a6813a51794c378131ef8ebd0ae81d9a31d"
+        ],
+        "node_indices": [
+          1842,
+          501,
+          1794
+        ],
+        "pbe_band_gap_ev": "1.892",
+        "size": 3,
+        "sorted_positions": [
+          1013,
+          1014,
+          1015
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:41f23ca406a1edb6e60887dd69b6783e1373c7cef38f141bbe5eed69d37425b4",
+          "current-nlr-pbe-gw-v1:composition:91b6f8fd738f7631630d8532cefaa89fb74e064a615b97a7179e93c7a86ca410"
+        ],
+        "node_indices": [
+          1797,
+          848
+        ],
+        "pbe_band_gap_ev": "1.893",
+        "size": 2,
+        "sorted_positions": [
+          1016,
+          1017
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:00bac98397698c69442959bcc3b9329bbcedbfefa7914b5de395d3b0111a625d",
+          "current-nlr-pbe-gw-v1:composition:55f03cc152a59b2c1b227e479bed5bc6d391ba5933fb8fd4cb096d85e695215f"
+        ],
+        "node_indices": [
+          353,
+          735
+        ],
+        "pbe_band_gap_ev": "1.899",
+        "size": 2,
+        "sorted_positions": [
+          1019,
+          1020
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:4abc729916faa0e3ed5fafc47c13933066c24ce6ad0b3159775c9f57df3de2af",
+          "current-nlr-pbe-gw-v1:composition:8cdc408ec48cf87dfadada8dc36f32a57a216359bf3e4221733ca64196027175"
+        ],
+        "node_indices": [
+          610,
+          11
+        ],
+        "pbe_band_gap_ev": "1.907",
+        "size": 2,
+        "sorted_positions": [
+          1023,
+          1024
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:9e1974c3ed8db1a1d76330d308e50bbcfa2b902672003999f304b43f02c1794e",
+          "current-nlr-pbe-gw-v1:composition:b14a8394de69d5f527d0d4f1652d15af1d1bc20b1de8ffd39f3490b54c29e1fe",
+          "current-nlr-pbe-gw-v1:composition:dc3dd749c9365e5c5a131950fcefcc93dc7d78cffb56772a5ade389c61a1357d"
+        ],
+        "node_indices": [
+          186,
+          838,
+          976
+        ],
+        "pbe_band_gap_ev": "1.92",
+        "size": 3,
+        "sorted_positions": [
+          1030,
+          1031,
+          1032
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:58c3d18b31266490ab56ebaa69e275bb1251c04d9f7ae905cb2d294ac1864277",
+          "current-nlr-pbe-gw-v1:composition:be0d356aa46035037c9cdf143533bda83879a796c80f33cc846a2dbc1d3d8fd1",
+          "current-nlr-pbe-gw-v1:composition:cd10b3409b52e9cd5c7a41b19bc29977c0dc5a3e8b91b40a8217dfe260915818"
+        ],
+        "node_indices": [
+          525,
+          1694,
+          876
+        ],
+        "pbe_band_gap_ev": "1.925",
+        "size": 3,
+        "sorted_positions": [
+          1033,
+          1034,
+          1035
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:a6148d42fb61fbffb96f0267a4f00be6c20e7e9f201496d87107dcc7f6977aed",
+          "current-nlr-pbe-gw-v1:composition:e9552278aff514f44cb9ef29e8c0bae623dde5adb79cd1cfdac829136cfeff39"
+        ],
+        "node_indices": [
+          1294,
+          1297
+        ],
+        "pbe_band_gap_ev": "1.931",
+        "size": 2,
+        "sorted_positions": [
+          1037,
+          1038
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:893f1f5aa9ddd0eecd854c204c842bbcfc896bb55ddbca55d24537990ad01f27",
+          "current-nlr-pbe-gw-v1:composition:b75e7f61ee2a74bdcbb5ca10bad3c02752235969c80d1b8a6a0046ffadacdba0"
+        ],
+        "node_indices": [
+          719,
+          1590
+        ],
+        "pbe_band_gap_ev": "1.932",
+        "size": 2,
+        "sorted_positions": [
+          1039,
+          1040
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:b70552ce5b6bfc120653d59966ab3ef98d8ca43d0de17b648c00d8efa690947e",
+          "current-nlr-pbe-gw-v1:composition:c23d8fb12452633866ba4bf63c05f965966483b489af092000b5ddee274d19fd"
+        ],
+        "node_indices": [
+          1287,
+          1289
+        ],
+        "pbe_band_gap_ev": "1.943",
+        "size": 2,
+        "sorted_positions": [
+          1043,
+          1044
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:3d77b7404a022890db7e958c049df033ead24f07421037f19e8f4b984d31e20c",
+          "current-nlr-pbe-gw-v1:composition:8019fecf6d74c43e3e63565abd9fd6db446e8e310a3c26ec900fe700a0c86167",
+          "current-nlr-pbe-gw-v1:composition:ee4d0b988d5081ef1f0812237936dda4905471797c57aa114cfdf1050737c80c"
+        ],
+        "node_indices": [
+          781,
+          1115,
+          1117
+        ],
+        "pbe_band_gap_ev": "1.952",
+        "size": 3,
+        "sorted_positions": [
+          1048,
+          1049,
+          1050
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:2428041b11c4c1a5a4035904dc8a8ad6306181f6c5b40fd123a53c73f0dc31a3",
+          "current-nlr-pbe-gw-v1:composition:6458ad1f385ebc63bfcef923bc712278d12e38680dab9a375f9a089f62940d97",
+          "current-nlr-pbe-gw-v1:composition:86ffb00b16cfa63ceb7b20eda5b226e86516b4883ee3a5ff6b2aa70cfd6f8b6c"
+        ],
+        "node_indices": [
+          37,
+          846,
+          1281
+        ],
+        "pbe_band_gap_ev": "1.958",
+        "size": 3,
+        "sorted_positions": [
+          1054,
+          1055,
+          1056
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:5fb087c91bd6f9f91177fcd4bd8f994a556af8933f673a5cf7dbaad11dc32f50",
+          "current-nlr-pbe-gw-v1:composition:a52c7e6152a59ccd8a453911966b06a7005ca2741016e1b979a4a9afb29bbdb8"
+        ],
+        "node_indices": [
+          938,
+          1809
+        ],
+        "pbe_band_gap_ev": "1.959",
+        "size": 2,
+        "sorted_positions": [
+          1057,
+          1058
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:210b882d75c2279318ddeb72cedc2346655b6519da257e4290041d59815bc93c",
+          "current-nlr-pbe-gw-v1:composition:42cb231c9a21a1b391d775f649c1f949ef24386c4ad1be84b4dda08a3b5d3d70"
+        ],
+        "node_indices": [
+          1963,
+          1033
+        ],
+        "pbe_band_gap_ev": "1.96",
+        "size": 2,
+        "sorted_positions": [
+          1059,
+          1060
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:a4b10fa8bb9d2e92b2cabcc83954c1d7805b5145f1adcbbdab900e35d8e25564",
+          "current-nlr-pbe-gw-v1:composition:a6d5e123f6353ffc35561056f500e2f3b00dc7fc32d4f110765fcc70fc9e58ec"
+        ],
+        "node_indices": [
+          579,
+          1726
+        ],
+        "pbe_band_gap_ev": "1.965",
+        "size": 2,
+        "sorted_positions": [
+          1063,
+          1064
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:020dd911f1bd5498de1d7cd7db0a06f838be1f8677f889ca65d3b15fac517995",
+          "current-nlr-pbe-gw-v1:composition:be616fccfbb0830d3a5132dbef7353fadb9b771c224fbef370db42fd3cb89925"
+        ],
+        "node_indices": [
+          233,
+          351
+        ],
+        "pbe_band_gap_ev": "1.967",
+        "size": 2,
+        "sorted_positions": [
+          1066,
+          1067
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:120a43624f1b9c30170c9754d95924f1789b7f83a13de9c7e09ee8e6c6061096",
+          "current-nlr-pbe-gw-v1:composition:7ad1291c3e6bbe092e90e7588c03cb33512017ef87affdf76d4d47c2c5d70a2b"
+        ],
+        "node_indices": [
+          1481,
+          180
+        ],
+        "pbe_band_gap_ev": "1.973",
+        "size": 2,
+        "sorted_positions": [
+          1072,
+          1073
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:3fbf410bb2d859522a17e613fb9c75bfa78b72be9ae70c564ba8e0d07ea4a4e1",
+          "current-nlr-pbe-gw-v1:composition:9e5506ed1f12e98fcffadcb09790637ba2c8759b2eec4cf1e799540900395fd0"
+        ],
+        "node_indices": [
+          179,
+          79
+        ],
+        "pbe_band_gap_ev": "1.982",
+        "size": 2,
+        "sorted_positions": [
+          1079,
+          1080
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:4784c610d3ecb102c7626bae56e2bac91717818a7e32847619e9e62de70d2ba2",
+          "current-nlr-pbe-gw-v1:composition:ee782382454b62359de5c7279103c9724f85c63614f14e1ab8d18faa21bf81d1"
+        ],
+        "node_indices": [
+          1015,
+          1014
+        ],
+        "pbe_band_gap_ev": "1.986",
+        "size": 2,
+        "sorted_positions": [
+          1083,
+          1084
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:d31aa6d3e8ab24a7a3e7e2aef92c01b1bde31329d7234df9b1d6297d95489ff8",
+          "current-nlr-pbe-gw-v1:composition:d36ba10aa22a474d64ded135b90369ba53d6c0ddde203fdeffe0cfe7676c58bc"
+        ],
+        "node_indices": [
+          1004,
+          1267
+        ],
+        "pbe_band_gap_ev": "1.987",
+        "size": 2,
+        "sorted_positions": [
+          1085,
+          1086
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:7907325cfdc09099e05c1b3062d9b63c0f79e18ad883bcc91e0eefd47b01405e",
+          "current-nlr-pbe-gw-v1:composition:e1fc9fd1943e5aa4493b8f2986b224d262b3b38e6008855c8c07f54861d9e7a1"
+        ],
+        "node_indices": [
+          917,
+          230
+        ],
+        "pbe_band_gap_ev": "1.992",
+        "size": 2,
+        "sorted_positions": [
+          1089,
+          1090
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:15af09a773b57e967fc1f7e7517911d6194bae0b5a84c32cf5f011cf4d602bf7",
+          "current-nlr-pbe-gw-v1:composition:2d131e3f5cdccde15004d08e34e5ab984dafdefff995617bf515ccfb777d7fc4"
+        ],
+        "node_indices": [
+          1873,
+          1667
+        ],
+        "pbe_band_gap_ev": "2.001",
+        "size": 2,
+        "sorted_positions": [
+          1096,
+          1097
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:3c68581e4217ac1848263f1e48615a60e668c6f0703b0aa8e78d8b7caff69165",
+          "current-nlr-pbe-gw-v1:composition:62521e3354b6cba05e616c83150ca5385ef8997374b57be98b722b4c44f698bd"
+        ],
+        "node_indices": [
+          1382,
+          232
+        ],
+        "pbe_band_gap_ev": "2.017",
+        "size": 2,
+        "sorted_positions": [
+          1104,
+          1105
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:7fb433cc270031b27c46fcbe64875fa65a34cbb5645b45b7534b5ade767795de",
+          "current-nlr-pbe-gw-v1:composition:d6870fde3bc213851079139cef1f9a9594d225d657678f31731c201ec9e026f0"
+        ],
+        "node_indices": [
+          2075,
+          862
+        ],
+        "pbe_band_gap_ev": "2.018",
+        "size": 2,
+        "sorted_positions": [
+          1106,
+          1107
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:49d1d2d18092d5cb263e53a68448d526b185c7cdb3464cdb3c172237e9ca051c",
+          "current-nlr-pbe-gw-v1:composition:92a032d5411858951cd147d09453764d3e6710706bb4cf8c5ee89ce81f6c41c5"
+        ],
+        "node_indices": [
+          75,
+          1031
+        ],
+        "pbe_band_gap_ev": "2.025",
+        "size": 2,
+        "sorted_positions": [
+          1112,
+          1113
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:a9071d626d1e6ae68a2a012852277745823355e6ea6e0c6b338642c59b70e135",
+          "current-nlr-pbe-gw-v1:composition:dbbbc23299b21245417d25b61148c58c24916604adb2e1057501c3b1080da357"
+        ],
+        "node_indices": [
+          1756,
+          1768
+        ],
+        "pbe_band_gap_ev": "2.031",
+        "size": 2,
+        "sorted_positions": [
+          1117,
+          1118
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:b4ff6818725532a876e4810d40c811485bd369d2d9c9bf79affe82097dd5508f",
+          "current-nlr-pbe-gw-v1:composition:cdfd62517739fe4383ea5f2604adc8f5b4b5a499dbcb86526c86290cd879a9b5",
+          "current-nlr-pbe-gw-v1:composition:e5eb5e63154d93827a3b42668f3562f574f940d0fffb6c11672feb19012667c7",
+          "current-nlr-pbe-gw-v1:composition:f7236f507b607fde693bc8b17d0a733bab1521a42934419b58224675ee990694"
+        ],
+        "node_indices": [
+          1962,
+          1517,
+          1957,
+          1746
+        ],
+        "pbe_band_gap_ev": "2.038",
+        "size": 4,
+        "sorted_positions": [
+          1121,
+          1122,
+          1123,
+          1124
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:7950375c4751d547621404bef841af50bc755270b8cb71318edc1081935e7b50",
+          "current-nlr-pbe-gw-v1:composition:99e622f156f680b181d0c2f46c48f612763c409be5da686ae422a44b81894dfd",
+          "current-nlr-pbe-gw-v1:composition:b3de407c810689d48fc9d31d31d05c8593102d154e857a88c54e08df18a38858"
+        ],
+        "node_indices": [
+          744,
+          1109,
+          1405
+        ],
+        "pbe_band_gap_ev": "2.047",
+        "size": 3,
+        "sorted_positions": [
+          1128,
+          1129,
+          1130
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:157386518fd03e02146faf894d98e566e3b0dd6dad819d4f44b469e8efc0e6bc",
+          "current-nlr-pbe-gw-v1:composition:a4c298f6ebc2797af8e68c3ab0d75734f901f7bc5f4876719eefd633d7bce03a",
+          "current-nlr-pbe-gw-v1:composition:e255175a10cf6c88a09f8edbe92c9c528dd9d9724b52bd0a0ce7973ee4450195"
+        ],
+        "node_indices": [
+          1260,
+          1070,
+          1290
+        ],
+        "pbe_band_gap_ev": "2.05",
+        "size": 3,
+        "sorted_positions": [
+          1131,
+          1132,
+          1133
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:7d941483974e05f92f11dc8ee7686d6c48e6b37c53f3416ff69231567cf77b18",
+          "current-nlr-pbe-gw-v1:composition:ea72bc087793555df48405cbdf4fe606b680849cae0ce8e57fc199bf3b13f31a"
+        ],
+        "node_indices": [
+          1766,
+          1300
+        ],
+        "pbe_band_gap_ev": "2.051",
+        "size": 2,
+        "sorted_positions": [
+          1134,
+          1135
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:8a55715f0409f3d2899677adfa3ea69bac5d2871177e38f19d7c18eeec9a694a",
+          "current-nlr-pbe-gw-v1:composition:f0511849c7914d2a1b3b2e3dcd7ff08f63cb7f775967b3dc50745496edeeb797"
+        ],
+        "node_indices": [
+          2027,
+          189
+        ],
+        "pbe_band_gap_ev": "2.066",
+        "size": 2,
+        "sorted_positions": [
+          1145,
+          1146
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:190d0f6b1b7d60984c823cbcccbff6f27477d38d1acbbaadac1ab09bf4709cba",
+          "current-nlr-pbe-gw-v1:composition:a70bb1a4dc3f24120a1739d231d00ee195f252f2d93b0c5c0b91b3395a0cd904"
+        ],
+        "node_indices": [
+          299,
+          1845
+        ],
+        "pbe_band_gap_ev": "2.077",
+        "size": 2,
+        "sorted_positions": [
+          1151,
+          1152
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:b816e435c85358241b7bf294509e4b88bc40a623f6bc05a5d0fb1e913f97387c",
+          "current-nlr-pbe-gw-v1:composition:fc6bf147d3ab1d490e5af390513b6899194e91f3a72467a6a222fad983a498c9"
+        ],
+        "node_indices": [
+          1302,
+          1871
+        ],
+        "pbe_band_gap_ev": "2.079",
+        "size": 2,
+        "sorted_positions": [
+          1153,
+          1154
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:0faa91c07f2baedcecee84730da813cef84908ceaea93de55023169412e06944",
+          "current-nlr-pbe-gw-v1:composition:4cad76884989e7bbf8b68ec0931883a44468700e325fa6afc5db0089f108476c"
+        ],
+        "node_indices": [
+          1193,
+          1790
+        ],
+        "pbe_band_gap_ev": "2.106",
+        "size": 2,
+        "sorted_positions": [
+          1165,
+          1166
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:0b73cc60e8b5c438a30d4f5c9a6517f7ba093b5274412a0aacf075eb406f4eb2",
+          "current-nlr-pbe-gw-v1:composition:64e86e63b12de724a02de49139c1ada3fde4f7680def0afae4a018512aee06c7"
+        ],
+        "node_indices": [
+          961,
+          1053
+        ],
+        "pbe_band_gap_ev": "2.112",
+        "size": 2,
+        "sorted_positions": [
+          1171,
+          1172
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:69214a4767c6848e2d0d9f0b1f068e346ff5b6442e9fb2e9368862c629d7230d",
+          "current-nlr-pbe-gw-v1:composition:a7182f80b0dcf61a94b4c490d43896960562275476d880a5c0f111dc0b75b62d"
+        ],
+        "node_indices": [
+          683,
+          1090
+        ],
+        "pbe_band_gap_ev": "2.121",
+        "size": 2,
+        "sorted_positions": [
+          1174,
+          1175
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:32e543d1aa7e332e3e8f0419ffb995b06b7efb17946ffd80380113c555f12731",
+          "current-nlr-pbe-gw-v1:composition:408eec62f86b0b9a3d5f39251de36d387453a808905f342f2a3305806baa3191"
+        ],
+        "node_indices": [
+          830,
+          1020
+        ],
+        "pbe_band_gap_ev": "2.124",
+        "size": 2,
+        "sorted_positions": [
+          1176,
+          1177
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:0cc0e735fdb067849a724d612002fe07a5b3bc7c98da80c09624d0ef59af896b",
+          "current-nlr-pbe-gw-v1:composition:f5d9c456c6404b3e8859381ea4b5a0c65310e8f8207b3c56a1b3d3d2dbcd06e2"
+        ],
+        "node_indices": [
+          280,
+          702
+        ],
+        "pbe_band_gap_ev": "2.139",
+        "size": 2,
+        "sorted_positions": [
+          1181,
+          1182
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:97003e39fc559c1f94598e5da032d4136808232a8c6605da9f890e0270e1e640",
+          "current-nlr-pbe-gw-v1:composition:c0efb802ab3c9d7f51fc350851500c5fe4941bf5eff08e4dc4dd956699147d33"
+        ],
+        "node_indices": [
+          340,
+          348
+        ],
+        "pbe_band_gap_ev": "2.143",
+        "size": 2,
+        "sorted_positions": [
+          1184,
+          1185
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:44b199ffa58cd0fc18492e16de5ba7235b463eb5fa1e68d1886385f1a805eb5e",
+          "current-nlr-pbe-gw-v1:composition:c3ae1308dc65135a90cac92aa7eb7b467c9271fa83789846b546c5b6676a4350"
+        ],
+        "node_indices": [
+          1202,
+          447
+        ],
+        "pbe_band_gap_ev": "2.16",
+        "size": 2,
+        "sorted_positions": [
+          1191,
+          1192
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:a08a2ca653f3dd22ab71c6ae7947eeac9dba73ccaec2e0390a2aa1c771e03d80",
+          "current-nlr-pbe-gw-v1:composition:c7490a724392abe8fd1c64aaa58cbe7253b846e76a07c64425d9fbfb9ced9bea"
+        ],
+        "node_indices": [
+          480,
+          188
+        ],
+        "pbe_band_gap_ev": "2.163",
+        "size": 2,
+        "sorted_positions": [
+          1194,
+          1195
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:5d3a3b415191adb8c37b69280421a6284ff23d640555f7bd285b8b57c8204946",
+          "current-nlr-pbe-gw-v1:composition:faa3f01de5e840bf43efac1afd55f4ab466a154908d1500644560130bd169c17"
+        ],
+        "node_indices": [
+          234,
+          649
+        ],
+        "pbe_band_gap_ev": "2.177",
+        "size": 2,
+        "sorted_positions": [
+          1200,
+          1201
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:98a364db68ec581f7df41e5d5aef5033a2d8218090f23ffb84f5ea30860bf4da",
+          "current-nlr-pbe-gw-v1:composition:cfb5096ecb0ef08545bc26ae69e712d23df01a0c7bd3e858fdf6e01df5eca649"
+        ],
+        "node_indices": [
+          1656,
+          1581
+        ],
+        "pbe_band_gap_ev": "2.18",
+        "size": 2,
+        "sorted_positions": [
+          1203,
+          1204
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:98679fd5c29879afdc6941c6377b24bcc1ef97b7c4af6b5ff33212a81637a561",
+          "current-nlr-pbe-gw-v1:composition:99bb3500b218694910b73a8bbb0aaf83dc4eb102aa82d19aa95e9cbb1968571d"
+        ],
+        "node_indices": [
+          818,
+          594
+        ],
+        "pbe_band_gap_ev": "2.183",
+        "size": 2,
+        "sorted_positions": [
+          1206,
+          1207
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:99af76a43c71e043186e67d9a54be3d26aa472bdac02af7d66e90c048c2ad1e1",
+          "current-nlr-pbe-gw-v1:composition:b47350b36fb800be79471209658e2a8f62c50c8559a8fd40a0d58d921766a28f"
+        ],
+        "node_indices": [
+          2033,
+          723
+        ],
+        "pbe_band_gap_ev": "2.19",
+        "size": 2,
+        "sorted_positions": [
+          1209,
+          1210
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:0cf18556a2c990dc7b37a7c817bfc62b6c272a66991b85e50ad3d456291736e4",
+          "current-nlr-pbe-gw-v1:composition:37b151f6e1ce3aa582a7b366c1dd97a1cd666ff2caf2a8cff8dc01b81ca123e1",
+          "current-nlr-pbe-gw-v1:composition:c3788abf5201bb1571d7077f6714eb1a080d97deb6dd3dc41c671b69a8180555"
+        ],
+        "node_indices": [
+          1038,
+          2108,
+          193
+        ],
+        "pbe_band_gap_ev": "2.192",
+        "size": 3,
+        "sorted_positions": [
+          1211,
+          1212,
+          1213
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:7dd31d64ed4c2a34d10203aaaefbc971e895236e54feac9cf71ef248f1054edb",
+          "current-nlr-pbe-gw-v1:composition:f02bceedf627b04771c249a8552ba67a864f5db4ae60adeb9c47ac5ae1f584ef"
+        ],
+        "node_indices": [
+          2004,
+          1275
+        ],
+        "pbe_band_gap_ev": "2.194",
+        "size": 2,
+        "sorted_positions": [
+          1214,
+          1215
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:23dae1a0b26ebe02c60201c9521e57481521b5be8569d95d008d076bef4ed436",
+          "current-nlr-pbe-gw-v1:composition:28a812be1dbdd941396ac7a28937ba636d55e5aa425ec3d06efcfa2d03c2e59e",
+          "current-nlr-pbe-gw-v1:composition:5830e8e38b1324995886220f61f23bb7c92ccea5b5091634d6343708ffd477fb",
+          "current-nlr-pbe-gw-v1:composition:ea199d711be6c6296cac740518e163c83b6465a7daae6c3a2355b4b7e09238ee"
+        ],
+        "node_indices": [
+          797,
+          1938,
+          2136,
+          1143
+        ],
+        "pbe_band_gap_ev": "2.201",
+        "size": 4,
+        "sorted_positions": [
+          1219,
+          1220,
+          1221,
+          1222
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:6a14a8b8b916ecba0e37e48b18198d299f6dfe6841ef120fd5acba52f8790110",
+          "current-nlr-pbe-gw-v1:composition:aa6d2673163162809fb2d70abf4078e09c74e8d434dbf2ed9b6825b09ba23421"
+        ],
+        "node_indices": [
+          2069,
+          1900
+        ],
+        "pbe_band_gap_ev": "2.205",
+        "size": 2,
+        "sorted_positions": [
+          1224,
+          1225
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:bd9e0cdd9b06b98948dde778f30f3e1938d9e399d7e684765863966a6cd36ed6",
+          "current-nlr-pbe-gw-v1:composition:c535fc5fb215ba09797678d99ca6e0148fec6347da136e2fde2c70a15b9ee0b0"
+        ],
+        "node_indices": [
+          1134,
+          509
+        ],
+        "pbe_band_gap_ev": "2.212",
+        "size": 2,
+        "sorted_positions": [
+          1228,
+          1229
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:1a42af74c8229ab182ece6d0201e62cac36e55db910c766f0bf18bff98954f43",
+          "current-nlr-pbe-gw-v1:composition:c2a908b699ad9e7831e6e30350a81a1a585eda7eb0c25957a6c47c4df46f37bc"
+        ],
+        "node_indices": [
+          384,
+          2114
+        ],
+        "pbe_band_gap_ev": "2.227",
+        "size": 2,
+        "sorted_positions": [
+          1234,
+          1235
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:0fb100c04b68daed9c3c68861eeb88da6162942047cda3e94541d04372e74ad9",
+          "current-nlr-pbe-gw-v1:composition:8b2a5b2d1012f830bd3727910ad9165e0e94ce8de6f9875ca966c64479d990e4"
+        ],
+        "node_indices": [
+          1752,
+          1261
+        ],
+        "pbe_band_gap_ev": "2.247",
+        "size": 2,
+        "sorted_positions": [
+          1248,
+          1249
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:29a671b86dabecbcc6639ef565c08e6d40421a51ff2fc00cb6a0c33748880316",
+          "current-nlr-pbe-gw-v1:composition:9594b82935d3e8eb96ebdfdad2c4a49040d6578a2f1387fc18cce3f88ec0916c"
+        ],
+        "node_indices": [
+          1836,
+          1950
+        ],
+        "pbe_band_gap_ev": "2.253",
+        "size": 2,
+        "sorted_positions": [
+          1251,
+          1252
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:21914630cf54a9880f7c30f454aaabd263486476af4d63c803111c8360f2753f",
+          "current-nlr-pbe-gw-v1:composition:511bd7c08bf3d75662604f804c934102631d6c370f4ba38a4b8f4ff7c61d23da",
+          "current-nlr-pbe-gw-v1:composition:e14f71eb289c1ec36b725a64947eaa0ee5bc69443d196342a9188359dfd43f32"
+        ],
+        "node_indices": [
+          1614,
+          696,
+          1268
+        ],
+        "pbe_band_gap_ev": "2.254",
+        "size": 3,
+        "sorted_positions": [
+          1253,
+          1254,
+          1255
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:6d792af708025e06e74b7b813f8ea6f5c921be051612deb1f859155c60e3d035",
+          "current-nlr-pbe-gw-v1:composition:b9e4c43f4869fab3a65bfc7ce4db771576491aef03731193cb9479ca2877ee2d"
+        ],
+        "node_indices": [
+          1913,
+          1073
+        ],
+        "pbe_band_gap_ev": "2.277",
+        "size": 2,
+        "sorted_positions": [
+          1264,
+          1265
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:b16f58f5d1e31cc550cb5d4fd38f7e3cf28d5b9573db06581117bd721642adb2",
+          "current-nlr-pbe-gw-v1:composition:b77ed67802fc13261ffaccd375f027539aa0f19004405437768d9d0868f41c36"
+        ],
+        "node_indices": [
+          219,
+          505
+        ],
+        "pbe_band_gap_ev": "2.294",
+        "size": 2,
+        "sorted_positions": [
+          1272,
+          1273
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:03fd06ff5ce4142f3dbe11796497ca04d2eb9baa41f891569e5f68fd85a017ae",
+          "current-nlr-pbe-gw-v1:composition:08d6e2c9461f000b1f9c331a931dac750c860d7cabadf7e1f4ed78a6d7d63261"
+        ],
+        "node_indices": [
+          1693,
+          1008
+        ],
+        "pbe_band_gap_ev": "2.312",
+        "size": 2,
+        "sorted_positions": [
+          1279,
+          1280
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:4462e4ebd1d4569ac507a2db33ea19e0e5ef164957bcb7b44f10c4f2327cdb8e",
+          "current-nlr-pbe-gw-v1:composition:65999413be2ff5a3324446dc02b3b928bc58ed99015c265b7a8f3fc0098bba98",
+          "current-nlr-pbe-gw-v1:composition:6a664935901e30f78387ba32df3186e56c1c182c75b5247414eeea6e8222ad13"
+        ],
+        "node_indices": [
+          64,
+          1198,
+          309
+        ],
+        "pbe_band_gap_ev": "2.316",
+        "size": 3,
+        "sorted_positions": [
+          1281,
+          1282,
+          1283
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:308e60b4fa1e5839038e9036f7db8b9efeb9b9ae042d6a3a382884763a3b02b0",
+          "current-nlr-pbe-gw-v1:composition:361722dcd410a6ff1c577b7039ef4d0493e6c40775553ae3a8e48161b6c86710",
+          "current-nlr-pbe-gw-v1:composition:c42218a7e300d34331e2a043ce1a4208f7a6c911e4ec5e9bf9542c468a941e2f",
+          "current-nlr-pbe-gw-v1:composition:d0245829473680946e59d64c427ff48749bc4c678c351182a62482078c248595"
+        ],
+        "node_indices": [
+          423,
+          756,
+          1910,
+          1628
+        ],
+        "pbe_band_gap_ev": "2.325",
+        "size": 4,
+        "sorted_positions": [
+          1287,
+          1288,
+          1289,
+          1290
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:0abf5407195c9079767d9fa0dba024ff1624ce56995981938db90801d840e5be",
+          "current-nlr-pbe-gw-v1:composition:307e0b212e463d3d88629f3f3f084315af8a93d463e082b8c7c73452cf6b8cca"
+        ],
+        "node_indices": [
+          1206,
+          1466
+        ],
+        "pbe_band_gap_ev": "2.331",
+        "size": 2,
+        "sorted_positions": [
+          1293,
+          1294
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:6406bdd5d955ca17e54c5557c4c2d28f94e3f13a96eba42da3b423b908d49bcb",
+          "current-nlr-pbe-gw-v1:composition:edb8aef10035d9469e93cb3ea9c0cb7bffce9b8477977d173e078b73ce05d817"
+        ],
+        "node_indices": [
+          1633,
+          1646
+        ],
+        "pbe_band_gap_ev": "2.351",
+        "size": 2,
+        "sorted_positions": [
+          1305,
+          1306
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:c81edea70032351c5b3a26da4078b8af194d34984400c48cf12b41e3958cf386",
+          "current-nlr-pbe-gw-v1:composition:e906dbf95fbd861d46bdbb2239333ad604a628609cba71bc51579f1c1c675f6a"
+        ],
+        "node_indices": [
+          956,
+          708
+        ],
+        "pbe_band_gap_ev": "2.365",
+        "size": 2,
+        "sorted_positions": [
+          1308,
+          1309
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:808c4d4cb1113965a777d668683fbefc0d9496a5d52b6ae0a4ae91e9ec880046",
+          "current-nlr-pbe-gw-v1:composition:cc81f8b4daa9cde6bee2c8ddfeda23944a05a9fdd7e86a5a1706addc18ea913e"
+        ],
+        "node_indices": [
+          1593,
+          664
+        ],
+        "pbe_band_gap_ev": "2.367",
+        "size": 2,
+        "sorted_positions": [
+          1310,
+          1311
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:3455997febd8abc720313478de11cfef45351be76142c51c37b4b8de648deba9",
+          "current-nlr-pbe-gw-v1:composition:4ad84712939b3eaf3513fada7bd8f2fdc695c49d5e2e0ca29656d626b20046a5"
+        ],
+        "node_indices": [
+          297,
+          1598
+        ],
+        "pbe_band_gap_ev": "2.386",
+        "size": 2,
+        "sorted_positions": [
+          1318,
+          1319
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:b66e7411285f1d68d401230da7b63515ebf7e56c164f56a042e14aa546f03495",
+          "current-nlr-pbe-gw-v1:composition:d5161f405a1f7ac2d83af76715ed69a136de13a6030fb12c8942f0cb1365fe06"
+        ],
+        "node_indices": [
+          35,
+          328
+        ],
+        "pbe_band_gap_ev": "2.387",
+        "size": 2,
+        "sorted_positions": [
+          1320,
+          1321
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:023f63d06f52ddfa02dffb059510f13fea642897ed6bf9f9afd662baba55d949",
+          "current-nlr-pbe-gw-v1:composition:e78317e90cee890b745ac9960dbca37d06ccaa98ca8c6a45bbea7b1a271579e3"
+        ],
+        "node_indices": [
+          1093,
+          1606
+        ],
+        "pbe_band_gap_ev": "2.389",
+        "size": 2,
+        "sorted_positions": [
+          1322,
+          1323
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:8818fb90b5fd735e55c087b0ff3ce1e6d7d6532a6edde721fffc7f10f450116f",
+          "current-nlr-pbe-gw-v1:composition:8ee2e7b6bd02371df4d12d5c40a46053667d9af4c082b483ba4998bd4075d02f"
+        ],
+        "node_indices": [
+          1976,
+          1806
+        ],
+        "pbe_band_gap_ev": "2.39",
+        "size": 2,
+        "sorted_positions": [
+          1324,
+          1325
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:22585899b341ad9529b3fe7d1fd67b94cb451046a4e88a5b3448cc05357ec6f1",
+          "current-nlr-pbe-gw-v1:composition:22b03c69b23a6c52305790f6375b250311f463a724d48919d671a7c0ef4379de"
+        ],
+        "node_indices": [
+          1016,
+          2079
+        ],
+        "pbe_band_gap_ev": "2.415",
+        "size": 2,
+        "sorted_positions": [
+          1335,
+          1336
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:d8916755c83a6dd0ba991b33ab2a5d7784983da8eb6fb751b78da4105ddadbab",
+          "current-nlr-pbe-gw-v1:composition:ffe2b5da8c34a1288981bb2c503b69d51dbf29a04f1cfff7992fdcab9359aed9"
+        ],
+        "node_indices": [
+          1160,
+          36
+        ],
+        "pbe_band_gap_ev": "2.436",
+        "size": 2,
+        "sorted_positions": [
+          1345,
+          1346
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:4592a46127823d214c81916de61eecab12c3b3bee7a14ef393096cac477e8fc7",
+          "current-nlr-pbe-gw-v1:composition:6d331f3d6c6ac0156ab45a011b1a83e9ac02df196a1d2b99aff87bab1e0cee2b"
+        ],
+        "node_indices": [
+          552,
+          260
+        ],
+        "pbe_band_gap_ev": "2.441",
+        "size": 2,
+        "sorted_positions": [
+          1349,
+          1350
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:27da5ac79a0bc52eb148d6dc0f4af2dc351cb4a16c185bed68cd16a05e4f2e8c",
+          "current-nlr-pbe-gw-v1:composition:ac3f4aabf91ed5fb0d001698386d4259cc4dedbd98cf8dea0457d3cf64674e15"
+        ],
+        "node_indices": [
+          712,
+          1620
+        ],
+        "pbe_band_gap_ev": "2.448",
+        "size": 2,
+        "sorted_positions": [
+          1352,
+          1353
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:55ceff2ac25e5e9b6aa4e0d038009395666a3d4873a529e960b2e5c587e02cd8",
+          "current-nlr-pbe-gw-v1:composition:bed4fa4057f3f358e802ae0dbfd0aad6262e5ae9610147c79ccebab6a6b6fb48"
+        ],
+        "node_indices": [
+          896,
+          519
+        ],
+        "pbe_band_gap_ev": "2.483",
+        "size": 2,
+        "sorted_positions": [
+          1366,
+          1367
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:7b77de27c5c2a193d680e57d30ceaf34767459980a734c18b8b145d659c383a6",
+          "current-nlr-pbe-gw-v1:composition:db89ce6407628ee35fa2a6890af4115f19d72ef4c873de8fa1fd145f6f2a24fc",
+          "current-nlr-pbe-gw-v1:composition:edff519af303f08d5e575c5fdd57202ae9b3bb27690cebda90e68196c9253bb7"
+        ],
+        "node_indices": [
+          166,
+          29,
+          727
+        ],
+        "pbe_band_gap_ev": "2.484",
+        "size": 3,
+        "sorted_positions": [
+          1368,
+          1369,
+          1370
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:15dd84d0d2e920fa78bb182aa9856dc736f708200496ffdfb04c4b398264d3e4",
+          "current-nlr-pbe-gw-v1:composition:a2eb2f5d7eeeef96f6e2219a52ba53eaadc85bd450f6fbd7b5a26dd46fe2a22a"
+        ],
+        "node_indices": [
+          800,
+          1452
+        ],
+        "pbe_band_gap_ev": "2.485",
+        "size": 2,
+        "sorted_positions": [
+          1371,
+          1372
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:3c1d65e65eb6b0c5e58671c3d2a68f7c333cbaca9c120324949ebbae45174dbe",
+          "current-nlr-pbe-gw-v1:composition:aa6fa8e68af94ec1a4aee1d357497edd2173bc35f7b268ce2cf08f31627b4153"
+        ],
+        "node_indices": [
+          537,
+          673
+        ],
+        "pbe_band_gap_ev": "2.49",
+        "size": 2,
+        "sorted_positions": [
+          1375,
+          1376
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:e0b50281667f3f765d329afc0db02a8440f139d38abdf017eb7182268be374bf",
+          "current-nlr-pbe-gw-v1:composition:f2f392a417364ab9ce8465d7289eb32f7f2cb18d93d86d8f20a5c88cf91fa071"
+        ],
+        "node_indices": [
+          470,
+          650
+        ],
+        "pbe_band_gap_ev": "2.495",
+        "size": 2,
+        "sorted_positions": [
+          1379,
+          1380
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:114380f6b436c4929edd9b1ccf634f71020ae7729883e1bb4abb40a80252a6f5",
+          "current-nlr-pbe-gw-v1:composition:d3f0dcb3e9ade0b31c3ba9475f6c7d295efde383d591ba7963013e7f1646fb19"
+        ],
+        "node_indices": [
+          226,
+          586
+        ],
+        "pbe_band_gap_ev": "2.509",
+        "size": 2,
+        "sorted_positions": [
+          1385,
+          1386
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:5f63e6a2c67de66d2484965fe9a19583c57e49919d8b61ce329baf29c9ec5ce0",
+          "current-nlr-pbe-gw-v1:composition:a9aac2b109559746c8463e7c6ac7bd5af9c4dfcb8891dc58a4a57dd1087d8b81"
+        ],
+        "node_indices": [
+          845,
+          1194
+        ],
+        "pbe_band_gap_ev": "2.519",
+        "size": 2,
+        "sorted_positions": [
+          1389,
+          1390
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:0804a5015e09a262534668d8e3b353feb22bcd75e0580f6c1ad59becfd43f428",
+          "current-nlr-pbe-gw-v1:composition:c18a5a3ea5ec1b4e020e6aa86a979baf26638ed238c60d92a7319b1e6df224b9"
+        ],
+        "node_indices": [
+          2056,
+          228
+        ],
+        "pbe_band_gap_ev": "2.559",
+        "size": 2,
+        "sorted_positions": [
+          1404,
+          1405
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:3802ed8e9b0dea640f27c69302729e667c9beb6ca8a5be15f94f7661b644ae82",
+          "current-nlr-pbe-gw-v1:composition:55c91d328d8aaeaf6c1f62a37cc77f39deb158d689bfb6baf622d0b4abcc568c"
+        ],
+        "node_indices": [
+          1529,
+          921
+        ],
+        "pbe_band_gap_ev": "2.561",
+        "size": 2,
+        "sorted_positions": [
+          1406,
+          1407
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:11c44d1adee34fda02b7e8133f71ad4e9c7803a89e122f90fac7b448d0ad0763",
+          "current-nlr-pbe-gw-v1:composition:361e1be530c2b4e010c5206ad94c86cdf68d967bfe66ca956c36340bbacf5b0a"
+        ],
+        "node_indices": [
+          1511,
+          1578
+        ],
+        "pbe_band_gap_ev": "2.571",
+        "size": 2,
+        "sorted_positions": [
+          1411,
+          1412
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:56b66de969f5425f01d3fda9d6ff0bbe65d71a831a23a553a07da483e9164e3e",
+          "current-nlr-pbe-gw-v1:composition:e513edc1464aa11b17a327f38304bc387a0c82aa9765cc4bd2c5031370c35311"
+        ],
+        "node_indices": [
+          1864,
+          30
+        ],
+        "pbe_band_gap_ev": "2.582",
+        "size": 2,
+        "sorted_positions": [
+          1415,
+          1416
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:3f6e199c0a2d7229d938db6c20e841c41db2594091abee30935c74f7389e9676",
+          "current-nlr-pbe-gw-v1:composition:633a77a9745f704f011543b77bf3e3657e57b445d628c992e2898672c8473c6b"
+        ],
+        "node_indices": [
+          820,
+          1243
+        ],
+        "pbe_band_gap_ev": "2.596",
+        "size": 2,
+        "sorted_positions": [
+          1422,
+          1423
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:b0d1a5355ff08dde5e3a9eff6493e1671117ac46ffc1022918f71d057a9c1157",
+          "current-nlr-pbe-gw-v1:composition:cf1b550079ccbd2a931ddb96f14f2df217fe4014cb5aa33ff3f352355c2179df"
+        ],
+        "node_indices": [
+          244,
+          1024
+        ],
+        "pbe_band_gap_ev": "2.597",
+        "size": 2,
+        "sorted_positions": [
+          1424,
+          1425
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:197492a72bca19abbcc05a70d3a69ac98cf9ab90d3b5687bf2f4d3ba51d924f8",
+          "current-nlr-pbe-gw-v1:composition:9b2366b9cb19bfd31d7ab51903592335881c053f280d990d0595fda6e7a050ad",
+          "current-nlr-pbe-gw-v1:composition:aaeb595423095563b09cef2c5ba59dc623741748122b5075c014fdce7dcd5715",
+          "current-nlr-pbe-gw-v1:composition:f8bf89bdeec7e0bec1e56c4f87e2b0eb154894b56a24d066d928d133efbc9acc"
+        ],
+        "node_indices": [
+          669,
+          138,
+          1949,
+          1849
+        ],
+        "pbe_band_gap_ev": "2.606",
+        "size": 4,
+        "sorted_positions": [
+          1427,
+          1428,
+          1429,
+          1430
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:30089d665c3714bfa2a802ff576345070e07fdd5c7eb3255c18ce06b4cbd8908",
+          "current-nlr-pbe-gw-v1:composition:8aa81e584336a1792890d52770b7212da85e13bdb0778e05df2e1fc49e7f77c0"
+        ],
+        "node_indices": [
+          1182,
+          50
+        ],
+        "pbe_band_gap_ev": "2.625",
+        "size": 2,
+        "sorted_positions": [
+          1434,
+          1435
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:1635c9e1bdc439e169bf77b8cf5d42cad6d2b5f01a6b453900f1ce047165b8a9",
+          "current-nlr-pbe-gw-v1:composition:65be4e207640811ebf752ee8bc0fcd2fee75d5e6dfc7c2037a72d1ba7c26c59f"
+        ],
+        "node_indices": [
+          2026,
+          510
+        ],
+        "pbe_band_gap_ev": "2.637",
+        "size": 2,
+        "sorted_positions": [
+          1437,
+          1438
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:2a0ec03662344e1e9e3bfa987592efb97a436782b2266f5a4c0d97f7c2ce59ff",
+          "current-nlr-pbe-gw-v1:composition:d11620f17dd759ac188e7ba04d69e6470cbd971231ccab46698ec42e2b49781b"
+        ],
+        "node_indices": [
+          1435,
+          1068
+        ],
+        "pbe_band_gap_ev": "2.639",
+        "size": 2,
+        "sorted_positions": [
+          1439,
+          1440
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:02175999c8cd8d0dbc5fe4f71e18b98569b4618020138c500145aa4d5aae237d",
+          "current-nlr-pbe-gw-v1:composition:b9b3889bd2fb0c8aebe4c0b48402b3a582236b00fc175b6d4dafb1e048f2c438"
+        ],
+        "node_indices": [
+          580,
+          1876
+        ],
+        "pbe_band_gap_ev": "2.644",
+        "size": 2,
+        "sorted_positions": [
+          1444,
+          1445
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:30a7912caf93dccccba19ebd6f3f150636d6d3b041486db433a7bd906aa85ccd",
+          "current-nlr-pbe-gw-v1:composition:e4010b8e06ef4b718e4c67cfcf093b52598075435b9e8e239da0fea85a62762b"
+        ],
+        "node_indices": [
+          546,
+          549
+        ],
+        "pbe_band_gap_ev": "2.686",
+        "size": 2,
+        "sorted_positions": [
+          1466,
+          1467
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:af9dc86b3427c8c22ac334891dd34e9b3871288975477a8c21735364d81993da",
+          "current-nlr-pbe-gw-v1:composition:d5f3b332ffea83f9708e8befd662a51e55a0bbbca49d30c8bc6efeb6711ad08a",
+          "current-nlr-pbe-gw-v1:composition:d7ee209096047d0785a23e81e2a42c967f91d2ccf6c81387744424a051fce5f7"
+        ],
+        "node_indices": [
+          479,
+          2130,
+          1027
+        ],
+        "pbe_band_gap_ev": "2.703",
+        "size": 3,
+        "sorted_positions": [
+          1474,
+          1475,
+          1476
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:5acfa65adc332fdc5bee9f65471959f83a744c2035b658cfc68d891e1cfbeeda",
+          "current-nlr-pbe-gw-v1:composition:8225b37083acfa18c9e0c7a507d68c22eede235114c3eaf8e3387fae786dabc6"
+        ],
+        "node_indices": [
+          540,
+          495
+        ],
+        "pbe_band_gap_ev": "2.707",
+        "size": 2,
+        "sorted_positions": [
+          1477,
+          1478
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:64da6eb58ae27ad51cb5f22d70563682e33df983364894d0f61801e238d65897",
+          "current-nlr-pbe-gw-v1:composition:f8b086ae96dc9e13b2b026142c2f81bdfa7d03c50bdb1b25be7e7ebb49c42cc6"
+        ],
+        "node_indices": [
+          2039,
+          1706
+        ],
+        "pbe_band_gap_ev": "2.723",
+        "size": 2,
+        "sorted_positions": [
+          1484,
+          1485
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:3392ef1d10cae2da82668819ec69d4c481ab9e70d9b9e0f9e29bad5a95908191",
+          "current-nlr-pbe-gw-v1:composition:541b7027799e48c837b9bf5d8c1e1e8bbaea9196f0c6aa39cb5dc211a0f45c25"
+        ],
+        "node_indices": [
+          608,
+          2089
+        ],
+        "pbe_band_gap_ev": "2.725",
+        "size": 2,
+        "sorted_positions": [
+          1487,
+          1488
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:425434bd3bd700f7f195882d115c986812b61b3e7fff9391b644b83466a98251",
+          "current-nlr-pbe-gw-v1:composition:f2301a982d53dcd68cf8f441da27b54c824a4a7832ba2a68b664e67b3ea09c9e"
+        ],
+        "node_indices": [
+          1994,
+          1318
+        ],
+        "pbe_band_gap_ev": "2.737",
+        "size": 2,
+        "sorted_positions": [
+          1491,
+          1492
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:8c7c7794f5886d2d26756b4083c3ead8e59af8aaa22e36e50d8671386ac414fe",
+          "current-nlr-pbe-gw-v1:composition:e3f5d599ebe0aaba7116ecbae8e35dc15431e9800c4697ded84060f420aba39c"
+        ],
+        "node_indices": [
+          2043,
+          832
+        ],
+        "pbe_band_gap_ev": "2.757",
+        "size": 2,
+        "sorted_positions": [
+          1501,
+          1502
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:9784c7f36881383bf38a8a362e471b186213443187c6c8c0fb41c361bad7884b",
+          "current-nlr-pbe-gw-v1:composition:ca1a16e53fa9ca4af87ad0e5af7e12328a3cc3c39686689d0a20262387075107"
+        ],
+        "node_indices": [
+          1687,
+          724
+        ],
+        "pbe_band_gap_ev": "2.793",
+        "size": 2,
+        "sorted_positions": [
+          1519,
+          1520
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:16875af382ac8f537e38a231d465af418ca874db6e445f6f73cfa4b358cafec7",
+          "current-nlr-pbe-gw-v1:composition:1ac82095b7dcb4ab6433d01b786651adeca4e523f9509a02669a3d35621a81bf",
+          "current-nlr-pbe-gw-v1:composition:895f84d7ca5325ac5824faeed6e851a4a4ee340b45baa21ab9c2bd9b67e94f0b"
+        ],
+        "node_indices": [
+          503,
+          2133,
+          154
+        ],
+        "pbe_band_gap_ev": "2.799",
+        "size": 3,
+        "sorted_positions": [
+          1521,
+          1522,
+          1523
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:1d4337991e9e99080b9f375e6e16255379c5639a4fdd766ccac2cdbd7735a8df",
+          "current-nlr-pbe-gw-v1:composition:67209cc9cc8731ba56418222ffa21487e8ae6049f9874946dfabf354eb43781e"
+        ],
+        "node_indices": [
+          1398,
+          1186
+        ],
+        "pbe_band_gap_ev": "2.821",
+        "size": 2,
+        "sorted_positions": [
+          1534,
+          1535
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:ad1d825261be61dbddde690ffd9ebdaa568a0f165cea2113cb38d433acc1cc0b",
+          "current-nlr-pbe-gw-v1:composition:d4c9a5fe9e4547716f005ba2d0671f923578b329e17e394f2cb02d6d94675ccb"
+        ],
+        "node_indices": [
+          1681,
+          326
+        ],
+        "pbe_band_gap_ev": "2.822",
+        "size": 2,
+        "sorted_positions": [
+          1536,
+          1537
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:5275b6575bd527cbab182b9fdc0d34a45ce9b81d1c6d35afe949e3d8118b8189",
+          "current-nlr-pbe-gw-v1:composition:c78a74fadc7f6dc150b72befa80a3b8562121ea7cf361d2ab8c6bbfc845e07ae"
+        ],
+        "node_indices": [
+          393,
+          1210
+        ],
+        "pbe_band_gap_ev": "2.838",
+        "size": 2,
+        "sorted_positions": [
+          1540,
+          1541
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:427716c0207480b7e721ff748550155bb6f37f596e5d644995aea5c232605eed",
+          "current-nlr-pbe-gw-v1:composition:5a48743063f754ceb8a45f7726e4d4fa3d2468af82d18eb042ba3df6a6614ece",
+          "current-nlr-pbe-gw-v1:composition:8b12efb65691b5f15b1a272cf923801adc66d4df80aece3cfc351080aa1f94ea"
+        ],
+        "node_indices": [
+          1782,
+          1462,
+          1171
+        ],
+        "pbe_band_gap_ev": "2.845",
+        "size": 3,
+        "sorted_positions": [
+          1545,
+          1546,
+          1547
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:120d7224aeef8dec346df7b56c6f6ae31767d4df5df30fd00d53bd1147b31481",
+          "current-nlr-pbe-gw-v1:composition:5e481afa120d773ad7f898793635c84806bddd486e9bd833984451419d84c51b"
+        ],
+        "node_indices": [
+          1221,
+          1691
+        ],
+        "pbe_band_gap_ev": "2.858",
+        "size": 2,
+        "sorted_positions": [
+          1551,
+          1552
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:42df435ca5be96f4095355c96941e051e19043d32c09a7e9b80de4cd207f1399",
+          "current-nlr-pbe-gw-v1:composition:bf9aa062aa2a2cc6fefdd805998526a4e50716bb35c68b432a996465d7ef12c1"
+        ],
+        "node_indices": [
+          1532,
+          436
+        ],
+        "pbe_band_gap_ev": "2.876",
+        "size": 2,
+        "sorted_positions": [
+          1559,
+          1560
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:e9b8b143fd71d604e158a73ea9cbda95a740be9f0a72c13d922e5e4b0d01bcc5",
+          "current-nlr-pbe-gw-v1:composition:fcfd1e852687bf532a2fe414f63da81d269fc4e41eebf9da9159688b5c65ff48"
+        ],
+        "node_indices": [
+          2081,
+          1351
+        ],
+        "pbe_band_gap_ev": "2.887",
+        "size": 2,
+        "sorted_positions": [
+          1564,
+          1565
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:14d099e47ad18278b65ff2ff1de6f0c5529ad08e95358e562e956ade0f63d887",
+          "current-nlr-pbe-gw-v1:composition:382918284dc8aaea1cd5913435b2be52ede9e953f8b8be48732a5880dc8ca147"
+        ],
+        "node_indices": [
+          863,
+          1489
+        ],
+        "pbe_band_gap_ev": "2.893",
+        "size": 2,
+        "sorted_positions": [
+          1569,
+          1570
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:99f0e35d7756bd104817ac47a5b61368f7c5e17d64ceb6843bf3976d5d1c79f6",
+          "current-nlr-pbe-gw-v1:composition:fa1f8019238b0c8a8248eeb96d4266701e3c365eb04a9c1b0b969793feecb991"
+        ],
+        "node_indices": [
+          1162,
+          615
+        ],
+        "pbe_band_gap_ev": "2.894",
+        "size": 2,
+        "sorted_positions": [
+          1571,
+          1572
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:48dfe953f7b5a2053dfdc8b4c0773223242c17f9a4b77610e6bb0ab82b0c5414",
+          "current-nlr-pbe-gw-v1:composition:83f815bfd41ff198d29afca10500ae50b913991503d62a1af2c573832510ac51"
+        ],
+        "node_indices": [
+          1213,
+          2078
+        ],
+        "pbe_band_gap_ev": "2.91",
+        "size": 2,
+        "sorted_positions": [
+          1577,
+          1578
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:7a7cfcae727bf3d133be0795def79ccf135704f4c2e57b41d319c85414428820",
+          "current-nlr-pbe-gw-v1:composition:a6acbccb66e6dbe20f815600d5f94ba026fe0703e1430d46d34fd035b5c33e75"
+        ],
+        "node_indices": [
+          852,
+          486
+        ],
+        "pbe_band_gap_ev": "2.924",
+        "size": 2,
+        "sorted_positions": [
+          1584,
+          1585
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:837a5ebcb09266736b6d01e827ac1f6d460f1c48830c83cde335214c7b387598",
+          "current-nlr-pbe-gw-v1:composition:f5a9b72217d25f95cedb55e6f4371f47e36c531313014cdf857ebb787f68f9ed"
+        ],
+        "node_indices": [
+          248,
+          1793
+        ],
+        "pbe_band_gap_ev": "2.94",
+        "size": 2,
+        "sorted_positions": [
+          1591,
+          1592
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:18c66f7ba479cab23db53f93e0a4d6c1e69e7038d490657f33a00f3e0ed7e2b4",
+          "current-nlr-pbe-gw-v1:composition:7d45dfc4f3c14bdc73d2acdd98dbbf419eee9e9e7168082c9a0504b2259364a5",
+          "current-nlr-pbe-gw-v1:composition:d17c15523cd9ac2bf8ff80d68399f6acf6ff2defab68db6e868ae0566d792bcb"
+        ],
+        "node_indices": [
+          698,
+          2125,
+          1450
+        ],
+        "pbe_band_gap_ev": "2.941",
+        "size": 3,
+        "sorted_positions": [
+          1593,
+          1594,
+          1595
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:1f37f95e2cc09c7750507670ace40e8dbb693f8ebe0e35f6d41b26b6e0eca811",
+          "current-nlr-pbe-gw-v1:composition:7e022e65a8e3259737aec126fc36850c04f46fa418174a7bbef7f59845d8e07b"
+        ],
+        "node_indices": [
+          856,
+          381
+        ],
+        "pbe_band_gap_ev": "2.942",
+        "size": 2,
+        "sorted_positions": [
+          1596,
+          1597
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:942d9c8ef0ebbfdd36034d8f75f285b76cec34c2a78e95d7416922f78bc94d79",
+          "current-nlr-pbe-gw-v1:composition:b79e0bdaf7f911b93b42513fcd6084d20ea642a2da244d91a52a7df0b9fe8960"
+        ],
+        "node_indices": [
+          566,
+          1464
+        ],
+        "pbe_band_gap_ev": "2.943",
+        "size": 2,
+        "sorted_positions": [
+          1598,
+          1599
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:70222638828f7f774072445bf3c90cc968ba28274ef609718565e3a6393c78cc",
+          "current-nlr-pbe-gw-v1:composition:fd917d9ee008de3d172a069a1ef52797276239c126d84f6922c5d06c7be0f684"
+        ],
+        "node_indices": [
+          1409,
+          1378
+        ],
+        "pbe_band_gap_ev": "2.959",
+        "size": 2,
+        "sorted_positions": [
+          1603,
+          1604
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:7603417fd2d5f1c1c8f4257ffc34bd36f9d4d64efd310aaad3adc442d600a7e4",
+          "current-nlr-pbe-gw-v1:composition:d4b845e554f86e80d4bc091a3cea9d73b3d388a37b470681335c0301d5bd931e"
+        ],
+        "node_indices": [
+          404,
+          609
+        ],
+        "pbe_band_gap_ev": "2.978",
+        "size": 2,
+        "sorted_positions": [
+          1610,
+          1611
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:007a3748a1d49210f909e981360819f51bc3ee6410adb3b10eefe510d3009cab",
+          "current-nlr-pbe-gw-v1:composition:cdb4810fb71100957fec36b74621851c0adc2b977262988855f6bb9868f4eff8"
+        ],
+        "node_indices": [
+          1209,
+          825
+        ],
+        "pbe_band_gap_ev": "2.999",
+        "size": 2,
+        "sorted_positions": [
+          1621,
+          1622
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:17291286e2c11f9795c987b00cf22a9556abec40e954f75505617ad2a941c244",
+          "current-nlr-pbe-gw-v1:composition:5fa03dbb434b66300be75c37483f79bdde23190ab912e5062a08fe9cca4bc399",
+          "current-nlr-pbe-gw-v1:composition:6a725c03812956c8d05b150c69e4c6fa03aa98b7cdb07c0a8813a7a5af42ae00"
+        ],
+        "node_indices": [
+          665,
+          496,
+          2057
+        ],
+        "pbe_band_gap_ev": "3.005",
+        "size": 3,
+        "sorted_positions": [
+          1625,
+          1626,
+          1627
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:15b544b84e81dc2fc176317305af3c7676af3f483493a19fe86ff8bcdc36c11d",
+          "current-nlr-pbe-gw-v1:composition:4be3498428b2c9bd9adb433eb53b29d9cd7ef733831177562730fb5d70637b16",
+          "current-nlr-pbe-gw-v1:composition:541d0b4d14926315378a30196a2d9199c48e78fdc5072a66712b66912df9df3b",
+          "current-nlr-pbe-gw-v1:composition:56a0ba4892a6db3158868f14a594ced7220bf0f49550882d03d9fc800ed69989"
+        ],
+        "node_indices": [
+          831,
+          865,
+          601,
+          325
+        ],
+        "pbe_band_gap_ev": "3.02",
+        "size": 4,
+        "sorted_positions": [
+          1635,
+          1636,
+          1637,
+          1638
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:1e97de2aa0402ac4e07a2386effc7d45cd809503045ab3766247a6a92bb430c6",
+          "current-nlr-pbe-gw-v1:composition:caa95b63dfa0e80526f6d7a34b01de8c7452f2ae1c88fad09e13e4275ef386df"
+        ],
+        "node_indices": [
+          1465,
+          324
+        ],
+        "pbe_band_gap_ev": "3.037",
+        "size": 2,
+        "sorted_positions": [
+          1646,
+          1647
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:3d16c290b1757cf8b4f94229e3215eace100cd07eedc2935b7ec607c4716bcf7",
+          "current-nlr-pbe-gw-v1:composition:9667c15ce567055fdafbd690b9ba55da86fb9ae013fef0f61dc4bd3a5ab8c7be"
+        ],
+        "node_indices": [
+          256,
+          2037
+        ],
+        "pbe_band_gap_ev": "3.042",
+        "size": 2,
+        "sorted_positions": [
+          1649,
+          1650
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:4b20aaeb175c4575d19f1769c38bceade46326169bfb5ded13a9a90f9363dc05",
+          "current-nlr-pbe-gw-v1:composition:70da910b4e0b07f3451e59b2e5620e0348d1e7aece7e2ee4e58f3933c8400a34"
+        ],
+        "node_indices": [
+          1410,
+          1127
+        ],
+        "pbe_band_gap_ev": "3.061",
+        "size": 2,
+        "sorted_positions": [
+          1659,
+          1660
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:4ceb32f1bbe920cc6bad6b1d3fe62aa0968c7b4edd8c426a0e1ea89ebd3c8e51",
+          "current-nlr-pbe-gw-v1:composition:afc3e320df57c06a44f44777cc29f17b6d8dc7779fa1de23691a498525c80b92"
+        ],
+        "node_indices": [
+          1745,
+          1214
+        ],
+        "pbe_band_gap_ev": "3.084",
+        "size": 2,
+        "sorted_positions": [
+          1668,
+          1669
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:091c1b3765c846e473c2c920be1dc4e650737e1d9678daf7663e552b00cbd739",
+          "current-nlr-pbe-gw-v1:composition:f497b1a0539ce4c83bd17499f61b678261230aa39ab1516046fa41364f759a1e"
+        ],
+        "node_indices": [
+          1945,
+          405
+        ],
+        "pbe_band_gap_ev": "3.1",
+        "size": 2,
+        "sorted_positions": [
+          1677,
+          1678
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:c33fe98f1f5d69ecdca631e2c786a5338e0f2f41a4dcc4098c500de44b58c3d1",
+          "current-nlr-pbe-gw-v1:composition:da6385d0f173cd3797c399b9e1faa0986de5cdfc1386a51eb282da725326fae0"
+        ],
+        "node_indices": [
+          1230,
+          1577
+        ],
+        "pbe_band_gap_ev": "3.114",
+        "size": 2,
+        "sorted_positions": [
+          1682,
+          1683
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:742ad09065ed20eeb3b4cc5aba75d1a868b14a9d55520419d821d6ba3a369ae0",
+          "current-nlr-pbe-gw-v1:composition:eeb99babbd3e9e4e6f54d5f8a42b402b6e6e67fef6b2c00dc78feb54eea6948c"
+        ],
+        "node_indices": [
+          677,
+          2117
+        ],
+        "pbe_band_gap_ev": "3.129",
+        "size": 2,
+        "sorted_positions": [
+          1687,
+          1688
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:802d229335a1beebb02821a77a5251cafde78abb734bee95212b834e1c9600e0",
+          "current-nlr-pbe-gw-v1:composition:8b4163872c7ee4d3e6a6774e518cd7381b79b332589d946583a8ff3c16421bda"
+        ],
+        "node_indices": [
+          1803,
+          97
+        ],
+        "pbe_band_gap_ev": "3.17",
+        "size": 2,
+        "sorted_positions": [
+          1699,
+          1700
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:649043c207e40cbef42809f1261986e2b7ffe4979fe2d6aaeac70abc02c4ce35",
+          "current-nlr-pbe-gw-v1:composition:fd71955ec6826ef53f672f5fc8d361471f918474582ce9d5f9c80426ac0d8da8"
+        ],
+        "node_indices": [
+          1703,
+          206
+        ],
+        "pbe_band_gap_ev": "3.176",
+        "size": 2,
+        "sorted_positions": [
+          1702,
+          1703
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:0dc1506ad0201cc5f8c08a7c09a69e6ce67baac67de24c3d1a7c1db9227dda4d",
+          "current-nlr-pbe-gw-v1:composition:f58f585dc42e7628430211e15bb66068103eb27b5e72d928767a7c4761704edc"
+        ],
+        "node_indices": [
+          1701,
+          625
+        ],
+        "pbe_band_gap_ev": "3.239",
+        "size": 2,
+        "sorted_positions": [
+          1719,
+          1720
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:09c192a24b681afb00c63532798304cecf6ded90da77597fa4b5c2cbe718b399",
+          "current-nlr-pbe-gw-v1:composition:6a3398a26864a9bd189b8f3cd7f86864bb7f00c84005337d38feeb79ac30bdf7"
+        ],
+        "node_indices": [
+          1163,
+          854
+        ],
+        "pbe_band_gap_ev": "3.243",
+        "size": 2,
+        "sorted_positions": [
+          1722,
+          1723
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:2f06e1de1fa9e5473f818abcc17f79fd039f6d6e94ed3cf7abaa03a2981192ef",
+          "current-nlr-pbe-gw-v1:composition:7458ee7e23269c7e92857a0d5bf1a5e0c9d44250c41b03afb1b1f8ebda863004"
+        ],
+        "node_indices": [
+          636,
+          1881
+        ],
+        "pbe_band_gap_ev": "3.273",
+        "size": 2,
+        "sorted_positions": [
+          1734,
+          1735
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:29d2d23b49a7310502bdbc7fa6c8b380f3391c92a1c80a1bb409b5ea6ba6ba3e",
+          "current-nlr-pbe-gw-v1:composition:ada95a87198ca137bac8d2cff4060d85555bf5daa02e91dd4e8bbac6c8289f69",
+          "current-nlr-pbe-gw-v1:composition:df74d33bbf34f1adce5de8abe58243fd8de96774d124a9158f6a6cb30f0ab4a7"
+        ],
+        "node_indices": [
+          1846,
+          1296,
+          1211
+        ],
+        "pbe_band_gap_ev": "3.282",
+        "size": 3,
+        "sorted_positions": [
+          1738,
+          1739,
+          1740
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:272b230cf078617ce2d25967a55809d51db6826418828942d6d94ac5c659ef47",
+          "current-nlr-pbe-gw-v1:composition:c1baf3a9122571de4516942d3399eb10eeee25dffa66eaa9a2e85323b0e6ccea"
+        ],
+        "node_indices": [
+          2071,
+          1228
+        ],
+        "pbe_band_gap_ev": "3.333",
+        "size": 2,
+        "sorted_positions": [
+          1748,
+          1749
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:3241951be4a94eb03b491cb3c97b7dab2053000fd231f129cec351014d7f9086",
+          "current-nlr-pbe-gw-v1:composition:3694ce7ecc4498c425a72c8948f8e0f553cb1fcdc075029a35380467e5d62fda"
+        ],
+        "node_indices": [
+          1319,
+          98
+        ],
+        "pbe_band_gap_ev": "3.371",
+        "size": 2,
+        "sorted_positions": [
+          1760,
+          1761
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:5c7f82fa056058c1edf8ea33ce0d68eda3a11fab85451c75ba6f03bf5e4afe23",
+          "current-nlr-pbe-gw-v1:composition:d5be512eed757706e42638f43309f1dc81ccc448f555f1c446cf32042b73e631"
+        ],
+        "node_indices": [
+          614,
+          640
+        ],
+        "pbe_band_gap_ev": "3.372",
+        "size": 2,
+        "sorted_positions": [
+          1762,
+          1763
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:6555c51ab3ca062581bcf496a86c2aff4ae1a7a3f457d7e8429018095be4c2e8",
+          "current-nlr-pbe-gw-v1:composition:82ef2ef9b74073fc147ba827f6091c2b4d5e6906ce8b0b6c66f3164672ebce68"
+        ],
+        "node_indices": [
+          556,
+          1479
+        ],
+        "pbe_band_gap_ev": "3.394",
+        "size": 2,
+        "sorted_positions": [
+          1768,
+          1769
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:48e62eda3ce712256788b6bfcfc3d97410db9ff891a8a56d461e0a744cba2240",
+          "current-nlr-pbe-gw-v1:composition:9db170006274018d40b7e1fb2ebede7ae5ff66056543626fae9c83d11786cb03"
+        ],
+        "node_indices": [
+          550,
+          583
+        ],
+        "pbe_band_gap_ev": "3.416",
+        "size": 2,
+        "sorted_positions": [
+          1776,
+          1777
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:3370d4e089c48e5b075ddd3117637c0acd18710c0e2c7d02a15e8f2c4299d904",
+          "current-nlr-pbe-gw-v1:composition:8cb462e6bfcd887abe365ea0f91b47a07600fd1725973ed1aa6f1973ae0fcdf9"
+        ],
+        "node_indices": [
+          1999,
+          1402
+        ],
+        "pbe_band_gap_ev": "3.48",
+        "size": 2,
+        "sorted_positions": [
+          1793,
+          1794
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:4a5998f646524098c7dd9c7645f6588c60e9ad2454b2b4824d16130f449df740",
+          "current-nlr-pbe-gw-v1:composition:a2b6f47c903b41bc9b2f079c1ead21012e22c865e495db034ea591f1c900878d"
+        ],
+        "node_indices": [
+          90,
+          1832
+        ],
+        "pbe_band_gap_ev": "3.499",
+        "size": 2,
+        "sorted_positions": [
+          1798,
+          1799
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:61ef3c9e7df65ecf9ee295f77a6d29a95ea825593b61d46416633c9947c51822",
+          "current-nlr-pbe-gw-v1:composition:910b1ca1005e3f9c7990bfc337d0493589fd7721aeac5da3bdf4093e11fe938f"
+        ],
+        "node_indices": [
+          318,
+          1258
+        ],
+        "pbe_band_gap_ev": "3.509",
+        "size": 2,
+        "sorted_positions": [
+          1805,
+          1806
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:08b2de649d882253ae4e746a2e0c2f0d5c4c4bfef7b3524cd40cfb6fbaa19cb7",
+          "current-nlr-pbe-gw-v1:composition:0ff3d9314ddc2f14a50d770f24230b23a66bfa23195c394434c926cf494f1bac"
+        ],
+        "node_indices": [
+          454,
+          2116
+        ],
+        "pbe_band_gap_ev": "3.522",
+        "size": 2,
+        "sorted_positions": [
+          1810,
+          1811
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:53d5b5d9b1df600b62927abdd9bfe896536d9fb776e7ef74066490cd532e0ede",
+          "current-nlr-pbe-gw-v1:composition:fa6cde17767e0a83c59a760e360e6c8a075aec8c7827299cf9deea6fdb1781cf"
+        ],
+        "node_indices": [
+          1295,
+          1847
+        ],
+        "pbe_band_gap_ev": "3.525",
+        "size": 2,
+        "sorted_positions": [
+          1812,
+          1813
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:5c1e4cd2027f69c658bdf5cf909f42e9164eea854fadd5764cd492aa9e75673c",
+          "current-nlr-pbe-gw-v1:composition:e870c1d1ddf4738294f5e506145ec1748f074db0f9da7e216091dd9da5b46408"
+        ],
+        "node_indices": [
+          1525,
+          1369
+        ],
+        "pbe_band_gap_ev": "3.539",
+        "size": 2,
+        "sorted_positions": [
+          1818,
+          1819
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:03210a67992ea9ff4c2708f7ce5f7aa8229e2095b70ae91df986b928789cc048",
+          "current-nlr-pbe-gw-v1:composition:19f47d8b7c5aa30ecb6fea9ba1b49ffb707a01fab8a8d3e86916681f7e4e82a1",
+          "current-nlr-pbe-gw-v1:composition:fc071a704e619fc87bafd95775f4b0abaedd9c35790dea49f976dce5c9d28472"
+        ],
+        "node_indices": [
+          1563,
+          2072,
+          1389
+        ],
+        "pbe_band_gap_ev": "3.567",
+        "size": 3,
+        "sorted_positions": [
+          1824,
+          1825,
+          1826
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:0a50ee2ab8f2145fa1aa852b3f4523244c2addeab1581f3e04218f66d4fe298c",
+          "current-nlr-pbe-gw-v1:composition:bc1a2ace200e784c00beaa3cf1c9fd6ed734dfd79466118796b1f366a04d09f7"
+        ],
+        "node_indices": [
+          1868,
+          96
+        ],
+        "pbe_band_gap_ev": "3.569",
+        "size": 2,
+        "sorted_positions": [
+          1827,
+          1828
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:1e72953e3e6739c9246dfcd794b8b173e33d46cb031680efc70cfc73773c7bb5",
+          "current-nlr-pbe-gw-v1:composition:e6e8d8a1afea2429bb93f532c3e1c99793e0bad98ad0bb371147d5767e55d6a1"
+        ],
+        "node_indices": [
+          178,
+          1812
+        ],
+        "pbe_band_gap_ev": "3.577",
+        "size": 2,
+        "sorted_positions": [
+          1832,
+          1833
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:021fa7a1791fd6813cacb90b4d1acab2a16c5ec23df99d610b476e5313ce32c5",
+          "current-nlr-pbe-gw-v1:composition:8313b7a0a0a0167c7d8d1b87e95224a3a16a152bdcd73771186833e4c20785c0"
+        ],
+        "node_indices": [
+          1216,
+          595
+        ],
+        "pbe_band_gap_ev": "3.593",
+        "size": 2,
+        "sorted_positions": [
+          1837,
+          1838
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:8d790019dcef454a1d3e803fa80c1db8d93beb452aa72526df15e514f485427c",
+          "current-nlr-pbe-gw-v1:composition:964e0fe5c14eacc50617b9b09481a24414a121371019499244c61b0551cf171e",
+          "current-nlr-pbe-gw-v1:composition:db788d35e2bd1ed28261d15c1ff8a2aa5cd49fee4e7290a271fbae3f114861bd"
+        ],
+        "node_indices": [
+          1507,
+          320,
+          445
+        ],
+        "pbe_band_gap_ev": "3.627",
+        "size": 3,
+        "sorted_positions": [
+          1847,
+          1848,
+          1849
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:2c3308b818028c98043c506bae7bbbdd5b37819cf78d76ca271092e6c9bf7e2b",
+          "current-nlr-pbe-gw-v1:composition:e80b2327bd1893ace922b8ca5319c31eb890161a646b21ef38eae18f644a175f"
+        ],
+        "node_indices": [
+          554,
+          1862
+        ],
+        "pbe_band_gap_ev": "3.637",
+        "size": 2,
+        "sorted_positions": [
+          1852,
+          1853
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:3c5ff93660dc57332917f7482e44b90b03c2716f833695572a524439675ffb8c",
+          "current-nlr-pbe-gw-v1:composition:bbc9df664df089d4c91f215a5a40e6cbad95d3bcd595c3406a8fa7957efbaeab"
+        ],
+        "node_indices": [
+          1565,
+          1385
+        ],
+        "pbe_band_gap_ev": "3.647",
+        "size": 2,
+        "sorted_positions": [
+          1856,
+          1857
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:a73bbc9d813c95abc7aff8a31ed5677f26567e892f3f19c7d813e9e9b7eb70c9",
+          "current-nlr-pbe-gw-v1:composition:d63d9181e7bbb2c72783889d06f299e6b61c3b47963863637ff07696e4c07a49"
+        ],
+        "node_indices": [
+          81,
+          1285
+        ],
+        "pbe_band_gap_ev": "3.693",
+        "size": 2,
+        "sorted_positions": [
+          1870,
+          1871
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:45e19b41b66ec8e1e71bc639276e6be2fab4f239edbd56986d8d0b372076227b",
+          "current-nlr-pbe-gw-v1:composition:abc6bad7a8cef7065cc65eb422877c67a03068f492298371ef2e656923d8b82b"
+        ],
+        "node_indices": [
+          80,
+          456
+        ],
+        "pbe_band_gap_ev": "3.738",
+        "size": 2,
+        "sorted_positions": [
+          1883,
+          1884
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:5b85592e6f6dc305a7629d8dd2803d5d65a4742a16d6ac26f097161b9aac2a66",
+          "current-nlr-pbe-gw-v1:composition:ff1bbf517b23eeeaed448fd766d4db2d70fbfeee8c1c678a48c68d551e0f8840"
+        ],
+        "node_indices": [
+          1753,
+          370
+        ],
+        "pbe_band_gap_ev": "3.763",
+        "size": 2,
+        "sorted_positions": [
+          1891,
+          1892
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:7a35ef46e575922e26ee8e06fd5c05e3075e551d11ca32243ce8496362639858",
+          "current-nlr-pbe-gw-v1:composition:b1764cbee702c0c11dd77b61920671f78642a22c0debc5f3f5166130aa2bd09f"
+        ],
+        "node_indices": [
+          1305,
+          1952
+        ],
+        "pbe_band_gap_ev": "3.81",
+        "size": 2,
+        "sorted_positions": [
+          1903,
+          1904
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:052ce3e8a18a55c076bc1521826b2edb2feb9a7e8553fe900b9d444a51435a9a",
+          "current-nlr-pbe-gw-v1:composition:622826bb7225cac133db84cdb310697e81ea1bc273e3e1c108d95749c2d90eff",
+          "current-nlr-pbe-gw-v1:composition:6722778a56cbe1e2286f7a1553ea271ceee17eabf03c8cf98a15eb352786bb43"
+        ],
+        "node_indices": [
+          165,
+          148,
+          1480
+        ],
+        "pbe_band_gap_ev": "3.874",
+        "size": 3,
+        "sorted_positions": [
+          1920,
+          1921,
+          1922
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:dfea269fee37e0f667c081af034042a49d7bbd0722b0823ceef1fa90088b1af0",
+          "current-nlr-pbe-gw-v1:composition:ea13681856a49518a2be514cd7a22536fea085f30f9109e04156ae918801d02e"
+        ],
+        "node_indices": [
+          1811,
+          1348
+        ],
+        "pbe_band_gap_ev": "3.876",
+        "size": 2,
+        "sorted_positions": [
+          1923,
+          1924
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:428b0ce084149576366c1647b29107a10a289e79e148115e3dde3cca6edb549f",
+          "current-nlr-pbe-gw-v1:composition:9fec650352dd9b3344518ed2d0446e4f8346950756a81b83478c628199293339"
+        ],
+        "node_indices": [
+          2106,
+          1518
+        ],
+        "pbe_band_gap_ev": "3.924",
+        "size": 2,
+        "sorted_positions": [
+          1934,
+          1935
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:0b071c79f8b9f62dcd6b6f76e068ee670f3cf32c58d0f389d49cef3c713006c0",
+          "current-nlr-pbe-gw-v1:composition:d407bba8451b0cf17b641e6de81c9dfceae39ee4def86b1a38a7ebad19a516f9"
+        ],
+        "node_indices": [
+          1831,
+          1376
+        ],
+        "pbe_band_gap_ev": "3.934",
+        "size": 2,
+        "sorted_positions": [
+          1937,
+          1938
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:170a17e99933de12ca15fac7e75b4a2eb7f0131f07e9150ac477dbe897436162",
+          "current-nlr-pbe-gw-v1:composition:65ab19f031d981b671bc9b7db66928370376af77aaafe43481e621c03e41b78c"
+        ],
+        "node_indices": [
+          1248,
+          88
+        ],
+        "pbe_band_gap_ev": "3.954",
+        "size": 2,
+        "sorted_positions": [
+          1944,
+          1945
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:5962149efb1869bcc6389eb1a0ec1940c3f57bd742705e5534b846409ae4c23b",
+          "current-nlr-pbe-gw-v1:composition:6dce2ebcadbdc5897eaef4da3f9f0b04fd013694802baefb075c66be24f7599f"
+        ],
+        "node_indices": [
+          1173,
+          1487
+        ],
+        "pbe_band_gap_ev": "3.979",
+        "size": 2,
+        "sorted_positions": [
+          1951,
+          1952
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:099c43ea4e5e7eec1c44881ddc043fe90b4485ef121191bc600931337125fd45",
+          "current-nlr-pbe-gw-v1:composition:59f3f705e75e0103babec2de92b588f6450bfee4149a886a08ae498b972e0b24"
+        ],
+        "node_indices": [
+          2103,
+          1874
+        ],
+        "pbe_band_gap_ev": "4.066",
+        "size": 2,
+        "sorted_positions": [
+          1969,
+          1970
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:3fb669c5bfae897f6bfe25b950932d3d3167901e56ac363fc480288b2be41c97",
+          "current-nlr-pbe-gw-v1:composition:9e43dbea00c748b36c05a31937743311a1ef54006acd9a442239ab52f4f82508"
+        ],
+        "node_indices": [
+          1203,
+          177
+        ],
+        "pbe_band_gap_ev": "4.135",
+        "size": 2,
+        "sorted_positions": [
+          1977,
+          1978
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:66f241f084aee6d28e5cdbbfd84b7761802069995ffc550ae7962e944b1347dc",
+          "current-nlr-pbe-gw-v1:composition:d862db20a3bd5b48d025d279ecc372052107721c338c4dea33fd7421f1bea78c"
+        ],
+        "node_indices": [
+          140,
+          587
+        ],
+        "pbe_band_gap_ev": "4.162",
+        "size": 2,
+        "sorted_positions": [
+          1984,
+          1985
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:31fb15e1b9a9cdb75690cd026592f821c6fa0b4414b838229595d01ece59b1b9",
+          "current-nlr-pbe-gw-v1:composition:6e0db65c32c8187db6bee5ea8b5bb93557702d0ab01b5272e195ba52f821cfe0"
+        ],
+        "node_indices": [
+          271,
+          1524
+        ],
+        "pbe_band_gap_ev": "4.189",
+        "size": 2,
+        "sorted_positions": [
+          1988,
+          1989
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:471d1f205765bce766f74354ae8da7f8c02208bb32a420f1ef674c12ba8c0096",
+          "current-nlr-pbe-gw-v1:composition:b3ecb5c37294f8bf10479539d6d5a76efae33c34d8ab9c24ecc1da00f4963fe2"
+        ],
+        "node_indices": [
+          621,
+          633
+        ],
+        "pbe_band_gap_ev": "4.264",
+        "size": 2,
+        "sorted_positions": [
+          2002,
+          2003
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:10b3beb12c0bf41452e154ec2c85f07e44e419160dfc45e23ddefad337b9b8da",
+          "current-nlr-pbe-gw-v1:composition:e0141e105547c6f9298be049516a4f998c1c0889f0d24423a3367815a9045190"
+        ],
+        "node_indices": [
+          114,
+          335
+        ],
+        "pbe_band_gap_ev": "4.353",
+        "size": 2,
+        "sorted_positions": [
+          2016,
+          2017
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:603bc73d3f206f03d325fa172a5817cf81ebdbad75cfeacd95a53189e94415f4",
+          "current-nlr-pbe-gw-v1:composition:c1b0fa58889999828ea5c30d45d7fb24d6c94dcca4fc0abd0f2eccae7942db32"
+        ],
+        "node_indices": [
+          1835,
+          130
+        ],
+        "pbe_band_gap_ev": "4.481",
+        "size": 2,
+        "sorted_positions": [
+          2044,
+          2045
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:1760344ef32580633940616fe4776bb6d0dedb83ad940ddfeb14b2ef5af79757",
+          "current-nlr-pbe-gw-v1:composition:a8bdec48ad19568919b1080641e6b7882b6adea9b078f0257d28840e906fea06"
+        ],
+        "node_indices": [
+          107,
+          2067
+        ],
+        "pbe_band_gap_ev": "4.494",
+        "size": 2,
+        "sorted_positions": [
+          2049,
+          2050
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:39318d1cd4a0928250d0ce4bebbef679216305734c6687d885f8d5a3339e2b8c",
+          "current-nlr-pbe-gw-v1:composition:e472d97a080dfacfe120478b8ef30a439d56d276c83e046d02f31ffa78b5d864"
+        ],
+        "node_indices": [
+          451,
+          1425
+        ],
+        "pbe_band_gap_ev": "4.507",
+        "size": 2,
+        "sorted_positions": [
+          2054,
+          2055
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:437fd8af971958a59bedea525d3c00ea463f5aa7b414163f21daa2defff69a36",
+          "current-nlr-pbe-gw-v1:composition:480bebfbb34dd4078d01c630b1230dfa27603b8418f5d596339e577582eaaf20"
+        ],
+        "node_indices": [
+          285,
+          492
+        ],
+        "pbe_band_gap_ev": "4.532",
+        "size": 2,
+        "sorted_positions": [
+          2059,
+          2060
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:2cf3c686170c107e92d5c167fe19f13457f3ca1fa7764a9fda261cae6f138062",
+          "current-nlr-pbe-gw-v1:composition:775f4a0c029ed3f704bc080a4c285da1e1d6ea78126fa362bb4296a5a89feebe",
+          "current-nlr-pbe-gw-v1:composition:be2f9cec95cefb3480d6322ca71ea02cc11c0ba0c09dc699b7e41d33beefc127"
+        ],
+        "node_indices": [
+          314,
+          643,
+          617
+        ],
+        "pbe_band_gap_ev": "4.551",
+        "size": 3,
+        "sorted_positions": [
+          2063,
+          2064,
+          2065
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:5c70682537ae5a2735cfd589d69699da58777b10505b6a614f59cf72bdd8c678",
+          "current-nlr-pbe-gw-v1:composition:ee9399be9df54e90259b741d2c65d1e1ae56b2b223c8ad0638a08216f976e29f"
+        ],
+        "node_indices": [
+          158,
+          626
+        ],
+        "pbe_band_gap_ev": "4.659",
+        "size": 2,
+        "sorted_positions": [
+          2088,
+          2089
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:8c9dec7dd416969f39f411dfe31a3263622033bc76807c06ecfe3bd548bbdc3a",
+          "current-nlr-pbe-gw-v1:composition:c8a3687130abb28158a6facefdce7269db11eea7125dbf45df24c7a20344e83b"
+        ],
+        "node_indices": [
+          149,
+          112
+        ],
+        "pbe_band_gap_ev": "4.811",
+        "size": 2,
+        "sorted_positions": [
+          2106,
+          2107
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:6520fc4474b6fe56282bc56ec0fe3b080819cf9ef4114688fb93a8a9cf7f4afe",
+          "current-nlr-pbe-gw-v1:composition:d9ae1ce9c5702c157fb7cc054c5351c1c05c7e04f4d37933bbe08bc541035fde"
+        ],
+        "node_indices": [
+          115,
+          164
+        ],
+        "pbe_band_gap_ev": "4.813",
+        "size": 2,
+        "sorted_positions": [
+          2108,
+          2109
+        ]
+      },
+      {
+        "composition_keys": [
+          "current-nlr-pbe-gw-v1:composition:a85ce10521eb3916da62188134f705a87eabd1c19e16db0a80f6678f12074068",
+          "current-nlr-pbe-gw-v1:composition:ff3817a064b605969938c4d10efbbdff13c9f0d4b3e9f2a0f4c721454abbbba4"
+        ],
+        "node_indices": [
+          565,
+          584
+        ],
+        "pbe_band_gap_ev": "4.878",
+        "size": 2,
+        "sorted_positions": [
+          2113,
+          2114
+        ]
+      }
+    ]
+  }
+}

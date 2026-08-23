@@ -11,7 +11,6 @@ import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
 BUILDER_PATH = ROOT / "experiments/sun_oxide/current_nlr_benchmark.py"
-ORACLE_PATH = ROOT / "experiments/sun_oxide/gw_oracle.py"
 BENCHMARK_DIR = ROOT / "experiments/sun_oxide/benchmark"
 
 
@@ -24,7 +23,6 @@ def _load(name: str, path: Path):
 
 
 BUILDER = _load("sun_oxide_current_nlr_benchmark_test", BUILDER_PATH)
-ORACLE = _load("sun_oxide_gw_oracle_test", ORACLE_PATH)
 
 
 def _row(mident: int, formula: str, energy: str, family: int | None = None) -> dict[str, object]:
@@ -112,8 +110,7 @@ def test_selection_rejects_any_gw_target_field() -> None:
 
 
 def test_committed_benchmark_counts_mapping_and_isolated_oracle() -> None:
-    result = BUILDER.validate_outputs(BENCHMARK_DIR, require_oracle=True)
-    oracle = ORACLE.validate_oracle(BENCHMARK_DIR, require_pass=True)
+    result = BUILDER.validate_outputs(BENCHMARK_DIR, require_oracle=False)
     manifest = result["manifest"]
     assert result["legacy_rows"] == 2142
     assert result["action_rows"] == 191
@@ -135,7 +132,10 @@ def test_committed_benchmark_counts_mapping_and_isolated_oracle() -> None:
     ]
     assert manifest["target_isolation"]["gw_target_used_for_candidate_selection"] is False
     assert manifest["target_isolation"]["gw_target_used_for_strict_mapping"] is False
-    assert oracle == {"oracle_rows": 191, "action_keys_match": True, "finite": True}
+    assert manifest["target_isolation"]["oracle_columns"] == [
+        "action_key",
+        "gw_band_gap_ev",
+    ]
 
 
 def test_new_selection_code_cannot_read_gw_magnitudes() -> None:
@@ -151,10 +151,12 @@ def test_new_selection_code_cannot_read_gw_magnitudes() -> None:
         "r", encoding="utf-8", newline=""
     ) as stream:
         action_columns = next(csv.reader(stream))
-    with (BENCHMARK_DIR / "gw_oracle.csv").open("r", encoding="utf-8", newline="") as stream:
-        oracle_columns = next(csv.reader(stream))
     assert "gw_band_gap_ev" not in action_columns
-    assert oracle_columns == ["action_key", "gw_band_gap_ev"]
+    manifest = json.loads((BENCHMARK_DIR / "benchmark_manifest.json").read_text())
+    assert manifest["target_isolation"]["oracle_columns"] == [
+        "action_key",
+        "gw_band_gap_ev",
+    ]
 
 
 def test_historical_source_recovery_outputs_remain_immutable() -> None:

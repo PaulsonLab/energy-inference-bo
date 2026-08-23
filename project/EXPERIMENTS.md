@@ -31,7 +31,7 @@ conditioning cost when nontrivial fitting is used.
 |---|---|---|---|
 | E1 | Nonlocal reflection symmetry | Main mechanism + certificate | `ACTIVE`; T2-B validation and finite-grid pilot passed; repeats/baselines remain |
 | E2 | Nonlinear PDE expanding-domain scaling | Main scaling/inference consequence | `ACTIVE`; T2-B and family T4 passed; robustness/baselines remain |
-| E3 | Realistic non-PDE sequential BO | Main end-to-end sequential test | Historical reproduction `JOIN_AMBIGUOUS`; current-NLR benchmark frozen; descriptor/reference-graph gate `PASS_DESCRIPTOR_GRAPH`; no factors or BO designed |
+| E3 | Realistic non-PDE sequential BO | Main end-to-end sequential test | Current-NLR benchmark, descriptor/reference graph, and frozen PBE-factor theory gates passed; no BO run |
 | E4 | Linear PDE factor graph | Supplementary control | `EXISTING EVIDENCE / SUPPLEMENT` |
 | A1 | Factor-selection ablations | Supplement | `PLANNED` after primary pipelines |
 | A2 | Inference-backend comparison | Supplement/modularity | `PLANNED` after primary pipelines |
@@ -163,7 +163,7 @@ factors.
 
 ## E3 — Realistic non-PDE BO candidate
 
-**Status:** `DESCRIPTOR/REFERENCE GRAPH PASSED / CURRENT NLR BENCHMARK FROZEN / HISTORICAL REPRODUCTION JOIN_AMBIGUOUS / BO NOT DESIGNED`.
+**Status:** `PBE FACTOR THEORY PASSED / DESCRIPTOR-REFERENCE GRAPH PASSED / CURRENT NLR BENCHMARK FROZEN / HISTORICAL REPRODUCTION JOIN_AMBIGUOUS / BO NOT RUN`.
 
 The exact historical **Sun et al. PBE→GW oxide legacy-data problem** failed its
 first source-recovery gate. The current authoritative NREL/NLR queries reproduce
@@ -215,6 +215,19 @@ all 191 actions map uniquely. No GW value was read and no benchmark PBE value
 entered descriptor or graph construction. This is a representation/reference
 compatibility result, not theory, inference, or BO evidence. Committed result:
 [`outputs/descriptor_graph/VERIFICATION.md`](../experiments/sun_oxide/outputs/descriptor_graph/VERIFICATION.md).
+
+The prospectively frozen `ADJACENT_STRICT_PBE_ORDER_V1` gate passed as
+`PASS_PBE_FACTOR_THEORY`. It produced 1,681 strict consecutive factors after
+omitting 460 exact-tie adjacencies in 369 tie groups; the factor graph has
+maximum degree two and spectral norm `1.988275914308721`. The existing scalar-
+block Menz construction `A0=Q0-0.25R` has analytic eigenvalue floor `0.5` and
+numerical smallest eigenvalue `0.5896249844278044`; sparse action-row solves,
+later-observation diagonal-monotonicity checks, and all 18,145 target-blind
+action-pair influence diagnostics completed without a dense inverse. The
+90/95/99%-influence fractions remain diagnostics, not sparsity gates. No GW
+value was read, and no posterior inference, BO, or covariance-theory extension
+was performed. Committed result:
+[`outputs/pbe_factor_theory/RESULTS.md`](../experiments/sun_oxide/outputs/pbe_factor_theory/RESULTS.md).
 
 ### Closed E3 evidence
 
@@ -282,9 +295,12 @@ on screenshots or notebook output alone.
    end-to-end pilot.
 2. **Completed:** current-NLR oxide benchmark freeze and descriptor/reference-
    graph compatibility gate.
-3. **Next:** construct the sparse PBE-order legacy factor bank and verify
-   existing-theory compatibility.
-4. Run the E1 repeated mechanism/coverage experiment and frozen baselines.
-5. Expand E2 across source fields/BO states with the smallest necessary
+3. **Completed:** sparse PBE-order legacy factor bank and existing-theory
+   compatibility gate.
+4. **Next:** run the minimal sequential BO value pilot comparing no legacy
+   factors versus full PBE-order conditioning using the same graph-Gaussian
+   reference.
+5. Run the E1 repeated mechanism/coverage experiment and frozen baselines.
+6. Expand E2 across source fields/BO states with the smallest necessary
    baseline set.
-6. Run broad supplementary sampler/factor-selection ablations only afterward.
+7. Run broad supplementary sampler/factor-selection ablations only afterward.
