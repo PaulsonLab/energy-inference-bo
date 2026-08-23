@@ -31,7 +31,7 @@ conditioning cost when nontrivial fitting is used.
 |---|---|---|---|
 | E1 | Nonlocal reflection symmetry | Main mechanism + certificate | `ACTIVE`; T2-B validation and finite-grid pilot passed; repeats/baselines remain |
 | E2 | Nonlinear PDE expanding-domain scaling | Main scaling/inference consequence | `ACTIVE`; T2-B and family T4 passed; robustness/baselines remain |
-| E3 | Realistic non-PDE sequential BO | Main end-to-end sequential test | Current-NLR benchmark, descriptor/reference graph, and frozen PBE-factor theory gates passed; no BO run |
+| E3 | Realistic non-PDE sequential BO | Main end-to-end sequential test | Current-NLR benchmark, descriptor/reference graph, adjacent baseline, and normalized PBE-model gates passed; no BO run |
 | E4 | Linear PDE factor graph | Supplementary control | `EXISTING EVIDENCE / SUPPLEMENT` |
 | A1 | Factor-selection ablations | Supplement | `PLANNED` after primary pipelines |
 | A2 | Inference-backend comparison | Supplement/modularity | `PLANNED` after primary pipelines |
@@ -163,7 +163,7 @@ factors.
 
 ## E3 — Realistic non-PDE BO candidate
 
-**Status:** `PBE FACTOR THEORY PASSED / DESCRIPTOR-REFERENCE GRAPH PASSED / CURRENT NLR BENCHMARK FROZEN / HISTORICAL REPRODUCTION JOIN_AMBIGUOUS / BO NOT RUN`.
+**Status:** `NORMALIZED PBE MODEL PASSED / ADJACENT BASELINE VALID / DESCRIPTOR-REFERENCE GRAPH PASSED / CURRENT NLR BENCHMARK FROZEN / HISTORICAL REPRODUCTION JOIN_AMBIGUOUS / BO NOT RUN`.
 
 The exact historical **Sun et al. PBE→GW oxide legacy-data problem** failed its
 first source-recovery gate. The current authoritative NREL/NLR queries reproduce
@@ -228,6 +228,24 @@ action-pair influence diagnostics completed without a dense inverse. The
 value was read, and no posterior inference, BO, or covariance-theory extension
 was performed. Committed result:
 [`outputs/pbe_factor_theory/RESULTS.md`](../experiments/sun_oxide/outputs/pbe_factor_theory/RESULTS.md).
+
+The prospectively frozen replacement-model gate passed as
+`PASS_NORMALIZED_PBE_MODEL`. `PBE_SUPPORT_500_V1` contains all 191 actions plus
+309 PBE-only nodes from deterministic farthest-point sampling in the committed
+standardized Magpie space. `NORMALIZED_ALL_PAIRS_PBE_500_V1` retains 124,718
+strict PBE pairs with global weight `1/499` and omits 32 exact-tie pairs in 23
+tie groups. The maximum weighted row sum is `0.9999999999999997`, the numerical
+weighted-adjacency norm is `0.9997442203602465`, and
+`A0=Q0-0.25W_pbe` has analytic eigenvalue floor `0.75` and numerical minimum
+`0.9003424446737381`. Sparse solves, factor calculus, and later-observation
+M-matrix/resolvent checks passed without a dense inverse. The PBE-only MAP
+shows a nontrivial global ordinal signal relative to the adjacent-chain sparse
+baseline; the 256-pair 50/75/90/95%-influence summaries remain diagnostics
+without a signal or sparsity threshold. No GW value, inference, BO, or new
+covariance theorem entered this gate. The adjacent chain remains a valid sparse
+baseline; the normalized 500-support model is the proposed E3 full-conditioning
+model. Committed result:
+[`outputs/normalized_pbe_model/RESULTS.md`](../experiments/sun_oxide/outputs/normalized_pbe_model/RESULTS.md).
 
 ### Closed E3 evidence
 

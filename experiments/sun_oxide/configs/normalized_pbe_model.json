@@ -1,0 +1,104 @@
+{
+  "action_count": 191,
+  "benchmark_name": "CURRENT_NLR_PBE_GW_V1",
+  "descriptor_standardization": {
+    "mean_sha256": "9dd1cc7fede4a47db35c528b739964d3df3a7fd32eecb889abcc07830919206b",
+    "scale_sha256": "18709c2e9d1e6f2296af72e37ae6ba5228b4e3bb2bf744c8a35d41678f89191b"
+  },
+  "factor_bank": {
+    "energy": "omega * log(1 + exp(-s_ij * (Y_i - Y_j)))",
+    "name": "NORMALIZED_ALL_PAIRS_PBE_500_V1",
+    "temperature": 1.0,
+    "weight": 0.002004008016032064
+  },
+  "influence": {
+    "chunk_size": 16384,
+    "diagnostic_pair_count": 256,
+    "pairs_per_distance_quartile": 64,
+    "thresholds": [0.5, 0.75, 0.9, 0.95]
+  },
+  "inputs": {
+    "action_node_mapping": {
+      "path": "experiments/sun_oxide/outputs/descriptor_graph/action_node_map.csv",
+      "sha256": "b3c0db9d3d8424c3f0a28a8712ebe1cb0822d9c80076208addf77f73c59479c0"
+    },
+    "adjacent_factor_bank": {
+      "path": "experiments/sun_oxide/outputs/pbe_factor_theory/pbe_factor_bank.csv",
+      "sha256": "ad84fd5676dce613f3c9a8942002245beac692567f390cc4da9d9d171ebaf4d5"
+    },
+    "descriptor_matrix": {
+      "path": "experiments/sun_oxide/outputs/descriptor_graph/descriptor_matrix.npz",
+      "sha256": "8dabfc302eb804e4e20cf6eb365f6095c01144b090a5a35d9adc6f1dc5c41e4d"
+    },
+    "legacy_pbe": {
+      "path": "experiments/sun_oxide/benchmark/current_nlr_legacy.csv",
+      "sha256": "24313a76530dd07c8545d57699ba9abadfb42d5be90573e918f235e39fe505e4"
+    },
+    "nlr_data_use_notice": {
+      "path": "experiments/sun_oxide/benchmark/NLR_DATA_USE_NOTICE.txt",
+      "sha256": "886e5fae4d4a935dd12f548a8e733708d1e8f727b66675b4015e68917c6e224b"
+    },
+    "q0": {
+      "path": "experiments/sun_oxide/outputs/descriptor_graph/q0_sparse.npz",
+      "sha256": "92c86d2b98d6e60c266e3e9b1018897b4f26c7f4142103d03896f90a0f2a14f1"
+    }
+  },
+  "legacy_node_count": 2142,
+  "map": {
+    "chunk_size": 16384,
+    "function_tolerance": 1e-14,
+    "gradient_tolerance": 1e-10,
+    "maximum_iterations": 2000,
+    "required_gradient_infinity_norm": 1e-07
+  },
+  "observation_uniformity": {
+    "patterns": [
+      {
+        "action_positions": [0],
+        "diagonal_precision": 0.25,
+        "name": "single_first_action"
+      },
+      {
+        "action_positions": [0, 19, 38, 57, 76, 95, 114, 133, 152, 171, 190],
+        "diagonal_precision": 1.0,
+        "name": "eleven_spread_actions"
+      },
+      {
+        "action_positions": "all",
+        "diagonal_precision": 4.0,
+        "name": "all_actions"
+      }
+    ],
+    "probe_action_positions": [0, 95, 190]
+  },
+  "prospective_verdict": {
+    "analytic_a0_eigenvalue_floor_minimum": 0.75,
+    "influence_diagnostics_are_a_gate": false,
+    "map_signal_diagnostics_are_a_gate": false,
+    "numerical_a0_eigenvalue_floor_tolerance": 1e-08,
+    "numerical_a0_spd_required": true,
+    "oracle_isolation_required": true,
+    "sparse_solve_relative_residual_maximum": 1e-10,
+    "verdict_on_pass": "PASS_NORMALIZED_PBE_MODEL",
+    "weighted_adjacency_norm_maximum": 1.0,
+    "weighted_row_sum_maximum": 1.0
+  },
+  "schema_version": 1,
+  "support": {
+    "action_count": 191,
+    "additional_pbe_only_count": 309,
+    "name": "PBE_SUPPORT_500_V1",
+    "selection": "deterministic farthest-point sampling in standardized Magpie descriptor space",
+    "support_count": 500
+  },
+  "tolerances": {
+    "eigenvalue": 1e-08,
+    "finite_difference": 1e-08,
+    "inverse_nonnegative": 1e-10,
+    "observation_identity": 1e-10,
+    "sign": 1e-14,
+    "solve_relative_residual": 1e-10,
+    "symmetry": 1e-12,
+    "weighted_row_sum": 1e-12
+  }
+}

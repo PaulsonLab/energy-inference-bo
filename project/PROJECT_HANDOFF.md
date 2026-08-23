@@ -108,7 +108,7 @@ Details: [`experiments/symmetry/`](../experiments/symmetry/) and its immutable
 Details: [`experiments/nonlinear_pde/`](../experiments/nonlinear_pde/) and its
 immutable [`RESULTS.md`](../experiments/nonlinear_pde/outputs/t2b_structural_validation/RESULTS.md).
 
-### E3 — Sun oxide source, benchmark, reference graph, and PBE-factor theory gate
+### E3 — Sun oxide source, benchmark, reference graph, and PBE-model gates
 
 - Source recovery closed with terminal verdict `JOIN_AMBIGUOUS`; this is a
   historical data-provenance result, not evidence for the paper method, and it
@@ -139,7 +139,18 @@ immutable [`RESULTS.md`](../experiments/nonlinear_pde/outputs/t2b_structural_val
   `A0=Q0-0.25R` has analytic eigenvalue floor `0.5` and numerical minimum
   `0.5896249844278044`. Sparse solves and all 18,145 target-blind action-pair
   diagnostics completed without a dense inverse. No GW value, inference, or
-  BO entered this gate, and `THEORY.tex` was unchanged.
+  BO entered this gate, and `THEORY.tex` was unchanged. This remains the valid
+  sparse-compression baseline.
+- The target-blind normalized replacement model passed as
+  `PASS_NORMALIZED_PBE_MODEL`. `PBE_SUPPORT_500_V1` contains every one of the
+  191 actions plus 309 deterministic descriptor-space farthest-point nodes;
+  `NORMALIZED_ALL_PAIRS_PBE_500_V1` contains 124,718 strict PBE pairs at weight
+  `1/499`, omitting 32 exact-tie pairs. Its weighted adjacency has maximum row
+  sum `0.9999999999999997` and norm `0.9997442203602465`; the existing Menz
+  matrix has analytic eigenvalue floor `0.75` and numerical minimum
+  `0.9003424446737381`. PBE-only MAP and 256-pair influence diagnostics
+  completed without reading GW values, inference, BO, a dense inverse, or a
+  theory-ledger edit. This is the proposed E3 full-conditioning model.
 
 Details: [`experiments/sun_oxide/`](../experiments/sun_oxide/) and its immutable
 [`SOURCE_AUDIT.md`](../experiments/sun_oxide/outputs/source_recovery/SOURCE_AUDIT.md),
@@ -148,7 +159,9 @@ plus the current-NLR
 and independently checked descriptor/graph
 [`VERIFICATION.md`](../experiments/sun_oxide/outputs/descriptor_graph/VERIFICATION.md),
 plus the frozen factor/theory
-[`RESULTS.md`](../experiments/sun_oxide/outputs/pbe_factor_theory/RESULTS.md).
+[`RESULTS.md`](../experiments/sun_oxide/outputs/pbe_factor_theory/RESULTS.md),
+and the normalized-model
+[`RESULTS.md`](../experiments/sun_oxide/outputs/normalized_pbe_model/RESULTS.md).
 
 ### E4 — linear PDE supplementary control
 
@@ -190,8 +203,8 @@ remain in place; see [`experiments/README.md`](../experiments/README.md) and
 
 ## Next work
 
-Run the minimal sequential BO value pilot comparing no legacy factors versus
-full PBE-order conditioning using the same graph-Gaussian reference.
+Run the minimal Colab sequential BO value pilot: NO_PBE versus FULL_PBE using
+the normalized 500-support model.
 
 ## Operating rules
 

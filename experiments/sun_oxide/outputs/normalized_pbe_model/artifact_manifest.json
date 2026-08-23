@@ -1,0 +1,52 @@
+{
+  "files": [
+    {
+      "path": "RESULTS.md",
+      "sha256": "a4905a08d005472fa1beb9c29ef20948b350290b84e25d74796b606cbabb5864",
+      "size_bytes": 2953
+    },
+    {
+      "path": "pbe_support_500.csv",
+      "sha256": "0221b294f9c1018aee7101a92707880d3f15a301373c1c5a8f14b53104abbeca",
+      "size_bytes": 83038
+    },
+    {
+      "path": "normalized_pbe_factor_bank.csv",
+      "sha256": "ee4f1913ad065b4a59b391d373ce7831749b0de6adfa9f513fcf76da576c5388",
+      "size_bytes": 5751903
+    },
+    {
+      "path": "model_summary.json",
+      "sha256": "25a87a13efb5885f376b9131956bcf183323e349c107d061eafc875a00289dc8",
+      "size_bytes": 4725
+    },
+    {
+      "path": "theory_summary.json",
+      "sha256": "cbe383f87894a4ffd501cea0fbac9bab2232d31eb4400d997b39cbb27e5402b3",
+      "size_bytes": 4254
+    },
+    {
+      "path": "pbe_signal_summary.json",
+      "sha256": "5ea0fbd53679f4c10d5e7614e120d0a6ff8e946c2317c678d3cd3894c2d54838",
+      "size_bytes": 2701
+    },
+    {
+      "path": "influence_summary.json",
+      "sha256": "54ba448fa8bc989b9e3b204d0b428b7ab23be36cd0748c3827739cb4d37566d9",
+      "size_bytes": 11654
+    },
+    {
+      "path": "influence_pair_summary.csv",
+      "sha256": "922681dce703729854fe93e0eb56c888073087d5ffec2bfd4b64adc181c392c0",
+      "size_bytes": 107431
+    },
+    {
+      "path": "NLR_DATA_USE_NOTICE.txt",
+      "sha256": "886e5fae4d4a935dd12f548a8e733708d1e8f727b66675b4015e68917c6e224b",
+      "size_bytes": 2025
+    }
+  ],
+  "schema_version": 1,
+  "starting_sha": "810d3c29ac3579a1159ad7eba301df4069db8d66",
+  "verdict": "PASS_NORMALIZED_PBE_MODEL"
+}

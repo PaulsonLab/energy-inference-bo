@@ -71,7 +71,7 @@ The committed result directory carries the full NLR data-use notice.
 No GW value was read, no benchmark PBE value entered descriptor or graph
 construction, and no preference-factor, influence, inference, or BO code ran.
 
-## Frozen PBE-order factor and existing-theory gate
+## Frozen adjacent PBE-order baseline and existing-theory gate
 
 [`pbe_factor_theory.py`](pbe_factor_theory.py) constructs
 `ADJACENT_STRICT_PBE_ORDER_V1` from the committed PBE gaps in
@@ -87,3 +87,22 @@ GW numerical value. The model-specific existing-Menz-theory check passed as
 [`RESULTS.md`](outputs/pbe_factor_theory/RESULTS.md). The 90/95/99%-influence
 factor fractions are target-blind diagnostics, not sparsity gates. This run
 performed no posterior sampling, Laplace inference, or BO.
+
+## Normalized PBE full-conditioning model
+
+The target-blind replacement-model gate passed as
+`PASS_NORMALIZED_PBE_MODEL`. [`normalized_pbe_model.py`](normalized_pbe_model.py)
+freezes `PBE_SUPPORT_500_V1` with all 191 actions plus 309 deterministic
+descriptor-space farthest-point nodes, and freezes all 124,718 strict PBE pairs
+as `NORMALIZED_ALL_PAIRS_PBE_500_V1` with global weight `1/499`; 32 exact-tie
+pairs are omitted. This is a normalized composite/generalized-Bayes ranking
+energy, not an independent all-pairs likelihood.
+
+The weighted graph and existing-Menz checks pass, with analytic `A0` eigenvalue
+floor `0.75` and numerical minimum `0.9003424446737381`. The PBE-only MAP and
+256 stratified action-pair influence summaries are diagnostics without a
+signal or sparsity threshold. No GW value, posterior inference, or BO entered
+the gate. The adjacent model above remains an immutable valid sparse baseline;
+the normalized model is the proposed E3 full-conditioning model. See the
+model [specification](NORMALIZED_PBE_MODEL.md) and immutable
+[`RESULTS.md`](outputs/normalized_pbe_model/RESULTS.md).

@@ -1,0 +1,382 @@
+{
+  "action_pair_selection": {
+    "all_action_pair_count": 18145,
+    "all_pair_distance_histogram": {
+      "1": 428,
+      "10": 61,
+      "11": 10,
+      "2": 784,
+      "3": 1516,
+      "4": 2573,
+      "5": 3403,
+      "6": 3596,
+      "7": 3305,
+      "8": 1909,
+      "9": 560
+    },
+    "diagnostic_pair_count": 256,
+    "pairs_per_distance_quartile": 64,
+    "quartile_definition": "sort all action pairs by unweighted descriptor-graph distance then stable pair key; split rank order into four contiguous buckets",
+    "quartiles": [
+      {
+        "candidate_distance": {
+          "max": 4.0,
+          "mean": 3.037249283667622,
+          "median": 3.0,
+          "min": 1.0,
+          "p90": 4.0,
+          "p95": 4.0,
+          "q25": 2.0,
+          "q75": 4.0
+        },
+        "candidate_pair_count": 4537,
+        "quartile": 1,
+        "selected_distance": {
+          "max": 4.0,
+          "mean": 3.15625,
+          "median": 4.0,
+          "min": 1.0,
+          "p90": 4.0,
+          "p95": 4.0,
+          "q25": 2.0,
+          "q75": 4.0
+        },
+        "selected_pair_count": 64
+      },
+      {
+        "candidate_distance": {
+          "max": 6.0,
+          "mean": 4.912918871252205,
+          "median": 5.0,
+          "min": 4.0,
+          "p90": 5.0,
+          "p95": 6.0,
+          "q25": 5.0,
+          "q75": 5.0
+        },
+        "candidate_pair_count": 4536,
+        "quartile": 2,
+        "selected_distance": {
+          "max": 6.0,
+          "mean": 5.609375,
+          "median": 6.0,
+          "min": 5.0,
+          "p90": 6.0,
+          "p95": 6.0,
+          "q25": 5.0,
+          "q75": 6.0
+        },
+        "selected_pair_count": 64
+      },
+      {
+        "candidate_distance": {
+          "max": 7.0,
+          "mean": 6.28858024691358,
+          "median": 6.0,
+          "min": 6.0,
+          "p90": 7.0,
+          "p95": 7.0,
+          "q25": 6.0,
+          "q75": 7.0
+        },
+        "candidate_pair_count": 4536,
+        "quartile": 3,
+        "selected_distance": {
+          "max": 7.0,
+          "mean": 7.0,
+          "median": 7.0,
+          "min": 7.0,
+          "p90": 7.0,
+          "p95": 7.0,
+          "q25": 7.0,
+          "q75": 7.0
+        },
+        "selected_pair_count": 64
+      },
+      {
+        "candidate_distance": {
+          "max": 11.0,
+          "mean": 7.716931216931217,
+          "median": 8.0,
+          "min": 7.0,
+          "p90": 9.0,
+          "p95": 9.0,
+          "q25": 7.0,
+          "q75": 8.0
+        },
+        "candidate_pair_count": 4536,
+        "quartile": 4,
+        "selected_distance": {
+          "max": 10.0,
+          "mean": 8.1875,
+          "median": 8.0,
+          "min": 8.0,
+          "p90": 9.0,
+          "p95": 9.0,
+          "q25": 8.0,
+          "q75": 8.0
+        },
+        "selected_pair_count": 64
+      }
+    ],
+    "within_quartile_selection": "lexicographically smallest stable pair keys"
+  },
+  "diagnostic_not_gate": true,
+  "formula": "omega * (C[x,a] + C[x,b] + C[xhat,a] + C[xhat,b])",
+  "pair_diagnostics": {
+    "by_distance_quartile": {
+      "1": {
+        "factor_fractions_required": {
+          "50_percent": {
+            "max": 0.007087990506582851,
+            "median": 0.006169919338026588,
+            "min": 0.005315992879937138,
+            "p90": 0.006863484019949005,
+            "q25": 0.005835164130277907,
+            "q75": 0.006711140332590323
+          },
+          "75_percent": {
+            "max": 0.05428246123254061,
+            "median": 0.027686460655238217,
+            "min": 0.007986016453118234,
+            "p90": 0.045291778251735915,
+            "q25": 0.019201318173800094,
+            "q75": 0.037382334546737436
+          },
+          "90_percent": {
+            "max": 0.4072307124873715,
+            "median": 0.3957528183582162,
+            "min": 0.38529322150772144,
+            "p90": 0.40302923395179524,
+            "q25": 0.39041477573405603,
+            "q75": 0.40069997915296907
+          },
+          "95_percent": {
+            "max": 0.6769672380891291,
+            "median": 0.6738121201430427,
+            "min": 0.6713385397456663,
+            "p90": 0.6757244343238346,
+            "q25": 0.6726033932551837,
+            "q75": 0.6748604852547347
+          }
+        },
+        "pair_count": 64,
+        "total_structural_influence": {
+          "max": 1.8415063590254266,
+          "median": 1.5989668939398671,
+          "min": 1.3685763102899382,
+          "p90": 1.780443545549301,
+          "q25": 1.5148619055838124,
+          "q75": 1.7337840272581175
+        }
+      },
+      "2": {
+        "factor_fractions_required": {
+          "50_percent": {
+            "max": 0.007344569348450103,
+            "median": 0.006169919338026588,
+            "min": 0.005267884347087028,
+            "p90": 0.00698375535207428,
+            "q25": 0.005877259096521753,
+            "q75": 0.006560801167433731
+          },
+          "75_percent": {
+            "max": 0.0515162205936593,
+            "median": 0.031390817684696676,
+            "min": 0.00791385365384307,
+            "p90": 0.04597732484484998,
+            "q25": 0.0229638063471191,
+            "q75": 0.03883761766545327
+          },
+          "90_percent": {
+            "max": 0.40776792443753107,
+            "median": 0.3962860212639715,
+            "min": 0.38696098397985856,
+            "p90": 0.40337962443272024,
+            "q25": 0.39383048156641387,
+            "q75": 0.39987812505011305
+          },
+          "95_percent": {
+            "max": 0.6786189643836495,
+            "median": 0.6748664988213409,
+            "min": 0.671811606985359,
+            "p90": 0.677181321060312,
+            "q25": 0.6738020975320322,
+            "q75": 0.6762977276736317
+          }
+        },
+        "pair_count": 64,
+        "total_structural_influence": {
+          "max": 1.9025133684795472,
+          "median": 1.589939220556445,
+          "min": 1.3590501516594906,
+          "p90": 1.8105008667132452,
+          "q25": 1.5121101795578156,
+          "q75": 1.688534184856941
+        }
+      },
+      "3": {
+        "factor_fractions_required": {
+          "50_percent": {
+            "max": 0.007320515082025049,
+            "median": 0.006250100226110104,
+            "min": 0.005340047146362193,
+            "p90": 0.0066766625507144114,
+            "q25": 0.005917349540563511,
+            "q75": 0.006534742378806587
+          },
+          "75_percent": {
+            "max": 0.05185298032361006,
+            "median": 0.031242483041742167,
+            "min": 0.008322776183069003,
+            "p90": 0.04356227649577447,
+            "q25": 0.02402820763642778,
+            "q75": 0.03775918472072996
+          },
+          "90_percent": {
+            "max": 0.41277922994275085,
+            "median": 0.4001747943360221,
+            "min": 0.38943857342163923,
+            "p90": 0.40537773216376144,
+            "q25": 0.39727224618739876,
+            "q75": 0.40276664154332176
+          },
+          "95_percent": {
+            "max": 0.6804390705431453,
+            "median": 0.6760812392758062,
+            "min": 0.6728539585304447,
+            "p90": 0.6777129203483058,
+            "q25": 0.674525730046986,
+            "q75": 0.6771656857871358
+          }
+        },
+        "pair_count": 64,
+        "total_structural_influence": {
+          "max": 1.902873537196831,
+          "median": 1.6077451035704695,
+          "min": 1.3719574675727513,
+          "p90": 1.721731782616348,
+          "q25": 1.5276130932749996,
+          "q75": 1.6842349699211765
+        }
+      },
+      "4": {
+        "factor_fractions_required": {
+          "50_percent": {
+            "max": 0.007336551259641752,
+            "median": 0.00612982889398483,
+            "min": 0.0053721195015956,
+            "p90": 0.007197838323257268,
+            "q25": 0.005748969675588127,
+            "q75": 0.006819384531503071
+          },
+          "75_percent": {
+            "max": 0.05397777385782325,
+            "median": 0.027686460655238217,
+            "min": 0.009276928751262849,
+            "p90": 0.04787841370131016,
+            "q25": 0.018732259978511523,
+            "q75": 0.0422633461088215
+          },
+          "90_percent": {
+            "max": 0.4071184592440546,
+            "median": 0.39505925367629374,
+            "min": 0.3881717153899197,
+            "p90": 0.4027983129941147,
+            "q25": 0.3908337208742924,
+            "q75": 0.39762504209496624
+          },
+          "95_percent": {
+            "max": 0.6782260780320403,
+            "median": 0.6735114418127295,
+            "min": 0.6712262865023493,
+            "p90": 0.6775100627014544,
+            "q25": 0.672084222004843,
+            "q75": 0.6766124376593595
+          }
+        },
+        "pair_count": 64,
+        "total_structural_influence": {
+          "max": 1.9026637842100143,
+          "median": 1.5809697288181006,
+          "min": 1.3825420863712554,
+          "p90": 1.8675748134274088,
+          "q25": 1.483557670379834,
+          "q75": 1.7596815302844309
+        }
+      }
+    },
+    "chunk_size": 16384,
+    "diagnostic_action_pair_count": 256,
+    "diagnostic_not_gate": true,
+    "factor_count": 124718,
+    "factor_fractions_required": {
+      "50_percent": {
+        "max": 0.007344569348450103,
+        "median": 0.006161901249218236,
+        "min": 0.005267884347087028,
+        "p90": 0.0069556920412450485,
+        "q25": 0.005877259096521753,
+        "q75": 0.006578841867252522
+      },
+      "75_percent": {
+        "max": 0.05428246123254061,
+        "median": 0.029831299411472282,
+        "min": 0.00791385365384307,
+        "p90": 0.04561490723071249,
+        "q25": 0.02059646562645328,
+        "q75": 0.03914030051796854
+      },
+      "90_percent": {
+        "max": 0.41277922994275085,
+        "median": 0.39678715181449353,
+        "min": 0.38529322150772144,
+        "p90": 0.4039513141647557,
+        "q25": 0.3925656280568964,
+        "q75": 0.40096056703924055
+      },
+      "95_percent": {
+        "max": 0.6804390705431453,
+        "median": 0.674662037556728,
+        "min": 0.6712262865023493,
+        "p90": 0.6773801696627593,
+        "q25": 0.6731426097275454,
+        "q75": 0.6763919402171299
+      }
+    },
+    "minimum_unclipped_factor_contribution": 1.3122045269387338e-06,
+    "total_structural_influence": {
+      "max": 1.902873537196831,
+      "median": 1.5914923939750794,
+      "min": 1.3590501516594906,
+      "p90": 1.800356455662144,
+      "q25": 1.5117293159418148,
+      "q75": 1.6980702639433656
+    }
+  },
+  "pair_influence_computation_seconds": 0.9886161251924932,
+  "schema_version": 1,
+  "sparse_a0": {
+    "action_multiple_rhs_count": 191,
+    "action_multiple_rhs_solve_seconds": 0.0386099589522928,
+    "action_solve_relative_frobenius_residual": 1.6157178193330642e-15,
+    "factorization_count": 1,
+    "factorization_seconds": 0.0326173750218004,
+    "full_dense_inverse_formed": false,
+    "minimum_selected_inverse_entry": 6.92109746286823e-07,
+    "selected_submatrix_symmetry_max_abs_error": 1.3877787807814457e-16
+  },
+  "target_blind": true,
+  "target_isolation": {
+    "allowed_scientific_input_paths": [
+      "experiments/sun_oxide/outputs/descriptor_graph/action_node_map.csv",
+      "experiments/sun_oxide/outputs/pbe_factor_theory/pbe_factor_bank.csv",
+      "experiments/sun_oxide/outputs/descriptor_graph/descriptor_matrix.npz",
+      "experiments/sun_oxide/benchmark/current_nlr_legacy.csv",
+      "experiments/sun_oxide/benchmark/NLR_DATA_USE_NOTICE.txt",
+      "experiments/sun_oxide/outputs/descriptor_graph/q0_sparse.npz"
+    ],
+    "target_statistics_computed": false,
+    "target_values_read": false
+  }
+}

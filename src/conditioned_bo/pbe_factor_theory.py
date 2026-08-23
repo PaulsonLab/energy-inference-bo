@@ -647,6 +647,7 @@ def observation_pattern_diagnostics(
     eigenvalue_tolerance: float,
     identity_tolerance: float,
     nonnegative_tolerance: float,
+    factor_mixed_curvature_bound: float = MAX_MIXED_CURVATURE,
 ) -> list[dict[str, Any]]:
     base = sparse.csr_matrix(a0, dtype=np.float64)
     probes = np.asarray(probe_indices, dtype=np.int64)
@@ -695,7 +696,7 @@ def observation_pattern_diagnostics(
                 "diagonal_precision": precision,
                 "smallest_eigenvalue": minimum_eigenvalue,
                 "positive_definite": True,
-                "factor_mixed_curvature_bound": MAX_MIXED_CURVATURE,
+                "factor_mixed_curvature_bound": factor_mixed_curvature_bound,
                 "same_factor_hessian_bound": True,
                 "probe_indices": probes.tolist(),
                 "resolvent_identity_max_abs_error": identity_error,

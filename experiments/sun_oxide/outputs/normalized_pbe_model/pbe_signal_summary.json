@@ -1,0 +1,73 @@
+{
+  "adjacent_chain_baseline": {
+    "actions_191": {
+      "decile_count": 20,
+      "map_range": 0.5089668650139221,
+      "map_standard_deviation": 0.11706782281474491,
+      "node_count": 191,
+      "spearman_pbe_rank_vs_map_rank": 0.09758197850647561,
+      "strict_pair_count": 18145,
+      "strict_pair_ordering_accuracy": 0.5323229539818132,
+      "top_decile_minus_bottom_decile_map_contrast": 0.02498082502201361
+    },
+    "optimization": {
+      "function_evaluations": 13,
+      "gradient_infinity_norm": 8.77639586560619e-08,
+      "iterations": 12,
+      "latent_sha256": "0483b168df95d9fa723e9d0e3af176306e9f70ff008e7cdee2e49646f2f3e039",
+      "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "objective": 1124.1129140651901,
+      "optimizer": "scipy.optimize.minimize/L-BFGS-B",
+      "status": 0,
+      "success": true,
+      "wall_seconds": 0.0017867919523268938
+    },
+    "support_500": {
+      "decile_count": 50,
+      "map_range": 0.5364920031324716,
+      "map_standard_deviation": 0.12794007022373557,
+      "node_count": 500,
+      "spearman_pbe_rank_vs_map_rank": 0.06724929032854206,
+      "strict_pair_count": 124718,
+      "strict_pair_ordering_accuracy": 0.5229798425247358,
+      "top_decile_minus_bottom_decile_map_contrast": 0.006122335643862421
+    }
+  },
+  "diagnostic_not_gate": true,
+  "normalized_dense": {
+    "actions_191": {
+      "decile_count": 20,
+      "map_range": 0.5366290682201622,
+      "map_standard_deviation": 0.13127579151553523,
+      "node_count": 191,
+      "spearman_pbe_rank_vs_map_rank": 0.9881802838247451,
+      "strict_pair_count": 18145,
+      "strict_pair_ordering_accuracy": 0.955800496004409,
+      "top_decile_minus_bottom_decile_map_contrast": 0.41891835995749493
+    },
+    "optimization": {
+      "function_evaluations": 13,
+      "gradient_infinity_norm": 5.8771928702211484e-08,
+      "iterations": 12,
+      "latent_sha256": "e5e93d08a02da39ec6a28b8b4da4d026af5826e619c7dfd4973c95c1c8f7d34d",
+      "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "objective": 162.49430820198356,
+      "optimizer": "scipy.optimize.minimize/L-BFGS-B",
+      "status": 0,
+      "success": true,
+      "wall_seconds": 0.027867833152413368
+    },
+    "support_500": {
+      "decile_count": 50,
+      "map_range": 0.624767429672815,
+      "map_standard_deviation": 0.15058901323379695,
+      "node_count": 500,
+      "spearman_pbe_rank_vs_map_rank": 0.9897442696242639,
+      "strict_pair_count": 124718,
+      "strict_pair_ordering_accuracy": 0.9571192610529354,
+      "top_decile_minus_bottom_decile_map_contrast": 0.4681808563614075
+    }
+  },
+  "schema_version": 1,
+  "target_blind": true
+}
