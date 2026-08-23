@@ -247,6 +247,20 @@ baseline; the normalized 500-support model is the proposed E3 full-conditioning
 model. Committed result:
 [`outputs/normalized_pbe_model/RESULTS.md`](../experiments/sun_oxide/outputs/normalized_pbe_model/RESULTS.md).
 
+The next E3 gate is preregistered but not run: compare `NO_PBE` with
+`FULL_PBE` for 12 seeded, 12-query retrospective GW BO trajectories using the
+same frozen Gaussian reference and initial-observation scaling. Its scientific
+claim is only that full conditioning on `NORMALIZED_ALL_PAIRS_PBE_500_V1`
+improves ordinary scalar-observation GW BO. The prospective value criterion is
+median FULL_PBE AURC at most 90% of median NO_PBE AURC, with no worse median
+final regret. FULL_PBE uses a 500-dimensional Laplace approximation to the
+exact reduced conditioned target; prospectively frozen three-state SNIS checks
+must each have ESS fraction at least 0.10 and Laplace-action estimated EI regret
+at most `max(0.02, 2 * pairwise-gap MC SE)`. Initial-state failure blocks the
+rollout; a later validation failure preserves trajectories but blocks a
+scientifically validated value verdict. No adaptive conditioning enters this
+gate, and the real GW oracle is not opened during preregistration.
+
 ### Closed E3 evidence
 
 | Case | Frozen provenance | Exact verdict and interpretation | Immutable record |
