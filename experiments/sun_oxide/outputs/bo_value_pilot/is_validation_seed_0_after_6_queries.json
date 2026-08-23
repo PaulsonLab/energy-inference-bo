@@ -1,0 +1,921 @@
+{
+  "decision_regret_threshold_standardized": 0.02,
+  "ess": 3708.272829175229,
+  "ess_fraction": 0.9053400461853587,
+  "ess_fraction_minimum": 0.1,
+  "importance_sampling_seconds": 30.87823333800003,
+  "importance_validation_in_routine_decision_time": false,
+  "is_estimated_regret_standardized": 3.532291818310513e-05,
+  "is_selected_action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010746",
+  "is_selected_action_position": 179,
+  "is_selected_snis_ei_standardized": 3.532291818310513e-05,
+  "laplace_action_snis_ei_standardized": 0.0,
+  "laplace_is_exact_conditioned_posterior": false,
+  "laplace_selected_action_key": "current-nlr-pbe-gw-v1:gw:matdb:000286993",
+  "laplace_selected_action_position": 134,
+  "pairwise_gap_mc_se_standardized": 3.531531148464987e-05,
+  "pairwise_gap_snis_estimate_standardized": 3.532291818310513e-05,
+  "passed": true,
+  "rng_seed": 920007,
+  "sample_count": 4096,
+  "schema_version": 1,
+  "state": "seed_0_after_6_queries",
+  "total_validation_seconds": 30.87823333800003,
+  "unobserved_action_snis_ei": [
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000286913",
+      "action_position": 0,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289692",
+      "action_position": 1,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289828",
+      "action_position": 2,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289861",
+      "action_position": 4,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009985",
+      "action_position": 6,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009995",
+      "action_position": 8,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289592",
+      "action_position": 9,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009582",
+      "action_position": 10,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289615",
+      "action_position": 16,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000012394",
+      "action_position": 17,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289620",
+      "action_position": 18,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000012301",
+      "action_position": 19,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000286928",
+      "action_position": 20,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010038",
+      "action_position": 21,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011844",
+      "action_position": 22,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010465",
+      "action_position": 23,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000286938",
+      "action_position": 24,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000286943",
+      "action_position": 25,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289616",
+      "action_position": 26,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289674",
+      "action_position": 27,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000012353",
+      "action_position": 28,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289656",
+      "action_position": 29,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289701",
+      "action_position": 30,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000286958",
+      "action_position": 31,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000012401",
+      "action_position": 32,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289702",
+      "action_position": 33,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289708",
+      "action_position": 34,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289723",
+      "action_position": 35,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000286963",
+      "action_position": 36,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011636",
+      "action_position": 37,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000286953",
+      "action_position": 38,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289712",
+      "action_position": 39,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000286968",
+      "action_position": 40,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010975",
+      "action_position": 41,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000012174",
+      "action_position": 42,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010575",
+      "action_position": 43,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011802",
+      "action_position": 44,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011201",
+      "action_position": 45,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289999",
+      "action_position": 46,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290087",
+      "action_position": 47,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289757",
+      "action_position": 48,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010042",
+      "action_position": 49,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289780",
+      "action_position": 51,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289740",
+      "action_position": 52,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289794",
+      "action_position": 53,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289808",
+      "action_position": 54,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009667",
+      "action_position": 55,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009691",
+      "action_position": 56,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009900",
+      "action_position": 58,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010018",
+      "action_position": 59,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011892",
+      "action_position": 60,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011004",
+      "action_position": 61,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010085",
+      "action_position": 62,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000286978",
+      "action_position": 63,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289994",
+      "action_position": 64,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289867",
+      "action_position": 65,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290176",
+      "action_position": 66,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290178",
+      "action_position": 67,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289894",
+      "action_position": 68,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289849",
+      "action_position": 69,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000286988",
+      "action_position": 70,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289958",
+      "action_position": 71,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290106",
+      "action_position": 72,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011744",
+      "action_position": 73,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011596",
+      "action_position": 74,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010320",
+      "action_position": 75,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010421",
+      "action_position": 76,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011455",
+      "action_position": 77,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011269",
+      "action_position": 78,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011024",
+      "action_position": 79,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000012255",
+      "action_position": 80,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010113",
+      "action_position": 81,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009677",
+      "action_position": 82,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010126",
+      "action_position": 83,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010806",
+      "action_position": 84,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011426",
+      "action_position": 85,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000012300",
+      "action_position": 86,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009700",
+      "action_position": 87,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010152",
+      "action_position": 88,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000012367",
+      "action_position": 89,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010163",
+      "action_position": 90,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009737",
+      "action_position": 91,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000012050",
+      "action_position": 92,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010188",
+      "action_position": 93,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009916",
+      "action_position": 94,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010033",
+      "action_position": 96,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000012095",
+      "action_position": 97,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289909",
+      "action_position": 98,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000012289",
+      "action_position": 99,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011879",
+      "action_position": 100,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010236",
+      "action_position": 101,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011827",
+      "action_position": 102,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010244",
+      "action_position": 103,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000012241",
+      "action_position": 104,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000012079",
+      "action_position": 105,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009856",
+      "action_position": 106,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000012176",
+      "action_position": 107,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011437",
+      "action_position": 108,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011890",
+      "action_position": 109,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010295",
+      "action_position": 110,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009877",
+      "action_position": 111,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010334",
+      "action_position": 112,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009927",
+      "action_position": 113,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010348",
+      "action_position": 114,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010393",
+      "action_position": 115,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010518",
+      "action_position": 116,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289858",
+      "action_position": 118,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289924",
+      "action_position": 119,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290331",
+      "action_position": 120,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010436",
+      "action_position": 121,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010046",
+      "action_position": 122,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010448",
+      "action_position": 123,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010087",
+      "action_position": 124,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010478",
+      "action_position": 125,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289890",
+      "action_position": 126,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289918",
+      "action_position": 127,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289881",
+      "action_position": 128,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289900",
+      "action_position": 129,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289977",
+      "action_position": 130,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289910",
+      "action_position": 131,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289932",
+      "action_position": 132,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000286998",
+      "action_position": 133,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000286993",
+      "action_position": 134,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289941",
+      "action_position": 135,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011348",
+      "action_position": 136,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010484",
+      "action_position": 137,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290046",
+      "action_position": 138,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290025",
+      "action_position": 139,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289987",
+      "action_position": 140,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010136",
+      "action_position": 141,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290107",
+      "action_position": 142,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011392",
+      "action_position": 143,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011288",
+      "action_position": 144,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011066",
+      "action_position": 145,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011962",
+      "action_position": 146,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011961",
+      "action_position": 147,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010195",
+      "action_position": 148,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011568",
+      "action_position": 149,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011727",
+      "action_position": 150,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290117",
+      "action_position": 151,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290129",
+      "action_position": 152,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000287048",
+      "action_position": 153,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290272",
+      "action_position": 154,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290153",
+      "action_position": 155,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010543",
+      "action_position": 157,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290197",
+      "action_position": 158,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290146",
+      "action_position": 159,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010765",
+      "action_position": 160,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010256",
+      "action_position": 161,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010290",
+      "action_position": 162,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010337",
+      "action_position": 163,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011873",
+      "action_position": 164,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010269",
+      "action_position": 166,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010851",
+      "action_position": 167,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010666",
+      "action_position": 168,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290368",
+      "action_position": 169,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011153",
+      "action_position": 170,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290229",
+      "action_position": 171,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010842",
+      "action_position": 172,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010309",
+      "action_position": 173,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000287088",
+      "action_position": 174,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290273",
+      "action_position": 175,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000287053",
+      "action_position": 176,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010890",
+      "action_position": 177,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000287083",
+      "action_position": 178,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010746",
+      "action_position": 179,
+      "snis_ei_standardized": 3.532291818310513e-05
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011761",
+      "action_position": 180,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290216",
+      "action_position": 181,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290238",
+      "action_position": 182,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010902",
+      "action_position": 183,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010790",
+      "action_position": 184,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290276",
+      "action_position": 185,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010678",
+      "action_position": 186,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290154",
+      "action_position": 187,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011210",
+      "action_position": 188,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290236",
+      "action_position": 189,
+      "snis_ei_standardized": 0.0
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290308",
+      "action_position": 190,
+      "snis_ei_standardized": 0.0
+    }
+  ],
+  "validation_alters_bo_decision": false,
+  "validation_only_state_inference_seconds": 0.0,
+  "weight_diagnostics": {
+    "factor_sample_evaluation_seconds": 30.554747367000004,
+    "full_samples_by_factors_materialized": false,
+    "maximum_materialized_factor_sample_shape": [
+      64,
+      8192
+    ]
+  }
+}

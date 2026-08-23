@@ -1,0 +1,38 @@
+{
+  "action_count": 191,
+  "actual_q0_sparse_solve_relative_residual": 2.3846283869987974e-16,
+  "config_sha256": "6cc47d41dfbdbf88187d535d405ca6afd971e4b07f91932d55dbbbf5c101ef0f",
+  "factor_count": 124718,
+  "oracle_file_opened": false,
+  "packages": {
+    "matplotlib": "3.11.1",
+    "numpy": "2.3.5",
+    "pandas": "2.3.3",
+    "scipy": "1.18.0"
+  },
+  "python": "3.12.13",
+  "q0_shape": [
+    2142,
+    2142
+  ],
+  "run_sha": "44f58f100f41247afe0937e42eebe58055104225",
+  "safe_input_hashes_verified": [
+    "action_node_mapping",
+    "benchmark_manifest",
+    "nlr_data_use_notice",
+    "normalized_model_manifest",
+    "normalized_pbe_factor_bank",
+    "pbe_support",
+    "q0"
+  ],
+  "status": "SMOKE_PASS",
+  "support_count": 500,
+  "toy_exact_marginal_schur_match": true,
+  "toy_laplace_cholesky_success": true,
+  "toy_laplace_sample_shape": [
+    8,
+    2
+  ],
+  "toy_map_gradient_infinity_norm": 9.575167403538462e-09,
+  "toy_principal_submatrix_shortcut_rejected": true
+}

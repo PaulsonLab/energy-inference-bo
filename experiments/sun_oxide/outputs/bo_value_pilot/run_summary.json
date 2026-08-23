@@ -1,0 +1,105 @@
+{
+  "completed_seed_count": 12,
+  "config_sha256": "6cc47d41dfbdbf88187d535d405ca6afd971e4b07f91932d55dbbbf5c101ef0f",
+  "metrics": {
+    "fraction_seeds_full_pbe_wins": 0.8333333333333334,
+    "global_optimum_discovery_count": {
+      "FULL_PBE": 10,
+      "NO_PBE": 4
+    },
+    "median_aurc_ev": {
+      "FULL_PBE": 1.0169999999999995,
+      "NO_PBE": 19.444499999999998
+    },
+    "median_final_simple_regret_ev": {
+      "FULL_PBE": 0.0,
+      "NO_PBE": 0.8309999999999995
+    },
+    "median_simple_regret_trajectory_ev": {
+      "FULL_PBE": [
+        0.5960000000000001,
+        0.30100000000000016,
+        0.10449999999999982,
+        0.10449999999999982,
+        0.10449999999999982,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "NO_PBE": [
+        2.795,
+        2.795,
+        2.795,
+        2.795,
+        2.5065,
+        1.3849999999999998,
+        1.2835,
+        1.1914999999999996,
+        1.1914999999999996,
+        0.8309999999999995,
+        0.8309999999999995,
+        0.8309999999999995
+      ]
+    },
+    "oracle_maximum_ev": 10.349,
+    "paired_aurc_difference_full_minus_no_ev": [
+      -13.975,
+      -11.18,
+      -52.27499999999999,
+      0.0,
+      0.0,
+      -26.45,
+      -12.438000000000002,
+      -50.58000000000001,
+      -21.24000000000002,
+      -52.519999999999996,
+      -20.078999999999997,
+      -1.4629999999999974
+    ],
+    "pbe_vs_gw_spearman_191_actions_diagnostic": 0.833265591875016,
+    "time_to_first_oracle_top_10": {
+      "FULL_PBE": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        5,
+        0,
+        1,
+        7,
+        1,
+        0,
+        0
+      ],
+      "NO_PBE": [
+        0,
+        1,
+        null,
+        0,
+        0,
+        11,
+        0,
+        null,
+        null,
+        null,
+        0,
+        0
+      ]
+    }
+  },
+  "numerical_error": null,
+  "run_sha": "44f58f100f41247afe0937e42eebe58055104225",
+  "schema_version": 1,
+  "scientific_verdict": "PASS_PBE_VALUE",
+  "terminal_state": "PASS_PBE_VALUE_COLAB",
+  "validation_passed": {
+    "seed_0_after_12_queries": true,
+    "seed_0_after_6_queries": true,
+    "seed_0_initial": true
+  }
+}

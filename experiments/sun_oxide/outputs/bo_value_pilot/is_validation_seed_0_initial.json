@@ -1,0 +1,951 @@
+{
+  "decision_regret_threshold_standardized": 0.02,
+  "ess": 3707.296051568482,
+  "ess_fraction": 0.9051015750899615,
+  "ess_fraction_minimum": 0.1,
+  "importance_sampling_seconds": 32.26452797799999,
+  "importance_validation_in_routine_decision_time": false,
+  "is_estimated_regret_standardized": 0.002893584388914578,
+  "is_selected_action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011924",
+  "is_selected_action_position": 5,
+  "is_selected_snis_ei_standardized": 0.00842171074566262,
+  "laplace_action_snis_ei_standardized": 0.005528126356748043,
+  "laplace_is_exact_conditioned_posterior": false,
+  "laplace_selected_action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010014",
+  "laplace_selected_action_position": 13,
+  "pairwise_gap_mc_se_standardized": 0.001370153040464393,
+  "pairwise_gap_snis_estimate_standardized": 0.002893584388914576,
+  "passed": true,
+  "rng_seed": 920001,
+  "sample_count": 4096,
+  "schema_version": 1,
+  "state": "seed_0_initial",
+  "total_validation_seconds": 32.26452797799999,
+  "unobserved_action_snis_ei": [
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000286913",
+      "action_position": 0,
+      "snis_ei_standardized": 0.0005224328574104848
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289692",
+      "action_position": 1,
+      "snis_ei_standardized": 0.004013707712987092
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289828",
+      "action_position": 2,
+      "snis_ei_standardized": 0.0024969069872408226
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289861",
+      "action_position": 4,
+      "snis_ei_standardized": 0.005232296298911825
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011924",
+      "action_position": 5,
+      "snis_ei_standardized": 0.00842171074566262
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009985",
+      "action_position": 6,
+      "snis_ei_standardized": 0.005143802495370452
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009995",
+      "action_position": 8,
+      "snis_ei_standardized": 0.002267972817075764
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289592",
+      "action_position": 9,
+      "snis_ei_standardized": 0.003688389106812728
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009582",
+      "action_position": 10,
+      "snis_ei_standardized": 0.006337508293544268
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010003",
+      "action_position": 11,
+      "snis_ei_standardized": 0.005826405427692931
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009592",
+      "action_position": 12,
+      "snis_ei_standardized": 0.006784403377563418
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010014",
+      "action_position": 13,
+      "snis_ei_standardized": 0.005528126356748043
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010786",
+      "action_position": 15,
+      "snis_ei_standardized": 0.007699801105113193
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289615",
+      "action_position": 16,
+      "snis_ei_standardized": 0.005164771545500709
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000012394",
+      "action_position": 17,
+      "snis_ei_standardized": 0.003190876221451172
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289620",
+      "action_position": 18,
+      "snis_ei_standardized": 0.0026171819280465048
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000012301",
+      "action_position": 19,
+      "snis_ei_standardized": 0.0008095277187932465
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000286928",
+      "action_position": 20,
+      "snis_ei_standardized": 0.0016383416443036146
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010038",
+      "action_position": 21,
+      "snis_ei_standardized": 0.0025113736528479457
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011844",
+      "action_position": 22,
+      "snis_ei_standardized": 0.0027881591058111443
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010465",
+      "action_position": 23,
+      "snis_ei_standardized": 0.0009161628690977277
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000286938",
+      "action_position": 24,
+      "snis_ei_standardized": 0.0027456103582867188
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000286943",
+      "action_position": 25,
+      "snis_ei_standardized": 0.005243237695021316
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289616",
+      "action_position": 26,
+      "snis_ei_standardized": 0.005031894772912821
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289674",
+      "action_position": 27,
+      "snis_ei_standardized": 0.003174698753584544
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000012353",
+      "action_position": 28,
+      "snis_ei_standardized": 0.0032986907719815004
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289656",
+      "action_position": 29,
+      "snis_ei_standardized": 0.0054317356522930165
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289701",
+      "action_position": 30,
+      "snis_ei_standardized": 0.0033010454673592145
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000286958",
+      "action_position": 31,
+      "snis_ei_standardized": 0.004594074926556403
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000012401",
+      "action_position": 32,
+      "snis_ei_standardized": 0.002070925186995244
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289702",
+      "action_position": 33,
+      "snis_ei_standardized": 0.0023213338163654987
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289708",
+      "action_position": 34,
+      "snis_ei_standardized": 0.002226437039613765
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289723",
+      "action_position": 35,
+      "snis_ei_standardized": 0.001925959526323529
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000286963",
+      "action_position": 36,
+      "snis_ei_standardized": 0.0025159919793719594
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011636",
+      "action_position": 37,
+      "snis_ei_standardized": 0.004854761812919958
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000286953",
+      "action_position": 38,
+      "snis_ei_standardized": 0.004679791684849493
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289712",
+      "action_position": 39,
+      "snis_ei_standardized": 0.0037391800245250946
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000286968",
+      "action_position": 40,
+      "snis_ei_standardized": 0.00417085919860993
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010975",
+      "action_position": 41,
+      "snis_ei_standardized": 0.002502306405795735
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000012174",
+      "action_position": 42,
+      "snis_ei_standardized": 0.002002970406971283
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010575",
+      "action_position": 43,
+      "snis_ei_standardized": 0.003496795400240852
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011802",
+      "action_position": 44,
+      "snis_ei_standardized": 0.003187056493572228
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011201",
+      "action_position": 45,
+      "snis_ei_standardized": 0.002381703487072736
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289999",
+      "action_position": 46,
+      "snis_ei_standardized": 0.006124429134965506
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290087",
+      "action_position": 47,
+      "snis_ei_standardized": 0.0023406407614750243
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289757",
+      "action_position": 48,
+      "snis_ei_standardized": 0.0034362401789550393
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010042",
+      "action_position": 49,
+      "snis_ei_standardized": 0.0038700358142746446
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289780",
+      "action_position": 51,
+      "snis_ei_standardized": 0.003944682071442051
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289740",
+      "action_position": 52,
+      "snis_ei_standardized": 0.004548802554965008
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289794",
+      "action_position": 53,
+      "snis_ei_standardized": 0.0025179608782984683
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289808",
+      "action_position": 54,
+      "snis_ei_standardized": 0.0033208023576141617
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009667",
+      "action_position": 55,
+      "snis_ei_standardized": 0.0011182361385415772
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009691",
+      "action_position": 56,
+      "snis_ei_standardized": 0.004242916351357441
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009900",
+      "action_position": 58,
+      "snis_ei_standardized": 0.0019607676746770087
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010018",
+      "action_position": 59,
+      "snis_ei_standardized": 0.0009401547066906376
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011892",
+      "action_position": 60,
+      "snis_ei_standardized": 0.0016336357805475563
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011004",
+      "action_position": 61,
+      "snis_ei_standardized": 0.002456196037248776
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010085",
+      "action_position": 62,
+      "snis_ei_standardized": 0.0009792993889200911
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000286978",
+      "action_position": 63,
+      "snis_ei_standardized": 0.0012790455277000433
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289994",
+      "action_position": 64,
+      "snis_ei_standardized": 0.003377340069926823
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289867",
+      "action_position": 65,
+      "snis_ei_standardized": 0.002449199970376059
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290176",
+      "action_position": 66,
+      "snis_ei_standardized": 0.003012681619763281
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290178",
+      "action_position": 67,
+      "snis_ei_standardized": 0.004113126619311859
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289894",
+      "action_position": 68,
+      "snis_ei_standardized": 0.004658908131448231
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289849",
+      "action_position": 69,
+      "snis_ei_standardized": 0.0021024741509141293
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000286988",
+      "action_position": 70,
+      "snis_ei_standardized": 0.0032649511129716332
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289958",
+      "action_position": 71,
+      "snis_ei_standardized": 0.007663612546851566
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290106",
+      "action_position": 72,
+      "snis_ei_standardized": 0.003979557181094492
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011744",
+      "action_position": 73,
+      "snis_ei_standardized": 0.0034772969481653144
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011596",
+      "action_position": 74,
+      "snis_ei_standardized": 0.0006665264419976119
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010320",
+      "action_position": 75,
+      "snis_ei_standardized": 0.0033408580221971668
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010421",
+      "action_position": 76,
+      "snis_ei_standardized": 0.001165778165571597
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011455",
+      "action_position": 77,
+      "snis_ei_standardized": 0.004635700447041641
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011269",
+      "action_position": 78,
+      "snis_ei_standardized": 0.001061297922478601
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011024",
+      "action_position": 79,
+      "snis_ei_standardized": 0.0009885375048807872
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000012255",
+      "action_position": 80,
+      "snis_ei_standardized": 0.0011455590898773425
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010113",
+      "action_position": 81,
+      "snis_ei_standardized": 0.0019844745873980963
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009677",
+      "action_position": 82,
+      "snis_ei_standardized": 0.002290488993379574
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010126",
+      "action_position": 83,
+      "snis_ei_standardized": 0.001466979950734508
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010806",
+      "action_position": 84,
+      "snis_ei_standardized": 0.0018501670500564397
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011426",
+      "action_position": 85,
+      "snis_ei_standardized": 0.006752985414759824
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000012300",
+      "action_position": 86,
+      "snis_ei_standardized": 0.0009779030270249559
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009700",
+      "action_position": 87,
+      "snis_ei_standardized": 0.004202622734238117
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010152",
+      "action_position": 88,
+      "snis_ei_standardized": 0.003962356026204947
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000012367",
+      "action_position": 89,
+      "snis_ei_standardized": 0.003141437137745644
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010163",
+      "action_position": 90,
+      "snis_ei_standardized": 0.004363133283143506
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009737",
+      "action_position": 91,
+      "snis_ei_standardized": 0.0032511646267830876
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000012050",
+      "action_position": 92,
+      "snis_ei_standardized": 0.0010479433836232885
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010188",
+      "action_position": 93,
+      "snis_ei_standardized": 0.0009206631706530716
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009916",
+      "action_position": 94,
+      "snis_ei_standardized": 0.001233063594063668
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010033",
+      "action_position": 96,
+      "snis_ei_standardized": 0.0013177034008953728
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000012095",
+      "action_position": 97,
+      "snis_ei_standardized": 0.0016713555214489897
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289909",
+      "action_position": 98,
+      "snis_ei_standardized": 0.0013058259366303508
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000012289",
+      "action_position": 99,
+      "snis_ei_standardized": 0.0014734612836911306
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011879",
+      "action_position": 100,
+      "snis_ei_standardized": 0.0022225041220947863
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010236",
+      "action_position": 101,
+      "snis_ei_standardized": 0.0008922504530674732
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011827",
+      "action_position": 102,
+      "snis_ei_standardized": 0.002096286879741965
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010244",
+      "action_position": 103,
+      "snis_ei_standardized": 0.0004910763190392647
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000012241",
+      "action_position": 104,
+      "snis_ei_standardized": 0.0008022489033637604
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000012079",
+      "action_position": 105,
+      "snis_ei_standardized": 0.0026909327200989198
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009856",
+      "action_position": 106,
+      "snis_ei_standardized": 0.0011837400076164179
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000012176",
+      "action_position": 107,
+      "snis_ei_standardized": 0.0008328487418355099
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011437",
+      "action_position": 108,
+      "snis_ei_standardized": 0.000486922035386671
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011890",
+      "action_position": 109,
+      "snis_ei_standardized": 0.0008016854422629076
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010295",
+      "action_position": 110,
+      "snis_ei_standardized": 0.0014887959500221259
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009877",
+      "action_position": 111,
+      "snis_ei_standardized": 0.0011937162730837093
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010334",
+      "action_position": 112,
+      "snis_ei_standardized": 0.004226830167541589
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009927",
+      "action_position": 113,
+      "snis_ei_standardized": 0.001324843875823739
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010348",
+      "action_position": 114,
+      "snis_ei_standardized": 0.002221212100303554
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010393",
+      "action_position": 115,
+      "snis_ei_standardized": 0.0025085887219097307
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010518",
+      "action_position": 116,
+      "snis_ei_standardized": 0.0015970747032148448
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289858",
+      "action_position": 118,
+      "snis_ei_standardized": 0.00767073464093319
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289924",
+      "action_position": 119,
+      "snis_ei_standardized": 0.004852211379911397
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290331",
+      "action_position": 120,
+      "snis_ei_standardized": 0.005107533369215853
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010436",
+      "action_position": 121,
+      "snis_ei_standardized": 0.0014782288298899001
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010046",
+      "action_position": 122,
+      "snis_ei_standardized": 0.0016078201133819833
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010448",
+      "action_position": 123,
+      "snis_ei_standardized": 0.0009281801744623428
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010087",
+      "action_position": 124,
+      "snis_ei_standardized": 0.000891825481010809
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010478",
+      "action_position": 125,
+      "snis_ei_standardized": 0.001268857273221959
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289890",
+      "action_position": 126,
+      "snis_ei_standardized": 0.0008048287420392684
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289918",
+      "action_position": 127,
+      "snis_ei_standardized": 0.004823868566714235
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289881",
+      "action_position": 128,
+      "snis_ei_standardized": 0.005290746474608005
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289900",
+      "action_position": 129,
+      "snis_ei_standardized": 0.0046552361540205065
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289977",
+      "action_position": 130,
+      "snis_ei_standardized": 0.0034511960035637536
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289910",
+      "action_position": 131,
+      "snis_ei_standardized": 0.006135649374976347
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289932",
+      "action_position": 132,
+      "snis_ei_standardized": 0.006578533715309816
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000286998",
+      "action_position": 133,
+      "snis_ei_standardized": 0.0038817508446799924
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000286993",
+      "action_position": 134,
+      "snis_ei_standardized": 0.007991054417333866
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289941",
+      "action_position": 135,
+      "snis_ei_standardized": 0.00553704239432273
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011348",
+      "action_position": 136,
+      "snis_ei_standardized": 0.0015459015981539011
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010484",
+      "action_position": 137,
+      "snis_ei_standardized": 0.007618921771905407
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290046",
+      "action_position": 138,
+      "snis_ei_standardized": 0.005406328672202733
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290025",
+      "action_position": 139,
+      "snis_ei_standardized": 0.004680010836874041
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289987",
+      "action_position": 140,
+      "snis_ei_standardized": 0.0012049044986794542
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010136",
+      "action_position": 141,
+      "snis_ei_standardized": 0.0034756435165787343
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290107",
+      "action_position": 142,
+      "snis_ei_standardized": 0.004740259872172371
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011392",
+      "action_position": 143,
+      "snis_ei_standardized": 0.0019285387451084038
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011288",
+      "action_position": 144,
+      "snis_ei_standardized": 0.0010972294402061139
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011066",
+      "action_position": 145,
+      "snis_ei_standardized": 0.0010529719737418135
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011962",
+      "action_position": 146,
+      "snis_ei_standardized": 0.0015679606038284406
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011961",
+      "action_position": 147,
+      "snis_ei_standardized": 0.0007474107920213667
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010195",
+      "action_position": 148,
+      "snis_ei_standardized": 0.0008728936945645287
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011568",
+      "action_position": 149,
+      "snis_ei_standardized": 0.002286460953601248
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011727",
+      "action_position": 150,
+      "snis_ei_standardized": 0.0010222179423304203
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290117",
+      "action_position": 151,
+      "snis_ei_standardized": 0.001570461220714419
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290129",
+      "action_position": 152,
+      "snis_ei_standardized": 0.0022340804334565895
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000287048",
+      "action_position": 153,
+      "snis_ei_standardized": 0.003296563542292995
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290272",
+      "action_position": 154,
+      "snis_ei_standardized": 0.004469602419258208
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290153",
+      "action_position": 155,
+      "snis_ei_standardized": 0.0031237392853823106
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010543",
+      "action_position": 157,
+      "snis_ei_standardized": 0.003051019666171596
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290197",
+      "action_position": 158,
+      "snis_ei_standardized": 0.0015495415564217808
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290146",
+      "action_position": 159,
+      "snis_ei_standardized": 0.002235710232748332
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010765",
+      "action_position": 160,
+      "snis_ei_standardized": 0.002084737685792538
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010256",
+      "action_position": 161,
+      "snis_ei_standardized": 0.0014450605253590457
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010290",
+      "action_position": 162,
+      "snis_ei_standardized": 0.005600088445305851
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010337",
+      "action_position": 163,
+      "snis_ei_standardized": 0.0009315847768800547
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011873",
+      "action_position": 164,
+      "snis_ei_standardized": 0.002965245194731494
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010579",
+      "action_position": 165,
+      "snis_ei_standardized": 0.007042276554906119
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010269",
+      "action_position": 166,
+      "snis_ei_standardized": 0.000630490595412356
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010851",
+      "action_position": 167,
+      "snis_ei_standardized": 0.002799060071199573
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010666",
+      "action_position": 168,
+      "snis_ei_standardized": 0.001107637158989949
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290368",
+      "action_position": 169,
+      "snis_ei_standardized": 0.005200514905060954
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011153",
+      "action_position": 170,
+      "snis_ei_standardized": 0.0054821748568343095
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290229",
+      "action_position": 171,
+      "snis_ei_standardized": 0.0016371587218250074
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010842",
+      "action_position": 172,
+      "snis_ei_standardized": 0.002651009076325498
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010309",
+      "action_position": 173,
+      "snis_ei_standardized": 0.0010922295939346683
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000287088",
+      "action_position": 174,
+      "snis_ei_standardized": 0.002273447278102498
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290273",
+      "action_position": 175,
+      "snis_ei_standardized": 0.0059306356127738985
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000287053",
+      "action_position": 176,
+      "snis_ei_standardized": 0.0038620688199881644
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010890",
+      "action_position": 177,
+      "snis_ei_standardized": 0.0033104423756981386
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000287083",
+      "action_position": 178,
+      "snis_ei_standardized": 0.0015083396975200138
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010746",
+      "action_position": 179,
+      "snis_ei_standardized": 0.0008631780156475629
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011761",
+      "action_position": 180,
+      "snis_ei_standardized": 0.0014827324874079058
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290216",
+      "action_position": 181,
+      "snis_ei_standardized": 0.0031195708140274382
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290238",
+      "action_position": 182,
+      "snis_ei_standardized": 0.0068413411804255295
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010902",
+      "action_position": 183,
+      "snis_ei_standardized": 0.004128619193354947
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010790",
+      "action_position": 184,
+      "snis_ei_standardized": 0.0009921837664081787
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290276",
+      "action_position": 185,
+      "snis_ei_standardized": 0.003292352953633934
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010678",
+      "action_position": 186,
+      "snis_ei_standardized": 0.0021899552915965546
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290154",
+      "action_position": 187,
+      "snis_ei_standardized": 0.003564948839778463
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011210",
+      "action_position": 188,
+      "snis_ei_standardized": 0.001252613246447961
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290236",
+      "action_position": 189,
+      "snis_ei_standardized": 0.004590250109396931
+    },
+    {
+      "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290308",
+      "action_position": 190,
+      "snis_ei_standardized": 0.00451733657201925
+    }
+  ],
+  "validation_alters_bo_decision": false,
+  "validation_only_state_inference_seconds": 0.0,
+  "weight_diagnostics": {
+    "factor_sample_evaluation_seconds": 31.825600767000026,
+    "full_samples_by_factors_materialized": false,
+    "maximum_materialized_factor_sample_shape": [
+      64,
+      8192
+    ]
+  }
+}

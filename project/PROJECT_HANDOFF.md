@@ -108,7 +108,7 @@ Details: [`experiments/symmetry/`](../experiments/symmetry/) and its immutable
 Details: [`experiments/nonlinear_pde/`](../experiments/nonlinear_pde/) and its
 immutable [`RESULTS.md`](../experiments/nonlinear_pde/outputs/t2b_structural_validation/RESULTS.md).
 
-### E3 — Sun oxide source, benchmark, reference graph, and PBE-model gates
+### E3 — Sun oxide source, benchmark, reference graph, PBE model, and BO value
 
 - Source recovery closed with terminal verdict `JOIN_AMBIGUOUS`; this is a
   historical data-provenance result, not evidence for the paper method, and it
@@ -151,6 +151,17 @@ immutable [`RESULTS.md`](../experiments/nonlinear_pde/outputs/t2b_structural_val
   `0.9003424446737381`. PBE-only MAP and 256-pair influence diagnostics
   completed without reading GW values, inference, BO, a dense inverse, or a
   theory-ledger edit. This is the proposed E3 full-conditioning model.
+- The preregistered 12-seed GW BO value pilot passed as `PASS_PBE_VALUE` from
+  run SHA `44f58f100f41247afe0937e42eebe58055104225` with frozen config SHA-256
+  `6cc47d41dfbdbf88187d535d405ca6afd971e4b07f91932d55dbbbf5c101ef0f`.
+  Median 12-query AURC was 19.4445 eV for `NO_PBE` and 1.0170 eV for
+  `FULL_PBE`; median final regret was 0.8310 and 0.0000 eV. `FULL_PBE` won
+  strictly on 10/12 paired seeds, tied the two seeds whose shared initial set
+  already contained the optimum, and never lost; it found the optimum in
+  10/12 seeds versus 4/12. All three frozen Laplace-proposal SNIS checks
+  passed with ESS fractions about 0.905--0.907, and an independent audit found
+  no oracle leakage. This establishes the narrow full-PBE value claim on the
+  frozen E3 benchmark, not adaptive speedup or cross-dataset generalization.
 
 Details: [`experiments/sun_oxide/`](../experiments/sun_oxide/) and its immutable
 [`SOURCE_AUDIT.md`](../experiments/sun_oxide/outputs/source_recovery/SOURCE_AUDIT.md),
@@ -161,7 +172,9 @@ and independently checked descriptor/graph
 plus the frozen factor/theory
 [`RESULTS.md`](../experiments/sun_oxide/outputs/pbe_factor_theory/RESULTS.md),
 and the normalized-model
-[`RESULTS.md`](../experiments/sun_oxide/outputs/normalized_pbe_model/RESULTS.md).
+[`RESULTS.md`](../experiments/sun_oxide/outputs/normalized_pbe_model/RESULTS.md),
+plus the BO-value
+[`VERIFICATION.md`](../experiments/sun_oxide/outputs/bo_value_pilot/VERIFICATION.md).
 
 ### E4 — linear PDE supplementary control
 
@@ -203,8 +216,9 @@ remain in place; see [`experiments/README.md`](../experiments/README.md) and
 
 ## Next work
 
-Run the minimal Colab sequential BO value pilot: NO_PBE versus FULL_PBE using
-the normalized 500-support model.
+Implement adaptive PBE conditioning using the frozen BO/reference protocol,
+state-specific Menz influence, and incremental/warm-start inference; compare
+against FULL_PBE in BO quality and conditioning wall-clock cost.
 
 ## Operating rules
 

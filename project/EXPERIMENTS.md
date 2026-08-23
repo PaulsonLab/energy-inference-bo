@@ -31,7 +31,7 @@ conditioning cost when nontrivial fitting is used.
 |---|---|---|---|
 | E1 | Nonlocal reflection symmetry | Main mechanism + certificate | `ACTIVE`; T2-B validation and finite-grid pilot passed; repeats/baselines remain |
 | E2 | Nonlinear PDE expanding-domain scaling | Main scaling/inference consequence | `ACTIVE`; T2-B and family T4 passed; robustness/baselines remain |
-| E3 | Realistic non-PDE sequential BO | Main end-to-end sequential test | Current-NLR benchmark, descriptor/reference graph, adjacent baseline, and normalized PBE-model gates passed; no BO run |
+| E3 | Realistic non-PDE sequential BO | Main end-to-end sequential test | `PASS_PBE_VALUE`; full normalized PBE conditioning decisively improved the frozen GW BO pilot; adaptive comparison is next |
 | E4 | Linear PDE factor graph | Supplementary control | `EXISTING EVIDENCE / SUPPLEMENT` |
 | A1 | Factor-selection ablations | Supplement | `PLANNED` after primary pipelines |
 | A2 | Inference-backend comparison | Supplement/modularity | `PLANNED` after primary pipelines |
@@ -163,7 +163,7 @@ factors.
 
 ## E3 — Realistic non-PDE BO candidate
 
-**Status:** `NORMALIZED PBE MODEL PASSED / ADJACENT BASELINE VALID / DESCRIPTOR-REFERENCE GRAPH PASSED / CURRENT NLR BENCHMARK FROZEN / HISTORICAL REPRODUCTION JOIN_AMBIGUOUS / BO NOT RUN`.
+**Status:** `PASS_PBE_VALUE / NORMALIZED PBE MODEL PASSED / ADJACENT BASELINE VALID / DESCRIPTOR-REFERENCE GRAPH PASSED / CURRENT NLR BENCHMARK FROZEN / HISTORICAL REPRODUCTION JOIN_AMBIGUOUS`.
 
 The exact historical **Sun et al. PBE→GW oxide legacy-data problem** failed its
 first source-recovery gate. The current authoritative NREL/NLR queries reproduce
@@ -247,19 +247,43 @@ baseline; the normalized 500-support model is the proposed E3 full-conditioning
 model. Committed result:
 [`outputs/normalized_pbe_model/RESULTS.md`](../experiments/sun_oxide/outputs/normalized_pbe_model/RESULTS.md).
 
-The next E3 gate is preregistered but not run: compare `NO_PBE` with
-`FULL_PBE` for 12 seeded, 12-query retrospective GW BO trajectories using the
-same frozen Gaussian reference and initial-observation scaling. Its scientific
-claim is only that full conditioning on `NORMALIZED_ALL_PAIRS_PBE_500_V1`
-improves ordinary scalar-observation GW BO. The prospective value criterion is
-median FULL_PBE AURC at most 90% of median NO_PBE AURC, with no worse median
-final regret. FULL_PBE uses a 500-dimensional Laplace approximation to the
-exact reduced conditioned target; prospectively frozen three-state SNIS checks
-must each have ESS fraction at least 0.10 and Laplace-action estimated EI regret
-at most `max(0.02, 2 * pairwise-gap MC SE)`. Initial-state failure blocks the
-rollout; a later validation failure preserves trajectories but blocks a
-scientifically validated value verdict. No adaptive conditioning enters this
-gate, and the real GW oracle is not opened during preregistration.
+The preregistered first GW-target value pilot passed as `PASS_PBE_VALUE` from
+run SHA `44f58f100f41247afe0937e42eebe58055104225`; frozen config SHA-256
+`6cc47d41dfbdbf88187d535d405ca6afd971e4b07f91932d55dbbbf5c101ef0f`.
+Across 12 paired seeds and 12 sequential queries, median AURC was 19.4445 eV
+for `NO_PBE` versus 1.0170 eV for `FULL_PBE`, and median final regret was
+0.8310 versus 0.0000 eV. The full method won 10/12 paired AURCs and tied the
+other two because their shared initial observations already contained the
+optimum; it never lost. Global-optimum discovery was 4/12 versus 10/12.
+
+All three frozen 4,096-sample Laplace-proposal SNIS validations passed. ESS
+fractions were 0.905102 initially, 0.905340 after six queries, and 0.906766
+after twelve; the corresponding IS-estimated regrets of the Laplace actions
+were 0.00289358, 0.00003532, and 0.00008743, all below the frozen 0.02-dominated
+threshold. Independent replay reproduced the selected actions and numeric
+diagnostics, and the oracle-access audit found no unobserved target value in
+either acquisition. Median routine decision time was 0.240 seconds for
+`NO_PBE` and 1.630 seconds for `FULL_PBE`; these are diagnostics, not an
+adaptive-speedup result. Immutable record:
+[`outputs/bo_value_pilot/VERIFICATION.md`](../experiments/sun_oxide/outputs/bo_value_pilot/VERIFICATION.md).
+
+The outcome makes scientific sense: the allowed post-run PBE-vs-GW Spearman
+diagnostic is 0.8333 over the 191 actions, and the GW optimum is also the
+highest-PBE action. This explains why the frozen ranking bank is highly useful
+without changing the fact that the model and protocol were fixed before GW
+evaluation. The supported claim is limited to full-conditioning value on this
+benchmark; it does not establish adaptive savings, a rigorous Laplace
+certificate, or cross-dataset generalization.
+
+### Next E3 experiment
+
+Implement adaptive PBE conditioning using the frozen BO/reference protocol,
+state-specific Menz influence, and incremental/warm-start inference; compare
+against `FULL_PBE` in BO quality and conditioning wall-clock cost. Before
+opening the oracle again, preregister the adaptive quality tolerance, cost
+metric, prospective speedup threshold, and failure rule. Failure to match the
+frozen `FULL_PBE` action-quality target while materially lowering conditioning
+cost must block an adaptive speedup claim.
 
 ### Closed E3 evidence
 
@@ -329,10 +353,11 @@ on screenshots or notebook output alone.
    graph compatibility gate.
 3. **Completed:** sparse PBE-order legacy factor bank and existing-theory
    compatibility gate.
-4. **Next:** run the minimal sequential BO value pilot comparing no legacy
-   factors versus full PBE-order conditioning using the same graph-Gaussian
-   reference.
-5. Run the E1 repeated mechanism/coverage experiment and frozen baselines.
-6. Expand E2 across source fields/BO states with the smallest necessary
+4. **Completed:** minimal sequential GW BO value pilot comparing no legacy
+   factors with full normalized PBE-order conditioning (`PASS_PBE_VALUE`).
+5. **Next:** preregister and run adaptive PBE conditioning against `FULL_PBE`
+   using the frozen BO/reference protocol and separate quality/cost metrics.
+6. Run the E1 repeated mechanism/coverage experiment and frozen baselines.
+7. Expand E2 across source fields/BO states with the smallest necessary
    baseline set.
-7. Run broad supplementary sampler/factor-selection ablations only afterward.
+8. Run broad supplementary sampler/factor-selection ablations only afterward.

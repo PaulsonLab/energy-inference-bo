@@ -19,7 +19,10 @@ The exact historical Sun et al. PBE→GW oxide reconstruction remains closed as
 verdict `PASS_CURRENT_NLR_BENCHMARK`; its 132-dimensional descriptor and sparse
 reference-graph compatibility gate passed as `PASS_DESCRIPTOR_GRAPH`, and its
 frozen PBE-order existing-theory gate passed as `PASS_PBE_FACTOR_THEORY`.
-No inference or BO has been run. See the
+The first frozen GW BO value pilot passed as `PASS_PBE_VALUE`: full normalized
+PBE conditioning reduced median AURC from 19.4445 to 1.0170 eV and median final
+regret from 0.8310 to 0.0000 eV, with all three prospectively frozen Laplace/IS
+checks passing. Adaptive conditioning against `FULL_PBE` is next. See the
 [E3 registry entry](../project/EXPERIMENTS.md#e3--realistic-non-pde-bo-candidate).
 
 ## Supplementary

@@ -1,0 +1,175 @@
+{
+  "action_count": 191,
+  "benchmark_name": "CURRENT_NLR_PBE_GW_V1",
+  "bo": {
+    "acquisition": "closed_form_gaussian_expected_improvement",
+    "exact_tie_break": "ascending_action_key",
+    "initial_action_count": 8,
+    "initialization": "numpy.random.default_rng(seed).choice(191, size=8, replace=False)",
+    "methods": [
+      "NO_PBE",
+      "FULL_PBE"
+    ],
+    "observed_actions_excluded": true,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "sequential_query_count": 12
+  },
+  "environment": {
+    "isolated_venv_required": true,
+    "lock_path": "experiments/sun_oxide/requirements-colab-graph.txt",
+    "lock_sha256": "2dd0cb5ac87b2abce071fa2ff04fb571c7acd2716c1ec313a663b14cc94afb55",
+    "pip_install_flags": [
+      "--require-hashes",
+      "--no-deps"
+    ],
+    "python": "3.12.13",
+    "runtime": "standard_colab_cpu",
+    "uv": "0.10.11"
+  },
+  "factor_bank": {
+    "chunk_size": 16384,
+    "energy": "sum_j omega * log(1 + exp(-s_j * (y_a-y_b)))",
+    "factor_count": 124718,
+    "name": "NORMALIZED_ALL_PAIRS_PBE_500_V1",
+    "temperature": 1.0,
+    "weight": 0.002004008016032064,
+    "weight_exact": "1/499"
+  },
+  "full_pbe_laplace": {
+    "dense_cholesky": true,
+    "function_tolerance": 1e-15,
+    "initial_map_fallback": "zero",
+    "laplace_is_exact_posterior": false,
+    "map_gradient_infinity_norm_maximum": 1e-5,
+    "maximum_iterations": 2000,
+    "maximum_retries": 1,
+    "optimizer": "L-BFGS-B",
+    "optimizer_gradient_tolerance": 1e-8,
+    "optimizer_success_required": true,
+    "routine_approximation": "N(MAP, H_laplace^-1)",
+    "solve_relative_residual_maximum": 1e-9,
+    "spd_cholesky_required": true,
+    "warm_start": "preceding_FULL_PBE_MAP"
+  },
+  "gaussian_reference": {
+    "hyperparameter_optimization_during_bo": false,
+    "marginal_precision": "J_H = ((Q_t^-1)[H,H])^-1",
+    "observation_noise_standardized": 0.05,
+    "precision": "Q_t = Q0 + sigma_obs^-2 P_O^T P_O",
+    "principal_precision_submatrix_is_marginal_precision": false,
+    "right_hand_side": "h_t = sigma_obs^-2 P_O^T z_O",
+    "solve_relative_residual_maximum": 1e-9,
+    "sparse_factorization": true,
+    "support_rhs_count": 500
+  },
+  "importance_validation": {
+    "decision_regret_threshold": "max(0.02, 2 * pairwise_gap_mc_se)",
+    "ess_fraction_minimum": 0.1,
+    "factor_chunk_size": 8192,
+    "pairwise_gap_mc_se": "sqrt(sum_r(wbar_r^2 * (g_r - sum_s wbar_s g_s)^2))",
+    "rng_seeds": {
+      "seed_0_after_12_queries": 920013,
+      "seed_0_after_6_queries": 920007,
+      "seed_0_initial": 920001
+    },
+    "sample_chunk_size": 64,
+    "sample_count": 4096,
+    "states": [
+      {
+        "completed_full_pbe_queries": 0,
+        "name": "seed_0_initial",
+        "precheck": true,
+        "seed": 0
+      },
+      {
+        "completed_full_pbe_queries": 6,
+        "name": "seed_0_after_6_queries",
+        "precheck": false,
+        "seed": 0
+      },
+      {
+        "completed_full_pbe_queries": 12,
+        "name": "seed_0_after_12_queries",
+        "precheck": false,
+        "seed": 0
+      }
+    ]
+  },
+  "inputs": {
+    "action_node_mapping": {
+      "path": "experiments/sun_oxide/outputs/descriptor_graph/action_node_map.csv",
+      "sha256": "b3c0db9d3d8424c3f0a28a8712ebe1cb0822d9c80076208addf77f73c59479c0"
+    },
+    "benchmark_manifest": {
+      "path": "experiments/sun_oxide/benchmark/benchmark_manifest.json",
+      "sha256": "85bfb4102728684c2694162e7a57ec365c4f3e6eb87e4c1b9c358c32710b4156"
+    },
+    "gw_oracle": {
+      "path": "experiments/sun_oxide/benchmark/gw_oracle.csv",
+      "sha256": "f4abeed6d387cdf8ec878d9b9c0b8efebe27d6ccc42395e5674049cd3789a2d2"
+    },
+    "nlr_data_use_notice": {
+      "path": "experiments/sun_oxide/benchmark/NLR_DATA_USE_NOTICE.txt",
+      "sha256": "886e5fae4d4a935dd12f548a8e733708d1e8f727b66675b4015e68917c6e224b"
+    },
+    "normalized_model_manifest": {
+      "path": "experiments/sun_oxide/outputs/normalized_pbe_model/artifact_manifest.json",
+      "sha256": "dda52c72850ae20117fcc1c86017968579e3099554feacaf0892decc8f8138d6"
+    },
+    "normalized_pbe_factor_bank": {
+      "path": "experiments/sun_oxide/outputs/normalized_pbe_model/normalized_pbe_factor_bank.csv",
+      "sha256": "ee4f1913ad065b4a59b391d373ce7831749b0de6adfa9f513fcf76da576c5388"
+    },
+    "pbe_support": {
+      "path": "experiments/sun_oxide/outputs/normalized_pbe_model/pbe_support_500.csv",
+      "sha256": "0221b294f9c1018aee7101a92707880d3f15a301373c1c5a8f14b53104abbeca"
+    },
+    "q0": {
+      "path": "experiments/sun_oxide/outputs/descriptor_graph/q0_sparse.npz",
+      "sha256": "92c86d2b98d6e60c266e3e9b1018897b4f26c7f4142103d03896f90a0f2a14f1"
+    }
+  },
+  "metrics": {
+    "aurc": "sum of 12 post-query raw-eV simple regrets",
+    "fraction_full_pbe_wins": "strictly lower per-seed AURC",
+    "global_optimum_discovery": "present in initial or sequential observations",
+    "pbe_gw_spearman": "post-run diagnostic only",
+    "simple_regret": "oracle_maximum_ev - best_observed_gw_ev",
+    "time_to_first_top_10": "0 if initially observed, else first sequential query index 1..12, null if absent"
+  },
+  "prospective_verdict": {
+    "final_regret_condition": "median(FULL_PBE) <= median(NO_PBE)",
+    "inference_validation_required": true,
+    "median_aurc_ratio_maximum": 0.9,
+    "verdict_on_pass": "PASS_PBE_VALUE",
+    "verdict_on_value_failure": "FAIL_PBE_VALUE"
+  },
+  "schema_version": 1,
+  "support": {
+    "action_count": 191,
+    "all_actions_in_support": true,
+    "name": "PBE_SUPPORT_500_V1",
+    "support_count": 500
+  },
+  "target_scaling": {
+    "frozen_across_methods_and_seed": true,
+    "mean": "mean(y_initial)",
+    "scale": "max(std(y_initial, ddof=1), 0.25 eV)",
+    "scale_floor_ev": 0.25,
+    "uses_initial_observations_only": true
+  },
+  "tuning_after_gw_results": false
+}

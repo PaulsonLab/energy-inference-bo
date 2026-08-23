@@ -1,8 +1,9 @@
 # Sun oxide source, benchmark, reference, and frozen legacy-factor records
 
-This directory contains the target-blind source/benchmark, descriptor/reference-
-graph, and frozen legacy-factor records for the realistic E3 oxide case. It
-contains no posterior inference, performance baseline, or Bayesian optimization.
+This directory contains the source/benchmark, descriptor/reference graph,
+frozen legacy-factor records, and first preregistered GW BO value result for
+the realistic E3 oxide case. Target-blind construction records remain separate
+from the oracle-evaluated BO outputs.
 
 ## Historical Sun reproduction
 
@@ -106,3 +107,28 @@ the gate. The adjacent model above remains an immutable valid sparse baseline;
 the normalized model is the proposed E3 full-conditioning model. See the
 model [specification](NORMALIZED_PBE_MODEL.md) and immutable
 [`RESULTS.md`](outputs/normalized_pbe_model/RESULTS.md).
+
+## GW BO value pilot
+
+The first preregistered target-value experiment passed as `PASS_PBE_VALUE`
+(`PASS_PBE_VALUE_COLAB` terminal state) from run SHA
+`44f58f100f41247afe0937e42eebe58055104225` and frozen config SHA-256
+`6cc47d41dfbdbf88187d535d405ca6afd971e4b07f91932d55dbbbf5c101ef0f`.
+It compared only `NO_PBE` and `FULL_PBE` under identical fixed initial sets,
+per-seed target scaling, Gaussian-reference hyperparameters, and 12-query
+budgets. No adaptive conditioning was used.
+
+Median AURC was 19.4445 eV for `NO_PBE` and 1.0170 eV for `FULL_PBE`; median
+final regret was 0.8310 and 0.0000 eV. `FULL_PBE` won 10/12 paired seeds, tied
+two seeds whose shared initialization already contained the global optimum,
+and never lost. All three frozen Laplace-proposal importance validations passed
+with ESS fractions near 0.905--0.907, and the independent access-log audit
+confirmed that no unobserved GW target entered either acquisition.
+
+The post-run PBE-vs-GW Spearman diagnostic is 0.8333, and the GW-optimal action
+is also the highest-PBE action, so the large gain is scientifically coherent.
+The result establishes value for full normalized PBE conditioning on this
+frozen benchmark; it does not yet establish adaptive conditioning quality,
+cost savings, or cross-dataset generalization. See the immutable
+[`RESULTS.md`](outputs/bo_value_pilot/RESULTS.md), complete archived outputs,
+and independent [`VERIFICATION.md`](outputs/bo_value_pilot/VERIFICATION.md).

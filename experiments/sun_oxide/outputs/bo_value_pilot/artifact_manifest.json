@@ -1,0 +1,143 @@
+{
+  "config_sha256": "6cc47d41dfbdbf88187d535d405ca6afd971e4b07f91932d55dbbbf5c101ef0f",
+  "files": [
+    {
+      "path": "NLR_DATA_USE_NOTICE.txt",
+      "sha256": "886e5fae4d4a935dd12f548a8e733708d1e8f727b66675b4015e68917c6e224b",
+      "size_bytes": 2025
+    },
+    {
+      "path": "RESULTS.md",
+      "sha256": "2fff950b746203702b4f18177d1c3bbd4827e8362a961bceb83dc6c888dfcb77",
+      "size_bytes": 1147
+    },
+    {
+      "path": "checkpoints/seed_00.json",
+      "sha256": "3a665814b2cb4525a828750ba7849ef2ce52011b746e1e8b3da549950a8ff059",
+      "size_bytes": 58209
+    },
+    {
+      "path": "checkpoints/seed_01.json",
+      "sha256": "01affecdff6ec480975f5f0a7a1e4d3ac7b3b161fd876601c36ea952d84564d9",
+      "size_bytes": 55423
+    },
+    {
+      "path": "checkpoints/seed_02.json",
+      "sha256": "2d7c5d65177566ed0e124952bc71e817e220c83303fd2e2a6f79d66c7242d164",
+      "size_bytes": 56146
+    },
+    {
+      "path": "checkpoints/seed_03.json",
+      "sha256": "134a9bbb75e4986f22778474d073f218aeece49a4619c2b718220f34c9239b4a",
+      "size_bytes": 55390
+    },
+    {
+      "path": "checkpoints/seed_04.json",
+      "sha256": "e70c4ebcb381678419b6de0ae08fae94d56ed38e599db1aca88e83905a6e1b97",
+      "size_bytes": 55846
+    },
+    {
+      "path": "checkpoints/seed_05.json",
+      "sha256": "cb4464749b07e6d622f52a51be80035b99f62337d6543827abd4b526641f9c1d",
+      "size_bytes": 55412
+    },
+    {
+      "path": "checkpoints/seed_06.json",
+      "sha256": "4a3d2cbf8f54a2ca8b946ede8711e6ce5ec9c95323bf28485824aaa14b63836c",
+      "size_bytes": 55827
+    },
+    {
+      "path": "checkpoints/seed_07.json",
+      "sha256": "199c4489233f55162d762a8aadc3c285fd5166715013bea2bfaac5938d751c0c",
+      "size_bytes": 55444
+    },
+    {
+      "path": "checkpoints/seed_08.json",
+      "sha256": "555b10b7c3a6e7ca33155b1a6f1339697a1e4d57b12cac8ebff77acd3c601e34",
+      "size_bytes": 55474
+    },
+    {
+      "path": "checkpoints/seed_09.json",
+      "sha256": "7919b0b76c503c360c2bcf037591c16718b9aeb408efcf3db7458186e7253f55",
+      "size_bytes": 55412
+    },
+    {
+      "path": "checkpoints/seed_10.json",
+      "sha256": "0544904c58f317185d76522dd7a7dd14ec30c204c7055bac4e9120ea2b4b8660",
+      "size_bytes": 55508
+    },
+    {
+      "path": "checkpoints/seed_11.json",
+      "sha256": "6ab7940d72ed51c1800117cac1dff88e9c7ad7043adcef668131e7cf5ae9008b",
+      "size_bytes": 55503
+    },
+    {
+      "path": "environment_report.json",
+      "sha256": "ad5ee74dcaa61c4449232f3c0855e2a946bf21081ed00b20c9e697402f7a58b1",
+      "size_bytes": 984
+    },
+    {
+      "path": "frozen_config.json",
+      "sha256": "6cc47d41dfbdbf88187d535d405ca6afd971e4b07f91932d55dbbbf5c101ef0f",
+      "size_bytes": 5884
+    },
+    {
+      "path": "inference_diagnostics.json",
+      "sha256": "63373a51a1cab06cc755555446b7ce25abb2fa867fa82fad1d39821f0b54a840",
+      "size_bytes": 454118
+    },
+    {
+      "path": "is_validation_seed_0_after_12_queries.json",
+      "sha256": "83447aaa32ae19fbe4cacae59576928e48aed76a800add49f7eb175e7e8c28c4",
+      "size_bytes": 25427
+    },
+    {
+      "path": "is_validation_seed_0_after_6_queries.json",
+      "sha256": "6bfee61bca62ed8078a4cf81a7b36d68909dc5bfa72823fd96a2c641509ffa20",
+      "size_bytes": 26238
+    },
+    {
+      "path": "is_validation_seed_0_initial.json",
+      "sha256": "712b3774a2821b31fe913afd4a451e786c27253b28b97641c49f9a3c463ab0fb",
+      "size_bytes": 30257
+    },
+    {
+      "path": "oracle_access_log.json",
+      "sha256": "60f354e23f34a7a7cb0e7e2480d5c237772adb099630888f3f88d38bf905dc74",
+      "size_bytes": 76784
+    },
+    {
+      "path": "provenance.json",
+      "sha256": "4f05d7426879ddbb4ee5ac4d490764bb7c55bb01d2acbfa4d26837da50ebd900",
+      "size_bytes": 1126
+    },
+    {
+      "path": "run_summary.json",
+      "sha256": "9709eea93d154901699ddf8b12189dd9c2e12d7bb41ae8456bdb62f5a02ab916",
+      "size_bytes": 2193
+    },
+    {
+      "path": "seed_summaries.csv",
+      "sha256": "2050a5b392e788baf0daae387de4e6d5c209e10003d59a8a870de5c21fac08b0",
+      "size_bytes": 11751
+    },
+    {
+      "path": "simple_regret_trajectories.png",
+      "sha256": "1ee06c46535349207840daed37a66bbad474d47ad1d9bdc41074ff38ffd730a6",
+      "size_bytes": 57601
+    },
+    {
+      "path": "timing_diagnostics.csv",
+      "sha256": "ba6dcc8f1182528e4de1de06abb5073cb5bc48fe22d7c1d859dc31f159920ac8",
+      "size_bytes": 173416
+    },
+    {
+      "path": "trajectories.csv",
+      "sha256": "3d8269867e6febb494c0e8a7c2852d8d69fd4a3da10caf2e359453185801df8e",
+      "size_bytes": 51941
+    }
+  ],
+  "run_sha": "44f58f100f41247afe0937e42eebe58055104225",
+  "schema_version": 1,
+  "terminal_state": "PASS_PBE_VALUE_COLAB"
+}

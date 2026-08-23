@@ -1,0 +1,19 @@
+{
+  "config_sha256": "6cc47d41dfbdbf88187d535d405ca6afd971e4b07f91932d55dbbbf5c101ef0f",
+  "input_sha256": {
+    "action_node_mapping": "b3c0db9d3d8424c3f0a28a8712ebe1cb0822d9c80076208addf77f73c59479c0",
+    "benchmark_manifest": "85bfb4102728684c2694162e7a57ec365c4f3e6eb87e4c1b9c358c32710b4156",
+    "gw_oracle": "f4abeed6d387cdf8ec878d9b9c0b8efebe27d6ccc42395e5674049cd3789a2d2",
+    "nlr_data_use_notice": "886e5fae4d4a935dd12f548a8e733708d1e8f727b66675b4015e68917c6e224b",
+    "normalized_model_manifest": "dda52c72850ae20117fcc1c86017968579e3099554feacaf0892decc8f8138d6",
+    "normalized_pbe_factor_bank": "ee4f1913ad065b4a59b391d373ce7831749b0de6adfa9f513fcf76da576c5388",
+    "pbe_support": "0221b294f9c1018aee7101a92707880d3f15a301373c1c5a8f14b53104abbeca",
+    "q0": "92c86d2b98d6e60c266e3e9b1018897b4f26c7f4142103d03896f90a0f2a14f1"
+  },
+  "run_sha": "44f58f100f41247afe0937e42eebe58055104225",
+  "schema_version": 1,
+  "smoke_passed_before_oracle_open": true,
+  "smoke_report_records_oracle_file_opened": false,
+  "started_at_utc": "2026-08-23T22:30:43.642886+00:00",
+  "terminal_state": "PASS_PBE_VALUE_COLAB"
+}
