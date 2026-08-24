@@ -315,6 +315,17 @@ There is no active fresh adaptive validation preregistration and no authorized
 seed 12--31 run. The existing config/notebook are retained as engineering
 artifacts only.
 
+**Development-only full-bank scaling probe — `PLANNED`.** Before any new
+scientific plan, compare normalized all-pairs supports of 500, 1,000, and all
+2,142 legacy materials at the three already-consumed seed-0 FULL states. This
+tests whether the 500-node down-selection obscured decision/conditioning
+separation or whether the preference information/Menz envelope remains dense.
+It changes no theorem or paper claim, uses no fresh seed, and has no scientific
+PASS threshold. The prospective local failure is `LOCAL_RESOURCE_BLOCKED` at
+10 GB peak RSS or the fixed per-phase engineering time limits; otherwise report
+one of `FULL_ARCHIVE_PROMISING`, `BOUND_CONSERVATISM_DIAGNOSED`, or
+`FULL_ARCHIVE_NOT_HELPFUL` from the complete development diagnostics.
+
 ### Closed E3 evidence
 
 | Case | Frozen provenance | Exact verdict and interpretation | Immutable record |
