@@ -139,7 +139,7 @@ def test_sherman_morrison_influence_update_matches_direct_full_solve() -> None:
     )
 
 
-def test_omitted_degree_load_maintenance_and_cumulative_active_reuse() -> None:
+def test_omitted_degree_load_maintenance_and_cumulative_within_decision_reuse() -> None:
     pairs = np.asarray([[0, 1], [0, 2], [1, 2], [2, 3]], dtype=np.int64)
     state = ActiveFactorState.empty(pairs, 4)
     np.testing.assert_array_equal(state.omitted_endpoint_degree, [2, 2, 3, 1])
@@ -263,19 +263,25 @@ def test_structural_stopping_and_map_warm_start_across_activation_stages(
     assert result.adaptive_stages == 1
     assert calls[0][0] is None
     np.testing.assert_array_equal(calls[1][0], [3.0, 4.0])
-    assert calls[1][1] == "preceding_adaptive_stage_MAP"
+    assert calls[1][1] == "exact_gaussian_stage_MAP"
     assert result.diagnostics["warm_start_across_stages_used"]
 
 
 def test_map_warm_start_across_bo_iterations(monkeypatch) -> None:
-    calls: list[np.ndarray | None] = []
+    calls: list[tuple[np.ndarray | None, int, str]] = []
 
     def fake_stage(*args, **kwargs):
         initial_map = args[8]
-        calls.append(None if initial_map is None else np.asarray(initial_map).copy())
+        calls.append(
+            (
+                None if initial_map is None else np.asarray(initial_map).copy(),
+                int(args[3].size),
+                kwargs["warm_start_source"],
+            )
+        )
         return _fake_context(
             0,
-            np.asarray([1.0, 0.0]),
+            np.asarray([1.0, 0.99]),
             np.asarray([0.1, 0.2]),
             kwargs["warm_start_source"],
             int(args[3].size),
@@ -287,11 +293,10 @@ def test_map_warm_start_across_bo_iterations(monkeypatch) -> None:
     )
     pairs = np.asarray([[0, 1]], dtype=np.int64)
     state = ActiveFactorState.empty(pairs, 2)
-    state.activate([0], pairs)
     previous = np.asarray([7.0, 8.0])
     result = adaptive_pbe_decision(
         reference,
-        np.eye(2),
+        10.0 * np.eye(2),
         pairs,
         [1],
         [0, 1],
@@ -302,8 +307,13 @@ def test_map_warm_start_across_bo_iterations(monkeypatch) -> None:
         previous,
         AdaptiveSettings(),
     )
-    np.testing.assert_array_equal(calls[0], previous)
+    assert calls[0][1] == 0
+    np.testing.assert_array_equal(calls[0][0], previous)
+    assert calls[1][1] == 1
+    np.testing.assert_array_equal(calls[1][0], previous)
+    assert calls[1][2] == "preceding_ADAPTIVE_PBE_MAP_after_active_set_reset"
     assert result.diagnostics["warm_start_across_bo_used"]
+    assert not result.diagnostics["active_set_retained_from_previous_bo_iteration"]
 
 
 def test_explicit_full_bank_fallback_after_eight_stages(monkeypatch) -> None:

@@ -42,7 +42,7 @@ class MenzSupportReference:
 
 @dataclass
 class ActiveFactorState:
-    """Cumulative active mask and incrementally maintained omitted degrees."""
+    """Within-decision active mask and incrementally maintained omitted degrees."""
 
     active_mask: BoolArray
     omitted_endpoint_degree: IntArray
@@ -540,7 +540,7 @@ def adaptive_pbe_decision(
     previous_map: ArrayLike | None,
     settings: AdaptiveSettings,
 ) -> AdaptiveDecision:
-    """Run the frozen cumulative adaptive activation and stopping algorithm."""
+    """Run cumulative activation stages for one decision-specific active set."""
 
     settings.validate()
     started = time.perf_counter()
@@ -549,13 +549,18 @@ def adaptive_pbe_decision(
     action_support = np.asarray(action_support_positions, dtype=np.int64)
     covariance = np.asarray(menz_covariance, dtype=np.float64)
     if directions.shape != (pairs.shape[0],) or factor_state.factor_count != pairs.shape[0]:
-        raise ValueError("Factor arrays and cumulative state do not align")
+        raise ValueError("Factor arrays and decision-specific state do not align")
     if covariance.shape != (reference.mean.size, reference.mean.size):
         raise ValueError("Menz covariance and support reference do not align")
     if action_support.shape != (len(action_keys),):
         raise ValueError("Action support positions and keys do not align")
 
-    previous = None if previous_map is None else np.asarray(previous_map, dtype=np.float64)
+    cross_iteration_map = (
+        None if previous_map is None else np.asarray(previous_map, dtype=np.float64)
+    )
+    warm_map = cross_iteration_map
+    active_stage_has_fit = False
+    cross_iteration_warm_start_used = False
     activation_count = 0
     stage_records: list[dict[str, Any]] = []
     energy_gradient_work = 0
@@ -567,10 +572,10 @@ def adaptive_pbe_decision(
 
     while True:
         active_indices = factor_state.active_indices()
-        if activation_count > 0:
+        if active_stage_has_fit:
             warm_source = "preceding_adaptive_stage_MAP"
-        elif previous is not None:
-            warm_source = "preceding_ADAPTIVE_PBE_MAP"
+        elif active_indices.size and cross_iteration_map is not None:
+            warm_source = "preceding_ADAPTIVE_PBE_MAP_after_active_set_reset"
         else:
             warm_source = "exact_gaussian_stage_MAP"
         context = _laplace_ei_context(
@@ -582,7 +587,7 @@ def adaptive_pbe_decision(
             observed_action_positions,
             action_keys,
             incumbent,
-            previous,
+            warm_map,
             settings,
             warm_start_source=warm_source,
         )
@@ -591,7 +596,17 @@ def adaptive_pbe_decision(
         hessian_work += int(stage_diag["factor_hessian_element_work"])
         energy_gradient_calls += int(stage_diag["factor_energy_gradient_calls"])
         hessian_calls += int(stage_diag["factor_hessian_calls"])
-        previous = context.map
+        if active_indices.size:
+            if not active_stage_has_fit and cross_iteration_map is not None:
+                cross_iteration_warm_start_used = True
+            warm_map = context.map
+            active_stage_has_fit = True
+        elif warm_map is None:
+            # On the first BO decision there is no preceding adaptive MAP, so
+            # the exact empty-stage Gaussian mean initializes the first active
+            # refit.  On later BO decisions retain the preceding adaptive MAP
+            # through this empty screening stage.
+            warm_map = context.map
 
         influence = structural_influence_vector(
             covariance,
@@ -650,7 +665,8 @@ def adaptive_pbe_decision(
                     "adaptive_stages": activation_count,
                     "stage_records": stage_records,
                     "maximum_contribution_sum_error": maximum_contribution_sum_error,
-                    "warm_start_across_bo_used": previous_map is not None,
+                    "warm_start_across_bo_used": cross_iteration_warm_start_used,
+                    "active_set_retained_from_previous_bo_iteration": False,
                     "warm_start_across_stages_used": activation_count > 0,
                 },
             )
@@ -667,7 +683,7 @@ def adaptive_pbe_decision(
                 observed_action_positions,
                 action_keys,
                 incumbent,
-                previous,
+                warm_map,
                 settings,
                 warm_start_source="preceding_adaptive_stage_MAP_full_bank_fallback",
             )
@@ -725,7 +741,8 @@ def adaptive_pbe_decision(
                     "adaptive_stages": activation_count,
                     "stage_records": stage_records,
                     "maximum_contribution_sum_error": maximum_contribution_sum_error,
-                    "warm_start_across_bo_used": previous_map is not None,
+                    "warm_start_across_bo_used": cross_iteration_warm_start_used,
+                    "active_set_retained_from_previous_bo_iteration": False,
                     "warm_start_across_stages_used": True,
                 },
             )

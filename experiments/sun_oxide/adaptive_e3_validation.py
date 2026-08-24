@@ -839,7 +839,6 @@ def _run_adaptive_trajectory(
     static = precomputed["static"]
     observed_positions = initial_positions.tolist()
     observed_z = scale.standardize(initial_values).tolist()
-    factor_state = ActiveFactorState.empty(static["endpoint_pairs"], 500)
     previous_map: np.ndarray | None = None
     shadow_previous_map: np.ndarray | None = None
     menz_covariance = np.asarray(
@@ -858,6 +857,10 @@ def _run_adaptive_trajectory(
             f"PROGRESS seed={seed} method=ADAPTIVE_PBE iteration={query_index}/12",
             flush=True,
         )
+        # S_t is decision-specific.  Activation is cumulative only inside the
+        # adaptive_pbe_decision call below; no factor is forced active merely
+        # because it appeared in S_{t-1}.  previous_map deliberately persists.
+        factor_state = ActiveFactorState.empty(static["endpoint_pairs"], 500)
         decision, diagnostics, marginal = _adaptive_decision(
             precomputed["support_reference"],
             menz_covariance,
@@ -969,6 +972,7 @@ def _run_adaptive_trajectory(
         pending_menz_seconds = time.perf_counter() - update_started
 
     if seed == 12 and run_importance_validation:
+        factor_state = ActiveFactorState.empty(static["endpoint_pairs"], 500)
         final_decision, _, final_marginal = _adaptive_decision(
             precomputed["support_reference"],
             menz_covariance,

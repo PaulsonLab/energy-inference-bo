@@ -27,12 +27,14 @@ def test_fresh_adaptive_config_freezes_requested_protocol() -> None:
     assert config["factor_bank"]["factor_count"] == 124718
     assert config["factor_bank"]["weight_exact"] == "1/499"
     assert config["adaptive"] == {
+        "active_set_retained_across_bo_iterations": False,
         "activation_rule": "stable decreasing c_j; smallest top prefix leaving current-pair contribution <= rho*(epsilon_struct-active_EI_gap)",
-        "cumulative_active_set_within_seed": True,
+        "cumulative_active_set_within_decision": True,
         "epsilon_struct": 0.02,
         "full_bank_fallback_after_max_stages": True,
         "max_stages": 8,
         "rho": 0.8,
+        "warm_start_previous_map_after_active_set_reset": True,
         "warm_start_across_bo_iterations": True,
         "warm_start_across_stages": True,
     }
@@ -81,6 +83,23 @@ def test_shadow_full_is_computed_without_oracle_and_excluded_from_runtime() -> N
     assert "oracle.query" not in shadow_section
     assert "shadow_full_seconds_excluded_from_adaptive_runtime" in shadow_section
     assert "shadow_affected_adaptive_policy" in shadow_section
+
+
+def test_each_bo_iteration_constructs_a_fresh_active_factor_state() -> None:
+    source = DRIVER.read_text(encoding="utf-8")
+    start = source.index("def _run_adaptive_trajectory(")
+    stop = source.index("def _old_full_actions(")
+    adaptive_source = source[start:stop]
+    loop = adaptive_source.index("for query_index in range(1, 13):")
+    reset = adaptive_source.index(
+        'factor_state = ActiveFactorState.empty(static["endpoint_pairs"], 500)'
+    )
+    decision = adaptive_source.index("decision, diagnostics, marginal = _adaptive_decision(")
+    assert loop < reset < decision
+    assert adaptive_source.count(
+        'factor_state = ActiveFactorState.empty(static["endpoint_pairs"], 500)'
+    ) == 2  # routine decisions plus the seed-12 after-12 validation state
+    assert "previous_map = np.asarray(decision.map" in adaptive_source
 
 
 def test_driver_sets_headless_cache_before_matplotlib_import() -> None:

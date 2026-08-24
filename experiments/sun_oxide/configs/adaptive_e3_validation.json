@@ -1,12 +1,14 @@
 {
   "action_count": 191,
   "adaptive": {
+    "active_set_retained_across_bo_iterations": false,
     "activation_rule": "stable decreasing c_j; smallest top prefix leaving current-pair contribution <= rho*(epsilon_struct-active_EI_gap)",
-    "cumulative_active_set_within_seed": true,
+    "cumulative_active_set_within_decision": true,
     "epsilon_struct": 0.02,
     "full_bank_fallback_after_max_stages": true,
     "max_stages": 8,
     "rho": 0.8,
+    "warm_start_previous_map_after_active_set_reset": true,
     "warm_start_across_bo_iterations": true,
     "warm_start_across_stages": true
   },
