@@ -1,0 +1,45 @@
+{
+  "classification": "MIXED_DECISION_SPARSITY",
+  "config_sha256": "281e9b173a234029563f8ed876b5d252befb6706849bf100cd61f281e65662e6",
+  "development_only": true,
+  "files": [
+    {
+      "path": "RESULTS.md",
+      "sha256": "5dda78a3cae3ae7c25611c49a0d6e6971789ead5856397241304f2d504b600d0",
+      "size_bytes": 4228
+    },
+    {
+      "path": "full_reference_summary.json",
+      "sha256": "e540f447941c3ac050f621d7584637428a9c0b6194518a5bb30fa4c2ca10f21f",
+      "size_bytes": 57756
+    },
+    {
+      "path": "influence_paths.csv",
+      "sha256": "b836a1c316d2e0ed61a370b557afb4bcc4f019a861d99aa7025eb6bd5c553c63",
+      "size_bytes": 53289
+    },
+    {
+      "path": "random_baselines.csv",
+      "sha256": "e0c59e86f384369e42b43c2870d36fc9ebf7a1d1d55f6aa2239889463a378477",
+      "size_bytes": 54685
+    },
+    {
+      "path": "decision_stabilization_summary.json",
+      "sha256": "6c3d1b450bc96493672b69f01930b6b45258ed12740e6efb914b7abcde31da80",
+      "size_bytes": 8101
+    },
+    {
+      "path": "resource_usage.json",
+      "sha256": "d397b6ae22a3735e5f695506a041b6018057b2538da706239f855077c9f1e980",
+      "size_bytes": 47001
+    },
+    {
+      "path": "ei_regret_vs_active_fraction.png",
+      "sha256": "6dae1dcb6ecd2a8fdb0e2b670ca47283b322c78e4a4d73ed204a05e3bbe1ade6",
+      "size_bytes": 70183
+    }
+  ],
+  "fresh_seeds_accessed": false,
+  "implementation_sha": "2ac5dd3576c548f0c9999cbea3bdf7d6f626656d",
+  "schema_version": 1
+}

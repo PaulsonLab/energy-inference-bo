@@ -31,7 +31,7 @@ conditioning cost when nontrivial fitting is used.
 |---|---|---|---|
 | E1 | Nonlocal reflection symmetry | Main mechanism + certificate | `ACTIVE`; T2-B validation and finite-grid pilot passed; repeats/baselines remain |
 | E2 | Nonlinear PDE expanding-domain scaling | Main scaling/inference consequence | `ACTIVE`; T2-B and family T4 passed; robustness/baselines remain |
-| E3 | Realistic non-PDE sequential BO | Main end-to-end sequential test | `PASS_PBE_VALUE`; decision-reset and full-archive adaptive engineering paths are blocked; fresh seeds remain unspent |
+| E3 | Realistic non-PDE sequential BO | Main end-to-end sequential test | `PASS_PBE_VALUE`; adaptive path ends `MIXED_DECISION_SPARSITY` after pathological smoke and unhelpful full-archive probe; fresh seeds remain unspent |
 | E4 | Linear PDE factor graph | Supplementary control | `EXISTING EVIDENCE / SUPPLEMENT` |
 | A1 | Factor-selection ablations | Supplement | `PLANNED` after primary pipelines |
 | A2 | Inference-backend comparison | Supplement/modularity | `PLANNED` after primary pipelines |
@@ -163,7 +163,7 @@ factors.
 
 ## E3 — Realistic non-PDE BO candidate
 
-**Status:** `PASS_PBE_VALUE / ADAPTIVE_ENGINEERING_PATHOLOGICAL / FULL_ARCHIVE_NOT_HELPFUL / FRESH ADAPTIVE VALIDATION NOT PREREGISTERED / NORMALIZED PBE MODEL PASSED / ADJACENT BASELINE VALID / DESCRIPTOR-REFERENCE GRAPH PASSED / CURRENT NLR BENCHMARK FROZEN / HISTORICAL REPRODUCTION JOIN_AMBIGUOUS`.
+**Status:** `PASS_PBE_VALUE / ADAPTIVE_ENGINEERING_PATHOLOGICAL / FULL_ARCHIVE_NOT_HELPFUL / MIXED_DECISION_SPARSITY / FRESH ADAPTIVE VALIDATION NOT PREREGISTERED / NORMALIZED PBE MODEL PASSED / ADJACENT BASELINE VALID / DESCRIPTOR-REFERENCE GRAPH PASSED / CURRENT NLR BENCHMARK FROZEN / HISTORICAL REPRODUCTION JOIN_AMBIGUOUS`.
 
 The exact historical **Sun et al. PBE→GW oxide legacy-data problem** failed its
 first source-recovery gate. The current authoritative NREL/NLR queries reproduce
@@ -275,7 +275,7 @@ evaluation. The supported claim is limited to full-conditioning value on this
 benchmark; it does not establish adaptive savings, a rigorous Laplace
 certificate, or cross-dataset generalization.
 
-### Next E3 experiment
+### E3 adaptive engineering status
 
 The engineering implementation is frozen from SHA
 `7fbfb202268dd0fd92d35defbea2cc4990f089e2`. Its local seeds 0--2 smoke passed
@@ -330,18 +330,24 @@ certificate. This used no fresh seed, changed no theorem or paper claim, and
 created no preregistration. Immutable record:
 [`outputs/full_bank_scaling_probe/RESULTS.md`](../experiments/sun_oxide/outputs/full_bank_scaling_probe/RESULTS.md).
 
-**Final development-only decision-sparsity diagnostic — `PLANNED`.** On the
-frozen 500-support model and exactly the three already-consumed seed-0 FULL
-states, evaluate static and checkpoint-reranked influence prefixes at the fixed
-0--100% fraction grid, plus 20 matched random subsets at 10%, 20%, and 40%.
-The primary quantity is the first fraction after which the active action stays
-equal to FULL at every larger checkpoint. The prospectively fixed development
-classification is `STRONG_BOUND_CONSERVATISM` only if all three reranked paths
-stabilize by 40%, retain at most 0.01 FULL-EI regret thereafter, and precede
-the theorem certificate by at least 0.30; `MIXED_DECISION_SPARSITY` requires
-median stabilization by 50% and no state above 70%; otherwise report
-`DECISION_DENSE`. This is not a scientific preregistration, changes no model or
-epsilon, and may not access fresh seeds 12--31.
+**Final development-only decision-sparsity diagnostic —
+`MIXED_DECISION_SPARSITY`.** From starting main SHA
+`5f49f140acc3532b0231b1d1c446d22cd0e168d8`, implementation SHA
+`2ac5dd3576c548f0c9999cbea3bdf7d6f626656d`, and config SHA-256
+`281e9b173a234029563f8ed876b5d252befb6706849bf100cd61f281e65662e6`,
+the frozen 500-support diagnostic used only the three already-consumed seed-0
+FULL states. The primary reranked path had first stable FULL-action agreement
+fractions `0.70`, `0.20`, and `0.10`; all three theorem certificate fractions
+were `1.00`. STATIC stabilized at `0.10`, `0.20`, and `0.40`, so reranking was
+materially state-dependent. At the middle state, reranking recovered FULL from
+fraction `0.20` onward while none of 20 matched random subsets agreed at
+fractions `0.10`, `0.20`, or `0.40`; after 12 queries, both ranked and random
+subsets agreed at all three matched fractions. The theorem envelope is clearly
+conservative, but the initial reranked path's `0.70` requirement prevents the
+prospectively defined strong classification. Peak RSS was `0.222232576` GB.
+No fresh seed was accessed, no preregistration was created, and no additional
+E3 adaptive-preference experiment is planned. Immutable record:
+[`outputs/decision_sparsity_diagnostic/RESULTS.md`](../experiments/sun_oxide/outputs/decision_sparsity_diagnostic/RESULTS.md).
 
 ### Closed E3 evidence
 

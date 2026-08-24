@@ -188,6 +188,15 @@ immutable [`RESULTS.md`](../experiments/nonlinear_pde/outputs/t2b_structural_val
   `116195` to `2230019` while total factors scaled from `124718` to `2292440`.
   This is the development classification `FULL_ARCHIVE_NOT_HELPFUL`, not new
   scientific evidence or a reinterpretation of either immutable smoke.
+- The final development-only decision-sparsity diagnostic evaluated the frozen
+  500-support model on the same three already-consumed seed-0 FULL states. Its
+  primary reranked influence path first stabilized on the FULL action at active
+  fractions `0.70`, `0.20`, and `0.10`, whereas the theorem certificate required
+  fraction `1.00` in every state. The prospective terminal classification is
+  `MIXED_DECISION_SPARSITY`: certificate conservatism is clear, especially after
+  observations, but empirical exact-action sparsity is not uniformly strong
+  enough to justify a major new theory effort. No fresh seed was accessed and
+  no scientific preregistration was created.
 
 Details: [`experiments/sun_oxide/`](../experiments/sun_oxide/) and its immutable
 [`SOURCE_AUDIT.md`](../experiments/sun_oxide/outputs/source_recovery/SOURCE_AUDIT.md),
@@ -243,14 +252,12 @@ remain in place; see [`experiments/README.md`](../experiments/README.md) and
 ## Next work
 
 Do not run `experiments/sun_oxide/colab_adaptive_e3_validation.ipynb` or access
-seeds 12--31. The decision-reset smoke is an engineering blocker under the
-frozen algorithm: it preserves FULL actions but increases factor work and
-conditioning time, and the development full-archive probe shows that expanding
-the bank does not restore separation under the current structural activation
-rule. Any next work should remain development-only and first diagnose or
-tighten that activation step. Any future scientific run requires a new explicit
-plan and prospective preregistration; the superseded commit above is not
-authorization.
+seeds 12--31. The decision-reset smoke and full-archive scaling probe remain
+engineering blockers, and the final frozen 500-support diagnostic classified
+empirical decision sparsity as `MIXED_DECISION_SPARSITY`, not the prospectively
+defined strong-bound-conservatism case. There is no active follow-on E3
+adaptive-preference experiment plan or fresh validation authorization. The
+superseded preregistration remains unrun.
 
 ## Operating rules
 

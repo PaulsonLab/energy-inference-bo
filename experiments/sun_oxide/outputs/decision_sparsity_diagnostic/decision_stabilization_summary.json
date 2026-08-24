@@ -1,0 +1,225 @@
+{
+  "classification_primary_path": "RERANKED_FINE_PATH",
+  "classification_rules": {
+    "mixed_decision_sparsity": {
+      "maximum_each_first_stable_agreement_fraction": 0.7,
+      "maximum_median_first_stable_agreement_fraction": 0.5
+    },
+    "otherwise": "DECISION_DENSE",
+    "primary_path": "RERANKED_FINE_PATH",
+    "strong_bound_conservatism": {
+      "maximum_each_first_stable_agreement_fraction": 0.4,
+      "maximum_suffix_full_ei_regret": 0.01,
+      "minimum_each_certificate_gap": 0.3
+    }
+  },
+  "development_only": true,
+  "epsilon_struct": 0.02,
+  "matched_random_summary": [
+    {
+      "active_factor_count": 12472,
+      "random_action_agreement_fraction": 0.0,
+      "random_median_full_ei_regret": 0.0015692658630459579,
+      "random_q25_full_ei_regret": 0.0015692658630459579,
+      "random_q75_full_ei_regret": 0.0015692658630459579,
+      "random_replicate_count": 20,
+      "requested_fraction": 0.1,
+      "reranked_action_agreement": false,
+      "reranked_full_ei_regret": 0.0001887569097884581,
+      "state": "seed_0_initial"
+    },
+    {
+      "active_factor_count": 24944,
+      "random_action_agreement_fraction": 0.0,
+      "random_median_full_ei_regret": 0.0015692658630459579,
+      "random_q25_full_ei_regret": 0.0015692658630459579,
+      "random_q75_full_ei_regret": 0.0015692658630459579,
+      "random_replicate_count": 20,
+      "requested_fraction": 0.2,
+      "reranked_action_agreement": false,
+      "reranked_full_ei_regret": 0.0001887569097884581,
+      "state": "seed_0_initial"
+    },
+    {
+      "active_factor_count": 49887,
+      "random_action_agreement_fraction": 0.0,
+      "random_median_full_ei_regret": 0.0015692658630459579,
+      "random_q25_full_ei_regret": 0.0011425637335095683,
+      "random_q75_full_ei_regret": 0.0015692658630459579,
+      "random_replicate_count": 20,
+      "requested_fraction": 0.4,
+      "reranked_action_agreement": false,
+      "reranked_full_ei_regret": 0.0001887569097884581,
+      "state": "seed_0_initial"
+    },
+    {
+      "active_factor_count": 12472,
+      "random_action_agreement_fraction": 0.0,
+      "random_median_full_ei_regret": 1.0686312061755003e-06,
+      "random_q25_full_ei_regret": 1.0686312061755003e-06,
+      "random_q75_full_ei_regret": 1.0686312061755003e-06,
+      "random_replicate_count": 20,
+      "requested_fraction": 0.1,
+      "reranked_action_agreement": false,
+      "reranked_full_ei_regret": 1.2392895263604528e-09,
+      "state": "seed_0_after_6_queries"
+    },
+    {
+      "active_factor_count": 24944,
+      "random_action_agreement_fraction": 0.0,
+      "random_median_full_ei_regret": 1.0686312061755003e-06,
+      "random_q25_full_ei_regret": 7.722960083769069e-07,
+      "random_q75_full_ei_regret": 1.0686312061755003e-06,
+      "random_replicate_count": 20,
+      "requested_fraction": 0.2,
+      "reranked_action_agreement": true,
+      "reranked_full_ei_regret": 0.0,
+      "state": "seed_0_after_6_queries"
+    },
+    {
+      "active_factor_count": 49887,
+      "random_action_agreement_fraction": 0.0,
+      "random_median_full_ei_regret": 7.722960083769069e-07,
+      "random_q25_full_ei_regret": 7.722960083769069e-07,
+      "random_q75_full_ei_regret": 8.463798078265553e-07,
+      "random_replicate_count": 20,
+      "requested_fraction": 0.4,
+      "reranked_action_agreement": true,
+      "reranked_full_ei_regret": 0.0,
+      "state": "seed_0_after_6_queries"
+    },
+    {
+      "active_factor_count": 12472,
+      "random_action_agreement_fraction": 1.0,
+      "random_median_full_ei_regret": 0.0,
+      "random_q25_full_ei_regret": 0.0,
+      "random_q75_full_ei_regret": 0.0,
+      "random_replicate_count": 20,
+      "requested_fraction": 0.1,
+      "reranked_action_agreement": true,
+      "reranked_full_ei_regret": 0.0,
+      "state": "seed_0_after_12_queries"
+    },
+    {
+      "active_factor_count": 24944,
+      "random_action_agreement_fraction": 1.0,
+      "random_median_full_ei_regret": 0.0,
+      "random_q25_full_ei_regret": 0.0,
+      "random_q75_full_ei_regret": 0.0,
+      "random_replicate_count": 20,
+      "requested_fraction": 0.2,
+      "reranked_action_agreement": true,
+      "reranked_full_ei_regret": 0.0,
+      "state": "seed_0_after_12_queries"
+    },
+    {
+      "active_factor_count": 49887,
+      "random_action_agreement_fraction": 1.0,
+      "random_median_full_ei_regret": 0.0,
+      "random_q25_full_ei_regret": 0.0,
+      "random_q75_full_ei_regret": 0.0,
+      "random_replicate_count": 20,
+      "requested_fraction": 0.4,
+      "reranked_action_agreement": true,
+      "reranked_full_ei_regret": 0.0,
+      "state": "seed_0_after_12_queries"
+    }
+  ],
+  "path_summaries": [
+    {
+      "certificate_fraction": 1.0,
+      "first_agreement_fraction": 0.1,
+      "first_small_regret_fraction": 0.0,
+      "first_stable_agreement_fraction": 0.1,
+      "maximum_regret_from_stable_fraction": 0.0,
+      "path": "STATIC_INFLUENCE_PREFIX",
+      "stable_suffix_regret_at_most_0_01": true,
+      "stable_to_certificate_gap": 0.9,
+      "state": "seed_0_initial"
+    },
+    {
+      "certificate_fraction": 1.0,
+      "first_agreement_fraction": 0.7,
+      "first_small_regret_fraction": 0.0,
+      "first_stable_agreement_fraction": 0.7,
+      "maximum_regret_from_stable_fraction": 0.0,
+      "path": "RERANKED_FINE_PATH",
+      "stable_suffix_regret_at_most_0_01": true,
+      "stable_to_certificate_gap": 0.30000000000000004,
+      "state": "seed_0_initial"
+    },
+    {
+      "certificate_fraction": 1.0,
+      "first_agreement_fraction": 0.2,
+      "first_small_regret_fraction": 0.0,
+      "first_stable_agreement_fraction": 0.2,
+      "maximum_regret_from_stable_fraction": 0.0,
+      "path": "STATIC_INFLUENCE_PREFIX",
+      "stable_suffix_regret_at_most_0_01": true,
+      "stable_to_certificate_gap": 0.8,
+      "state": "seed_0_after_6_queries"
+    },
+    {
+      "certificate_fraction": 1.0,
+      "first_agreement_fraction": 0.2,
+      "first_small_regret_fraction": 0.0,
+      "first_stable_agreement_fraction": 0.2,
+      "maximum_regret_from_stable_fraction": 0.0,
+      "path": "RERANKED_FINE_PATH",
+      "stable_suffix_regret_at_most_0_01": true,
+      "stable_to_certificate_gap": 0.8,
+      "state": "seed_0_after_6_queries"
+    },
+    {
+      "certificate_fraction": 1.0,
+      "first_agreement_fraction": 0.0,
+      "first_small_regret_fraction": 0.0,
+      "first_stable_agreement_fraction": 0.4,
+      "maximum_regret_from_stable_fraction": 0.0,
+      "path": "STATIC_INFLUENCE_PREFIX",
+      "stable_suffix_regret_at_most_0_01": true,
+      "stable_to_certificate_gap": 0.6,
+      "state": "seed_0_after_12_queries"
+    },
+    {
+      "certificate_fraction": 1.0,
+      "first_agreement_fraction": 0.0,
+      "first_small_regret_fraction": 0.0,
+      "first_stable_agreement_fraction": 0.1,
+      "maximum_regret_from_stable_fraction": 0.0,
+      "path": "RERANKED_FINE_PATH",
+      "stable_suffix_regret_at_most_0_01": true,
+      "stable_to_certificate_gap": 0.9,
+      "state": "seed_0_after_12_queries"
+    }
+  ],
+  "schema_version": 1,
+  "small_regret_threshold": 0.01,
+  "static_vs_reranked": [
+    {
+      "reranked_certificate_fraction": 1.0,
+      "reranked_first_stable_agreement_fraction": 0.7,
+      "reranked_minus_static_first_stable_fraction": 0.6,
+      "state": "seed_0_initial",
+      "static_certificate_fraction": 1.0,
+      "static_first_stable_agreement_fraction": 0.1
+    },
+    {
+      "reranked_certificate_fraction": 1.0,
+      "reranked_first_stable_agreement_fraction": 0.2,
+      "reranked_minus_static_first_stable_fraction": 0.0,
+      "state": "seed_0_after_6_queries",
+      "static_certificate_fraction": 1.0,
+      "static_first_stable_agreement_fraction": 0.2
+    },
+    {
+      "reranked_certificate_fraction": 1.0,
+      "reranked_first_stable_agreement_fraction": 0.1,
+      "reranked_minus_static_first_stable_fraction": -0.30000000000000004,
+      "state": "seed_0_after_12_queries",
+      "static_certificate_fraction": 1.0,
+      "static_first_stable_agreement_fraction": 0.4
+    }
+  ],
+  "terminal_classification": "MIXED_DECISION_SPARSITY"
+}
