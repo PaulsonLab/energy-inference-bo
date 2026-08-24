@@ -31,7 +31,7 @@ conditioning cost when nontrivial fitting is used.
 |---|---|---|---|
 | E1 | Nonlocal reflection symmetry | Main mechanism + certificate | `ACTIVE`; T2-B validation and finite-grid pilot passed; repeats/baselines remain |
 | E2 | Nonlinear PDE expanding-domain scaling | Main scaling/inference consequence | `ACTIVE`; T2-B and family T4 passed; robustness/baselines remain |
-| E3 | Realistic non-PDE sequential BO | Main end-to-end sequential test | `PASS_PBE_VALUE`; decision-reset adaptive engineering path is blocked; fresh seeds remain unspent |
+| E3 | Realistic non-PDE sequential BO | Main end-to-end sequential test | `PASS_PBE_VALUE`; decision-reset and full-archive adaptive engineering paths are blocked; fresh seeds remain unspent |
 | E4 | Linear PDE factor graph | Supplementary control | `EXISTING EVIDENCE / SUPPLEMENT` |
 | A1 | Factor-selection ablations | Supplement | `PLANNED` after primary pipelines |
 | A2 | Inference-backend comparison | Supplement/modularity | `PLANNED` after primary pipelines |
@@ -163,7 +163,7 @@ factors.
 
 ## E3 — Realistic non-PDE BO candidate
 
-**Status:** `PASS_PBE_VALUE / ADAPTIVE_ENGINEERING_PATHOLOGICAL / FRESH ADAPTIVE VALIDATION NOT PREREGISTERED / NORMALIZED PBE MODEL PASSED / ADJACENT BASELINE VALID / DESCRIPTOR-REFERENCE GRAPH PASSED / CURRENT NLR BENCHMARK FROZEN / HISTORICAL REPRODUCTION JOIN_AMBIGUOUS`.
+**Status:** `PASS_PBE_VALUE / ADAPTIVE_ENGINEERING_PATHOLOGICAL / FULL_ARCHIVE_NOT_HELPFUL / FRESH ADAPTIVE VALIDATION NOT PREREGISTERED / NORMALIZED PBE MODEL PASSED / ADJACENT BASELINE VALID / DESCRIPTOR-REFERENCE GRAPH PASSED / CURRENT NLR BENCHMARK FROZEN / HISTORICAL REPRODUCTION JOIN_AMBIGUOUS`.
 
 The exact historical **Sun et al. PBE→GW oxide legacy-data problem** failed its
 first source-recovery gate. The current authoritative NREL/NLR queries reproduce
@@ -315,16 +315,20 @@ There is no active fresh adaptive validation preregistration and no authorized
 seed 12--31 run. The existing config/notebook are retained as engineering
 artifacts only.
 
-**Development-only full-bank scaling probe — `PLANNED`.** Before any new
-scientific plan, compare normalized all-pairs supports of 500, 1,000, and all
-2,142 legacy materials at the three already-consumed seed-0 FULL states. This
-tests whether the 500-node down-selection obscured decision/conditioning
-separation or whether the preference information/Menz envelope remains dense.
-It changes no theorem or paper claim, uses no fresh seed, and has no scientific
-PASS threshold. The prospective local failure is `LOCAL_RESOURCE_BLOCKED` at
-10 GB peak RSS or the fixed per-phase engineering time limits; otherwise report
-one of `FULL_ARCHIVE_PROMISING`, `BOUND_CONSERVATISM_DIAGNOSED`, or
-`FULL_ARCHIVE_NOT_HELPFUL` from the complete development diagnostics.
+**Development-only full-bank scaling probe — `FULL_ARCHIVE_NOT_HELPFUL`.** The
+500-, 1,000-, and 2,142-support probe completed locally at the three
+already-consumed seed-0 FULL states with `0.425639936` GB peak RSS. The full
+archive remained mathematically healthy and target-blind PBE rank signal stayed
+strong, but median pre-fallback active counts were `116195`, `474338`, and
+`2230019`, corresponding to fractions `0.931662`, `0.949890`, and `0.972771`.
+All nine primary states exhausted eight stages and full-fallbacked. At 2,142
+support the active action first matched FULL only after the first bound-selected
+batch had already activated `0.964427`--`0.969912` of factors. Median FULL
+conditioning times were `0.2250`, `0.8838`, and `5.5806` seconds. Thus enlarging
+the bank did not reveal decision/conditioning separation under the current
+certificate. This used no fresh seed, changed no theorem or paper claim, and
+created no preregistration. Immutable record:
+[`outputs/full_bank_scaling_probe/RESULTS.md`](../experiments/sun_oxide/outputs/full_bank_scaling_probe/RESULTS.md).
 
 ### Closed E3 evidence
 
@@ -398,7 +402,9 @@ on screenshots or notebook output alone.
    factors with full normalized PBE-order conditioning (`PASS_PBE_VALUE`).
 5. **Blocked:** decision-reset adaptive PBE conditioning preserved FULL actions
    but required full fallback at all 36 smoke decisions and increased factor
-   work/time; fresh seeds 12--31 remain unspent.
+   work/time. Enlarging normalized all-pairs support to all 2,142 materials did
+   not help: median pre-fallback factor fraction increased to `0.972771` and all
+   nine development states still fell back. Fresh seeds 12--31 remain unspent.
 6. Run the E1 repeated mechanism/coverage experiment and frozen baselines.
 7. Expand E2 across source fields/BO states with the smallest necessary
    baseline set.

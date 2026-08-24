@@ -179,6 +179,15 @@ immutable [`RESULTS.md`](../experiments/nonlinear_pde/outputs/t2b_structural_val
   4.00, about 3.64 times FULL energy-gradient work, and about 8.40 times FULL
   Hessian work. This is `ADAPTIVE_ENGINEERING_PATHOLOGICAL`; the fresh adaptive
   efficiency validation is blocked and the fresh seeds remain unspent.
+- A development-only full-bank scaling probe then compared normalized all-pairs
+  supports of 500, 1,000, and all 2,142 legacy materials at three already-used
+  seed-0 FULL states. The full archive stayed SPD (`lambda_min(A0)=0.7520475515`)
+  and retained strong PBE rank signal, but median pre-fallback active fraction
+  increased from `0.931662` to `0.949890` to `0.972771`; all nine states still
+  exhausted eight stages and full-fallbacked. Median active counts scaled from
+  `116195` to `2230019` while total factors scaled from `124718` to `2292440`.
+  This is the development classification `FULL_ARCHIVE_NOT_HELPFUL`, not new
+  scientific evidence or a reinterpretation of either immutable smoke.
 
 Details: [`experiments/sun_oxide/`](../experiments/sun_oxide/) and its immutable
 [`SOURCE_AUDIT.md`](../experiments/sun_oxide/outputs/source_recovery/SOURCE_AUDIT.md),
@@ -236,8 +245,12 @@ remain in place; see [`experiments/README.md`](../experiments/README.md) and
 Do not run `experiments/sun_oxide/colab_adaptive_e3_validation.ipynb` or access
 seeds 12--31. The decision-reset smoke is an engineering blocker under the
 frozen algorithm: it preserves FULL actions but increases factor work and
-conditioning time. Any future scientific run requires a new explicit plan and
-prospective preregistration; the superseded commit above is not authorization.
+conditioning time, and the development full-archive probe shows that expanding
+the bank does not restore separation under the current structural activation
+rule. Any next work should remain development-only and first diagnose or
+tighten that activation step. Any future scientific run requires a new explicit
+plan and prospective preregistration; the superseded commit above is not
+authorization.
 
 ## Operating rules
 

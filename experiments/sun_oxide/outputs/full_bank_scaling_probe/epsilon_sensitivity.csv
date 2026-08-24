@@ -1,0 +1,7 @@
+support_count,factor_count,state,epsilon,active_factor_count_at_certification_or_fallback,active_fraction_at_certification_or_fallback,stage_count,certified,full_bank_fallback,shadow_full_action_agreement,shadow_full_laplace_ei_regret,conditioning_seconds,factor_energy_gradient_work,factor_hessian_work,peak_rss_bytes
+500,124718,seed_0_after_6_queries,0.05,107039,0.8582482079571513,8,False,True,True,0.0,0.896492499858141,40768241,975839,208355328
+500,124718,seed_0_after_6_queries,0.1,92345,0.7404304110072323,8,False,True,True,0.0,0.8892929579596967,40248597,855576,208355328
+1000,499361,seed_0_after_6_queries,0.05,447223,0.8955905647417399,8,False,True,True,0.0,4.091992000117898,193165693,4054012,316276736
+1000,499361,seed_0_after_6_queries,0.1,399722,0.8004669968219384,8,False,True,True,0.0,4.241857291897759,200388551,3656783,316276736
+2142,2292440,seed_0_after_6_queries,0.05,2162643,0.9433804156270175,8,False,True,True,0.0,27.22376170894131,1358735353,19538434,403537920
+2142,2292440,seed_0_after_6_queries,0.1,2037342,0.888722060337457,8,False,True,True,0.0,23.48988170782104,1166941314,18483923,425639936

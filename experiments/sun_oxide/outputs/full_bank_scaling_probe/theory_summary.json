@@ -1,0 +1,78 @@
+{
+  "development_only": true,
+  "implicit_500_regression": {
+    "observed_action_count": 4,
+    "old_dense_support_inverse_formed_for_regression_only": true,
+    "routine_dense_inverse_formed": false,
+    "support_count": 500,
+    "v_iterative_solve": {
+      "iterations": 17,
+      "relative_residual": 6.006273816316209e-12,
+      "seconds": 0.0006386670283973217
+    },
+    "v_max_abs_error": 7.195017151517824e-13,
+    "w_iterative_solve": {
+      "iterations": 17,
+      "relative_residual": 6.9938733427185115e-12,
+      "seconds": 0.0007726249750703573
+    },
+    "w_max_abs_error": 7.698619519658223e-12
+  },
+  "models": {
+    "1000": {
+      "a0_eigen_residual": 2.440198827500039e-13,
+      "a0_eigensolver_seconds": 0.0023041670210659504,
+      "a0_smallest_eigenvalue": 0.8583029303445333,
+      "a0_spd": true,
+      "analytic_a0_lambda_minimum_lower_bound": 0.75,
+      "dense_inverse_formed": false,
+      "factor_count": 499361,
+      "maximum_weighted_incident_degree": 1.0,
+      "new_theorem_introduced": false,
+      "omega": 0.001001001001001001,
+      "omitted_exact_tie_pair_count": 139,
+      "support_count": 1000,
+      "weighted_adjacency_eigen_residual": 4.1413048855123353e-16,
+      "weighted_adjacency_eigensolver_seconds": 0.0007767919450998306,
+      "weighted_adjacency_eigenvalue": 0.9997220603170617,
+      "weighted_adjacency_spectral_norm": 0.9997220603170617
+    },
+    "2142": {
+      "a0_eigen_residual": 2.574551326113832e-13,
+      "a0_eigensolver_seconds": 0.0021309158764779568,
+      "a0_smallest_eigenvalue": 0.752047551492951,
+      "a0_spd": true,
+      "analytic_a0_lambda_minimum_lower_bound": 0.75,
+      "dense_inverse_formed": false,
+      "factor_count": 2292440,
+      "maximum_weighted_incident_degree": 1.0,
+      "new_theorem_introduced": false,
+      "omega": 0.00046707146193367583,
+      "omitted_exact_tie_pair_count": 571,
+      "support_count": 2142,
+      "weighted_adjacency_eigen_residual": 2.4510605297040163e-16,
+      "weighted_adjacency_eigensolver_seconds": 0.0010773749090731144,
+      "weighted_adjacency_eigenvalue": 0.9997511178727828,
+      "weighted_adjacency_spectral_norm": 0.9997511178727828
+    },
+    "500": {
+      "a0_eigen_residual": 2.094987479823653e-11,
+      "a0_eigensolver_seconds": 0.002531500067561865,
+      "a0_smallest_eigenvalue": 0.9003424446737388,
+      "a0_spd": true,
+      "analytic_a0_lambda_minimum_lower_bound": 0.75,
+      "dense_inverse_formed": false,
+      "factor_count": 124718,
+      "maximum_weighted_incident_degree": 0.9999999999999999,
+      "new_theorem_introduced": false,
+      "omega": 0.002004008016032064,
+      "omitted_exact_tie_pair_count": 32,
+      "support_count": 500,
+      "weighted_adjacency_eigen_residual": 3.070411548599881e-16,
+      "weighted_adjacency_eigensolver_seconds": 0.0014540839474648237,
+      "weighted_adjacency_eigenvalue": 0.9997442203602471,
+      "weighted_adjacency_spectral_norm": 0.9997442203602471
+    }
+  },
+  "schema_version": 1
+}
