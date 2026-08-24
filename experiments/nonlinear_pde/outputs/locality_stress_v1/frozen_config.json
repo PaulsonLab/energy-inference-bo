@@ -1,0 +1,174 @@
+{
+  "experiment_id": "E2_LOCALITY_STRESS_V1",
+  "status": "FROZEN_BEFORE_PROSPECTIVE_EXECUTION",
+  "domain_sizes": [18, 24, 30, 36, 40],
+  "prospective_source_seeds": [4215109622, 1083605379, 4045758625],
+  "seed_derivation": {
+    "label": "E2_LOCALITY_STRESS_V1:<replicate>",
+    "hash": "SHA256",
+    "mapping": "big-endian first 8 digest bytes modulo (2^32 - 1)",
+    "repository_search_confirmed_unused_before_freeze": true
+  },
+  "model": {
+    "q0": 3.5,
+    "q_laplacian": 0.6,
+    "coupling": 0.12,
+    "nonlinearity": 0.25,
+    "gamma": 0.08,
+    "tau": 0.3,
+    "incumbent": 0.55,
+    "action_region": "archived centered 13-by-9 region clipped only if necessary"
+  },
+  "source_field": {
+    "construction": "archived two-peak manufactured truth plus a seeded, centered, unit-standard-deviation draw from the fixed Gaussian reference",
+    "perturbation_scale": 0.08,
+    "residual_source": "computed so the seeded truth satisfies every accepted nonlinear residual exactly"
+  },
+  "bo_trajectory": {
+    "policy": "ordinary Gaussian-reference expected improvement with no structural factors",
+    "initialization": "deterministic center-first farthest-point design on the common action grid",
+    "initialization_size": 4,
+    "total_queries": 12,
+    "checkpoint_queries": [4, 8, 12],
+    "checkpoint_labels": ["early", "middle", "late"],
+    "observation_noise_variance": 0.0025,
+    "observed_values": "noise-free manufactured truth; finite reference noise variance used for conditioning",
+    "paired_state_requirement": "byte-identical BOState fingerprint across M0-M4"
+  },
+  "methods": [
+    "FULL",
+    "ADAPTIVE_INFLUENCE",
+    "DYNAMIC_GEOMETRIC_SHELL",
+    "STATIC_INFLUENCE",
+    "FIXED_CHALLENGER",
+    "RANDOM_MATCHED_M",
+    "ORACLE_GEOMETRIC_PREFIX"
+  ],
+  "selection": {
+    "initial_mask": "empty for M1-M4 at every BO state",
+    "activation_within_decision": "cumulative",
+    "mask_carry_between_states": false,
+    "batch_size": 10,
+    "maximum_refinement_stages": 50,
+    "stopping_tolerance": 0.06,
+    "fallback": "activate all remaining factors and return an explicit FULL decision",
+    "tie_breaking": "ascending factor index after primary score or distance",
+    "challenger_search": "exhaustive frozen action grid; optimization remainder zero"
+  },
+  "historical_tolerance_discrepancy": {
+    "primary_24x24_tolerance": 0.06,
+    "archived_scaling_helper_default_tolerance": 0.075,
+    "frozen_choice": 0.06,
+    "status": "PROSPECTIVE_RUN_REQUIRES_EXPLICIT_ACKNOWLEDGEMENT"
+  },
+  "inference": {
+    "routine_strategy": "GP-reference SNIS first for every method; Laplace-proposal SNIS escalation below the frozen ESS threshold",
+    "routine_reference_ess_escalation_threshold": 0.1,
+    "delta_mc": 0.05,
+    "mc_bound": "archived direct SNIS gap influence-function standard error with Bonferroni normal quantile over actions",
+    "laplace_proposal_inflation": 1.1,
+    "laplace_gradient_tolerance": 1e-08,
+    "laplace_maximum_iterations": 12,
+    "dense_inference_justification": "the archived Laplace proposal uses dense Cholesky; A remains sparse and A^{-1} is never formed; bytes are recorded"
+  },
+  "numerical": {
+    "reference_sample_count": 2048,
+    "laplace_sample_count": 2048
+  },
+  "full_shadow": {
+    "backend": "two independent Laplace-proposal SNIS batches",
+    "initial_sample_count_per_batch": 8192,
+    "escalated_sample_count_per_batch": 16384,
+    "maximum_escalations": 1,
+    "minimum_ess_fraction": 0.2,
+    "require_action_agreement": true,
+    "maximum_batch_acquisition_difference": 0.01,
+    "unreliable_label": "FULL_REFERENCE_UNRELIABLE",
+    "inconclusive_fraction_threshold": 0.1
+  },
+  "random_baseline": {
+    "grid_sizes": [24, 40],
+    "checkpoints": ["early", "late"],
+    "source_replicates": [0, 1, 2],
+    "subsets_per_state": 10,
+    "seed_derivation": "SHA256(E2_RANDOM_MATCHED:<state_id>), first 8 hex digits"
+  },
+  "diagnostics": {
+    "oracle_regret_threshold": 0.01,
+    "oracle_is_deployable": false,
+    "full_information_may_feed_deployable_methods": false
+  },
+  "statistics": {
+    "scaling_estimator": "Theil-Sen slope of log per-size median M on log N",
+    "bootstrap_target": "paired mean log(M_ADAPTIVE_INFLUENCE / M_baseline)",
+    "bootstrap_resamples": 10000,
+    "bootstrap_seed": 2026082402,
+    "bootstrap_interval": [0.025, 0.975]
+  },
+  "verdict_thresholds": {
+    "matched_quality_regret_margin": 0.01,
+    "a1": {
+      "minimum_reliable_fraction": 0.9,
+      "minimum_action_agreement": 0.85,
+      "maximum_regret_p95": 0.01,
+      "maximum_regret": 0.03,
+      "maximum_fallback_fraction": 0.1
+    },
+    "a2": {
+      "maximum_alpha": 0.5,
+      "maximum_n40_median_active_fraction": 0.1,
+      "maximum_n40_p80_active_fraction": 0.15
+    },
+    "a3": {
+      "maximum_geometric_mean_ratio": 0.8,
+      "minimum_win_fraction": 0.6,
+      "bootstrap_upper_ratio_strictly_less_than": 1.0
+    },
+    "a4": {
+      "maximum_count_ratio": 0.9,
+      "minimum_quality_disadvantage_fraction": 0.2
+    },
+    "a5": {
+      "maximum_n40_gradient_work_ratio": 0.5,
+      "maximum_n40_wall_ratio": 0.8,
+      "maximum_n36_wall_ratio": 1.0
+    },
+    "a6": {
+      "minimum_active_ess_fraction": 0.5,
+      "minimum_active_full_ess_ratio": 3.0
+    }
+  },
+  "development": {
+    "source_seed": 2026082401,
+    "grid_sizes": [18, 24, 40],
+    "reference_sample_count": 128,
+    "laplace_sample_count": 128,
+    "shadow_sample_count_per_batch": 256,
+    "maximum_refinement_stages": 2,
+    "scientific_runtime_projection_multiplier": 4.0
+  },
+  "resource_routing": {
+    "maximum_local_peak_rss_gb": 8.0,
+    "maximum_local_runtime_minutes": 45.0,
+    "local_machine_ram_gb": 16.0,
+    "large_run_target": "single Colab A100, CPU numerical path unless profiling justifies GPU"
+  },
+  "output_schema": {
+    "required": [
+      "PREREGISTRATION.md",
+      "frozen_config.json",
+      "summary.json",
+      "state_metrics.csv",
+      "stage_metrics.csv",
+      "method_summary.csv",
+      "resource_metrics.csv",
+      "RESULTS.md",
+      "figure1_scaling.png",
+      "figure2_locality_stress.png",
+      "figure3_computational_consequence.png",
+      "figure4_spatial_examples.png"
+    ],
+    "state_rows": "one row per paired method/state with JSON factor indices",
+    "stage_rows": "one row per method refinement stage"
+  }
+}
