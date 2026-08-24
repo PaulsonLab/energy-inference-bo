@@ -104,6 +104,18 @@ Details: [`experiments/symmetry/`](../experiments/symmetry/) and its immutable
   \(N=324,576,900,1296,1600\), active GP-reference IS ESS near 84–86%, and
   full-target ESS declining from about 30.0% to 1.8%. This remains prototype
   evidence pending clean repeated reproduction and baselines.
+- Replacement stress-test preregistration
+  `0dcb76f5f2d053e098b472ac9984182b837295b5` remains unexecuted; no prospective
+  E2 source seed has been accessed. A development-only FULL-shadow diagnostic
+  using seed `2026082401` found that n=24 passes the unchanged shadow rule after
+  the frozen 16,384 escalation, but all three n=40 checkpoints fail its ESS-
+  fraction requirement at both 8,192 and 16,384. Increasing to 32,768 raises
+  absolute ESS but does not repair relative proposal/target overlap. One early
+  16,384 pair also has material cross-batch acquisition regret `0.024442`.
+  Recommendation: improve and development-validate the FULL-reference backend
+  before prospective execution; do not merely increase samples or replace the
+  reliability rule from these development cases. Exact record:
+  [`RESULTS.md`](../experiments/nonlinear_pde/outputs/full_shadow_reliability_diagnostic/RESULTS.md).
 
 Details: [`experiments/nonlinear_pde/`](../experiments/nonlinear_pde/) and its
 immutable [`RESULTS.md`](../experiments/nonlinear_pde/outputs/t2b_structural_validation/RESULTS.md).
@@ -250,6 +262,13 @@ remain in place; see [`experiments/README.md`](../experiments/README.md) and
 [`archive/e3/`](archive/e3/).
 
 ## Next work
+
+Do not execute prospective E2 source seeds from replacement preregistration
+`0dcb76f5f2d053e098b472ac9984182b837295b5`. The immediate E2 planning task is
+development-only improvement of FULL proposal/target overlap, followed by an
+independent reliability diagnostic. The current development evidence does not
+justify changing the scientific methods, thresholds, factor selection, or
+FULL-reference criterion yet.
 
 Do not run `experiments/sun_oxide/colab_adaptive_e3_validation.ipynb` or access
 seeds 12--31. The decision-reset smoke and full-archive scaling probe remain

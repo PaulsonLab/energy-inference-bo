@@ -1,0 +1,2801 @@
+{
+  "cases": [
+    {
+      "action_agreement": false,
+      "batch_a_action_regret_under_batch_b": 0.004768626650801189,
+      "batch_actions": [
+        347,
+        227
+      ],
+      "batch_b_action_regret_under_batch_a": 9.983520265827162e-05,
+      "batch_seeds": [
+        527293637,
+        527293638
+      ],
+      "batch_wall_seconds": [
+        0.27651995909400284,
+        0.24766179104335606
+      ],
+      "checkpoint": "early",
+      "checkpoint_queries": 4,
+      "classification_materiality_scale": 0.01,
+      "ess_absolute_batch_a": 4371.842917825815,
+      "ess_absolute_batch_b": 4324.366021640305,
+      "ess_fraction_batch_a": 0.533672231179909,
+      "ess_fraction_batch_b": 0.5278767116260138,
+      "failure_classification": "NEAR_TIE_ACTION_INSTABILITY",
+      "frozen_rule_components": {
+        "action_agreement_pass": false,
+        "ess_pass": true,
+        "maximum_batch_acquisition_difference": 0.01,
+        "minimum_ess_fraction": 0.2,
+        "vector_difference_pass": true
+      },
+      "frozen_rule_reliable": false,
+      "grid_size": 24,
+      "laplace_mode_batch_a": {
+        "accepted_steps": 3,
+        "converged": true,
+        "dense_hessian_bytes": 2654208,
+        "gradient_inf_norm": 4.751234128352877e-14,
+        "iterations": 3,
+        "proposal_inflation": 1.1,
+        "sample_count": 8192
+      },
+      "laplace_mode_batch_b": {
+        "accepted_steps": 3,
+        "converged": true,
+        "dense_hessian_bytes": 2654208,
+        "gradient_inf_norm": 4.751234128352877e-14,
+        "iterations": 3,
+        "proposal_inflation": 1.1,
+        "sample_count": 8192
+      },
+      "maximum_acquisition_vector_difference": 0.009291886989707121,
+      "maximum_cross_batch_action_regret": 0.004768626650801189,
+      "maximum_top_five_union_difference": 0.009291886989707121,
+      "pair_wall_seconds": 0.5279952499549836,
+      "peak_rss_bytes": 396345344,
+      "peak_rss_gb": 0.396345344,
+      "pooled_batch_diagnostic": {
+        "action_index": 227,
+        "diagnostic_only": true,
+        "ess_absolute": 8696.145644807013,
+        "ess_fraction": 0.530770608203553,
+        "top_five": [
+          {
+            "acquisition": 0.42264257067465466,
+            "action_index": 227,
+            "rank": 1
+          },
+          {
+            "acquisition": 0.42203552175176656,
+            "action_index": 348,
+            "rank": 2
+          },
+          {
+            "acquisition": 0.4203148974912268,
+            "action_index": 347,
+            "rank": 3
+          },
+          {
+            "acquisition": 0.4153251378113542,
+            "action_index": 228,
+            "rank": 4
+          },
+          {
+            "acquisition": 0.25260890362907895,
+            "action_index": 371,
+            "rank": 5
+          }
+        ],
+        "top_two_gap": 0.0006070489228880982
+      },
+      "rank1_rank2_gap_batch_a": 9.983520265827162e-05,
+      "rank1_rank2_gap_batch_b": 0.0011113056408836863,
+      "sample_count_per_batch": 8192,
+      "state_fingerprint": "f1f4f3e27e025ee0249ecc30566f4f9f37d6a2ac746e06a50d4f607cd1e5171f",
+      "state_id": "n24_r-2_early_q4",
+      "state_specific_incumbent": 0.55,
+      "top_five_batch_a": [
+        {
+          "acquisition": 0.42370506191272406,
+          "action_index": 347,
+          "rank": 1
+        },
+        {
+          "acquisition": 0.4236052267100658,
+          "action_index": 227,
+          "rank": 2
+        },
+        {
+          "acquisition": 0.4234996569952151,
+          "action_index": 348,
+          "rank": 3
+        },
+        {
+          "acquisition": 0.41354198988831725,
+          "action_index": 228,
+          "rank": 4
+        },
+        {
+          "acquisition": 0.2564745259697097,
+          "action_index": 323,
+          "rank": 5
+        }
+      ],
+      "top_five_batch_b": [
+        {
+          "acquisition": 0.42167458283947656,
+          "action_index": 227,
+          "rank": 1
+        },
+        {
+          "acquisition": 0.4205632771985929,
+          "action_index": 348,
+          "rank": 2
+        },
+        {
+          "acquisition": 0.4171181619386958,
+          "action_index": 228,
+          "rank": 3
+        },
+        {
+          "acquisition": 0.4169059561886754,
+          "action_index": 347,
+          "rank": 4
+        },
+        {
+          "acquisition": 0.24910012058039369,
+          "action_index": 252,
+          "rank": 5
+        }
+      ],
+      "worker_wall_seconds_including_state_construction": 0.5804391668643802
+    },
+    {
+      "action_agreement": true,
+      "batch_a_action_regret_under_batch_b": 0.0,
+      "batch_actions": [
+        347,
+        347
+      ],
+      "batch_b_action_regret_under_batch_a": 0.0,
+      "batch_seeds": [
+        527393640,
+        527393641
+      ],
+      "batch_wall_seconds": [
+        0.5273557498585433,
+        0.4996755411848426
+      ],
+      "checkpoint": "early",
+      "checkpoint_queries": 4,
+      "classification_materiality_scale": 0.01,
+      "ess_absolute_batch_a": 9161.113218025888,
+      "ess_absolute_batch_b": 9022.610826705486,
+      "ess_fraction_batch_a": 0.5591499766861504,
+      "ess_fraction_batch_b": 0.550696461590911,
+      "failure_classification": null,
+      "frozen_rule_components": {
+        "action_agreement_pass": true,
+        "ess_pass": true,
+        "maximum_batch_acquisition_difference": 0.01,
+        "minimum_ess_fraction": 0.2,
+        "vector_difference_pass": true
+      },
+      "frozen_rule_reliable": true,
+      "grid_size": 24,
+      "laplace_mode_batch_a": {
+        "accepted_steps": 3,
+        "converged": true,
+        "dense_hessian_bytes": 2654208,
+        "gradient_inf_norm": 4.751234128352877e-14,
+        "iterations": 3,
+        "proposal_inflation": 1.1,
+        "sample_count": 16384
+      },
+      "laplace_mode_batch_b": {
+        "accepted_steps": 3,
+        "converged": true,
+        "dense_hessian_bytes": 2654208,
+        "gradient_inf_norm": 4.751234128352877e-14,
+        "iterations": 3,
+        "proposal_inflation": 1.1,
+        "sample_count": 16384
+      },
+      "maximum_acquisition_vector_difference": 0.007317023824593372,
+      "maximum_cross_batch_action_regret": 0.0,
+      "maximum_top_five_union_difference": 0.007317023824593372,
+      "pair_wall_seconds": 1.0338284170720726,
+      "peak_rss_bytes": 637059072,
+      "peak_rss_gb": 0.637059072,
+      "pooled_batch_diagnostic": {
+        "action_index": 347,
+        "diagnostic_only": true,
+        "ess_absolute": 18183.021797994043,
+        "ess_fraction": 0.5549017882688612,
+        "top_five": [
+          {
+            "acquisition": 0.42506525222356084,
+            "action_index": 347,
+            "rank": 1
+          },
+          {
+            "acquisition": 0.42099335758602346,
+            "action_index": 228,
+            "rank": 2
+          },
+          {
+            "acquisition": 0.4203044519155334,
+            "action_index": 227,
+            "rank": 3
+          },
+          {
+            "acquisition": 0.4194862364524104,
+            "action_index": 348,
+            "rank": 4
+          },
+          {
+            "acquisition": 0.2575184357651305,
+            "action_index": 371,
+            "rank": 5
+          }
+        ],
+        "top_two_gap": 0.004071894637537377
+      },
+      "rank1_rank2_gap_batch_a": 0.003154382175606374,
+      "rank1_rank2_gap_batch_b": 0.0023529258592770996,
+      "sample_count_per_batch": 16384,
+      "state_fingerprint": "f1f4f3e27e025ee0249ecc30566f4f9f37d6a2ac746e06a50d4f607cd1e5171f",
+      "state_id": "n24_r-2_early_q4",
+      "state_specific_incumbent": 0.55,
+      "top_five_batch_a": [
+        {
+          "acquisition": 0.42462892496457627,
+          "action_index": 347,
+          "rank": 1
+        },
+        {
+          "acquisition": 0.4214745427889699,
+          "action_index": 228,
+          "rank": 2
+        },
+        {
+          "acquisition": 0.41970256840249376,
+          "action_index": 227,
+          "rank": 3
+        },
+        {
+          "acquisition": 0.41583285535661185,
+          "action_index": 348,
+          "rank": 4
+        },
+        {
+          "acquisition": 0.2547429825142569,
+          "action_index": 371,
+          "rank": 5
+        }
+      ],
+      "top_five_batch_b": [
+        {
+          "acquisition": 0.4255028050404823,
+          "action_index": 347,
+          "rank": 1
+        },
+        {
+          "acquisition": 0.4231498791812052,
+          "action_index": 348,
+          "rank": 2
+        },
+        {
+          "acquisition": 0.4209080260016491,
+          "action_index": 227,
+          "rank": 3
+        },
+        {
+          "acquisition": 0.42051082082794894,
+          "action_index": 228,
+          "rank": 4
+        },
+        {
+          "acquisition": 0.2603016847213828,
+          "action_index": 371,
+          "rank": 5
+        }
+      ],
+      "worker_wall_seconds_including_state_construction": 1.0724483751691878
+    },
+    {
+      "action_agreement": true,
+      "batch_a_action_regret_under_batch_b": 0.0,
+      "batch_actions": [
+        227,
+        227
+      ],
+      "batch_b_action_regret_under_batch_a": 0.0,
+      "batch_seeds": [
+        527493643,
+        527493644
+      ],
+      "batch_wall_seconds": [
+        1.3581886671017855,
+        1.1467697920743376
+      ],
+      "checkpoint": "early",
+      "checkpoint_queries": 4,
+      "classification_materiality_scale": 0.01,
+      "ess_absolute_batch_a": 17804.06795588502,
+      "ess_absolute_batch_b": 18157.14650116219,
+      "ess_fraction_batch_a": 0.5433370347865302,
+      "ess_fraction_batch_b": 0.5541121368762876,
+      "failure_classification": null,
+      "frozen_rule_components": {
+        "action_agreement_pass": true,
+        "ess_pass": true,
+        "maximum_batch_acquisition_difference": 0.01,
+        "minimum_ess_fraction": 0.2,
+        "vector_difference_pass": true
+      },
+      "frozen_rule_reliable": true,
+      "grid_size": 24,
+      "laplace_mode_batch_a": {
+        "accepted_steps": 3,
+        "converged": true,
+        "dense_hessian_bytes": 2654208,
+        "gradient_inf_norm": 4.751234128352877e-14,
+        "iterations": 3,
+        "proposal_inflation": 1.1,
+        "sample_count": 32768
+      },
+      "laplace_mode_batch_b": {
+        "accepted_steps": 3,
+        "converged": true,
+        "dense_hessian_bytes": 2654208,
+        "gradient_inf_norm": 4.751234128352877e-14,
+        "iterations": 3,
+        "proposal_inflation": 1.1,
+        "sample_count": 32768
+      },
+      "maximum_acquisition_vector_difference": 0.004889221612824901,
+      "maximum_cross_batch_action_regret": 0.0,
+      "maximum_top_five_union_difference": 0.004889221612824901,
+      "pair_wall_seconds": 2.5248810828197747,
+      "peak_rss_bytes": 891846656,
+      "peak_rss_gb": 0.891846656,
+      "pooled_batch_diagnostic": {
+        "action_index": 227,
+        "diagnostic_only": true,
+        "ess_absolute": 35956.88060088093,
+        "ess_fraction": 0.5486584564343404,
+        "top_five": [
+          {
+            "acquisition": 0.42585135957424397,
+            "action_index": 227,
+            "rank": 1
+          },
+          {
+            "acquisition": 0.4210603413836038,
+            "action_index": 347,
+            "rank": 2
+          },
+          {
+            "acquisition": 0.4205748177284475,
+            "action_index": 348,
+            "rank": 3
+          },
+          {
+            "acquisition": 0.4171325216804207,
+            "action_index": 228,
+            "rank": 4
+          },
+          {
+            "acquisition": 0.2554189375134718,
+            "action_index": 371,
+            "rank": 5
+          }
+        ],
+        "top_two_gap": 0.0047910181906401506
+      },
+      "rank1_rank2_gap_batch_a": 0.007835047851503851,
+      "rank1_rank2_gap_batch_b": 0.0014392583649967539,
+      "sample_count_per_batch": 32768,
+      "state_fingerprint": "f1f4f3e27e025ee0249ecc30566f4f9f37d6a2ac746e06a50d4f607cd1e5171f",
+      "state_id": "n24_r-2_early_q4",
+      "state_specific_incumbent": 0.55,
+      "top_five_batch_a": [
+        {
+          "acquisition": 0.42829313527443125,
+          "action_index": 227,
+          "rank": 1
+        },
+        {
+          "acquisition": 0.4204580874229274,
+          "action_index": 347,
+          "rank": 2
+        },
+        {
+          "acquisition": 0.41918820011879115,
+          "action_index": 348,
+          "rank": 3
+        },
+        {
+          "acquisition": 0.4157960422725354,
+          "action_index": 228,
+          "rank": 4
+        },
+        {
+          "acquisition": 0.25628082774433947,
+          "action_index": 371,
+          "rank": 5
+        }
+      ],
+      "top_five_batch_b": [
+        {
+          "acquisition": 0.42340391366160635,
+          "action_index": 227,
+          "rank": 1
+        },
+        {
+          "acquisition": 0.4219646552966096,
+          "action_index": 348,
+          "rank": 2
+        },
+        {
+          "acquisition": 0.4216639938789228,
+          "action_index": 347,
+          "rank": 3
+        },
+        {
+          "acquisition": 0.4184721046175032,
+          "action_index": 228,
+          "rank": 4
+        },
+        {
+          "acquisition": 0.2545550458290236,
+          "action_index": 371,
+          "rank": 5
+        }
+      ],
+      "worker_wall_seconds_including_state_construction": 2.56092912517488
+    },
+    {
+      "action_agreement": false,
+      "batch_a_action_regret_under_batch_b": 8.097839537088425e-05,
+      "batch_actions": [
+        203,
+        324
+      ],
+      "batch_b_action_regret_under_batch_a": 0.0008703496181077033,
+      "batch_seeds": [
+        1583452888,
+        1583452889
+      ],
+      "batch_wall_seconds": [
+        0.2413562920410186,
+        0.24247458297759295
+      ],
+      "checkpoint": "middle",
+      "checkpoint_queries": 8,
+      "classification_materiality_scale": 0.01,
+      "ess_absolute_batch_a": 4363.884758052348,
+      "ess_absolute_batch_b": 4511.678613365479,
+      "ess_fraction_batch_a": 0.532700776129437,
+      "ess_fraction_batch_b": 0.5507420182330907,
+      "failure_classification": "NEAR_TIE_ACTION_INSTABILITY",
+      "frozen_rule_components": {
+        "action_agreement_pass": false,
+        "ess_pass": true,
+        "maximum_batch_acquisition_difference": 0.01,
+        "minimum_ess_fraction": 0.2,
+        "vector_difference_pass": true
+      },
+      "frozen_rule_reliable": false,
+      "grid_size": 24,
+      "laplace_mode_batch_a": {
+        "accepted_steps": 3,
+        "converged": true,
+        "dense_hessian_bytes": 2654208,
+        "gradient_inf_norm": 4.7547035753048306e-14,
+        "iterations": 3,
+        "proposal_inflation": 1.1,
+        "sample_count": 8192
+      },
+      "laplace_mode_batch_b": {
+        "accepted_steps": 3,
+        "converged": true,
+        "dense_hessian_bytes": 2654208,
+        "gradient_inf_norm": 4.7547035753048306e-14,
+        "iterations": 3,
+        "proposal_inflation": 1.1,
+        "sample_count": 8192
+      },
+      "maximum_acquisition_vector_difference": 0.004323115874344335,
+      "maximum_cross_batch_action_regret": 0.0008703496181077033,
+      "maximum_top_five_union_difference": 0.004233062438436644,
+      "pair_wall_seconds": 0.4866332078818232,
+      "peak_rss_bytes": 402374656,
+      "peak_rss_gb": 0.402374656,
+      "pooled_batch_diagnostic": {
+        "action_index": 203,
+        "diagnostic_only": true,
+        "ess_absolute": 8873.23163327019,
+        "ess_fraction": 0.5415790791790888,
+        "top_five": [
+          {
+            "acquisition": 0.05565990188436403,
+            "action_index": 203,
+            "rank": 1
+          },
+          {
+            "acquisition": 0.05526542719357146,
+            "action_index": 324,
+            "rank": 2
+          },
+          {
+            "acquisition": 0.05506593865170689,
+            "action_index": 371,
+            "rank": 3
+          },
+          {
+            "acquisition": 0.05317948159118414,
+            "action_index": 323,
+            "rank": 4
+          },
+          {
+            "acquisition": 0.0526892065888488,
+            "action_index": 204,
+            "rank": 5
+          }
+        ],
+        "top_two_gap": 0.0003944746907925678
+      },
+      "rank1_rank2_gap_batch_a": 0.0001483659583905103,
+      "rank1_rank2_gap_batch_b": 8.097839537088425e-05,
+      "sample_count_per_batch": 8192,
+      "state_fingerprint": "797888d88be675191e5f1078d52901face570c87e8d2fcf12e28dac188e6a5c2",
+      "state_id": "n24_r-2_middle_q8",
+      "state_specific_incumbent": 0.9922047314210836,
+      "top_five_batch_a": [
+        {
+          "acquisition": 0.054018307072881445,
+          "action_index": 203,
+          "rank": 1
+        },
+        {
+          "acquisition": 0.053869941114490935,
+          "action_index": 371,
+          "rank": 2
+        },
+        {
+          "acquisition": 0.05325559795185128,
+          "action_index": 252,
+          "rank": 3
+        },
+        {
+          "acquisition": 0.05314795745477374,
+          "action_index": 324,
+          "rank": 4
+        },
+        {
+          "acquisition": 0.052544620310547394,
+          "action_index": 323,
+          "rank": 5
+        }
+      ],
+      "top_five_batch_b": [
+        {
+          "acquisition": 0.057381019893210386,
+          "action_index": 324,
+          "rank": 1
+        },
+        {
+          "acquisition": 0.0573000414978395,
+          "action_index": 203,
+          "rank": 2
+        },
+        {
+          "acquisition": 0.05626087599232591,
+          "action_index": 371,
+          "rank": 3
+        },
+        {
+          "acquisition": 0.05381378009660745,
+          "action_index": 323,
+          "rank": 4
+        },
+        {
+          "acquisition": 0.053574105996851785,
+          "action_index": 204,
+          "rank": 5
+        }
+      ],
+      "worker_wall_seconds_including_state_construction": 0.522010084008798
+    },
+    {
+      "action_agreement": true,
+      "batch_a_action_regret_under_batch_b": 0.0,
+      "batch_actions": [
+        203,
+        203
+      ],
+      "batch_b_action_regret_under_batch_a": 0.0,
+      "batch_seeds": [
+        1583552891,
+        1583552892
+      ],
+      "batch_wall_seconds": [
+        0.516813833033666,
+        0.49512708303518593
+      ],
+      "checkpoint": "middle",
+      "checkpoint_queries": 8,
+      "classification_materiality_scale": 0.01,
+      "ess_absolute_batch_a": 8938.237036329521,
+      "ess_absolute_batch_b": 8647.618174086909,
+      "ess_fraction_batch_a": 0.5455466941119093,
+      "ess_fraction_batch_b": 0.5278087264457342,
+      "failure_classification": null,
+      "frozen_rule_components": {
+        "action_agreement_pass": true,
+        "ess_pass": true,
+        "maximum_batch_acquisition_difference": 0.01,
+        "minimum_ess_fraction": 0.2,
+        "vector_difference_pass": true
+      },
+      "frozen_rule_reliable": true,
+      "grid_size": 24,
+      "laplace_mode_batch_a": {
+        "accepted_steps": 3,
+        "converged": true,
+        "dense_hessian_bytes": 2654208,
+        "gradient_inf_norm": 4.7547035753048306e-14,
+        "iterations": 3,
+        "proposal_inflation": 1.1,
+        "sample_count": 16384
+      },
+      "laplace_mode_batch_b": {
+        "accepted_steps": 3,
+        "converged": true,
+        "dense_hessian_bytes": 2654208,
+        "gradient_inf_norm": 4.7547035753048306e-14,
+        "iterations": 3,
+        "proposal_inflation": 1.1,
+        "sample_count": 16384
+      },
+      "maximum_acquisition_vector_difference": 0.002337640716813534,
+      "maximum_cross_batch_action_regret": 0.0,
+      "maximum_top_five_union_difference": 0.0017702602663648911,
+      "pair_wall_seconds": 1.0190115419682115,
+      "peak_rss_bytes": 647266304,
+      "peak_rss_gb": 0.647266304,
+      "pooled_batch_diagnostic": {
+        "action_index": 203,
+        "diagnostic_only": true,
+        "ess_absolute": 17577.799848300547,
+        "ess_fraction": 0.5364318801361251,
+        "top_five": [
+          {
+            "acquisition": 0.05707822304547713,
+            "action_index": 203,
+            "rank": 1
+          },
+          {
+            "acquisition": 0.05568898540082218,
+            "action_index": 371,
+            "rank": 2
+          },
+          {
+            "acquisition": 0.054778452828865454,
+            "action_index": 323,
+            "rank": 3
+          },
+          {
+            "acquisition": 0.05361092053570064,
+            "action_index": 252,
+            "rank": 4
+          },
+          {
+            "acquisition": 0.05295230275996628,
+            "action_index": 204,
+            "rank": 5
+          }
+        ],
+        "top_two_gap": 0.001389237644654956
+      },
+      "rank1_rank2_gap_batch_a": 0.001666063383231428,
+      "rank1_rank2_gap_batch_b": 0.0011150998259255238,
+      "sample_count_per_batch": 16384,
+      "state_fingerprint": "797888d88be675191e5f1078d52901face570c87e8d2fcf12e28dac188e6a5c2",
+      "state_id": "n24_r-2_middle_q8",
+      "state_specific_incumbent": 0.9922047314210836,
+      "top_five_batch_a": [
+        {
+          "acquisition": 0.05646560047261666,
+          "action_index": 203,
+          "rank": 1
+        },
+        {
+          "acquisition": 0.05479953708938523,
+          "action_index": 371,
+          "rank": 2
+        },
+        {
+          "acquisition": 0.05437257565980795,
+          "action_index": 323,
+          "rank": 3
+        },
+        {
+          "acquisition": 0.053307591167407645,
+          "action_index": 252,
+          "rank": 4
+        },
+        {
+          "acquisition": 0.053084782220663124,
+          "action_index": 204,
+          "rank": 5
+        }
+      ],
+      "top_five_batch_b": [
+        {
+          "acquisition": 0.057684897181675646,
+          "action_index": 203,
+          "rank": 1
+        },
+        {
+          "acquisition": 0.05656979735575012,
+          "action_index": 371,
+          "rank": 2
+        },
+        {
+          "acquisition": 0.05518038901575935,
+          "action_index": 323,
+          "rank": 3
+        },
+        {
+          "acquisition": 0.0539113046394622,
+          "action_index": 252,
+          "rank": 4
+        },
+        {
+          "acquisition": 0.052821109647040274,
+          "action_index": 204,
+          "rank": 5
+        }
+      ],
+      "worker_wall_seconds_including_state_construction": 1.055568041978404
+    },
+    {
+      "action_agreement": true,
+      "batch_a_action_regret_under_batch_b": 0.0,
+      "batch_actions": [
+        371,
+        371
+      ],
+      "batch_b_action_regret_under_batch_a": 0.0,
+      "batch_seeds": [
+        1583652894,
+        1583652895
+      ],
+      "batch_wall_seconds": [
+        1.116697333054617,
+        1.0774053751956671
+      ],
+      "checkpoint": "middle",
+      "checkpoint_queries": 8,
+      "classification_materiality_scale": 0.01,
+      "ess_absolute_batch_a": 16718.373182369698,
+      "ess_absolute_batch_b": 17240.251903997825,
+      "ess_fraction_batch_a": 0.5102042597158721,
+      "ess_fraction_batch_b": 0.5261307343749336,
+      "failure_classification": null,
+      "frozen_rule_components": {
+        "action_agreement_pass": true,
+        "ess_pass": true,
+        "maximum_batch_acquisition_difference": 0.01,
+        "minimum_ess_fraction": 0.2,
+        "vector_difference_pass": true
+      },
+      "frozen_rule_reliable": true,
+      "grid_size": 24,
+      "laplace_mode_batch_a": {
+        "accepted_steps": 3,
+        "converged": true,
+        "dense_hessian_bytes": 2654208,
+        "gradient_inf_norm": 4.7547035753048306e-14,
+        "iterations": 3,
+        "proposal_inflation": 1.1,
+        "sample_count": 32768
+      },
+      "laplace_mode_batch_b": {
+        "accepted_steps": 3,
+        "converged": true,
+        "dense_hessian_bytes": 2654208,
+        "gradient_inf_norm": 4.7547035753048306e-14,
+        "iterations": 3,
+        "proposal_inflation": 1.1,
+        "sample_count": 32768
+      },
+      "maximum_acquisition_vector_difference": 0.0023531591176359085,
+      "maximum_cross_batch_action_regret": 0.0,
+      "maximum_top_five_union_difference": 0.002275697063259287,
+      "pair_wall_seconds": 2.2102712909691036,
+      "peak_rss_bytes": 1040351232,
+      "peak_rss_gb": 1.040351232,
+      "pooled_batch_diagnostic": {
+        "action_index": 371,
+        "diagnostic_only": true,
+        "ess_absolute": 33943.675673856524,
+        "ess_fraction": 0.5179393871132892,
+        "top_five": [
+          {
+            "acquisition": 0.05682019305665284,
+            "action_index": 371,
+            "rank": 1
+          },
+          {
+            "acquisition": 0.055797766099728606,
+            "action_index": 204,
+            "rank": 2
+          },
+          {
+            "acquisition": 0.05567725740752406,
+            "action_index": 203,
+            "rank": 3
+          },
+          {
+            "acquisition": 0.05478447437980741,
+            "action_index": 323,
+            "rank": 4
+          },
+          {
+            "acquisition": 0.052549466026724154,
+            "action_index": 324,
+            "rank": 5
+          }
+        ],
+        "top_two_gap": 0.0010224269569242342
+      },
+      "rank1_rank2_gap_batch_a": 0.0006767331582118244,
+      "rank1_rank2_gap_batch_b": 0.0007658996344520955,
+      "sample_count_per_batch": 32768,
+      "state_fingerprint": "797888d88be675191e5f1078d52901face570c87e8d2fcf12e28dac188e6a5c2",
+      "state_id": "n24_r-2_middle_q8",
+      "state_specific_incumbent": 0.9922047314210836,
+      "top_five_batch_a": [
+        {
+          "acquisition": 0.057605958099951005,
+          "action_index": 371,
+          "rank": 1
+        },
+        {
+          "acquisition": 0.05692922494173918,
+          "action_index": 204,
+          "rank": 2
+        },
+        {
+          "acquisition": 0.056090197347936854,
+          "action_index": 203,
+          "rank": 3
+        },
+        {
+          "acquisition": 0.055110582058049695,
+          "action_index": 323,
+          "rank": 4
+        },
+        {
+          "acquisition": 0.05307846893612067,
+          "action_index": 324,
+          "rank": 5
+        }
+      ],
+      "top_five_batch_b": [
+        {
+          "acquisition": 0.056025553108579075,
+          "action_index": 371,
+          "rank": 1
+        },
+        {
+          "acquisition": 0.05525965347412698,
+          "action_index": 203,
+          "rank": 2
+        },
+        {
+          "acquisition": 0.05465352787847989,
+          "action_index": 204,
+          "rank": 3
+        },
+        {
+          "acquisition": 0.05445468344457161,
+          "action_index": 323,
+          "rank": 4
+        },
+        {
+          "acquisition": 0.05295868800574797,
+          "action_index": 251,
+          "rank": 5
+        }
+      ],
+      "worker_wall_seconds_including_state_construction": 2.246193917002529
+    },
+    {
+      "action_agreement": false,
+      "batch_a_action_regret_under_batch_b": 0.006231425329259799,
+      "batch_actions": [
+        372,
+        371
+      ],
+      "batch_b_action_regret_under_batch_a": 0.00031101329419819246,
+      "batch_seeds": [
+        2263216048,
+        2263216049
+      ],
+      "batch_wall_seconds": [
+        0.24279270810075104,
+        0.2419690832030028
+      ],
+      "checkpoint": "late",
+      "checkpoint_queries": 12,
+      "classification_materiality_scale": 0.01,
+      "ess_absolute_batch_a": 4319.490381914686,
+      "ess_absolute_batch_b": 4346.332217857032,
+      "ess_fraction_batch_a": 0.52728154076107,
+      "ess_fraction_batch_b": 0.530558132062626,
+      "failure_classification": "NEAR_TIE_ACTION_INSTABILITY",
+      "frozen_rule_components": {
+        "action_agreement_pass": false,
+        "ess_pass": true,
+        "maximum_batch_acquisition_difference": 0.01,
+        "minimum_ess_fraction": 0.2,
+        "vector_difference_pass": true
+      },
+      "frozen_rule_reliable": false,
+      "grid_size": 24,
+      "laplace_mode_batch_a": {
+        "accepted_steps": 3,
+        "converged": true,
+        "dense_hessian_bytes": 2654208,
+        "gradient_inf_norm": 4.7557444093904166e-14,
+        "iterations": 3,
+        "proposal_inflation": 1.1,
+        "sample_count": 8192
+      },
+      "laplace_mode_batch_b": {
+        "accepted_steps": 3,
+        "converged": true,
+        "dense_hessian_bytes": 2654208,
+        "gradient_inf_norm": 4.7557444093904166e-14,
+        "iterations": 3,
+        "proposal_inflation": 1.1,
+        "sample_count": 8192
+      },
+      "maximum_acquisition_vector_difference": 0.006558869889439767,
+      "maximum_cross_batch_action_regret": 0.006231425329259799,
+      "maximum_top_five_union_difference": 0.006558869889439767,
+      "pair_wall_seconds": 0.4876013749744743,
+      "peak_rss_bytes": 399605760,
+      "peak_rss_gb": 0.39960576,
+      "pooled_batch_diagnostic": {
+        "action_index": 324,
+        "diagnostic_only": true,
+        "ess_absolute": 8665.75666012782,
+        "ess_fraction": 0.5289158117753796,
+        "top_five": [
+          {
+            "acquisition": 0.053454213876493066,
+            "action_index": 324,
+            "rank": 1
+          },
+          {
+            "acquisition": 0.053389750709764996,
+            "action_index": 371,
+            "rank": 2
+          },
+          {
+            "acquisition": 0.05046100223589608,
+            "action_index": 251,
+            "rank": 3
+          },
+          {
+            "acquisition": 0.05041038874365184,
+            "action_index": 372,
+            "rank": 4
+          },
+          {
+            "acquisition": 0.023876394922555295,
+            "action_index": 226,
+            "rank": 5
+          }
+        ],
+        "top_two_gap": 6.446316672806957e-05
+      },
+      "rank1_rank2_gap_batch_a": 5.798337208151594e-07,
+      "rank1_rank2_gap_batch_b": 0.00013468210854927082,
+      "sample_count_per_batch": 8192,
+      "state_fingerprint": "d3a6602d2095c3ac5a5c12dc45edf3dc19b0024e3afc18bd6e928173436b3304",
+      "state_id": "n24_r-2_late_q12",
+      "state_specific_incumbent": 0.9922047314210836,
+      "top_five_batch_a": [
+        {
+          "acquisition": 0.05040212500069702,
+          "action_index": 372,
+          "rank": 1
+        },
+        {
+          "acquisition": 0.0504015451669762,
+          "action_index": 251,
+          "rank": 2
+        },
+        {
+          "acquisition": 0.050357066238495514,
+          "action_index": 324,
+          "rank": 3
+        },
+        {
+          "acquisition": 0.050091111706498825,
+          "action_index": 371,
+          "rank": 4
+        },
+        {
+          "acquisition": 0.025208589561322065,
+          "action_index": 226,
+          "rank": 5
+        }
+      ],
+      "top_five_batch_b": [
+        {
+          "acquisition": 0.05664998159593859,
+          "action_index": 371,
+          "rank": 1
+        },
+        {
+          "acquisition": 0.05651529948738932,
+          "action_index": 324,
+          "rank": 2
+        },
+        {
+          "acquisition": 0.050519767008974314,
+          "action_index": 251,
+          "rank": 3
+        },
+        {
+          "acquisition": 0.05041855626667879,
+          "action_index": 372,
+          "rank": 4
+        },
+        {
+          "acquisition": 0.024411425174900452,
+          "action_index": 229,
+          "rank": 5
+        }
+      ],
+      "worker_wall_seconds_including_state_construction": 0.5236084589269012
+    },
+    {
+      "action_agreement": true,
+      "batch_a_action_regret_under_batch_b": 0.0,
+      "batch_actions": [
+        371,
+        371
+      ],
+      "batch_b_action_regret_under_batch_a": 0.0,
+      "batch_seeds": [
+        2263316051,
+        2263316052
+      ],
+      "batch_wall_seconds": [
+        0.5179685838520527,
+        0.4972725410480052
+      ],
+      "checkpoint": "late",
+      "checkpoint_queries": 12,
+      "classification_materiality_scale": 0.01,
+      "ess_absolute_batch_a": 8538.669190705761,
+      "ess_absolute_batch_b": 8663.226750211623,
+      "ess_fraction_batch_a": 0.5211590082217872,
+      "ess_fraction_batch_b": 0.5287613983283461,
+      "failure_classification": null,
+      "frozen_rule_components": {
+        "action_agreement_pass": true,
+        "ess_pass": true,
+        "maximum_batch_acquisition_difference": 0.01,
+        "minimum_ess_fraction": 0.2,
+        "vector_difference_pass": true
+      },
+      "frozen_rule_reliable": true,
+      "grid_size": 24,
+      "laplace_mode_batch_a": {
+        "accepted_steps": 3,
+        "converged": true,
+        "dense_hessian_bytes": 2654208,
+        "gradient_inf_norm": 4.7557444093904166e-14,
+        "iterations": 3,
+        "proposal_inflation": 1.1,
+        "sample_count": 16384
+      },
+      "laplace_mode_batch_b": {
+        "accepted_steps": 3,
+        "converged": true,
+        "dense_hessian_bytes": 2654208,
+        "gradient_inf_norm": 4.7557444093904166e-14,
+        "iterations": 3,
+        "proposal_inflation": 1.1,
+        "sample_count": 16384
+      },
+      "maximum_acquisition_vector_difference": 0.002322152927944871,
+      "maximum_cross_batch_action_regret": 0.0,
+      "maximum_top_five_union_difference": 0.0021329729401830533,
+      "pair_wall_seconds": 1.0202811248600483,
+      "peak_rss_bytes": 640925696,
+      "peak_rss_gb": 0.640925696,
+      "pooled_batch_diagnostic": {
+        "action_index": 371,
+        "diagnostic_only": true,
+        "ess_absolute": 17200.779826689388,
+        "ess_fraction": 0.5249261421719174,
+        "top_five": [
+          {
+            "acquisition": 0.05404157597784001,
+            "action_index": 371,
+            "rank": 1
+          },
+          {
+            "acquisition": 0.051995023105528886,
+            "action_index": 324,
+            "rank": 2
+          },
+          {
+            "acquisition": 0.051154963907285175,
+            "action_index": 251,
+            "rank": 3
+          },
+          {
+            "acquisition": 0.04783757380886051,
+            "action_index": 372,
+            "rank": 4
+          },
+          {
+            "acquisition": 0.02551305193781284,
+            "action_index": 226,
+            "rank": 5
+          }
+        ],
+        "top_two_gap": 0.002046552872311126
+      },
+      "rank1_rank2_gap_batch_a": 0.002988615104738926,
+      "rank1_rank2_gap_batch_b": 0.0011029554466150879,
+      "sample_count_per_batch": 16384,
+      "state_fingerprint": "d3a6602d2095c3ac5a5c12dc45edf3dc19b0024e3afc18bd6e928173436b3304",
+      "state_id": "n24_r-2_late_q12",
+      "state_specific_incumbent": 0.9922047314210836,
+      "top_five_batch_a": [
+        {
+          "acquisition": 0.05510307301914415,
+          "action_index": 371,
+          "rank": 1
+        },
+        {
+          "acquisition": 0.05211445791440522,
+          "action_index": 324,
+          "rank": 2
+        },
+        {
+          "acquisition": 0.051028622405834764,
+          "action_index": 251,
+          "rank": 3
+        },
+        {
+          "acquisition": 0.04890319200834844,
+          "action_index": 372,
+          "rank": 4
+        },
+        {
+          "acquisition": 0.025280288499091714,
+          "action_index": 229,
+          "rank": 5
+        }
+      ],
+      "top_five_batch_b": [
+        {
+          "acquisition": 0.052978349111205914,
+          "action_index": 371,
+          "rank": 1
+        },
+        {
+          "acquisition": 0.051875393664590826,
+          "action_index": 324,
+          "rank": 2
+        },
+        {
+          "acquisition": 0.051281511296007,
+          "action_index": 251,
+          "rank": 3
+        },
+        {
+          "acquisition": 0.046770219068165385,
+          "action_index": 372,
+          "rank": 4
+        },
+        {
+          "acquisition": 0.025872938558406146,
+          "action_index": 226,
+          "rank": 5
+        }
+      ],
+      "worker_wall_seconds_including_state_construction": 1.0571218749973923
+    },
+    {
+      "action_agreement": true,
+      "batch_a_action_regret_under_batch_b": 0.0,
+      "batch_actions": [
+        371,
+        371
+      ],
+      "batch_b_action_regret_under_batch_a": 0.0,
+      "batch_seeds": [
+        2263416054,
+        2263416055
+      ],
+      "batch_wall_seconds": [
+        1.0862273329403251,
+        1.078928291099146
+      ],
+      "checkpoint": "late",
+      "checkpoint_queries": 12,
+      "classification_materiality_scale": 0.01,
+      "ess_absolute_batch_a": 17420.64235776655,
+      "ess_absolute_batch_b": 16971.28289751784,
+      "ess_fraction_batch_a": 0.5316358141408248,
+      "ess_fraction_batch_b": 0.5179224517064771,
+      "failure_classification": null,
+      "frozen_rule_components": {
+        "action_agreement_pass": true,
+        "ess_pass": true,
+        "maximum_batch_acquisition_difference": 0.01,
+        "minimum_ess_fraction": 0.2,
+        "vector_difference_pass": true
+      },
+      "frozen_rule_reliable": true,
+      "grid_size": 24,
+      "laplace_mode_batch_a": {
+        "accepted_steps": 3,
+        "converged": true,
+        "dense_hessian_bytes": 2654208,
+        "gradient_inf_norm": 4.7557444093904166e-14,
+        "iterations": 3,
+        "proposal_inflation": 1.1,
+        "sample_count": 32768
+      },
+      "laplace_mode_batch_b": {
+        "accepted_steps": 3,
+        "converged": true,
+        "dense_hessian_bytes": 2654208,
+        "gradient_inf_norm": 4.7557444093904166e-14,
+        "iterations": 3,
+        "proposal_inflation": 1.1,
+        "sample_count": 32768
+      },
+      "maximum_acquisition_vector_difference": 0.0033845556958826267,
+      "maximum_cross_batch_action_regret": 0.0,
+      "maximum_top_five_union_difference": 0.0033845556958826267,
+      "pair_wall_seconds": 2.1824010408017784,
+      "peak_rss_bytes": 1016446976,
+      "peak_rss_gb": 1.016446976,
+      "pooled_batch_diagnostic": {
+        "action_index": 371,
+        "diagnostic_only": true,
+        "ess_absolute": 34384.48193942952,
+        "ess_fraction": 0.5246655569370959,
+        "top_five": [
+          {
+            "acquisition": 0.054547126741730734,
+            "action_index": 371,
+            "rank": 1
+          },
+          {
+            "acquisition": 0.052445495192813066,
+            "action_index": 324,
+            "rank": 2
+          },
+          {
+            "acquisition": 0.05081747386672596,
+            "action_index": 251,
+            "rank": 3
+          },
+          {
+            "acquisition": 0.05052927280834538,
+            "action_index": 372,
+            "rank": 4
+          },
+          {
+            "acquisition": 0.024367755266102048,
+            "action_index": 226,
+            "rank": 5
+          }
+        ],
+        "top_two_gap": 0.002101631548917668
+      },
+      "rank1_rank2_gap_batch_a": 0.0006213775920499154,
+      "rank1_rank2_gap_batch_b": 0.003577020731757863,
+      "sample_count_per_batch": 32768,
+      "state_fingerprint": "d3a6602d2095c3ac5a5c12dc45edf3dc19b0024e3afc18bd6e928173436b3304",
+      "state_id": "n24_r-2_late_q12",
+      "state_specific_incumbent": 0.9922047314210836,
+      "top_five_batch_a": [
+        {
+          "acquisition": 0.05381638227953545,
+          "action_index": 371,
+          "rank": 1
+        },
+        {
+          "acquisition": 0.05319500468748554,
+          "action_index": 324,
+          "rank": 2
+        },
+        {
+          "acquisition": 0.052224336022764606,
+          "action_index": 372,
+          "rank": 3
+        },
+        {
+          "acquisition": 0.0505200634258951,
+          "action_index": 251,
+          "rank": 4
+        },
+        {
+          "acquisition": 0.025041385659002387,
+          "action_index": 226,
+          "rank": 5
+        }
+      ],
+      "top_five_batch_b": [
+        {
+          "acquisition": 0.055275469652040964,
+          "action_index": 371,
+          "rank": 1
+        },
+        {
+          "acquisition": 0.0516984489202831,
+          "action_index": 324,
+          "rank": 2
+        },
+        {
+          "acquisition": 0.051113906884337396,
+          "action_index": 251,
+          "rank": 3
+        },
+        {
+          "acquisition": 0.04883978032688198,
+          "action_index": 372,
+          "rank": 4
+        },
+        {
+          "acquisition": 0.024892806807385818,
+          "action_index": 229,
+          "rank": 5
+        }
+      ],
+      "worker_wall_seconds_including_state_construction": 2.2188059580512345
+    },
+    {
+      "action_agreement": true,
+      "batch_a_action_regret_under_batch_b": 0.0,
+      "batch_actions": [
+        900,
+        900
+      ],
+      "batch_b_action_regret_under_batch_a": 0.0,
+      "batch_seeds": [
+        772332820,
+        772332821
+      ],
+      "batch_wall_seconds": [
+        0.9381232920568436,
+        0.9230067080352455
+      ],
+      "checkpoint": "early",
+      "checkpoint_queries": 4,
+      "classification_materiality_scale": 0.01,
+      "ess_absolute_batch_a": 1770.7454486825418,
+      "ess_absolute_batch_b": 1393.4266881775504,
+      "ess_fraction_batch_a": 0.2161554502786306,
+      "ess_fraction_batch_b": 0.17009603127167364,
+      "failure_classification": "LOW_ESS",
+      "frozen_rule_components": {
+        "action_agreement_pass": true,
+        "ess_pass": false,
+        "maximum_batch_acquisition_difference": 0.01,
+        "minimum_ess_fraction": 0.2,
+        "vector_difference_pass": false
+      },
+      "frozen_rule_reliable": false,
+      "grid_size": 40,
+      "laplace_mode_batch_a": {
+        "accepted_steps": 3,
+        "converged": true,
+        "dense_hessian_bytes": 20480000,
+        "gradient_inf_norm": 3.6523735424953685e-14,
+        "iterations": 3,
+        "proposal_inflation": 1.1,
+        "sample_count": 8192
+      },
+      "laplace_mode_batch_b": {
+        "accepted_steps": 3,
+        "converged": true,
+        "dense_hessian_bytes": 20480000,
+        "gradient_inf_norm": 3.6523735424953685e-14,
+        "iterations": 3,
+        "proposal_inflation": 1.1,
+        "sample_count": 8192
+      },
+      "maximum_acquisition_vector_difference": 0.024832000115228403,
+      "maximum_cross_batch_action_regret": 0.0,
+      "maximum_top_five_union_difference": 0.011167383737623993,
+      "pair_wall_seconds": 1.8693437920883298,
+      "peak_rss_bytes": 920125440,
+      "peak_rss_gb": 0.92012544,
+      "pooled_batch_diagnostic": {
+        "action_index": 900,
+        "diagnostic_only": true,
+        "ess_absolute": 3113.4170030874084,
+        "ess_fraction": 0.1900278932548467,
+        "top_five": [
+          {
+            "acquisition": 0.43264993869716567,
+            "action_index": 900,
+            "rank": 1
+          },
+          {
+            "acquisition": 0.4305380296039446,
+            "action_index": 899,
+            "rank": 2
+          },
+          {
+            "acquisition": 0.4278085931480963,
+            "action_index": 699,
+            "rank": 3
+          },
+          {
+            "acquisition": 0.404491081147312,
+            "action_index": 700,
+            "rank": 4
+          },
+          {
+            "acquisition": 0.25806942671958766,
+            "action_index": 740,
+            "rank": 5
+          }
+        ],
+        "top_two_gap": 0.002111909093221065
+      },
+      "rank1_rank2_gap_batch_a": 0.0020403125924111087,
+      "rank1_rank2_gap_batch_b": 0.0021533772849078314,
+      "sample_count_per_batch": 8192,
+      "state_fingerprint": "ab90086716a66b9b4bee66acbda021245ca557247e9ff97da4f19f90afbecf70",
+      "state_id": "n40_r-2_early_q4",
+      "state_specific_incumbent": 0.55,
+      "top_five_batch_a": [
+        {
+          "acquisition": 0.42975295892664206,
+          "action_index": 900,
+          "rank": 1
+        },
+        {
+          "acquisition": 0.42771264633423095,
+          "action_index": 899,
+          "rank": 2
+        },
+        {
+          "acquisition": 0.4221829047996186,
+          "action_index": 699,
+          "rank": 3
+        },
+        {
+          "acquisition": 0.40236316874988604,
+          "action_index": 700,
+          "rank": 4
+        },
+        {
+          "acquisition": 0.25966339177783976,
+          "action_index": 939,
+          "rank": 5
+        }
+      ],
+      "top_five_batch_b": [
+        {
+          "acquisition": 0.43550366582215044,
+          "action_index": 900,
+          "rank": 1
+        },
+        {
+          "acquisition": 0.4333502885372426,
+          "action_index": 699,
+          "rank": 2
+        },
+        {
+          "acquisition": 0.4333212291821047,
+          "action_index": 899,
+          "rank": 3
+        },
+        {
+          "acquisition": 0.4065872232708824,
+          "action_index": 700,
+          "rank": 4
+        },
+        {
+          "acquisition": 0.26269202585363033,
+          "action_index": 740,
+          "rank": 5
+        }
+      ],
+      "worker_wall_seconds_including_state_construction": 1.9761914589907974
+    },
+    {
+      "action_agreement": false,
+      "batch_a_action_regret_under_batch_b": 0.02444192166936543,
+      "batch_actions": [
+        699,
+        900
+      ],
+      "batch_b_action_regret_under_batch_a": 0.0005713536208552528,
+      "batch_seeds": [
+        772432823,
+        772432824
+      ],
+      "batch_wall_seconds": [
+        1.9458971249405295,
+        1.785864750156179
+      ],
+      "checkpoint": "early",
+      "checkpoint_queries": 4,
+      "classification_materiality_scale": 0.01,
+      "ess_absolute_batch_a": 3264.556943991479,
+      "ess_absolute_batch_b": 3251.615594978278,
+      "ess_fraction_batch_a": 0.1992527431635424,
+      "ess_fraction_batch_b": 0.1984628659044359,
+      "failure_classification": "LOW_ESS",
+      "frozen_rule_components": {
+        "action_agreement_pass": false,
+        "ess_pass": false,
+        "maximum_batch_acquisition_difference": 0.01,
+        "minimum_ess_fraction": 0.2,
+        "vector_difference_pass": false
+      },
+      "frozen_rule_reliable": false,
+      "grid_size": 40,
+      "laplace_mode_batch_a": {
+        "accepted_steps": 3,
+        "converged": true,
+        "dense_hessian_bytes": 20480000,
+        "gradient_inf_norm": 3.6523735424953685e-14,
+        "iterations": 3,
+        "proposal_inflation": 1.1,
+        "sample_count": 16384
+      },
+      "laplace_mode_batch_b": {
+        "accepted_steps": 3,
+        "converged": true,
+        "dense_hessian_bytes": 20480000,
+        "gradient_inf_norm": 3.6523735424953685e-14,
+        "iterations": 3,
+        "proposal_inflation": 1.1,
+        "sample_count": 16384
+      },
+      "maximum_acquisition_vector_difference": 0.016054113800836767,
+      "maximum_cross_batch_action_regret": 0.02444192166936543,
+      "maximum_top_five_union_difference": 0.016054113800836767,
+      "pair_wall_seconds": 3.75404812511988,
+      "peak_rss_bytes": 1400766464,
+      "peak_rss_gb": 1.400766464,
+      "pooled_batch_diagnostic": {
+        "action_index": 900,
+        "diagnostic_only": true,
+        "ess_absolute": 6515.079591878363,
+        "ess_fraction": 0.19882445043574107,
+        "top_five": [
+          {
+            "acquisition": 0.43095667785628594,
+            "action_index": 900,
+            "rank": 1
+          },
+          {
+            "acquisition": 0.42526775021192165,
+            "action_index": 899,
+            "rank": 2
+          },
+          {
+            "acquisition": 0.41933318645245676,
+            "action_index": 700,
+            "rank": 3
+          },
+          {
+            "acquisition": 0.418884245734446,
+            "action_index": 699,
+            "rank": 4
+          },
+          {
+            "acquisition": 0.25555895230450665,
+            "action_index": 939,
+            "rank": 5
+          }
+        ],
+        "top_two_gap": 0.005688927644364294
+      },
+      "rank1_rank2_gap_batch_a": 0.0005713536208552528,
+      "rank1_rank2_gap_batch_b": 0.01006624046388499,
+      "sample_count_per_batch": 16384,
+      "state_fingerprint": "ab90086716a66b9b4bee66acbda021245ca557247e9ff97da4f19f90afbecf70",
+      "state_id": "n40_r-2_early_q4",
+      "state_specific_incumbent": 0.55,
+      "top_five_batch_a": [
+        {
+          "acquisition": 0.423412949672321,
+          "action_index": 699,
+          "rank": 1
+        },
+        {
+          "acquisition": 0.42284159605146576,
+          "action_index": 900,
+          "rank": 2
+        },
+        {
+          "acquisition": 0.4216270491166794,
+          "action_index": 899,
+          "rank": 3
+        },
+        {
+          "acquisition": 0.41837468907160263,
+          "action_index": 700,
+          "rank": 4
+        },
+        {
+          "acquisition": 0.25371621665914257,
+          "action_index": 939,
+          "rank": 5
+        }
+      ],
+      "top_five_batch_b": [
+        {
+          "acquisition": 0.43889570985230253,
+          "action_index": 900,
+          "rank": 1
+        },
+        {
+          "acquisition": 0.42882946938841754,
+          "action_index": 899,
+          "rank": 2
+        },
+        {
+          "acquisition": 0.42027089004654494,
+          "action_index": 700,
+          "rank": 3
+        },
+        {
+          "acquisition": 0.4144537881829371,
+          "action_index": 699,
+          "rank": 4
+        },
+        {
+          "acquisition": 0.25815360767760953,
+          "action_index": 860,
+          "rank": 5
+        }
+      ],
+      "worker_wall_seconds_including_state_construction": 3.856132500106469
+    },
+    {
+      "action_agreement": true,
+      "batch_a_action_regret_under_batch_b": 0.0,
+      "batch_actions": [
+        900,
+        900
+      ],
+      "batch_b_action_regret_under_batch_a": 0.0,
+      "batch_seeds": [
+        772532826,
+        772532827
+      ],
+      "batch_wall_seconds": [
+        4.101662666071206,
+        4.253065333003178
+      ],
+      "checkpoint": "early",
+      "checkpoint_queries": 4,
+      "classification_materiality_scale": 0.01,
+      "ess_absolute_batch_a": 6559.25503300131,
+      "ess_absolute_batch_b": 6925.605844625666,
+      "ess_fraction_batch_a": 0.20017257791141693,
+      "ess_fraction_batch_b": 0.21135271742632036,
+      "failure_classification": "GLOBAL_VECTOR_DISAGREEMENT_ONLY",
+      "frozen_rule_components": {
+        "action_agreement_pass": true,
+        "ess_pass": true,
+        "maximum_batch_acquisition_difference": 0.01,
+        "minimum_ess_fraction": 0.2,
+        "vector_difference_pass": false
+      },
+      "frozen_rule_reliable": false,
+      "grid_size": 40,
+      "laplace_mode_batch_a": {
+        "accepted_steps": 3,
+        "converged": true,
+        "dense_hessian_bytes": 20480000,
+        "gradient_inf_norm": 3.6523735424953685e-14,
+        "iterations": 3,
+        "proposal_inflation": 1.1,
+        "sample_count": 32768
+      },
+      "laplace_mode_batch_b": {
+        "accepted_steps": 3,
+        "converged": true,
+        "dense_hessian_bytes": 20480000,
+        "gradient_inf_norm": 3.6523735424953685e-14,
+        "iterations": 3,
+        "proposal_inflation": 1.1,
+        "sample_count": 32768
+      },
+      "maximum_acquisition_vector_difference": 0.011589015885233617,
+      "maximum_cross_batch_action_regret": 0.0,
+      "maximum_top_five_union_difference": 0.008648721422741146,
+      "pair_wall_seconds": 8.413820583140478,
+      "peak_rss_bytes": 2200141824,
+      "peak_rss_gb": 2.200141824,
+      "pooled_batch_diagnostic": {
+        "action_index": 900,
+        "diagnostic_only": true,
+        "ess_absolute": 13464.038525358972,
+        "ess_fraction": 0.2054449237878261,
+        "top_five": [
+          {
+            "acquisition": 0.4298682703530417,
+            "action_index": 900,
+            "rank": 1
+          },
+          {
+            "acquisition": 0.426995899162245,
+            "action_index": 899,
+            "rank": 2
+          },
+          {
+            "acquisition": 0.4194646521035013,
+            "action_index": 699,
+            "rank": 3
+          },
+          {
+            "acquisition": 0.412277485354814,
+            "action_index": 700,
+            "rank": 4
+          },
+          {
+            "acquisition": 0.2559009935135183,
+            "action_index": 860,
+            "rank": 5
+          }
+        ],
+        "top_two_gap": 0.0028723711907966964
+      },
+      "rank1_rank2_gap_batch_a": 0.004119637083149386,
+      "rank1_rank2_gap_batch_b": 0.0015944400886367949,
+      "sample_count_per_batch": 32768,
+      "state_fingerprint": "ab90086716a66b9b4bee66acbda021245ca557247e9ff97da4f19f90afbecf70",
+      "state_id": "n40_r-2_early_q4",
+      "state_specific_incumbent": 0.55,
+      "top_five_batch_a": [
+        {
+          "acquisition": 0.4300367668840342,
+          "action_index": 900,
+          "rank": 1
+        },
+        {
+          "acquisition": 0.4259171298008848,
+          "action_index": 899,
+          "rank": 2
+        },
+        {
+          "acquisition": 0.4184369146276184,
+          "action_index": 699,
+          "rank": 3
+        },
+        {
+          "acquisition": 0.416549332369715,
+          "action_index": 700,
+          "rank": 4
+        },
+        {
+          "acquisition": 0.25943841095379705,
+          "action_index": 860,
+          "rank": 5
+        }
+      ],
+      "top_five_batch_b": [
+        {
+          "acquisition": 0.4296956311757167,
+          "action_index": 900,
+          "rank": 1
+        },
+        {
+          "acquisition": 0.4281011910870799,
+          "action_index": 899,
+          "rank": 2
+        },
+        {
+          "acquisition": 0.42051765747576275,
+          "action_index": 699,
+          "rank": 3
+        },
+        {
+          "acquisition": 0.40790061094697383,
+          "action_index": 700,
+          "rank": 4
+        },
+        {
+          "acquisition": 0.25497915126765414,
+          "action_index": 659,
+          "rank": 5
+        }
+      ],
+      "worker_wall_seconds_including_state_construction": 8.516462250147015
+    },
+    {
+      "action_agreement": false,
+      "batch_a_action_regret_under_batch_b": 0.0037945297224787275,
+      "batch_actions": [
+        740,
+        860
+      ],
+      "batch_b_action_regret_under_batch_a": 0.005519693967518613,
+      "batch_seeds": [
+        3040080933,
+        3040080934
+      ],
+      "batch_wall_seconds": [
+        1.0000125409569591,
+        0.9862470419611782
+      ],
+      "checkpoint": "middle",
+      "checkpoint_queries": 8,
+      "classification_materiality_scale": 0.01,
+      "ess_absolute_batch_a": 1338.6014075758237,
+      "ess_absolute_batch_b": 1903.538994793808,
+      "ess_fraction_batch_a": 0.16340349213572067,
+      "ess_fraction_batch_b": 0.232365599950416,
+      "failure_classification": "LOW_ESS",
+      "frozen_rule_components": {
+        "action_agreement_pass": false,
+        "ess_pass": false,
+        "maximum_batch_acquisition_difference": 0.01,
+        "minimum_ess_fraction": 0.2,
+        "vector_difference_pass": false
+      },
+      "frozen_rule_reliable": false,
+      "grid_size": 40,
+      "laplace_mode_batch_a": {
+        "accepted_steps": 3,
+        "converged": true,
+        "dense_hessian_bytes": 20480000,
+        "gradient_inf_norm": 3.6523735424953685e-14,
+        "iterations": 3,
+        "proposal_inflation": 1.1,
+        "sample_count": 8192
+      },
+      "laplace_mode_batch_b": {
+        "accepted_steps": 3,
+        "converged": true,
+        "dense_hessian_bytes": 20480000,
+        "gradient_inf_norm": 3.6523735424953685e-14,
+        "iterations": 3,
+        "proposal_inflation": 1.1,
+        "sample_count": 8192
+      },
+      "maximum_acquisition_vector_difference": 0.01390871302207225,
+      "maximum_cross_batch_action_regret": 0.005519693967518613,
+      "maximum_top_five_union_difference": 0.01390871302207225,
+      "pair_wall_seconds": 1.9941629581153393,
+      "peak_rss_bytes": 921092096,
+      "peak_rss_gb": 0.921092096,
+      "pooled_batch_diagnostic": {
+        "action_index": 939,
+        "diagnostic_only": true,
+        "ess_absolute": 3153.6966002266963,
+        "ess_fraction": 0.1924863647599302,
+        "top_five": [
+          {
+            "acquisition": 0.06252549060970428,
+            "action_index": 939,
+            "rank": 1
+          },
+          {
+            "acquisition": 0.062062043518561524,
+            "action_index": 740,
+            "rank": 2
+          },
+          {
+            "acquisition": 0.061242983879992996,
+            "action_index": 860,
+            "rank": 3
+          },
+          {
+            "acquisition": 0.05915472577040192,
+            "action_index": 859,
+            "rank": 4
+          },
+          {
+            "acquisition": 0.057363390813210687,
+            "action_index": 659,
+            "rank": 5
+          }
+        ],
+        "top_two_gap": 0.00046344709114275184
+      },
+      "rank1_rank2_gap_batch_a": 0.0026832612526451333,
+      "rank1_rank2_gap_batch_b": 0.00024264410979265433,
+      "sample_count_per_batch": 8192,
+      "state_fingerprint": "220cebdafa4431378f5008d8b2f2f6acccd815f61fda912ecabc7b4965707f72",
+      "state_id": "n40_r-2_middle_q8",
+      "state_specific_incumbent": 0.974452681747891,
+      "top_five_batch_a": [
+        {
+          "acquisition": 0.06908139113990758,
+          "action_index": 740,
+          "rank": 1
+        },
+        {
+          "acquisition": 0.06639812988726244,
+          "action_index": 939,
+          "rank": 2
+        },
+        {
+          "acquisition": 0.06356169717238896,
+          "action_index": 860,
+          "rank": 3
+        },
+        {
+          "acquisition": 0.06024518911417674,
+          "action_index": 859,
+          "rank": 4
+        },
+        {
+          "acquisition": 0.0583647829645005,
+          "action_index": 659,
+          "rank": 5
+        }
+      ],
+      "top_five_batch_b": [
+        {
+          "acquisition": 0.058967207840314055,
+          "action_index": 860,
+          "rank": 1
+        },
+        {
+          "acquisition": 0.0587245637305214,
+          "action_index": 939,
+          "rank": 2
+        },
+        {
+          "acquisition": 0.05824309596826895,
+          "action_index": 940,
+          "rank": 3
+        },
+        {
+          "acquisition": 0.05808445530701635,
+          "action_index": 859,
+          "rank": 4
+        },
+        {
+          "acquisition": 0.056380542148090476,
+          "action_index": 659,
+          "rank": 5
+        }
+      ],
+      "worker_wall_seconds_including_state_construction": 2.121453542029485
+    },
+    {
+      "action_agreement": false,
+      "batch_a_action_regret_under_batch_b": 0.002062239184474221,
+      "batch_actions": [
+        659,
+        939
+      ],
+      "batch_b_action_regret_under_batch_a": 0.0019088135910419746,
+      "batch_seeds": [
+        3040180936,
+        3040180937
+      ],
+      "batch_wall_seconds": [
+        2.0634799578692764,
+        2.0503750420175493
+      ],
+      "checkpoint": "middle",
+      "checkpoint_queries": 8,
+      "classification_materiality_scale": 0.01,
+      "ess_absolute_batch_a": 3807.376606332518,
+      "ess_absolute_batch_b": 3192.344025393579,
+      "ess_fraction_batch_a": 0.23238382607009997,
+      "ess_fraction_batch_b": 0.19484521639365107,
+      "failure_classification": "LOW_ESS",
+      "frozen_rule_components": {
+        "action_agreement_pass": false,
+        "ess_pass": false,
+        "maximum_batch_acquisition_difference": 0.01,
+        "minimum_ess_fraction": 0.2,
+        "vector_difference_pass": true
+      },
+      "frozen_rule_reliable": false,
+      "grid_size": 40,
+      "laplace_mode_batch_a": {
+        "accepted_steps": 3,
+        "converged": true,
+        "dense_hessian_bytes": 20480000,
+        "gradient_inf_norm": 3.6523735424953685e-14,
+        "iterations": 3,
+        "proposal_inflation": 1.1,
+        "sample_count": 16384
+      },
+      "laplace_mode_batch_b": {
+        "accepted_steps": 3,
+        "converged": true,
+        "dense_hessian_bytes": 20480000,
+        "gradient_inf_norm": 3.6523735424953685e-14,
+        "iterations": 3,
+        "proposal_inflation": 1.1,
+        "sample_count": 16384
+      },
+      "maximum_acquisition_vector_difference": 0.004584959816366117,
+      "maximum_cross_batch_action_regret": 0.002062239184474221,
+      "maximum_top_five_union_difference": 0.003095879545031488,
+      "pair_wall_seconds": 4.150117750046775,
+      "peak_rss_bytes": 1346650112,
+      "peak_rss_gb": 1.346650112,
+      "pooled_batch_diagnostic": {
+        "action_index": 939,
+        "diagnostic_only": true,
+        "ess_absolute": 6959.867541115948,
+        "ess_fraction": 0.2123983014256576,
+        "top_five": [
+          {
+            "acquisition": 0.0627732277642043,
+            "action_index": 939,
+            "rank": 1
+          },
+          {
+            "acquisition": 0.0627213078200473,
+            "action_index": 659,
+            "rank": 2
+          },
+          {
+            "acquisition": 0.062256817047544946,
+            "action_index": 860,
+            "rank": 3
+          },
+          {
+            "acquisition": 0.05906091649751041,
+            "action_index": 660,
+            "rank": 4
+          },
+          {
+            "acquisition": 0.058657666934007174,
+            "action_index": 859,
+            "rank": 5
+          }
+        ],
+        "top_two_gap": 5.1919944157000075e-05
+      },
+      "rank1_rank2_gap_batch_a": 0.0007809916096875313,
+      "rank1_rank2_gap_batch_b": 0.002062239184474221,
+      "sample_count_per_batch": 16384,
+      "state_fingerprint": "220cebdafa4431378f5008d8b2f2f6acccd815f61fda912ecabc7b4965707f72",
+      "state_id": "n40_r-2_middle_q8",
+      "state_specific_incumbent": 0.974452681747891,
+      "top_five_batch_a": [
+        {
+          "acquisition": 0.06424991879250931,
+          "action_index": 659,
+          "rank": 1
+        },
+        {
+          "acquisition": 0.06346892718282178,
+          "action_index": 860,
+          "rank": 2
+        },
+        {
+          "acquisition": 0.06234110520146734,
+          "action_index": 939,
+          "rank": 3
+        },
+        {
+          "acquisition": 0.05976289333389162,
+          "action_index": 859,
+          "rank": 4
+        },
+        {
+          "acquisition": 0.059636982188595714,
+          "action_index": 660,
+          "rank": 5
+        }
+      ],
+      "top_five_batch_b": [
+        {
+          "acquisition": 0.06321627843195204,
+          "action_index": 939,
+          "rank": 1
+        },
+        {
+          "acquisition": 0.06115403924747782,
+          "action_index": 659,
+          "rank": 2
+        },
+        {
+          "acquisition": 0.061014053417206365,
+          "action_index": 860,
+          "rank": 3
+        },
+        {
+          "acquisition": 0.05904624067837402,
+          "action_index": 740,
+          "rank": 4
+        },
+        {
+          "acquisition": 0.05858535304974742,
+          "action_index": 739,
+          "rank": 5
+        }
+      ],
+      "worker_wall_seconds_including_state_construction": 4.264731291914359
+    },
+    {
+      "action_agreement": false,
+      "batch_a_action_regret_under_batch_b": 0.00013548272779469184,
+      "batch_actions": [
+        939,
+        860
+      ],
+      "batch_b_action_regret_under_batch_a": 0.002041480925217748,
+      "batch_seeds": [
+        3040280939,
+        3040280940
+      ],
+      "batch_wall_seconds": [
+        4.918668000027537,
+        4.568822333822027
+      ],
+      "checkpoint": "middle",
+      "checkpoint_queries": 8,
+      "classification_materiality_scale": 0.01,
+      "ess_absolute_batch_a": 6459.392594568838,
+      "ess_absolute_batch_b": 6279.854881814468,
+      "ess_fraction_batch_a": 0.19712501814480096,
+      "ess_fraction_batch_b": 0.19164596196943567,
+      "failure_classification": "LOW_ESS",
+      "frozen_rule_components": {
+        "action_agreement_pass": false,
+        "ess_pass": false,
+        "maximum_batch_acquisition_difference": 0.01,
+        "minimum_ess_fraction": 0.2,
+        "vector_difference_pass": true
+      },
+      "frozen_rule_reliable": false,
+      "grid_size": 40,
+      "laplace_mode_batch_a": {
+        "accepted_steps": 3,
+        "converged": true,
+        "dense_hessian_bytes": 20480000,
+        "gradient_inf_norm": 3.6523735424953685e-14,
+        "iterations": 3,
+        "proposal_inflation": 1.1,
+        "sample_count": 32768
+      },
+      "laplace_mode_batch_b": {
+        "accepted_steps": 3,
+        "converged": true,
+        "dense_hessian_bytes": 20480000,
+        "gradient_inf_norm": 3.6523735424953685e-14,
+        "iterations": 3,
+        "proposal_inflation": 1.1,
+        "sample_count": 32768
+      },
+      "maximum_acquisition_vector_difference": 0.003986744205998295,
+      "maximum_cross_batch_action_regret": 0.002041480925217748,
+      "maximum_top_five_union_difference": 0.003986744205998295,
+      "pair_wall_seconds": 9.540441249962896,
+      "peak_rss_bytes": 2493153280,
+      "peak_rss_gb": 2.49315328,
+      "pooled_batch_diagnostic": {
+        "action_index": 939,
+        "diagnostic_only": true,
+        "ess_absolute": 12734.945635722303,
+        "ess_fraction": 0.19431984917789158,
+        "top_five": [
+          {
+            "acquisition": 0.06291919264428389,
+            "action_index": 939,
+            "rank": 1
+          },
+          {
+            "acquisition": 0.061970856803170084,
+            "action_index": 860,
+            "rank": 2
+          },
+          {
+            "acquisition": 0.061500898417301254,
+            "action_index": 659,
+            "rank": 3
+          },
+          {
+            "acquisition": 0.059969956762234954,
+            "action_index": 859,
+            "rank": 4
+          },
+          {
+            "acquisition": 0.05940522253307421,
+            "action_index": 740,
+            "rank": 5
+          }
+        ],
+        "top_two_gap": 0.0009483358411138051
+      },
+      "rank1_rank2_gap_batch_a": 0.0009378169839375852,
+      "rank1_rank2_gap_batch_b": 0.00013548272779469184,
+      "sample_count_per_batch": 32768,
+      "state_fingerprint": "220cebdafa4431378f5008d8b2f2f6acccd815f61fda912ecabc7b4965707f72",
+      "state_id": "n40_r-2_middle_q8",
+      "state_specific_incumbent": 0.974452681747891,
+      "top_five_batch_a": [
+        {
+          "acquisition": 0.06257568642273753,
+          "action_index": 939,
+          "rank": 1
+        },
+        {
+          "acquisition": 0.061637869438799946,
+          "action_index": 659,
+          "rank": 2
+        },
+        {
+          "acquisition": 0.06053420549751978,
+          "action_index": 860,
+          "rank": 3
+        },
+        {
+          "acquisition": 0.05802681172731246,
+          "action_index": 740,
+          "rank": 4
+        },
+        {
+          "acquisition": 0.05796804468421921,
+          "action_index": 859,
+          "rank": 5
+        }
+      ],
+      "top_five_batch_b": [
+        {
+          "acquisition": 0.06339525086096966,
+          "action_index": 860,
+          "rank": 1
+        },
+        {
+          "acquisition": 0.06325976813317497,
+          "action_index": 939,
+          "rank": 2
+        },
+        {
+          "acquisition": 0.06195478889021751,
+          "action_index": 859,
+          "rank": 3
+        },
+        {
+          "acquisition": 0.061365096007665654,
+          "action_index": 659,
+          "rank": 4
+        },
+        {
+          "acquisition": 0.060771872988345986,
+          "action_index": 740,
+          "rank": 5
+        }
+      ],
+      "worker_wall_seconds_including_state_construction": 9.658398958854377
+    },
+    {
+      "action_agreement": false,
+      "batch_a_action_regret_under_batch_b": 0.004595140308649125,
+      "batch_actions": [
+        739,
+        660
+      ],
+      "batch_b_action_regret_under_batch_a": 0.004654011249781882,
+      "batch_seeds": [
+        2276764789,
+        2276764790
+      ],
+      "batch_wall_seconds": [
+        0.9696690421551466,
+        1.007149208104238
+      ],
+      "checkpoint": "late",
+      "checkpoint_queries": 12,
+      "classification_materiality_scale": 0.01,
+      "ess_absolute_batch_a": 1199.0114720265287,
+      "ess_absolute_batch_b": 1421.1192251148418,
+      "ess_fraction_batch_a": 0.14636370508136337,
+      "ess_fraction_batch_b": 0.1734764679095266,
+      "failure_classification": "LOW_ESS",
+      "frozen_rule_components": {
+        "action_agreement_pass": false,
+        "ess_pass": false,
+        "maximum_batch_acquisition_difference": 0.01,
+        "minimum_ess_fraction": 0.2,
+        "vector_difference_pass": true
+      },
+      "frozen_rule_reliable": false,
+      "grid_size": 40,
+      "laplace_mode_batch_a": {
+        "accepted_steps": 3,
+        "converged": true,
+        "dense_hessian_bytes": 20480000,
+        "gradient_inf_norm": 3.6523735424953685e-14,
+        "iterations": 3,
+        "proposal_inflation": 1.1,
+        "sample_count": 8192
+      },
+      "laplace_mode_batch_b": {
+        "accepted_steps": 3,
+        "converged": true,
+        "dense_hessian_bytes": 20480000,
+        "gradient_inf_norm": 3.6523735424953685e-14,
+        "iterations": 3,
+        "proposal_inflation": 1.1,
+        "sample_count": 8192
+      },
+      "maximum_acquisition_vector_difference": 0.0078101765515507585,
+      "maximum_cross_batch_action_regret": 0.004654011249781882,
+      "maximum_top_five_union_difference": 0.0078101765515507585,
+      "pair_wall_seconds": 1.9833401669748127,
+      "peak_rss_bytes": 925990912,
+      "peak_rss_gb": 0.925990912,
+      "pooled_batch_diagnostic": {
+        "action_index": 739,
+        "diagnostic_only": true,
+        "ess_absolute": 2601.4801198994587,
+        "ess_fraction": 0.1587817455993322,
+        "top_five": [
+          {
+            "acquisition": 0.06081421777196567,
+            "action_index": 739,
+            "rank": 1
+          },
+          {
+            "acquisition": 0.06078664719993747,
+            "action_index": 660,
+            "rank": 2
+          },
+          {
+            "acquisition": 0.05795228302006689,
+            "action_index": 939,
+            "rank": 3
+          },
+          {
+            "acquisition": 0.05715428844395534,
+            "action_index": 740,
+            "rank": 4
+          },
+          {
+            "acquisition": 0.03181480580958361,
+            "action_index": 901,
+            "rank": 5
+          }
+        ],
+        "top_two_gap": 2.757057202820018e-05
+      },
+      "rank1_rank2_gap_batch_a": 0.004150743836361534,
+      "rank1_rank2_gap_batch_b": 0.0019680523890567084,
+      "sample_count_per_batch": 8192,
+      "state_fingerprint": "47a6ce7b43bef5e92794436f61299cf73a36e71ec927d2e72e9a59238cf47c0b",
+      "state_id": "n40_r-2_late_q12",
+      "state_specific_incumbent": 0.974452681747891,
+      "top_five_batch_a": [
+        {
+          "acquisition": 0.06240100618222014,
+          "action_index": 739,
+          "rank": 1
+        },
+        {
+          "acquisition": 0.0582502623458586,
+          "action_index": 740,
+          "rank": 2
+        },
+        {
+          "acquisition": 0.057746994932438254,
+          "action_index": 660,
+          "rank": 3
+        },
+        {
+          "acquisition": 0.05404561998505639,
+          "action_index": 939,
+          "rank": 4
+        },
+        {
+          "acquisition": 0.0338565315767842,
+          "action_index": 698,
+          "rank": 5
+        }
+      ],
+      "top_five_batch_b": [
+        {
+          "acquisition": 0.06382384892566385,
+          "action_index": 660,
+          "rank": 1
+        },
+        {
+          "acquisition": 0.061855796536607145,
+          "action_index": 939,
+          "rank": 2
+        },
+        {
+          "acquisition": 0.05922870861701473,
+          "action_index": 739,
+          "rank": 3
+        },
+        {
+          "acquisition": 0.056059198106878684,
+          "action_index": 740,
+          "rank": 4
+        },
+        {
+          "acquisition": 0.03332141124751571,
+          "action_index": 901,
+          "rank": 5
+        }
+      ],
+      "worker_wall_seconds_including_state_construction": 2.0912532918155193
+    },
+    {
+      "action_agreement": true,
+      "batch_a_action_regret_under_batch_b": 0.0,
+      "batch_actions": [
+        740,
+        740
+      ],
+      "batch_b_action_regret_under_batch_a": 0.0,
+      "batch_seeds": [
+        2276864792,
+        2276864793
+      ],
+      "batch_wall_seconds": [
+        2.4598067922051996,
+        2.548871292034164
+      ],
+      "checkpoint": "late",
+      "checkpoint_queries": 12,
+      "classification_materiality_scale": 0.01,
+      "ess_absolute_batch_a": 3557.294333393502,
+      "ess_absolute_batch_b": 3005.9296889994544,
+      "ess_fraction_batch_a": 0.21712001546591198,
+      "ess_fraction_batch_b": 0.1834673882445956,
+      "failure_classification": "LOW_ESS",
+      "frozen_rule_components": {
+        "action_agreement_pass": true,
+        "ess_pass": false,
+        "maximum_batch_acquisition_difference": 0.01,
+        "minimum_ess_fraction": 0.2,
+        "vector_difference_pass": true
+      },
+      "frozen_rule_reliable": false,
+      "grid_size": 40,
+      "laplace_mode_batch_a": {
+        "accepted_steps": 3,
+        "converged": true,
+        "dense_hessian_bytes": 20480000,
+        "gradient_inf_norm": 3.6523735424953685e-14,
+        "iterations": 3,
+        "proposal_inflation": 1.1,
+        "sample_count": 16384
+      },
+      "laplace_mode_batch_b": {
+        "accepted_steps": 3,
+        "converged": true,
+        "dense_hessian_bytes": 20480000,
+        "gradient_inf_norm": 3.6523735424953685e-14,
+        "iterations": 3,
+        "proposal_inflation": 1.1,
+        "sample_count": 16384
+      },
+      "maximum_acquisition_vector_difference": 0.006795369498928901,
+      "maximum_cross_batch_action_regret": 0.0,
+      "maximum_top_five_union_difference": 0.006795369498928901,
+      "pair_wall_seconds": 5.040701375110075,
+      "peak_rss_bytes": 1531314176,
+      "peak_rss_gb": 1.531314176,
+      "pooled_batch_diagnostic": {
+        "action_index": 740,
+        "diagnostic_only": true,
+        "ess_absolute": 6518.756395490131,
+        "ess_fraction": 0.19893665757721346,
+        "top_five": [
+          {
+            "acquisition": 0.06084397949385428,
+            "action_index": 740,
+            "rank": 1
+          },
+          {
+            "acquisition": 0.0572724672480368,
+            "action_index": 660,
+            "rank": 2
+          },
+          {
+            "acquisition": 0.05637704502743925,
+            "action_index": 939,
+            "rank": 3
+          },
+          {
+            "acquisition": 0.05490234877923353,
+            "action_index": 739,
+            "rank": 4
+          },
+          {
+            "acquisition": 0.027708376565995372,
+            "action_index": 698,
+            "rank": 5
+          }
+        ],
+        "top_two_gap": 0.0035715122458174833
+      },
+      "rank1_rank2_gap_batch_a": 0.002566190725015363,
+      "rank1_rank2_gap_batch_b": 0.003641983168547573,
+      "sample_count_per_batch": 16384,
+      "state_fingerprint": "47a6ce7b43bef5e92794436f61299cf73a36e71ec927d2e72e9a59238cf47c0b",
+      "state_id": "n40_r-2_late_q12",
+      "state_specific_incumbent": 0.974452681747891,
+      "top_five_batch_a": [
+        {
+          "acquisition": 0.060860421510480024,
+          "action_index": 740,
+          "rank": 1
+        },
+        {
+          "acquisition": 0.05829423078546466,
+          "action_index": 739,
+          "rank": 2
+        },
+        {
+          "acquisition": 0.05796959712138586,
+          "action_index": 660,
+          "rank": 3
+        },
+        {
+          "acquisition": 0.055571348731743575,
+          "action_index": 939,
+          "rank": 4
+        },
+        {
+          "acquisition": 0.026646248144058256,
+          "action_index": 698,
+          "rank": 5
+        }
+      ],
+      "top_five_batch_b": [
+        {
+          "acquisition": 0.06082748122008247,
+          "action_index": 740,
+          "rank": 1
+        },
+        {
+          "acquisition": 0.057185498051534896,
+          "action_index": 939,
+          "rank": 2
+        },
+        {
+          "acquisition": 0.056572952111492936,
+          "action_index": 660,
+          "rank": 3
+        },
+        {
+          "acquisition": 0.05149886128653576,
+          "action_index": 739,
+          "rank": 4
+        },
+        {
+          "acquisition": 0.028774139111113674,
+          "action_index": 698,
+          "rank": 5
+        }
+      ],
+      "worker_wall_seconds_including_state_construction": 5.191606207983568
+    },
+    {
+      "action_agreement": false,
+      "batch_a_action_regret_under_batch_b": 0.0017894750116994665,
+      "batch_actions": [
+        740,
+        739
+      ],
+      "batch_b_action_regret_under_batch_a": 0.0006890929243748636,
+      "batch_seeds": [
+        2276964795,
+        2276964796
+      ],
+      "batch_wall_seconds": [
+        6.254307915922254,
+        5.6685552501585335
+      ],
+      "checkpoint": "late",
+      "checkpoint_queries": 12,
+      "classification_materiality_scale": 0.01,
+      "ess_absolute_batch_a": 6257.432978656684,
+      "ess_absolute_batch_b": 5230.142337003303,
+      "ess_fraction_batch_a": 0.19096169978810681,
+      "ess_fraction_batch_b": 0.15961127737436837,
+      "failure_classification": "LOW_ESS",
+      "frozen_rule_components": {
+        "action_agreement_pass": false,
+        "ess_pass": false,
+        "maximum_batch_acquisition_difference": 0.01,
+        "minimum_ess_fraction": 0.2,
+        "vector_difference_pass": true
+      },
+      "frozen_rule_reliable": false,
+      "grid_size": 40,
+      "laplace_mode_batch_a": {
+        "accepted_steps": 3,
+        "converged": true,
+        "dense_hessian_bytes": 20480000,
+        "gradient_inf_norm": 3.6523735424953685e-14,
+        "iterations": 3,
+        "proposal_inflation": 1.1,
+        "sample_count": 32768
+      },
+      "laplace_mode_batch_b": {
+        "accepted_steps": 3,
+        "converged": true,
+        "dense_hessian_bytes": 20480000,
+        "gradient_inf_norm": 3.6523735424953685e-14,
+        "iterations": 3,
+        "proposal_inflation": 1.1,
+        "sample_count": 32768
+      },
+      "maximum_acquisition_vector_difference": 0.003293782588006699,
+      "maximum_cross_batch_action_regret": 0.0017894750116994665,
+      "maximum_top_five_union_difference": 0.0017491356223716392,
+      "pair_wall_seconds": 11.98266112501733,
+      "peak_rss_bytes": 2181103616,
+      "peak_rss_gb": 2.181103616,
+      "pooled_batch_diagnostic": {
+        "action_index": 739,
+        "diagnostic_only": true,
+        "ess_absolute": 11394.831078862686,
+        "ess_fraction": 0.17387132383518503,
+        "top_five": [
+          {
+            "acquisition": 0.05943969190867946,
+            "action_index": 739,
+            "rank": 1
+          },
+          {
+            "acquisition": 0.058888968544568134,
+            "action_index": 740,
+            "rank": 2
+          },
+          {
+            "acquisition": 0.05880823390511694,
+            "action_index": 660,
+            "rank": 3
+          },
+          {
+            "acquisition": 0.05632688751058383,
+            "action_index": 939,
+            "rank": 4
+          },
+          {
+            "acquisition": 0.026533019849448933,
+            "action_index": 698,
+            "rank": 5
+          }
+        ],
+        "top_two_gap": 0.0005507233641113274
+      },
+      "rank1_rank2_gap_batch_a": 0.0001626582061775919,
+      "rank1_rank2_gap_batch_b": 0.0017883564328947874,
+      "sample_count_per_batch": 32768,
+      "state_fingerprint": "47a6ce7b43bef5e92794436f61299cf73a36e71ec927d2e72e9a59238cf47c0b",
+      "state_id": "n40_r-2_late_q12",
+      "state_specific_incumbent": 0.974452681747891,
+      "top_five_batch_a": [
+        {
+          "acquisition": 0.0597639120164919,
+          "action_index": 740,
+          "rank": 1
+        },
+        {
+          "acquisition": 0.05960125381031431,
+          "action_index": 660,
+          "rank": 2
+        },
+        {
+          "acquisition": 0.05907481909211704,
+          "action_index": 739,
+          "rank": 3
+        },
+        {
+          "acquisition": 0.05690977851765127,
+          "action_index": 939,
+          "rank": 4
+        },
+        {
+          "acquisition": 0.026422086480260554,
+          "action_index": 698,
+          "rank": 5
+        }
+      ],
+      "top_five_batch_b": [
+        {
+          "acquisition": 0.05980425140581973,
+          "action_index": 739,
+          "rank": 1
+        },
+        {
+          "acquisition": 0.05801589497292494,
+          "action_index": 660,
+          "rank": 2
+        },
+        {
+          "acquisition": 0.05801477639412026,
+          "action_index": 740,
+          "rank": 3
+        },
+        {
+          "acquisition": 0.055744497037031715,
+          "action_index": 939,
+          "rank": 4
+        },
+        {
+          "acquisition": 0.026643857959200188,
+          "action_index": 698,
+          "rank": 5
+        }
+      ],
+      "worker_wall_seconds_including_state_construction": 12.125762332929298
+    }
+  ],
+  "checkpoints": [
+    "early",
+    "middle",
+    "late"
+  ],
+  "claim_mapping": "E2 FULL-reference reliability and action-quality diagnostics",
+  "classification_precedence": [
+    "OTHER_NUMERICAL_FAILURE for nonconvergence/nonfinite output",
+    "LOW_ESS when either frozen ESS-fraction check fails",
+    "NEAR_TIE_ACTION_INSTABILITY when actions differ but reciprocal regret and pooled gap are each at most the pre-existing 0.01 decision-quality scale",
+    "ACTION_INSTABILITY_WITH_MATERIAL_GAP for remaining action disagreement",
+    "GLOBAL_VECTOR_DISAGREEMENT_ONLY when only the uniform acquisition-vector check fails"
+  ],
+  "development_source_seed": 2026082401,
+  "diagnostic_id": "E2_FULL_SHADOW_RELIABILITY_DEVELOPMENT_ONLY_V1",
+  "environment": {
+    "machine": "arm64",
+    "numpy": "2.3.5",
+    "platform": "macOS-15.6.1-arm64-arm-64bit",
+    "python": "3.12.13"
+  },
+  "frozen_config_sha256": "2717ece2e5581a7224e1a7a5cb5f69c8291c14ad0ea5183aff54154072b4748b",
+  "frozen_preregistration_executed": false,
+  "frozen_preregistration_sha": "0dcb76f5f2d053e098b472ac9984182b837295b5",
+  "frozen_rule_unchanged": {
+    "maximum_batch_acquisition_difference": 0.01,
+    "minimum_ess_fraction": 0.2,
+    "require_action_agreement": true
+  },
+  "grid_sizes": [
+    24,
+    40
+  ],
+  "operational_development_only": true,
+  "optional_65536_used": false,
+  "prospective_source_seeds_evaluated": false,
+  "sample_counts_per_batch": [
+    8192,
+    16384,
+    32768
+  ],
+  "trajectory_replicate_identifier": -2,
+  "wall_seconds": 64.86204116605222
+}

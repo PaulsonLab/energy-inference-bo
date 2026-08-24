@@ -109,8 +109,9 @@ than ordinary locality or a favorable single instance.
 
 ## E2 — Nonlinear PDE expanding-domain scaling
 
-**Status:** `EXISTING EVIDENCE`; the T2-B construction passed and T4 is proved
-for this family, while repeated scaling and selection baselines remain active.
+**Status:** `EXISTING EVIDENCE / FULL-SHADOW BACKEND DEVELOPMENT BLOCKER`;
+the T2-B construction passed and T4 is proved for this family, while the
+replacement paper-level stress preregistration remains unexecuted.
 
 **Claim tested:** C3/T4, with T2/T3 validation: the factor count needed for a
 localized BO decision grows much more slowly than total conditioning size, and
@@ -141,6 +142,27 @@ active-target inference degrades more slowly than full-target inference.
   GP-reference IS ESS stayed about 84–86%, while full-target ESS fell from
   about 30.0% to 1.8%. Source:
   [`DEC_Nonlinear_PDE_BO_Demo.ipynb`](../notebooks/prototypes/DEC_Nonlinear_PDE_BO_Demo.ipynb).
+- **Development-only FULL-shadow reliability diagnostic.** No prospective E2
+  seed was accessed; replacement preregistration
+  `0dcb76f5f2d053e098b472ac9984182b837295b5` remains unexecuted. Using only
+  development seed `2026082401`, independent FULL Laplace-SNIS pairs at n=24
+  had ESS fractions `0.510`--`0.559`: 8,192-sample action changes were
+  decision-negligible near ties, and all early/middle/late states passed the
+  unchanged rule after the frozen 16,384 escalation. At n=40, all three states
+  failed the frozen ESS-fraction rule at both 8,192 and 16,384; mean ESS
+  fractions over all batches through 32,768 were about `0.199`, `0.202`, and
+  `0.179` for early/middle/late, even as absolute ESS grew into the thousands.
+  Every Laplace mode converged in three steps with gradient infinity norm below
+  `5e-14`. Most action changes had reciprocal regret below `0.006`, but one
+  early 16,384 pair had material cross-regret `0.024442`. At early 32,768 the
+  actions and ESS passed and top-five-union difference was `0.008649`, while
+  the uniform vector difference `0.011589` failed, confirming one secondary
+  global-vector-only rejection. The primary recommendation is to improve and
+  development-validate FULL proposal/target overlap before prospective
+  execution; neither more samples alone nor a post hoc decision-aligned rule
+  is justified as the sole correction. The optional 65,536 level was not used
+  because the cause was unambiguous. See the development-only
+  [`RESULTS.md`](../experiments/nonlinear_pde/outputs/full_shadow_reliability_diagnostic/RESULTS.md).
 
 ### Next E2 experiment
 
