@@ -31,7 +31,7 @@ conditioning cost when nontrivial fitting is used.
 |---|---|---|---|
 | E1 | Nonlocal reflection symmetry | Main mechanism + certificate | `ACTIVE`; T2-B validation and finite-grid pilot passed; repeats/baselines remain |
 | E2 | Nonlinear PDE expanding-domain scaling | Main scaling/inference consequence | `ACTIVE`; T2-B and family T4 passed; robustness/baselines remain |
-| E3 | Realistic non-PDE sequential BO | Main end-to-end sequential test | `PASS_PBE_VALUE`; full normalized PBE conditioning decisively improved the frozen GW BO pilot; adaptive comparison is next |
+| E3 | Realistic non-PDE sequential BO | Main end-to-end sequential test | `PASS_PBE_VALUE`; adaptive engineering smoke passed; fresh 20-seed adaptive validation preregistered but not run |
 | E4 | Linear PDE factor graph | Supplementary control | `EXISTING EVIDENCE / SUPPLEMENT` |
 | A1 | Factor-selection ablations | Supplement | `PLANNED` after primary pipelines |
 | A2 | Inference-backend comparison | Supplement/modularity | `PLANNED` after primary pipelines |
@@ -163,7 +163,7 @@ factors.
 
 ## E3 — Realistic non-PDE BO candidate
 
-**Status:** `PASS_PBE_VALUE / NORMALIZED PBE MODEL PASSED / ADJACENT BASELINE VALID / DESCRIPTOR-REFERENCE GRAPH PASSED / CURRENT NLR BENCHMARK FROZEN / HISTORICAL REPRODUCTION JOIN_AMBIGUOUS`.
+**Status:** `PASS_PBE_VALUE / ADAPTIVE ENGINEERING SMOKE PASSED / FRESH ADAPTIVE VALIDATION PREREGISTERED / NORMALIZED PBE MODEL PASSED / ADJACENT BASELINE VALID / DESCRIPTOR-REFERENCE GRAPH PASSED / CURRENT NLR BENCHMARK FROZEN / HISTORICAL REPRODUCTION JOIN_AMBIGUOUS`.
 
 The exact historical **Sun et al. PBE→GW oxide legacy-data problem** failed its
 first source-recovery gate. The current authoritative NREL/NLR queries reproduce
@@ -277,13 +277,42 @@ certificate, or cross-dataset generalization.
 
 ### Next E3 experiment
 
-Implement adaptive PBE conditioning using the frozen BO/reference protocol,
-state-specific Menz influence, and incremental/warm-start inference; compare
-against `FULL_PBE` in BO quality and conditioning wall-clock cost. Before
-opening the oracle again, preregister the adaptive quality tolerance, cost
-metric, prospective speedup threshold, and failure rule. Failure to match the
-frozen `FULL_PBE` action-quality target while materially lowering conditioning
-cost must block an adaptive speedup claim.
+The engineering implementation is frozen from SHA
+`7fbfb202268dd0fd92d35defbea2cc4990f089e2`. Its local seeds 0--2 smoke passed
+mechanically: optimized `FULL_PBE_OPT` reproduced all 36 committed `FULL_PBE`
+decisions; every adaptive decision certified or explicitly fell back; and
+shadow FULL agreed on all 36 adaptive states. This is not scientific evidence.
+Each seed's first adaptive decision fell back to the full bank after eight
+stages, making the active fraction 1.0 thereafter. Median ADAPTIVE/FULL
+conditioning time was about 0.999, so the conjunctive engineering-pathology
+stop did not trigger because the timing ratio was not above 1.25. Immutable
+engineering record:
+[`outputs/adaptive_e3_smoke/RESULTS.md`](../experiments/sun_oxide/outputs/adaptive_e3_smoke/RESULTS.md).
+
+The next and only authorized E3 oracle run is the preregistered fresh validation
+in [`colab_adaptive_e3_validation.ipynb`](../experiments/sun_oxide/colab_adaptive_e3_validation.ipynb)
+using seeds 12--31, methods `NO_PBE`, `FULL_PBE_OPT`, and `ADAPTIVE_PBE`, eight
+shared initial actions, and 12 sequential queries. The frozen config SHA-256 is
+`aa327b3a0462c103a2dfbfed721bc30b7946acdb7b3c02032078001dc186b1a9`.
+
+**Claims tested:** fresh replication of full-PBE BO value; retention of at
+least 90% of the median PBE AURC benefit by ADAPTIVE; final ADAPTIVE median
+regret within 0.10 eV of FULL; and at least 20% lower median cumulative
+PBE-conditioning wall-clock for ADAPTIVE. Structural termination, seed-12
+active-target SNIS, factor work, and shadow FULL are audited separately.
+
+**Prospective success criterion:** return `PASS_ADAPTIVE_E3` iff median FULL
+AURC is at most 0.90 times median NO AURC; retained benefit is at least 0.90;
+median final ADAPTIVE regret is at most median final FULL regret plus 0.10 eV;
+the median ADAPTIVE/FULL conditioning-time ratio is at most 0.80; every
+adaptive decision certifies or explicitly full-fallbacks; all three frozen
+seed-12 4,096-sample SNIS checks pass; and there is no numerical or
+oracle-isolation failure.
+
+**Prospective failure criterion:** failure of any conjunct blocks
+`PASS_ADAPTIVE_E3` and the corresponding adaptive quality, inference, or
+speedup claim. There is no active-factor-fraction threshold and no permission
+to tune after fresh oracle access.
 
 ### Closed E3 evidence
 

@@ -132,3 +132,30 @@ frozen benchmark; it does not yet establish adaptive conditioning quality,
 cost savings, or cross-dataset generalization. See the immutable
 [`RESULTS.md`](outputs/bo_value_pilot/RESULTS.md), complete archived outputs,
 and independent [`VERIFICATION.md`](outputs/bo_value_pilot/VERIFICATION.md).
+
+## Adaptive E3 engineering smoke and fresh preregistration
+
+The adaptive implementation uses one exact 500-dimensional Gaussian support
+reference for all methods, the exact state-specific support block of the Menz
+operator, cumulative active factors, L-BFGS-B MAP warm starts, exact active/full
+Hessians, dense 500-dimensional Laplace Cholesky factors, and the frozen EI.
+
+The engineering smoke ran only the already-consumed seeds 0--2 from
+implementation SHA `7fbfb202268dd0fd92d35defbea2cc4990f089e2`. It passed all
+mechanical gates and exactly reproduced the 36 prior FULL decisions. All 36
+adaptive decisions certified or explicitly full-fallbacked, and all 36 shadow
+FULL actions agreed. Each seed's first decision reached the explicit full-bank
+fallback, so the active fraction was 1.0 thereafter. The median
+ADAPTIVE/FULL conditioning-time ratio was about 0.999; the frozen pathological
+stop did not trigger because its ratio condition requires a value above 1.25.
+This smoke is not scientific evidence. See its immutable
+[`RESULTS.md`](outputs/adaptive_e3_smoke/RESULTS.md).
+
+The fresh 20-seed validation is preregistered in
+[`configs/adaptive_e3_validation.json`](configs/adaptive_e3_validation.json),
+with SHA-256
+`aa327b3a0462c103a2dfbfed721bc30b7946acdb7b3c02032078001dc186b1a9`, and is
+launched by [`colab_adaptive_e3_validation.ipynb`](colab_adaptive_e3_validation.ipynb)
+on a standard CPU Colab runtime. It freezes seeds 12--31 and the methods
+`NO_PBE`, `FULL_PBE_OPT`, and `ADAPTIVE_PBE`. No fresh-seed oracle execution
+has occurred at preregistration time.

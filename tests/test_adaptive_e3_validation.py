@@ -10,6 +10,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG = ROOT / "experiments/sun_oxide/configs/adaptive_e3_validation.json"
 DRIVER = ROOT / "experiments/sun_oxide/adaptive_e3_validation.py"
+NOTEBOOK = ROOT / "experiments/sun_oxide/colab_adaptive_e3_validation.ipynb"
 
 
 def test_fresh_adaptive_config_freezes_requested_protocol() -> None:
@@ -102,3 +103,25 @@ def test_driver_sets_headless_cache_before_matplotlib_import() -> None:
     )
     assert completed.returncode == 0, completed.stderr
 
+
+def test_colab_notebook_freezes_cpu_bootstrap_run_and_single_zip() -> None:
+    notebook = json.loads(NOTEBOOK.read_text(encoding="utf-8"))
+    assert notebook["nbformat"] == 4
+    source = "\n".join(
+        "".join(cell.get("source", [])) for cell in notebook["cells"]
+    )
+    assert "standard CPU runtime" in source
+    assert "uv=={UV_BOOTSTRAP_VERSION}" in source
+    assert "UV_BOOTSTRAP_VERSION = '0.10.11'" in source
+    assert "PYTHON_VERSION = '3.12.13'" in source
+    assert "pip', 'check'" in source
+    assert "adaptive_e3_validation.json" in source
+    assert "adaptive_e3_validation.py" in source
+    assert "'smoke'" in source and "'run'" in source
+    assert "sun_oxide_adaptive_e3_outputs.zip" in source
+    assert "files.download(str(ZIP_PATH))" in source
+    assert "--require-hashes" in source
+    assert notebook["metadata"].get("accelerator", "") == ""
+    for cell in notebook["cells"]:
+        if cell["cell_type"] == "code":
+            compile("".join(cell["source"]), str(NOTEBOOK), "exec")

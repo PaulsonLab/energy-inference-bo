@@ -162,6 +162,18 @@ immutable [`RESULTS.md`](../experiments/nonlinear_pde/outputs/t2b_structural_val
   passed with ESS fractions about 0.905--0.907, and an independent audit found
   no oracle leakage. This establishes the narrow full-PBE value claim on the
   frozen E3 benchmark, not adaptive speedup or cross-dataset generalization.
+- The adaptive implementation engineering smoke passed on already-consumed
+  seeds 0--2 from SHA `7fbfb202268dd0fd92d35defbea2cc4990f089e2` and is not
+  scientific evidence. Optimized `FULL_PBE_OPT` reproduced all 36 committed
+  FULL decisions; every adaptive decision certified or explicitly fell back;
+  and shadow FULL agreed at all 36 adaptive states. Each seed's first adaptive
+  decision exhausted eight activation stages and used the explicit full-bank
+  fallback, so cumulative factor reuse made every recorded final active
+  fraction 1.0. The median ADAPTIVE/FULL conditioning-time ratio was about
+  0.999, below the strict 1.25 engineering-pathology ratio trigger, so the
+  conjunctive stop rule did not fire. The fresh seeds 12--31 validation is now
+  preregistered but has not been run; frozen config SHA-256
+  `aa327b3a0462c103a2dfbfed721bc30b7946acdb7b3c02032078001dc186b1a9`.
 
 Details: [`experiments/sun_oxide/`](../experiments/sun_oxide/) and its immutable
 [`SOURCE_AUDIT.md`](../experiments/sun_oxide/outputs/source_recovery/SOURCE_AUDIT.md),
@@ -216,9 +228,11 @@ remain in place; see [`experiments/README.md`](../experiments/README.md) and
 
 ## Next work
 
-Implement adaptive PBE conditioning using the frozen BO/reference protocol,
-state-specific Menz influence, and incremental/warm-start inference; compare
-against FULL_PBE in BO quality and conditioning wall-clock cost.
+Run `experiments/sun_oxide/colab_adaptive_e3_validation.ipynb` once on a
+standard CPU Colab runtime without changing `main`, then return the single
+`sun_oxide_adaptive_e3_outputs.zip` for independent hash, metric, bootstrap,
+oracle-access, and immutable-output verification. Do not redesign or tune the
+algorithm after fresh oracle access.
 
 ## Operating rules
 

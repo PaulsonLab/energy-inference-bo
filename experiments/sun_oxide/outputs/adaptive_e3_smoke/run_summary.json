@@ -1,0 +1,150 @@
+{
+  "adaptive_fallback_decision_count": 3,
+  "adaptive_shadow_full_action_agreement_fraction": 1.0,
+  "all_adaptive_certified_or_fallback": true,
+  "config_sha256": "aa327b3a0462c103a2dfbfed721bc30b7946acdb7b3c02032078001dc186b1a9",
+  "implementation_sha": "7fbfb202268dd0fd92d35defbea2cc4990f089e2",
+  "mechanically_sound": true,
+  "median_adaptive_active_factor_fraction": 1.0,
+  "median_adaptive_to_full_conditioning_time_ratio": 0.9985114080231384,
+  "median_pbe_conditioning_seconds": {
+    "ADAPTIVE_PBE": 0.1772242084844038,
+    "FULL_PBE_OPT": 0.17748841631691903
+  },
+  "optimized_full_old_decision_regression": {
+    "0": {
+      "exact_match": true,
+      "old": [
+        13,
+        165,
+        15,
+        11,
+        12,
+        5,
+        134,
+        71,
+        85,
+        135,
+        46,
+        77
+      ],
+      "optimized": [
+        13,
+        165,
+        15,
+        11,
+        12,
+        5,
+        134,
+        71,
+        85,
+        135,
+        46,
+        77
+      ]
+    },
+    "1": {
+      "exact_match": true,
+      "old": [
+        13,
+        165,
+        15,
+        12,
+        11,
+        14,
+        5,
+        134,
+        71,
+        85,
+        135,
+        77
+      ],
+      "optimized": [
+        13,
+        165,
+        15,
+        12,
+        11,
+        14,
+        5,
+        134,
+        71,
+        85,
+        135,
+        77
+      ]
+    },
+    "2": {
+      "exact_match": true,
+      "old": [
+        13,
+        165,
+        15,
+        11,
+        12,
+        14,
+        6,
+        7,
+        5,
+        134,
+        71,
+        135
+      ],
+      "optimized": [
+        13,
+        165,
+        15,
+        11,
+        12,
+        14,
+        6,
+        7,
+        5,
+        134,
+        71,
+        135
+      ]
+    }
+  },
+  "pathological_stop": false,
+  "reference_precomputes": {
+    "adaptive_menz": {
+      "a0_nnz": 277470,
+      "definition": "C_H0=(A0^-1)[H,H], A0=Q0-0.25*W_pbe",
+      "dense_full_inverse_formed": false,
+      "factor_count": 124718,
+      "full_dimension": 2142,
+      "minimum_support_inverse_entry": 5.801450171844101e-05,
+      "precompute_kind": "exact_state_zero_menz_support_inverse",
+      "sparse_factorization_seconds": 0.03065945813432336,
+      "support_dimension": 500,
+      "support_rhs_count": 500,
+      "support_rhs_solve_seconds": 0.09999641682952642,
+      "support_solve_relative_residual": 1.4881765487889286e-15,
+      "support_symmetry_max_abs_error": 0.0,
+      "total_seconds": 0.155905291903764,
+      "weight": 0.002004008016032064
+    },
+    "shared_500d": {
+      "dense_precision_relative_residual": 1.2972718501316484e-15,
+      "dense_precision_seconds": 0.0032149169128388166,
+      "full_dimension": 2142,
+      "precompute_kind": "exact_500d_gaussian_reference",
+      "principal_precision_submatrix_used": false,
+      "sparse_factorization_seconds": 0.01481070788577199,
+      "support_dimension": 500,
+      "support_rhs_count": 500,
+      "support_rhs_solve_seconds": 0.05803920910693705,
+      "support_solve_relative_residual": 6.357107457732352e-16,
+      "total_seconds": 0.08688191720284522
+    }
+  },
+  "schema_version": 1,
+  "scientific_evidence": false,
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "terminal_state": "ENGINEERING_SMOKE_PASS"
+}

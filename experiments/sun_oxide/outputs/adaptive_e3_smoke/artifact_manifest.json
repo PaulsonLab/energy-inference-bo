@@ -1,0 +1,63 @@
+{
+  "config_sha256": "aa327b3a0462c103a2dfbfed721bc30b7946acdb7b3c02032078001dc186b1a9",
+  "files": [
+    {
+      "path": "RESULTS.md",
+      "sha256": "3059f9408437f9ffbe3e6b8cbbc70a6022b187938b7bbcc7074a20ef9ae4c0d9",
+      "size_bytes": 2688
+    },
+    {
+      "path": "adaptive_stage_diagnostics.json",
+      "sha256": "cb0a40f66d0e8e54e7909834b5430f0f80bdbee43a967327620794b810f3c62b",
+      "size_bytes": 120483
+    },
+    {
+      "path": "checkpoints/seed_00.json",
+      "sha256": "d1df7d57bf29e203d97d65ade908d84aa1f5ab57552f440823c02ab18d07d2f6",
+      "size_bytes": 120361
+    },
+    {
+      "path": "checkpoints/seed_01.json",
+      "sha256": "ccd3c4d83ef8d556761a78095a43168c184308de822e2fe1d0cb2f5925e3ad9b",
+      "size_bytes": 119937
+    },
+    {
+      "path": "checkpoints/seed_02.json",
+      "sha256": "7560ea62ef1b30000bd5d032e0a3bfe261b22524e288d049394aaeb54aa9bf4b",
+      "size_bytes": 119481
+    },
+    {
+      "path": "oracle_access_log.json",
+      "sha256": "5168987f852cc2a4ac07e4e43d89b2fd555c29a2169de7bcab3b20fda5a51e4d",
+      "size_bytes": 19498
+    },
+    {
+      "path": "run_summary.json",
+      "sha256": "129a91c6c27d831259bcd0691b56324d4f164e205405c51c0b419a14c6fcb646",
+      "size_bytes": 3277
+    },
+    {
+      "path": "shadow_full.csv",
+      "sha256": "892c739901ef839e88c517f7e4f81746715313f1baf6c7287cd16cfba1b451f9",
+      "size_bytes": 6135
+    },
+    {
+      "path": "target_free_smoke.json",
+      "sha256": "385a95534d4f38fac9376fcb7654a5d20f45f3f81c8a1a3b10f5acf2a1faeebc",
+      "size_bytes": 3122
+    },
+    {
+      "path": "timing_and_work.csv",
+      "sha256": "1fd71abd3933ac98ef4d4b3d5b774b043553312b8c4345822136b00f3716f0cb",
+      "size_bytes": 49392
+    },
+    {
+      "path": "trajectories.csv",
+      "sha256": "4cd01ee436bdf40d2962d14437492964f25d9db347f7981f6bb8a10277ac49fa",
+      "size_bytes": 12619
+    }
+  ],
+  "implementation_sha": "7fbfb202268dd0fd92d35defbea2cc4990f089e2",
+  "schema_version": 1,
+  "terminal_state": "ENGINEERING_SMOKE_PASS"
+}

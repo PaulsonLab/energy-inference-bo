@@ -1,0 +1,100 @@
+{
+  "config_sha256": "aa327b3a0462c103a2dfbfed721bc30b7946acdb7b3c02032078001dc186b1a9",
+  "dimensions": {
+    "graph_nodes": 2142,
+    "gw_actions": 191,
+    "normalized_pbe_factors": 124718,
+    "omega": 0.002004008016032064,
+    "support_nodes": 500
+  },
+  "menz_direct_sparse_solve_regressions": [
+    {
+      "maximum_absolute_error": 6.938893903907228e-17,
+      "observation_count": 0,
+      "pattern": 0
+    },
+    {
+      "maximum_absolute_error": 2.886579864025407e-15,
+      "observation_count": 1,
+      "pattern": 1
+    },
+    {
+      "maximum_absolute_error": 2.4424906541753444e-15,
+      "observation_count": 4,
+      "pattern": 2
+    }
+  ],
+  "menz_reference_precompute": {
+    "a0_nnz": 277470,
+    "definition": "C_H0=(A0^-1)[H,H], A0=Q0-0.25*W_pbe",
+    "dense_full_inverse_formed": false,
+    "factor_count": 124718,
+    "full_dimension": 2142,
+    "minimum_support_inverse_entry": 5.801450171844101e-05,
+    "precompute_kind": "exact_state_zero_menz_support_inverse",
+    "sparse_factorization_seconds": 0.03065945813432336,
+    "support_dimension": 500,
+    "support_rhs_count": 500,
+    "support_rhs_solve_seconds": 0.09999641682952642,
+    "support_solve_relative_residual": 1.4881765487889286e-15,
+    "support_symmetry_max_abs_error": 0.0,
+    "total_seconds": 0.155905291903764,
+    "weight": 0.002004008016032064
+  },
+  "oracle_file_opened": false,
+  "packages": {
+    "matplotlib": "3.11.1",
+    "numpy": "2.3.5",
+    "pandas": "3.0.1",
+    "scipy": "1.16.3"
+  },
+  "python": "3.12.13",
+  "run_sha": "7fbfb202268dd0fd92d35defbea2cc4990f089e2",
+  "safe_input_hashes_verified": [
+    "action_node_mapping",
+    "benchmark_manifest",
+    "nlr_data_use_notice",
+    "normalized_model_manifest",
+    "normalized_pbe_factor_bank",
+    "pbe_support",
+    "q0"
+  ],
+  "scientific_state": "PASS_PBE_VALUE",
+  "status": "SMOKE_PASS",
+  "support_reference_old_routine_regressions": [
+    {
+      "covariance_max_abs_error": 1.7763568394002505e-15,
+      "mean_max_abs_error": 0.0,
+      "observation_count": 0,
+      "pattern": 0,
+      "precision_max_abs_error": 0.0
+    },
+    {
+      "covariance_max_abs_error": 2.1094237467877974e-15,
+      "mean_max_abs_error": 2.220446049250313e-16,
+      "observation_count": 1,
+      "pattern": 1,
+      "precision_max_abs_error": 2.8421709430404007e-13
+    },
+    {
+      "covariance_max_abs_error": 2.1094237467877974e-15,
+      "mean_max_abs_error": 1.3322676295501878e-15,
+      "observation_count": 4,
+      "pattern": 2,
+      "precision_max_abs_error": 5.115907697472721e-13
+    }
+  ],
+  "support_reference_precompute": {
+    "dense_precision_relative_residual": 1.2972718501316484e-15,
+    "dense_precision_seconds": 0.0032149169128388166,
+    "full_dimension": 2142,
+    "precompute_kind": "exact_500d_gaussian_reference",
+    "principal_precision_submatrix_used": false,
+    "sparse_factorization_seconds": 0.01481070788577199,
+    "support_dimension": 500,
+    "support_rhs_count": 500,
+    "support_rhs_solve_seconds": 0.05803920910693705,
+    "support_solve_relative_residual": 6.357107457732352e-16,
+    "total_seconds": 0.08688191720284522
+  }
+}
