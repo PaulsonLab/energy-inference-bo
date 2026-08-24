@@ -792,6 +792,7 @@ def run_probe(
                 ],
                 function_tolerance=config["pbe_only_map"]["function_tolerance"],
                 maximum_iterations=config["pbe_only_map"]["maximum_iterations"],
+                maximum_retries=config["pbe_only_map"]["maximum_retries"],
                 guard=guard,
             )
             action_support = _action_support_positions(support_nodes, action_nodes)

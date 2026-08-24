@@ -108,6 +108,7 @@
     "function_tolerance": 1e-14,
     "map_gradient_infinity_norm_maximum": 1e-7,
     "maximum_iterations": 2000,
+    "maximum_retries": 1,
     "optimizer": "L-BFGS-B",
     "optimizer_gradient_tolerance": 1e-10
   },

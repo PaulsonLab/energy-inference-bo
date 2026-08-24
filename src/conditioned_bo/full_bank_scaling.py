@@ -742,6 +742,7 @@ def fit_compact_map_only(
     optimizer_gradient_tolerance: float,
     function_tolerance: float,
     maximum_iterations: int,
+    maximum_retries: int,
     guard: ResourceGuard,
 ) -> tuple[FloatArray, dict[str, Any]]:
     """Target-blind full-factor MAP for the exact support reference."""
@@ -755,24 +756,49 @@ def fit_compact_map_only(
         gaussian_gradient = _precision_matvec(precision, values)
         return 0.5 * float(values @ gaussian_gradient) + energy, gaussian_gradient + gradient
 
-    result = minimize(
-        objective,
-        np.zeros(dimension, dtype=np.float64),
-        method="L-BFGS-B",
-        jac=True,
-        options={
-            "gtol": optimizer_gradient_tolerance,
-            "ftol": function_tolerance,
-            "maxiter": maximum_iterations,
-            "maxls": 50,
-        },
-    )
-    objective_value, gradient = objective(np.asarray(result.x, dtype=np.float64))
-    gradient_inf = float(np.linalg.norm(gradient, ord=np.inf))
-    if not result.success or gradient_inf > gradient_tolerance:
-        raise NumericalFailure(
-            f"PBE-only MAP failed: success={result.success}, gradient={gradient_inf}"
+    if maximum_retries != 1:
+        raise ValueError("The development PBE-only MAP permits exactly one retry")
+    attempts: list[dict[str, Any]] = []
+    start = np.zeros(dimension, dtype=np.float64)
+    accepted = None
+    objective_value = math.inf
+    gradient_inf = math.inf
+    for attempt_index in range(maximum_retries + 1):
+        result = minimize(
+            objective,
+            start,
+            method="L-BFGS-B",
+            jac=True,
+            options={
+                "gtol": optimizer_gradient_tolerance,
+                "ftol": function_tolerance,
+                "maxiter": maximum_iterations,
+                "maxls": 50,
+            },
         )
+        objective_value, gradient = objective(np.asarray(result.x, dtype=np.float64))
+        gradient_inf = float(np.linalg.norm(gradient, ord=np.inf))
+        attempts.append(
+            {
+                "attempt": attempt_index + 1,
+                "success": bool(result.success),
+                "status": int(result.status),
+                "message": str(result.message),
+                "iterations": int(result.nit),
+                "function_evaluations": int(result.nfev),
+                "objective": float(objective_value),
+                "gradient_infinity_norm": gradient_inf,
+            }
+        )
+        if result.success and gradient_inf <= gradient_tolerance:
+            accepted = result
+            break
+        start = np.asarray(result.x, dtype=np.float64)
+    if accepted is None:
+        raise NumericalFailure(
+            f"PBE-only MAP failed frozen checks: {attempts}"
+        )
+    result = accepted
     return np.asarray(result.x, dtype=np.float64), {
         "optimizer": "scipy.optimize.minimize/L-BFGS-B",
         "success": bool(result.success),
@@ -782,6 +808,7 @@ def fit_compact_map_only(
         "function_evaluations": int(result.nfev),
         "objective": float(objective_value),
         "gradient_infinity_norm": gradient_inf,
+        "optimizer_attempts": attempts,
         "factor_energy_gradient_calls": factor_bank.energy_gradient_calls,
         "factor_energy_gradient_element_work": factor_bank.energy_gradient_element_work,
         "factor_energy_gradient_seconds": factor_bank.energy_gradient_seconds,
