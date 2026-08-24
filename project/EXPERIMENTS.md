@@ -330,6 +330,19 @@ certificate. This used no fresh seed, changed no theorem or paper claim, and
 created no preregistration. Immutable record:
 [`outputs/full_bank_scaling_probe/RESULTS.md`](../experiments/sun_oxide/outputs/full_bank_scaling_probe/RESULTS.md).
 
+**Final development-only decision-sparsity diagnostic — `PLANNED`.** On the
+frozen 500-support model and exactly the three already-consumed seed-0 FULL
+states, evaluate static and checkpoint-reranked influence prefixes at the fixed
+0--100% fraction grid, plus 20 matched random subsets at 10%, 20%, and 40%.
+The primary quantity is the first fraction after which the active action stays
+equal to FULL at every larger checkpoint. The prospectively fixed development
+classification is `STRONG_BOUND_CONSERVATISM` only if all three reranked paths
+stabilize by 40%, retain at most 0.01 FULL-EI regret thereafter, and precede
+the theorem certificate by at least 0.30; `MIXED_DECISION_SPARSITY` requires
+median stabilization by 50% and no state above 70%; otherwise report
+`DECISION_DENSE`. This is not a scientific preregistration, changes no model or
+epsilon, and may not access fresh seeds 12--31.
+
 ### Closed E3 evidence
 
 | Case | Frozen provenance | Exact verdict and interpretation | Immutable record |
