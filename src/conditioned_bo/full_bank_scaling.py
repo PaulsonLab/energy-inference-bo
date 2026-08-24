@@ -642,9 +642,18 @@ def fit_compact_laplace(
             accepted = result
             break
         if attempt_index == 0:
-            if retry is not None:
+            candidate = np.asarray(result.x, dtype=np.float64)
+            if np.all(np.isfinite(candidate)):
+                # Continue the same converged finite candidate when ftol stops
+                # just above the independent gradient acceptance threshold.
+                # This is the deterministic retry used by the frozen first-
+                # state FULL implementation and changes no objective or
+                # optimizer setting.
+                start = candidate
+                start_source = "first_attempt_candidate"
+            elif retry is not None:
                 start = retry
-                start_source = "provided_retry_map"
+                start_source = "provided_retry_map_nonfinite_candidate"
             else:
                 start = np.asarray(result.x, dtype=np.float64)
                 start_source = "first_attempt_candidate"
