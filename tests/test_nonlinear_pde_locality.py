@@ -157,11 +157,64 @@ def test_full_fallback_and_factor_work_accounting() -> None:
     assert result.work["sparse_comparison_solves"] > 0
 
 
+def test_fallback_transition_stage_reports_pre_activation_mask() -> None:
+    problem, states = _tiny_problem_and_states()
+    result = _run(
+        "ADAPTIVE_INFLUENCE",
+        states[0],
+        problem,
+        maximum_refinement_stages=1,
+    )
+    transition = result.stages[-2]
+    explicit_full = result.stages[-1]
+    assert transition.active_mask_semantics == "INFERENCE_AND_ENVELOPE_PRE_ACTIVATION"
+    assert transition.active_count == 2
+    assert len(transition.active_indices) == 2
+    assert len(transition.activated_indices) == 23
+    assert set(transition.active_indices).isdisjoint(transition.activated_indices)
+    assert set(transition.active_indices) | set(transition.activated_indices) == set(
+        range(25)
+    )
+    assert explicit_full.active_count == 25
+    assert explicit_full.active_indices == tuple(range(25))
+    assert explicit_full.activated_indices == ()
+    assert explicit_full.stopped
+
+
 def test_paired_methods_receive_byte_identical_bo_state() -> None:
     problem, states = _tiny_problem_and_states()
     first = _run("ADAPTIVE_INFLUENCE", states[0], problem, epsilon=1e9)
     second = _run("DYNAMIC_GEOMETRIC_SHELL", states[0], problem, epsilon=1e9)
     assert first.audit["state_fingerprint"] == second.audit["state_fingerprint"]
+
+
+def test_every_paired_method_receives_same_state_specific_incumbent() -> None:
+    problem, states = _tiny_problem_and_states()
+    state = states[1]
+    expected = locality.state_incumbent(state)
+    assert expected > 0.55
+    results = [
+        _run(method, state, problem, epsilon=1e9, incumbent=expected)
+        for method in (
+            "FULL",
+            "ADAPTIVE_INFLUENCE",
+            "DYNAMIC_GEOMETRIC_SHELL",
+            "STATIC_INFLUENCE",
+            "FIXED_CHALLENGER",
+        )
+    ]
+    assert {
+        result.audit["state_specific_incumbent"] for result in results
+    } == {expected}
+
+
+def test_later_checkpoint_updates_incumbent_after_improved_observation() -> None:
+    _, states = _tiny_problem_and_states()
+    early, middle, late = states
+    assert locality.state_incumbent(early) == 0.55
+    assert locality.state_incumbent(middle) == max(middle.observed_values)
+    assert locality.state_incumbent(middle) > locality.state_incumbent(early)
+    assert locality.state_incumbent(late) == locality.state_incumbent(middle)
 
 
 def test_prospective_seed_derivation_is_deterministic_and_literal() -> None:

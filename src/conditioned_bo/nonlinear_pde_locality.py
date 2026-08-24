@@ -122,9 +122,18 @@ class InferenceResult:
 
 @dataclass(frozen=True)
 class StageResult:
+    """One inference/envelope stage followed by an optional activation.
+
+    ``active_count`` and ``active_indices`` are always the mask used for this
+    stage's inference and envelope.  ``activated_indices`` are applied only
+    after those quantities are computed and first appear in the next stage's
+    active mask.
+    """
+
     stage: int
     active_count: int
     active_indices: tuple[int, ...]
+    active_mask_semantics: str
     leader_index: int
     challenger_index: int
     sparse_gap: float
@@ -164,6 +173,16 @@ def peak_rss_bytes() -> int:
     value = int(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
     # macOS reports bytes; Linux reports KiB.
     return value if value > 10_000_000 else value * 1024
+
+
+def state_incumbent(state: BOState, floor: float = 0.55) -> float:
+    """Return the single EI incumbent shared by every method for a BO state."""
+
+    if not np.isfinite(floor):
+        raise ValueError("incumbent floor must be finite")
+    if state.observed_values.size == 0:
+        return float(floor)
+    return float(max(floor, float(np.max(state.observed_values))))
 
 
 def derive_prospective_seed(replicate: int) -> int:
@@ -929,10 +948,11 @@ def run_selective_method(
     # The extra iteration after the refinement budget is reserved for an
     # explicit FULL decision when the preceding stage activated the fallback.
     for stage in range(maximum_refinement_stages + 2):
+        stage_active = active.copy()
         inference = infer_with_escalation(
             state,
             problem,
-            active,
+            stage_active,
             incumbent=incumbent,
             delta_mc=delta_mc,
             minimum_reference_ess_fraction=minimum_reference_ess_fraction,
@@ -945,7 +965,7 @@ def run_selective_method(
         )
         inference_total += inference.inference_seconds
         challenger_start = time.perf_counter()
-        omitted = ~active
+        omitted = ~stage_active
         if not np.any(omitted):
             structural = np.zeros(state.action_indices.size)
         else:
@@ -1015,8 +1035,9 @@ def run_selective_method(
         stages.append(
             StageResult(
                 stage=stage,
-                active_count=int(active.sum()) if full_fallback else int(active.sum() - activated.size),
-                active_indices=tuple(np.flatnonzero(active if activated.size == 0 else (active & ~np.isin(np.arange(n_factors), activated))).tolist()),
+                active_count=int(stage_active.sum()),
+                active_indices=tuple(np.flatnonzero(stage_active).tolist()),
+                active_mask_semantics="INFERENCE_AND_ENVELOPE_PRE_ACTIVATION",
                 leader_index=inference.leader_index,
                 challenger_index=challenger,
                 sparse_gap=float(inference.gap[challenger_local]),
@@ -1063,6 +1084,7 @@ def run_selective_method(
             "geometric_selection_calls": geometric_selection_calls,
             "m2_selection_consulted_influence_scores": False,
             "state_fingerprint": state.fingerprint(),
+            "state_specific_incumbent": incumbent,
             "full_shadow_information_used": False,
         },
     )
@@ -1207,4 +1229,5 @@ __all__ = [
     "reference_snis_inference",
     "run_selective_method",
     "sample_base_gaussian",
+    "state_incumbent",
 ]

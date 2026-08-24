@@ -1,0 +1,525 @@
+{
+  "config_sha256_at_profile_time": "2717ece2e5581a7224e1a7a5cb5f69c8291c14ad0ea5183aff54154072b4748b",
+  "development_source_seed": 2026082401,
+  "environment": {
+    "cpu_count": 10,
+    "machine": "arm64",
+    "numpy": "2.3.5",
+    "pandas": "3.0.1",
+    "platform": "macOS-15.6.1-arm64-arm-64bit",
+    "processor": "arm",
+    "python": "3.12.13",
+    "scipy": "1.16.3"
+  },
+  "local_route_allowed": true,
+  "method_profiles": [
+    {
+      "M": 1600,
+      "actual_stages": 1,
+      "challenger_seconds": 1.3875076547265053e-05,
+      "checkpoint": "early",
+      "factor_energy_evaluations": 6564800,
+      "factor_gradient_elements": 54880,
+      "factor_hessian_elements": 154272,
+      "full_fallback": false,
+      "inference_seconds": 0.30356866703368723,
+      "laplace_escalation_occurred": true,
+      "method": "FULL",
+      "peak_rss_bytes": 450478080,
+      "sparse_comparison_solves": 0,
+      "stage_proposals": [
+        "LAPLACE_SNIS"
+      ],
+      "state_id": "n40_r-2_early_q4",
+      "state_specific_incumbent": 0.55,
+      "total_method_seconds": 0.3849858329631388
+    },
+    {
+      "M": 50,
+      "actual_stages": 6,
+      "challenger_seconds": 0.055104083847254515,
+      "checkpoint": "early",
+      "factor_energy_evaluations": 307200,
+      "factor_gradient_elements": 0,
+      "factor_hessian_elements": 0,
+      "full_fallback": false,
+      "inference_seconds": 0.01814241730608046,
+      "laplace_escalation_occurred": false,
+      "method": "ADAPTIVE_INFLUENCE",
+      "peak_rss_bytes": 467828736,
+      "sparse_comparison_solves": 11,
+      "stage_proposals": [
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS"
+      ],
+      "state_id": "n40_r-2_early_q4",
+      "state_specific_incumbent": 0.55,
+      "total_method_seconds": 0.07760162511840463
+    },
+    {
+      "M": 50,
+      "actual_stages": 6,
+      "challenger_seconds": 0.07754000113345683,
+      "checkpoint": "early",
+      "factor_energy_evaluations": 307200,
+      "factor_gradient_elements": 0,
+      "factor_hessian_elements": 0,
+      "full_fallback": false,
+      "inference_seconds": 0.018286791862919927,
+      "laplace_escalation_occurred": false,
+      "method": "DYNAMIC_GEOMETRIC_SHELL",
+      "peak_rss_bytes": 467828736,
+      "sparse_comparison_solves": 6,
+      "stage_proposals": [
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS"
+      ],
+      "state_id": "n40_r-2_early_q4",
+      "state_specific_incumbent": 0.55,
+      "total_method_seconds": 0.10030800011008978
+    },
+    {
+      "M": 50,
+      "actual_stages": 6,
+      "challenger_seconds": 0.034197417087852955,
+      "checkpoint": "early",
+      "factor_energy_evaluations": 307200,
+      "factor_gradient_elements": 0,
+      "factor_hessian_elements": 0,
+      "full_fallback": false,
+      "inference_seconds": 0.017012291122227907,
+      "laplace_escalation_occurred": false,
+      "method": "STATIC_INFLUENCE",
+      "peak_rss_bytes": 467828736,
+      "sparse_comparison_solves": 7,
+      "stage_proposals": [
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS"
+      ],
+      "state_id": "n40_r-2_early_q4",
+      "state_specific_incumbent": 0.55,
+      "total_method_seconds": 0.05536849983036518
+    },
+    {
+      "M": 40,
+      "actual_stages": 5,
+      "challenger_seconds": 0.04453366599045694,
+      "checkpoint": "early",
+      "factor_energy_evaluations": 204800,
+      "factor_gradient_elements": 0,
+      "factor_hessian_elements": 0,
+      "full_fallback": false,
+      "inference_seconds": 0.013390249805524945,
+      "laplace_escalation_occurred": false,
+      "method": "FIXED_CHALLENGER",
+      "peak_rss_bytes": 467828736,
+      "sparse_comparison_solves": 9,
+      "stage_proposals": [
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS"
+      ],
+      "state_id": "n40_r-2_early_q4",
+      "state_specific_incumbent": 0.55,
+      "total_method_seconds": 0.06232237513177097
+    },
+    {
+      "M": 1600,
+      "actual_stages": 1,
+      "challenger_seconds": 2.1124957129359245e-05,
+      "checkpoint": "late",
+      "factor_energy_evaluations": 6564800,
+      "factor_gradient_elements": 54880,
+      "factor_hessian_elements": 154272,
+      "full_fallback": false,
+      "inference_seconds": 0.3011751670856029,
+      "laplace_escalation_occurred": true,
+      "method": "FULL",
+      "peak_rss_bytes": 1570095104,
+      "sparse_comparison_solves": 0,
+      "stage_proposals": [
+        "LAPLACE_SNIS"
+      ],
+      "state_id": "n40_r-2_late_q12",
+      "state_specific_incumbent": 0.974452681747891,
+      "total_method_seconds": 0.3877975409850478
+    },
+    {
+      "M": 140,
+      "actual_stages": 15,
+      "challenger_seconds": 0.1434291230980307,
+      "checkpoint": "late",
+      "factor_energy_evaluations": 2150400,
+      "factor_gradient_elements": 0,
+      "factor_hessian_elements": 0,
+      "full_fallback": false,
+      "inference_seconds": 0.07383120828308165,
+      "laplace_escalation_occurred": false,
+      "method": "ADAPTIVE_INFLUENCE",
+      "peak_rss_bytes": 1570095104,
+      "sparse_comparison_solves": 29,
+      "stage_proposals": [
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS"
+      ],
+      "state_id": "n40_r-2_late_q12",
+      "state_specific_incumbent": 0.974452681747891,
+      "total_method_seconds": 0.22194837499409914
+    },
+    {
+      "M": 150,
+      "actual_stages": 16,
+      "challenger_seconds": 0.2139337914995849,
+      "checkpoint": "late",
+      "factor_energy_evaluations": 2457600,
+      "factor_gradient_elements": 0,
+      "factor_hessian_elements": 0,
+      "full_fallback": false,
+      "inference_seconds": 0.08386582997627556,
+      "laplace_escalation_occurred": false,
+      "method": "DYNAMIC_GEOMETRIC_SHELL",
+      "peak_rss_bytes": 1570095104,
+      "sparse_comparison_solves": 16,
+      "stage_proposals": [
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS"
+      ],
+      "state_id": "n40_r-2_late_q12",
+      "state_specific_incumbent": 0.974452681747891,
+      "total_method_seconds": 0.3023769590072334
+    },
+    {
+      "M": 220,
+      "actual_stages": 23,
+      "challenger_seconds": 0.12283966620452702,
+      "checkpoint": "late",
+      "factor_energy_evaluations": 5181440,
+      "factor_gradient_elements": 0,
+      "factor_hessian_elements": 0,
+      "full_fallback": false,
+      "inference_seconds": 0.16209641518071294,
+      "laplace_escalation_occurred": false,
+      "method": "STATIC_INFLUENCE",
+      "peak_rss_bytes": 1570095104,
+      "sparse_comparison_solves": 24,
+      "stage_proposals": [
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS"
+      ],
+      "state_id": "n40_r-2_late_q12",
+      "state_specific_incumbent": 0.974452681747891,
+      "total_method_seconds": 0.28997000004164875
+    },
+    {
+      "M": 20,
+      "actual_stages": 3,
+      "challenger_seconds": 0.024193749763071537,
+      "checkpoint": "late",
+      "factor_energy_evaluations": 61440,
+      "factor_gradient_elements": 0,
+      "factor_hessian_elements": 0,
+      "full_fallback": false,
+      "inference_seconds": 0.006074042059481144,
+      "laplace_escalation_occurred": false,
+      "method": "FIXED_CHALLENGER",
+      "peak_rss_bytes": 1570095104,
+      "sparse_comparison_solves": 5,
+      "stage_proposals": [
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS",
+        "GP_REFERENCE_SNIS"
+      ],
+      "state_id": "n40_r-2_late_q12",
+      "state_specific_incumbent": 0.974452681747891,
+      "total_method_seconds": 0.034635707968845963
+    }
+  ],
+  "mode": "development_full_fidelity_profile",
+  "operational_only": true,
+  "peak_rss_bytes": 1570095104,
+  "peak_rss_gb": 1.570095104,
+  "profile_wall_seconds": 14.340480333194137,
+  "projection": {
+    "basis": "45 times observed n=40 early/late mean or maximum state wall time, plus 15 observed domain-replicate setup costs; no synthetic fidelity/stage multiplier",
+    "observed_state_seconds": [
+      6.885791957844049,
+      7.3204536670818925
+    ],
+    "projected_conservative_total_minutes": 5.521510458609555,
+    "projected_conservative_total_seconds": 331.2906275165733,
+    "projected_mean_total_minutes": 5.3585123176453635,
+    "projected_mean_total_seconds": 321.5107390587218
+  },
+  "prospective_seeds_evaluated": false,
+  "scientific_budgets_used": {
+    "full_shadow_batches": 2,
+    "full_shadow_escalation_rule_active": true,
+    "initial_full_shadow_samples_per_batch": 8192,
+    "laplace_sample_count": 2048,
+    "maximum_refinement_stages": 50,
+    "reference_sample_count": 2048
+  },
+  "shared_setup_seconds": 0.1246808331925422,
+  "state_profiles": [
+    {
+      "checkpoint": "early",
+      "checkpoint_queries": 4,
+      "full_shadow": {
+        "action_index": 900,
+        "attempts": [
+          {
+            "actions": [
+              900,
+              900
+            ],
+            "attempt": 0,
+            "ess_fractions": [
+              0.2161554502786306,
+              0.17009603127167364
+            ],
+            "inference_seconds": [
+              1.0704306249972433,
+              1.0435810831841081
+            ],
+            "maximum_batch_acquisition_difference": 0.024832000115228403,
+            "reliable": false,
+            "sample_count_per_batch": 8192,
+            "work": [
+              {
+                "factor_energy_evaluations": 13118400,
+                "factor_gradient_elements": 54880,
+                "factor_hessian_elements": 154272,
+                "sparse_comparison_solves": 0
+              },
+              {
+                "factor_energy_evaluations": 13118400,
+                "factor_gradient_elements": 54880,
+                "factor_hessian_elements": 154272,
+                "sparse_comparison_solves": 0
+              }
+            ]
+          },
+          {
+            "actions": [
+              699,
+              900
+            ],
+            "attempt": 1,
+            "ess_fractions": [
+              0.1992527431635424,
+              0.1984628659044359
+            ],
+            "inference_seconds": [
+              1.9833311669062823,
+              1.824458874994889
+            ],
+            "maximum_batch_acquisition_difference": 0.016054113800836767,
+            "reliable": false,
+            "sample_count_per_batch": 16384,
+            "work": [
+              {
+                "factor_energy_evaluations": 26225600,
+                "factor_gradient_elements": 54880,
+                "factor_hessian_elements": 154272,
+                "sparse_comparison_solves": 0
+              },
+              {
+                "factor_energy_evaluations": 26225600,
+                "factor_gradient_elements": 54880,
+                "factor_hessian_elements": 154272,
+                "sparse_comparison_solves": 0
+              }
+            ]
+          }
+        ],
+        "challenger_index": 899,
+        "escalated": true,
+        "ess_fraction": 0.1984628659044359,
+        "reliable": false,
+        "state_specific_incumbent": 0.55
+      },
+      "operational": {
+        "core_method_seconds": 0.6805863331537694,
+        "oracle_seconds": 0.0,
+        "peak_rss_bytes": 1570095104,
+        "random_seconds": 0.0,
+        "shadow_seconds": 5.956993124913424,
+        "state_specific_incumbent": 0.55,
+        "total_state_seconds": 6.885791957844049
+      },
+      "oracle": {
+        "deployable": false,
+        "evaluated": false,
+        "feeds_deployable_methods": false,
+        "method": "ORACLE_GEOMETRIC_PREFIX",
+        "reason": "FULL_REFERENCE_UNRELIABLE",
+        "state_specific_incumbent": 0.55
+      },
+      "random_subset_count": 0,
+      "state_id": "n40_r-2_early_q4",
+      "state_specific_incumbent": 0.55
+    },
+    {
+      "checkpoint": "late",
+      "checkpoint_queries": 12,
+      "full_shadow": {
+        "action_index": 740,
+        "attempts": [
+          {
+            "actions": [
+              739,
+              660
+            ],
+            "attempt": 0,
+            "ess_fractions": [
+              0.14636370508136337,
+              0.1734764679095266
+            ],
+            "inference_seconds": [
+              1.0012469170615077,
+              0.9424607919063419
+            ],
+            "maximum_batch_acquisition_difference": 0.0078101765515507585,
+            "reliable": false,
+            "sample_count_per_batch": 8192,
+            "work": [
+              {
+                "factor_energy_evaluations": 13118400,
+                "factor_gradient_elements": 54880,
+                "factor_hessian_elements": 154272,
+                "sparse_comparison_solves": 0
+              },
+              {
+                "factor_energy_evaluations": 13118400,
+                "factor_gradient_elements": 54880,
+                "factor_hessian_elements": 154272,
+                "sparse_comparison_solves": 0
+              }
+            ]
+          },
+          {
+            "actions": [
+              740,
+              740
+            ],
+            "attempt": 1,
+            "ess_fractions": [
+              0.21712001546591198,
+              0.1834673882445956
+            ],
+            "inference_seconds": [
+              1.9012470000889152,
+              1.9351699170656502
+            ],
+            "maximum_batch_acquisition_difference": 0.006795369498928901,
+            "reliable": false,
+            "sample_count_per_batch": 16384,
+            "work": [
+              {
+                "factor_energy_evaluations": 26225600,
+                "factor_gradient_elements": 54880,
+                "factor_hessian_elements": 154272,
+                "sparse_comparison_solves": 0
+              },
+              {
+                "factor_energy_evaluations": 26225600,
+                "factor_gradient_elements": 54880,
+                "factor_hessian_elements": 154272,
+                "sparse_comparison_solves": 0
+              }
+            ]
+          }
+        ],
+        "challenger_index": 660,
+        "escalated": true,
+        "ess_fraction": 0.1834673882445956,
+        "reliable": false,
+        "state_specific_incumbent": 0.974452681747891
+      },
+      "operational": {
+        "core_method_seconds": 1.236728582996875,
+        "oracle_seconds": 0.0,
+        "peak_rss_bytes": 1570095104,
+        "random_seconds": 0.0,
+        "shadow_seconds": 5.8121111248619854,
+        "state_specific_incumbent": 0.974452681747891,
+        "total_state_seconds": 7.3204536670818925
+      },
+      "oracle": {
+        "deployable": false,
+        "evaluated": false,
+        "feeds_deployable_methods": false,
+        "method": "ORACLE_GEOMETRIC_PREFIX",
+        "reason": "FULL_REFERENCE_UNRELIABLE",
+        "state_specific_incumbent": 0.974452681747891
+      },
+      "random_subset_count": 0,
+      "state_id": "n40_r-2_late_q12",
+      "state_specific_incumbent": 0.974452681747891
+    }
+  ],
+  "superseded_preregistration_sha": "c976ab186a730e5ddfd2270ccf1d60577ee0d6b6",
+  "trajectory_replicate_identifier": -2
+}

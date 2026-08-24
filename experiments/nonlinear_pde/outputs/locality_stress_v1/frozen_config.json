@@ -1,6 +1,18 @@
 {
   "experiment_id": "E2_LOCALITY_STRESS_V1",
-  "status": "FROZEN_BEFORE_PROSPECTIVE_EXECUTION",
+  "status": "FROZEN_REPLACEMENT_BEFORE_PROSPECTIVE_EXECUTION",
+  "provenance": {
+    "supersedes_preregistration_sha": "c976ab186a730e5ddfd2270ccf1d60577ee0d6b6",
+    "superseded_preregistration_status": "SUPERSEDED_BEFORE_EXECUTION",
+    "superseded_scientific_results_observed": false,
+    "replacement_scope": [
+      "state-specific EI incumbent propagation",
+      "FULL-reference-reliable filtering for action/regret statistics",
+      "unambiguous pre-activation stage-mask accounting",
+      "development-only full-fidelity resource profile",
+      "explicit pre-execution resolution to primary epsilon 0.060"
+    ]
+  },
   "domain_sizes": [18, 24, 30, 36, 40],
   "prospective_source_seeds": [4215109622, 1083605379, 4045758625],
   "seed_derivation": {
@@ -31,6 +43,7 @@
     "total_queries": 12,
     "checkpoint_queries": [4, 8, 12],
     "checkpoint_labels": ["early", "middle", "late"],
+    "ei_incumbent_policy": "max(0.55, max(state.observed_values)) for every method, FULL shadow, oracle geometry, and random matched subset",
     "observation_noise_variance": 0.0025,
     "observed_values": "noise-free manufactured truth; finite reference noise variance used for conditioning",
     "paired_state_requirement": "byte-identical BOState fingerprint across M0-M4"
@@ -52,6 +65,7 @@
     "maximum_refinement_stages": 50,
     "stopping_tolerance": 0.06,
     "fallback": "activate all remaining factors and return an explicit FULL decision",
+    "stage_mask_accounting": "active_count and active_indices are the pre-activation mask used for that stage's inference/envelope; activated_indices are applied afterward and appear in the next stage",
     "tie_breaking": "ascending factor index after primary score or distance",
     "challenger_search": "exhaustive frozen action grid; optimization remainder zero"
   },
@@ -59,7 +73,8 @@
     "primary_24x24_tolerance": 0.06,
     "archived_scaling_helper_default_tolerance": 0.075,
     "frozen_choice": 0.06,
-    "status": "PROSPECTIVE_RUN_REQUIRES_EXPLICIT_ACKNOWLEDGEMENT"
+    "status": "RESOLVED_BEFORE_EXECUTION_USE_PRIMARY_0.060",
+    "interpretation": "the new 0.060 expanding-domain test is a stricter prospective test, not an exact reproduction of the historical 0.075 helper curve"
   },
   "inference": {
     "routine_strategy": "GP-reference SNIS first for every method; Laplace-proposal SNIS escalation below the frozen ESS threshold",
@@ -85,6 +100,14 @@
     "maximum_batch_acquisition_difference": 0.01,
     "unreliable_label": "FULL_REFERENCE_UNRELIABLE",
     "inconclusive_fraction_threshold": 0.1
+  },
+  "full_reference_filtering": {
+    "count_timing_work_ess_statistics": "all states",
+    "full_action_agreement_statistics": "FULL_REFERENCE_RELIABLE states only",
+    "full_acquisition_regret_statistics": "FULL_REFERENCE_RELIABLE states only",
+    "a3_matched_quality_statistics": "FULL_REFERENCE_RELIABLE states only",
+    "a4_matched_quality_and_fallback_composite": "FULL_REFERENCE_RELIABLE states only",
+    "numerical_thresholds_changed": false
   },
   "random_baseline": {
     "grid_sizes": [24, 40],
@@ -145,7 +168,16 @@
     "laplace_sample_count": 128,
     "shadow_sample_count_per_batch": 256,
     "maximum_refinement_stages": 2,
-    "scientific_runtime_projection_multiplier": 4.0
+    "full_fidelity_profile": {
+      "grid_size": 40,
+      "checkpoints": ["early", "late"],
+      "trajectory_replicate_identifier": -2,
+      "use_scientific_routine_budgets": true,
+      "use_all_five_core_methods": true,
+      "use_maximum_refinement_stages": 50,
+      "use_initial_full_shadow_batches": "8192 x 2",
+      "projection": "45 times observed n=40 early/late mean and maximum state wall time plus 15 observed setup costs; no synthetic worst-case multiplier"
+    }
   },
   "resource_routing": {
     "maximum_local_peak_rss_gb": 8.0,
@@ -169,6 +201,11 @@
       "figure4_spatial_examples.png"
     ],
     "state_rows": "one row per paired method/state with JSON factor indices",
-    "stage_rows": "one row per method refinement stage"
+    "stage_rows": "one row per method refinement stage; active mask is always pre-activation",
+    "development_profile": [
+      "development_full_fidelity_profile.json",
+      "development_full_fidelity_method_metrics.csv",
+      "development_full_fidelity_stage_metrics.csv"
+    ]
   }
 }

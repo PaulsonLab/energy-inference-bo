@@ -10,8 +10,8 @@ Modes are deliberately separated:
 ``scientific``
     Protected prospective execution from a clean preregistration commit.
 
-The scientific mode refuses to run unless the historical 0.060/0.075
-tolerance discrepancy has been acknowledged explicitly on the command line.
+The historical 0.060/0.075 tolerance discrepancy is resolved prospectively in
+the replacement frozen config: scientific execution uses the primary 0.060.
 """
 
 from __future__ import annotations
@@ -60,6 +60,7 @@ from conditioned_bo.nonlinear_pde_locality import (  # noqa: E402
     peak_rss_bytes,
     random_matched_subsets,
     run_selective_method,
+    state_incumbent,
 )
 
 
@@ -161,7 +162,7 @@ def _state_id(grid_size: int, replicate: int, state: BOState) -> str:
 
 
 def _method_arguments(
-    config: dict[str, Any], *, proposal_seed: int, smoke: bool
+    config: dict[str, Any], state: BOState, *, proposal_seed: int, smoke: bool
 ) -> dict[str, Any]:
     numerical = config["development"] if smoke else config["numerical"]
     selection = config["selection"]
@@ -173,7 +174,7 @@ def _method_arguments(
             if smoke
             else selection["maximum_refinement_stages"]
         ),
-        "incumbent": config["model"]["incumbent"],
+        "incumbent": state_incumbent(state, config["model"]["incumbent"]),
         "delta_mc": config["inference"]["delta_mc"],
         "minimum_reference_ess_fraction": config["inference"][
             "routine_reference_ess_escalation_threshold"
@@ -232,7 +233,7 @@ def _shadow_batch(
         state,
         problem,
         active,
-        incumbent=config["model"]["incumbent"],
+        incumbent=state_incumbent(state, config["model"]["incumbent"]),
         delta_mc=config["inference"]["delta_mc"],
         sample_count=sample_count,
         proposal_seed=seed,
@@ -253,6 +254,7 @@ def _full_shadow(
     smoke: bool,
 ) -> dict[str, Any]:
     shadow = config["full_shadow"]
+    incumbent = state_incumbent(state, config["model"]["incumbent"])
     if smoke:
         initial = config["development"]["shadow_sample_count_per_batch"]
         escalated = initial
@@ -304,6 +306,7 @@ def _full_shadow(
     )
     order = np.argsort(-acquisition, kind="stable")
     return {
+        "state_specific_incumbent": incumbent,
         "reliable": attempts[-1]["reliable"],
         "action_index": int(state.action_indices[int(order[0])]),
         "challenger_index": int(state.action_indices[int(order[1])]),
@@ -341,9 +344,20 @@ def _method_rows(
     full_best_local = int(np.argmax(shadow["acquisition"]))
     full_best = float(shadow["acquisition"][full_best_local])
     full_reference_ess = _reference_ess(state, problem, range(grid_size**2))
+    incumbent_values = {
+        float(result.audit["state_specific_incumbent"])
+        for result in methods.values()
+    }
+    if len(incumbent_values) != 1:
+        raise RuntimeError("method rows received inconsistent incumbents")
+    incumbent = incumbent_values.pop()
     for method_name, result in methods.items():
         selected_local = int(np.flatnonzero(state.action_indices == result.action_index)[0])
-        regret = max(0.0, full_best - float(shadow["acquisition"][selected_local]))
+        regret = (
+            max(0.0, full_best - float(shadow["acquisition"][selected_local]))
+            if shadow["reliable"]
+            else np.nan
+        )
         active_reference_ess = _reference_ess(
             state, problem, result.final_active_indices
         )
@@ -355,11 +369,16 @@ def _method_rows(
             "checkpoint": state.checkpoint_label,
             "checkpoint_queries": state.checkpoint_queries,
             "state_fingerprint": state.fingerprint(),
+            "state_specific_incumbent": incumbent,
             "method": method_name,
             "action_index": result.action_index,
             "full_action_index": shadow["action_index"],
             "full_challenger_index": shadow["challenger_index"],
-            "full_action_agreement": result.action_index == shadow["action_index"],
+            "full_action_agreement": (
+                result.action_index == shadow["action_index"]
+                if shadow["reliable"]
+                else np.nan
+            ),
             "full_acquisition_regret": regret,
             "full_reference_reliable": shadow["reliable"],
             "full_reference_escalated": shadow["escalated"],
@@ -413,8 +432,10 @@ def _run_one_state(
     smoke: bool,
     methods_to_run: tuple[str, ...] = METHODS,
 ) -> dict[str, Any]:
+    state_start = time.perf_counter()
     identifier = _state_id(grid_size, replicate, state)
     state_seed = int(hashlib.sha256(identifier.encode()).hexdigest()[:8], 16)
+    incumbent = state_incumbent(state, config["model"]["incumbent"])
     methods: dict[str, MethodResult] = {}
     for offset, method in enumerate(methods_to_run):
         methods[method] = run_selective_method(
@@ -422,15 +443,27 @@ def _run_one_state(
             state,
             problem,
             **_method_arguments(
-                config, proposal_seed=state_seed + 10_000 * offset, smoke=smoke
+                config,
+                state,
+                proposal_seed=state_seed + 10_000 * offset,
+                smoke=smoke,
             ),
         )
     fingerprints = {result.audit["state_fingerprint"] for result in methods.values()}
     if fingerprints != {state.fingerprint()}:
         raise RuntimeError("paired methods did not receive byte-identical BO state")
+    incumbents = {
+        float(result.audit["state_specific_incumbent"]) for result in methods.values()
+    }
+    if incumbents != {incumbent}:
+        raise RuntimeError("paired methods did not receive the same state-specific incumbent")
+    shadow_start = time.perf_counter()
     shadow = _full_shadow(
         config, state, problem, state_seed=state_seed + 900_000, smoke=smoke
     )
+    shadow_seconds = time.perf_counter() - shadow_start
+    if float(shadow["state_specific_incumbent"]) != incumbent:
+        raise RuntimeError("FULL shadow did not receive the state-specific incumbent")
     state_rows, stage_rows = _method_rows(
         identifier,
         grid_size,
@@ -443,7 +476,10 @@ def _run_one_state(
     )
     oracle = None
     random_rows: list[dict[str, Any]] = []
-    if not smoke:
+    oracle_seconds = 0.0
+    random_seconds = 0.0
+    if not smoke and shadow["reliable"]:
+        oracle_start = time.perf_counter()
         oracle = oracle_geometric_prefix(
             state,
             problem,
@@ -452,14 +488,17 @@ def _run_one_state(
             full_acquisition=shadow["acquisition"],
             batch_size=config["selection"]["batch_size"],
             regret_threshold=config["diagnostics"]["oracle_regret_threshold"],
-            incumbent=config["model"]["incumbent"],
+            incumbent=incumbent,
             delta_mc=config["inference"]["delta_mc"],
         )
+        oracle["state_specific_incumbent"] = incumbent
+        oracle_seconds = time.perf_counter() - oracle_start
         random_spec = config["random_baseline"]
         if (
             grid_size in random_spec["grid_sizes"]
             and state.checkpoint_label in random_spec["checkpoints"]
         ):
+            random_start = time.perf_counter()
             matched = len(methods["ADAPTIVE_INFLUENCE"].final_active_indices)
             random_seed = int(
                 hashlib.sha256(f"E2_RANDOM_MATCHED:{identifier}".encode()).hexdigest()[:8],
@@ -471,10 +510,11 @@ def _run_one_state(
                 matched_count=matched,
                 subset_count=random_spec["subsets_per_state"],
                 random_seed=random_seed,
-                incumbent=config["model"]["incumbent"],
+                incumbent=incumbent,
                 delta_mc=config["inference"]["delta_mc"],
             )
             for row in random_rows:
+                row["state_specific_incumbent"] = incumbent
                 row["state_id"] = identifier
                 selected_local = int(
                     np.flatnonzero(state.action_indices == row["action_index"])[0]
@@ -483,12 +523,33 @@ def _run_one_state(
                 row["full_acquisition_regret"] = float(
                     shadow["acquisition"].max() - shadow["acquisition"][selected_local]
                 )
+            random_seconds = time.perf_counter() - random_start
+    elif not smoke:
+        oracle = {
+            "method": "ORACLE_GEOMETRIC_PREFIX",
+            "evaluated": False,
+            "reason": "FULL_REFERENCE_UNRELIABLE",
+            "deployable": False,
+            "feeds_deployable_methods": False,
+            "state_specific_incumbent": incumbent,
+        }
     return {
         "state_rows": state_rows,
         "stage_rows": stage_rows,
         "shadow": {key: value for key, value in shadow.items() if key != "acquisition"},
         "oracle": oracle,
         "random_rows": random_rows,
+        "operational": {
+            "state_specific_incumbent": incumbent,
+            "core_method_seconds": float(
+                sum(result.total_seconds for result in methods.values())
+            ),
+            "shadow_seconds": shadow_seconds,
+            "oracle_seconds": oracle_seconds,
+            "random_seconds": random_seconds,
+            "total_state_seconds": time.perf_counter() - state_start,
+            "peak_rss_bytes": peak_rss_bytes(),
+        },
     }
 
 
@@ -522,31 +583,6 @@ def run_smoke(config: dict[str, Any]) -> dict[str, Any]:
         )
     elapsed = time.perf_counter() - started
     table = pd.DataFrame(rows)
-    per_case = elapsed / len(cases)
-    # Deliberately conservative: scale the three-method/two-stage smoke by the
-    # largest frozen sampling-fidelity ratio, the full refinement-budget ratio,
-    # the five/core-method ratio, and an explicit oracle/random/shadow overhead.
-    fidelity_multiplier = max(
-        config["numerical"]["reference_sample_count"]
-        / config["development"]["reference_sample_count"],
-        config["numerical"]["laplace_sample_count"]
-        / config["development"]["laplace_sample_count"],
-        config["full_shadow"]["initial_sample_count_per_batch"]
-        / config["development"]["shadow_sample_count_per_batch"],
-    )
-    refinement_multiplier = (
-        config["selection"]["maximum_refinement_stages"]
-        / config["development"]["maximum_refinement_stages"]
-    )
-    method_multiplier = len(METHODS) / 3.0
-    projected_seconds = (
-        per_case
-        * 45.0
-        * fidelity_multiplier
-        * refinement_multiplier
-        * method_multiplier
-        * config["development"]["scientific_runtime_projection_multiplier"]
-    )
     result = {
         "mode": "development_smoke",
         "development_seed_only": True,
@@ -555,22 +591,8 @@ def run_smoke(config: dict[str, Any]) -> dict[str, Any]:
         "wall_seconds": elapsed,
         "peak_rss_bytes": peak_rss_bytes(),
         "peak_rss_gb": peak_rss_bytes() / 1_000_000_000.0,
-        "projected_scientific_wall_seconds": projected_seconds,
-        "projected_scientific_wall_minutes": projected_seconds / 60.0,
-        "projection_multipliers": {
-            "sampling_fidelity": fidelity_multiplier,
-            "refinement_budget": refinement_multiplier,
-            "method_count": method_multiplier,
-            "diagnostic_overhead": config["development"][
-                "scientific_runtime_projection_multiplier"
-            ],
-        },
-        "local_route_allowed": (
-            peak_rss_bytes() / 1_000_000_000.0
-            < config["resource_routing"]["maximum_local_peak_rss_gb"]
-            and projected_seconds / 60.0
-            < config["resource_routing"]["maximum_local_runtime_minutes"]
-        ),
+        "routing_authoritative": False,
+        "routing_note": "superseded by development_full_fidelity_profile.json",
         "environment": _environment(),
         "config_sha256": _config_sha256(),
         "rows": rows,
@@ -583,9 +605,180 @@ def run_smoke(config: dict[str, Any]) -> dict[str, Any]:
         OUTPUT_DIRECTORY / "development_resource_metrics.csv", index=False
     )
     print(json.dumps({key: result[key] for key in (
-        "wall_seconds", "peak_rss_gb", "projected_scientific_wall_minutes",
-        "local_route_allowed")}, indent=2))
+        "wall_seconds", "peak_rss_gb", "routing_authoritative")}, indent=2))
     return result
+
+
+def run_full_fidelity_development_profile(config: dict[str, Any]) -> dict[str, Any]:
+    """Profile the frozen n=40 early/late workload without prospective seeds."""
+
+    run_locked_regression()
+    development_seed = int(config["development"]["source_seed"])
+    prospective = set(int(value) for value in config["prospective_source_seeds"])
+    if development_seed in prospective:
+        raise RuntimeError("development profile seed overlaps prospective seeds")
+    profile_start = time.perf_counter()
+    problem, states, setup_seconds = _build_states(
+        config,
+        40,
+        development_seed,
+        -2,
+        smoke=False,
+    )
+    selected_states = [
+        state for state in states if state.checkpoint_label in {"early", "late"}
+    ]
+    if [state.checkpoint_label for state in selected_states] != ["early", "late"]:
+        raise RuntimeError("development profile did not select frozen early/late states")
+    method_rows: list[dict[str, Any]] = []
+    stage_rows: list[dict[str, Any]] = []
+    state_profiles: list[dict[str, Any]] = []
+    for state in selected_states:
+        result = _run_one_state(
+            config,
+            problem,
+            state,
+            grid_size=40,
+            replicate=-2,
+            setup_seconds=setup_seconds,
+            smoke=False,
+            methods_to_run=METHODS,
+        )
+        method_rows.extend(result["state_rows"])
+        stage_rows.extend(result["stage_rows"])
+        state_profiles.append(
+            {
+                "state_id": _state_id(40, -2, state),
+                "checkpoint": state.checkpoint_label,
+                "checkpoint_queries": state.checkpoint_queries,
+                "state_specific_incumbent": state_incumbent(
+                    state, config["model"]["incumbent"]
+                ),
+                "operational": result["operational"],
+                "full_shadow": result["shadow"],
+                "oracle": result["oracle"],
+                "random_subset_count": len(result["random_rows"]),
+            }
+        )
+        print(
+            "[full-fidelity profile] "
+            f"{state.checkpoint_label} completed in "
+            f"{result['operational']['total_state_seconds']:.1f}s; "
+            f"peak_rss={result['operational']['peak_rss_bytes']/1e9:.3f} GB",
+            flush=True,
+        )
+    stage_table = pd.DataFrame(stage_rows)
+    method_profiles: list[dict[str, Any]] = []
+    for row in method_rows:
+        stages = stage_table[
+            (stage_table.state_id == row["state_id"])
+            & (stage_table.method == row["method"])
+        ]
+        method_profiles.append(
+            {
+                "state_id": row["state_id"],
+                "checkpoint": row["checkpoint"],
+                "method": row["method"],
+                "state_specific_incumbent": row["state_specific_incumbent"],
+                "actual_stages": int(len(stages)),
+                "laplace_escalation_occurred": bool(
+                    np.any(stages.proposal == "LAPLACE_SNIS")
+                ),
+                "stage_proposals": stages.proposal.tolist(),
+                "full_fallback": bool(row["full_fallback"]),
+                "M": int(row["M"]),
+                "factor_energy_evaluations": int(row["factor_energy_evaluations"]),
+                "factor_gradient_elements": int(row["factor_gradient_elements"]),
+                "factor_hessian_elements": int(row["factor_hessian_elements"]),
+                "sparse_comparison_solves": int(row["sparse_comparison_solves"]),
+                "inference_seconds": float(row["active_target_inference_seconds"]),
+                "challenger_seconds": float(row["challenger_seconds"]),
+                "total_method_seconds": float(row["total_method_seconds"]),
+                "peak_rss_bytes": int(row["peak_rss_bytes"]),
+            }
+        )
+    observed_state_seconds = np.asarray(
+        [profile["operational"]["total_state_seconds"] for profile in state_profiles],
+        dtype=float,
+    )
+    projected_mean_seconds = float(45.0 * observed_state_seconds.mean() + 15.0 * setup_seconds)
+    projected_conservative_seconds = float(
+        45.0 * observed_state_seconds.max() + 15.0 * setup_seconds
+    )
+    peak_bytes = int(
+        max(profile["operational"]["peak_rss_bytes"] for profile in state_profiles)
+    )
+    profile = {
+        "mode": "development_full_fidelity_profile",
+        "operational_only": True,
+        "development_source_seed": development_seed,
+        "trajectory_replicate_identifier": -2,
+        "prospective_seeds_evaluated": False,
+        "superseded_preregistration_sha": "c976ab186a730e5ddfd2270ccf1d60577ee0d6b6",
+        "scientific_budgets_used": {
+            "reference_sample_count": config["numerical"]["reference_sample_count"],
+            "laplace_sample_count": config["numerical"]["laplace_sample_count"],
+            "maximum_refinement_stages": config["selection"][
+                "maximum_refinement_stages"
+            ],
+            "initial_full_shadow_samples_per_batch": config["full_shadow"][
+                "initial_sample_count_per_batch"
+            ],
+            "full_shadow_batches": 2,
+            "full_shadow_escalation_rule_active": True,
+        },
+        "shared_setup_seconds": setup_seconds,
+        "profile_wall_seconds": time.perf_counter() - profile_start,
+        "peak_rss_bytes": peak_bytes,
+        "peak_rss_gb": peak_bytes / 1_000_000_000.0,
+        "state_profiles": state_profiles,
+        "method_profiles": method_profiles,
+        "projection": {
+            "basis": "45 times observed n=40 early/late mean or maximum state wall time, plus 15 observed domain-replicate setup costs; no synthetic fidelity/stage multiplier",
+            "observed_state_seconds": observed_state_seconds.tolist(),
+            "projected_mean_total_seconds": projected_mean_seconds,
+            "projected_mean_total_minutes": projected_mean_seconds / 60.0,
+            "projected_conservative_total_seconds": projected_conservative_seconds,
+            "projected_conservative_total_minutes": projected_conservative_seconds
+            / 60.0,
+        },
+        "local_route_allowed": (
+            peak_bytes / 1_000_000_000.0
+            < config["resource_routing"]["maximum_local_peak_rss_gb"]
+            and projected_conservative_seconds / 60.0
+            < config["resource_routing"]["maximum_local_runtime_minutes"]
+        ),
+        "environment": _environment(),
+        "config_sha256_at_profile_time": _config_sha256(),
+    }
+    (OUTPUT_DIRECTORY / "development_full_fidelity_profile.json").write_text(
+        json.dumps(profile, indent=2, sort_keys=True) + "\n"
+    )
+    pd.DataFrame(method_profiles).to_csv(
+        OUTPUT_DIRECTORY / "development_full_fidelity_method_metrics.csv",
+        index=False,
+    )
+    stage_table.to_csv(
+        OUTPUT_DIRECTORY / "development_full_fidelity_stage_metrics.csv",
+        index=False,
+    )
+    print(
+        json.dumps(
+            {
+                "profile_wall_seconds": profile["profile_wall_seconds"],
+                "peak_rss_gb": profile["peak_rss_gb"],
+                "projected_mean_total_minutes": profile["projection"][
+                    "projected_mean_total_minutes"
+                ],
+                "projected_conservative_total_minutes": profile["projection"][
+                    "projected_conservative_total_minutes"
+                ],
+                "local_route_allowed": profile["local_route_allowed"],
+            },
+            indent=2,
+        )
+    )
+    return profile
 
 
 def _bootstrap_log_ratio(
@@ -614,6 +807,12 @@ def _paired_comparison(
     counts_a = adaptive.loc[other.index, "M"].to_numpy(dtype=float)
     counts_b = other["M"].to_numpy(dtype=float)
     ratio = counts_a / counts_b
+    reliable_ids = adaptive.index[
+        adaptive["full_reference_reliable"].astype(bool)
+        & other.loc[adaptive.index, "full_reference_reliable"].astype(bool)
+    ]
+    reliable_adaptive = adaptive.loc[reliable_ids]
+    reliable_other = other.loc[reliable_ids]
     return {
         "baseline": baseline,
         "median_ratio": float(np.median(ratio)),
@@ -623,8 +822,45 @@ def _paired_comparison(
         "losses": int(np.sum(counts_a > counts_b)),
         "win_fraction": float(np.mean(counts_a < counts_b)),
         "bootstrap": _bootstrap_log_ratio(counts_a, counts_b, config),
-        "adaptive_mean_regret": float(adaptive["full_acquisition_regret"].mean()),
-        "baseline_mean_regret": float(other["full_acquisition_regret"].mean()),
+        "full_reference_reliable_quality_states": int(len(reliable_ids)),
+        "adaptive_mean_regret": float(
+            reliable_adaptive["full_acquisition_regret"].mean()
+        ),
+        "baseline_mean_regret": float(
+            reliable_other["full_acquisition_regret"].mean()
+        ),
+    }
+
+
+def _matched_quality_disadvantage(
+    table: pd.DataFrame,
+    baseline: str,
+    regret_margin: float,
+) -> dict[str, Any]:
+    """Evaluate A4's quality/fallback composite on reliable FULL states only."""
+
+    adaptive = table[table.method == "ADAPTIVE_INFLUENCE"].set_index("state_id")
+    other = table[table.method == baseline].set_index("state_id").loc[
+        adaptive.index
+    ]
+    reliable_ids = adaptive.index[
+        adaptive.full_reference_reliable.astype(bool)
+        & other.full_reference_reliable.astype(bool)
+    ]
+    reliable_adaptive = adaptive.loc[reliable_ids]
+    reliable_other = other.loc[reliable_ids]
+    worse = (
+        reliable_other.full_acquisition_regret.to_numpy()
+        > reliable_adaptive.full_acquisition_regret.to_numpy() + regret_margin
+    ) | (
+        reliable_other.full_fallback.to_numpy()
+        & ~reliable_adaptive.full_fallback.to_numpy()
+    )
+    return {
+        "full_reference_reliable_quality_states": int(len(reliable_ids)),
+        "worse_quality_or_fallback_fraction": (
+            float(np.mean(worse)) if len(reliable_ids) else float("nan")
+        ),
     }
 
 
@@ -641,12 +877,22 @@ def _aggregate_and_verdict(
     static = _paired_comparison(table, "STATIC_INFLUENCE", config)
     fixed = _paired_comparison(table, "FIXED_CHALLENGER", config)
     criteria = config["verdict_thresholds"]
+    if reliable.empty:
+        agreement_fraction = float("nan")
+        regret_p95 = float("nan")
+        regret_max = float("nan")
+        fallback_fraction = float("nan")
+    else:
+        agreement_fraction = float(reliable.full_action_agreement.mean())
+        regret_p95 = float(np.quantile(reliable.full_acquisition_regret, 0.95))
+        regret_max = float(reliable.full_acquisition_regret.max())
+        fallback_fraction = float(reliable.full_fallback.mean())
     a1 = {
         "reliable_fraction": len(reliable_ids) / 45.0,
-        "agreement_fraction": float(reliable.full_action_agreement.mean()),
-        "regret_p95": float(np.quantile(reliable.full_acquisition_regret, 0.95)),
-        "regret_max": float(reliable.full_acquisition_regret.max()),
-        "fallback_fraction": float(reliable.full_fallback.mean()),
+        "agreement_fraction": agreement_fraction,
+        "regret_p95": regret_p95,
+        "regret_max": regret_max,
+        "fallback_fraction": fallback_fraction,
     }
     a1["pass"] = (
         a1["reliable_fraction"] >= criteria["a1"]["minimum_reliable_fraction"]
@@ -684,17 +930,16 @@ def _aggregate_and_verdict(
     )
     ablation_quality = []
     for baseline, comparison in (("STATIC_INFLUENCE", static), ("FIXED_CHALLENGER", fixed)):
-        a = table[table.method == "ADAPTIVE_INFLUENCE"].set_index("state_id")
-        b = table[table.method == baseline].set_index("state_id").loc[a.index]
-        worse = (
-            b.full_acquisition_regret.to_numpy()
-            > a.full_acquisition_regret.to_numpy() + criteria["matched_quality_regret_margin"]
-        ) | (b.full_fallback.to_numpy() & ~a.full_fallback.to_numpy())
+        quality = _matched_quality_disadvantage(
+            table,
+            baseline,
+            criteria["matched_quality_regret_margin"],
+        )
         ablation_quality.append(
             {
                 "baseline": baseline,
                 "geometric_mean_ratio": comparison["geometric_mean_ratio"],
-                "worse_quality_or_fallback_fraction": float(np.mean(worse)),
+                **quality,
             }
         )
     a4 = {
@@ -749,13 +994,25 @@ def _aggregate_and_verdict(
         verdict = "PASS_SCALING_NOT_ADAPTIVITY"
     else:
         verdict = "FAIL_E2_MECHANISM"
+    summary_source = table.copy()
+    summary_source.loc[
+        ~summary_source.full_reference_reliable.astype(bool),
+        ["full_action_agreement", "full_acquisition_regret"],
+    ] = np.nan
     summary_table = (
-        table.groupby(["method", "grid_size", "checkpoint"], as_index=False)
+        summary_source.groupby(["method", "grid_size", "checkpoint"], as_index=False)
         .agg(
             M_median=("M", "median"),
             active_fraction_median=("active_fraction", "median"),
             full_agreement=("full_action_agreement", "mean"),
-            full_regret_p95=("full_acquisition_regret", lambda value: np.quantile(value, 0.95)),
+            full_regret_p95=(
+                "full_acquisition_regret",
+                lambda value: (
+                    np.quantile(value.dropna(), 0.95)
+                    if not value.dropna().empty
+                    else np.nan
+                ),
+            ),
             fallback_fraction=("full_fallback", "mean"),
             stages_median=("refinement_stages", "median"),
             gradient_work_median=("factor_gradient_elements", "median"),
@@ -1013,13 +1270,12 @@ def run_scientific(config: dict[str, Any], preregistration_sha: str) -> dict[str
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--mode", choices=("regression", "smoke", "scientific"), required=True)
-    parser.add_argument("--preregistration-sha")
     parser.add_argument(
-        "--acknowledge-scaling-epsilon-resolution",
-        choices=("use-primary-0.060",),
-        help="Required only for the protected prospective run.",
+        "--mode",
+        choices=("regression", "smoke", "full-fidelity-profile", "scientific"),
+        required=True,
     )
+    parser.add_argument("--preregistration-sha")
     return parser.parse_args()
 
 
@@ -1032,11 +1288,9 @@ def main() -> None:
     if arguments.mode == "smoke":
         run_smoke(config)
         return
-    if arguments.acknowledge_scaling_epsilon_resolution != "use-primary-0.060":
-        raise RuntimeError(
-            "prospective execution is blocked until the archived scaling-helper "
-            "epsilon=0.075 versus primary epsilon=0.060 discrepancy is explicitly resolved"
-        )
+    if arguments.mode == "full-fidelity-profile":
+        run_full_fidelity_development_profile(config)
+        return
     if not arguments.preregistration_sha:
         raise RuntimeError("scientific mode requires --preregistration-sha")
     summary = run_scientific(config, arguments.preregistration_sha)

@@ -1,6 +1,13 @@
 # E2 Locality Stress V1 Preregistration
 
-Status: **FROZEN BEFORE PROSPECTIVE EXECUTION**
+Status: **FROZEN REPLACEMENT BEFORE PROSPECTIVE EXECUTION**
+
+This replacement explicitly supersedes preregistration
+`c976ab186a730e5ddfd2270ccf1d60577ee0d6b6`, which is
+`SUPERSEDED_BEFORE_EXECUTION`. No prospective E2 seed was evaluated and no
+scientific result was observed under that commit. The replacement changes only
+pre-execution implementation/accounting details; all scientific states,
+methods, budgets, and PASS/FAIL thresholds are unchanged.
 
 This is a paper-level de-risking experiment for E2. It tests whether the fixed
 nonlinear-PDE construction demonstrates challenger-aware decision-relevant
@@ -64,6 +71,15 @@ manufactured truth; the reference conditioning model uses noise variance
 `0.0025`. The core contains exactly 45 paired states. Their serialized state
 fingerprints must be identical across M0–M4.
 
+For every frozen BO state, the single EI incumbent is
+`max(0.55, max(state.observed_values))`. Exactly this state-specific value is
+passed to FULL, ADAPTIVE_INFLUENCE, DYNAMIC_GEOMETRIC_SHELL,
+STATIC_INFLUENCE, FIXED_CHALLENGER, both FULL-shadow batches,
+oracle-geometric prefixes, and random matched subsets. The ordinary reference
+trajectory already uses the same policy. Paired-method audits must contain one
+identical incumbent, and later checkpoints update it whenever an improved
+observation has occurred.
+
 ## Methods
 
 - `FULL`: every residual factor; computational and action reference.
@@ -92,14 +108,20 @@ cumulative only within one decision. The batch size is 10, the maximum number
 of refinement stages is 50, and an unresolved method activates all remaining
 factors and records an explicit FULL fallback.
 
+Every stage record describes the mask under which that stage's inference and
+envelope were computed. `active_count` and `active_indices` are pre-activation;
+`activated_indices` are applied afterward. On fallback, the transition stage
+reports its partial pre-activation mask plus the remaining activated indices.
+Only the following explicit FULL stage reports the FULL active mask.
+
 ## Stopping-tolerance provenance discrepancy
 
 The accepted 24×24 procedure uses `epsilon = 0.060`. The archived notebook's
-separate expanding-domain helper defaults to `epsilon = 0.075`. The stress
-test freezes the accepted primary value `0.060`; it does not inherit the looser
-helper default. In accordance with the experiment request, prospective mode is
-blocked until this discrepancy is explicitly acknowledged with
-`--acknowledge-scaling-epsilon-resolution use-primary-0.060`.
+separate expanding-domain helper defaults to the looser `epsilon = 0.075`.
+This discrepancy was resolved before prospective execution: the replacement
+stress test uses the primary value `0.060`. The new scaling test is therefore a
+stricter prospective test rather than an exact reproduction of the historical
+`0.075` curve.
 
 ## Inference and FULL reference
 
@@ -126,6 +148,14 @@ independent Laplace-proposal batches of 8,192 samples. Reliability requires:
 On failure, both batches are rerun once at 16,384 samples. Continued failure
 labels the state `FULL_REFERENCE_UNRELIABLE`; it is never silently excluded.
 More than 10% unreliable states forces `INCONCLUSIVE_FULL_REFERENCE`.
+
+Factor-count, timing, factor-work, and ESS statistics use all states because
+they do not require accurate FULL acquisitions. Every statistic involving a
+FULL action or FULL acquisition regret uses only `FULL_REFERENCE_RELIABLE`
+states. This includes action agreement and regret summaries and the
+matched-quality components of A3 and A4. Unreliable states remain in raw
+resource/count records and are never silently excluded. The 90% reliability
+gate and every numerical threshold remain unchanged.
 
 ## Work, timing, and diagnostics
 
@@ -206,14 +236,47 @@ prospective result is inspected. A failed gate is preserved and not tuned.
 
 ## Development-only resource gate
 
-The separate development seed passed the accepted structural replay and the
-mechanical smoke at `n=18,24,40` for M1, M2, and FULL. Reduced-fidelity smoke
-wall time was `1.2190024158917367` seconds and peak process RSS was
-`0.301973504` GB. Conservatively scaling by the frozen sampling-fidelity ratio,
-50-stage allowance, five core methods, and oracle/random/shadow overhead gives
-`1625.3365545223157` minutes, above the 45-minute local routing threshold.
-The scientific run is therefore routed unchanged to the committed Colab
-runner. These are operational development measurements, not E2 evidence.
+The earlier reduced-fidelity smoke remains an implementation diagnostic, but
+its synthetic multiplicative runtime projection is superseded. The replacement
+resource decision uses only development seed `2026082401` and profiles n=40
+early/late states at the actual scientific routine budgets, all five core
+methods, the 50-stage allowance, and the initial two 8,192-sample FULL-shadow
+batches. The total-run projection is computed directly from observed n=40
+state wall time plus observed setup cost, with no synthetic fidelity/stage
+multiplier. Exact profile results are recorded here before the replacement
+commit.
+
+The development-only profile completed in `14.3405 s` on the recorded arm64
+Mac environment. Shared n=40 state construction took `0.1247 s`; peak RSS was
+`1.5701 GB`. The measured state totals were `6.8858 s` (early) and `7.3205 s`
+(late). Projecting 45 states plus 15 observed setup costs gives `5.3585 min`
+from the early/late mean and `5.5215 min` from the slower observed state. This
+is an observed-work projection with no synthetic fidelity or stage multiplier,
+and it passes the frozen local resource gate. It is operational evidence only.
+
+| Checkpoint | Method | Actual stages | Laplace escalation | M | Inference s | Challenger s | Complete method s |
+|---|---|---:|---:|---:|---:|---:|---:|
+| early | FULL | 1 | yes | 1600 | 0.3036 | 0.0000 | 0.3850 |
+| early | ADAPTIVE_INFLUENCE | 6 | no | 50 | 0.0181 | 0.0551 | 0.0776 |
+| early | DYNAMIC_GEOMETRIC_SHELL | 6 | no | 50 | 0.0183 | 0.0775 | 0.1003 |
+| early | STATIC_INFLUENCE | 6 | no | 50 | 0.0170 | 0.0342 | 0.0554 |
+| early | FIXED_CHALLENGER | 5 | no | 40 | 0.0134 | 0.0445 | 0.0623 |
+| late | FULL | 1 | yes | 1600 | 0.3012 | 0.0000 | 0.3878 |
+| late | ADAPTIVE_INFLUENCE | 15 | no | 140 | 0.0738 | 0.1434 | 0.2219 |
+| late | DYNAMIC_GEOMETRIC_SHELL | 16 | no | 150 | 0.0839 | 0.2139 | 0.3024 |
+| late | STATIC_INFLUENCE | 23 | no | 220 | 0.1621 | 0.1228 | 0.2900 |
+| late | FIXED_CHALLENGER | 3 | no | 20 | 0.0061 | 0.0242 | 0.0346 |
+
+The initial `8192 x 2` FULL-shadow attempts took `2.1140 s` early and
+`1.9437 s` late in summed inference time. Both development states exercised
+the frozen `16384 x 2` escalation; the complete shadow paths took `5.9570 s`
+and `5.8121 s`, respectively. Both remained labeled unreliable under the
+unchanged FULL-reference rules. That development-only diagnostic observation
+does not enter a scientific verdict and does not modify the 90% reliability
+gate, sampling budgets, model, or any PASS/FAIL threshold. Exact method work
+and every stage timing are frozen in
+`development_full_fidelity_method_metrics.csv` and
+`development_full_fidelity_stage_metrics.csv`.
 
 ## Leakage and fairness invariants
 
