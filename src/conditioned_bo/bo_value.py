@@ -58,6 +58,16 @@ class ExactSupportMarginal:
 
 
 @dataclass(frozen=True)
+class ExactSupportReference:
+    """One-time exact Gaussian marginal over the frozen support."""
+
+    support_nodes: IntArray
+    covariance: FloatArray
+    precision: FloatArray
+    diagnostics: dict[str, Any]
+
+
+@dataclass(frozen=True)
 class LaplaceState:
     map: FloatArray
     precision: FloatArray
@@ -243,6 +253,146 @@ def exact_support_marginal(
     )
 
 
+def precompute_exact_support_reference(
+    q0: sparse.spmatrix,
+    support_nodes: ArrayLike,
+    *,
+    residual_tolerance: float = 1e-9,
+) -> ExactSupportReference:
+    """Compute ``K_H0=(Q0^-1)[H,H]`` and ``J_H0=K_H0^-1`` once."""
+
+    base = sparse.csc_matrix(q0, dtype=np.float64)
+    support = np.asarray(support_nodes, dtype=np.int64)
+    if base.shape[0] != base.shape[1]:
+        raise ValueError("Q0 must be square")
+    if support.ndim != 1 or len(set(support.tolist())) != support.size:
+        raise ValueError("Support nodes must be a unique vector")
+    if support.size and (support.min() < 0 or support.max() >= base.shape[0]):
+        raise ValueError("Support node lies outside Q0")
+
+    total_started = time.perf_counter()
+    factor_started = time.perf_counter()
+    factorization = splu(base)
+    factorization_seconds = time.perf_counter() - factor_started
+    rhs = np.zeros((base.shape[0], support.size), dtype=np.float64)
+    rhs[support, np.arange(support.size)] = 1.0
+    solve_started = time.perf_counter()
+    columns = np.asarray(factorization.solve(rhs), dtype=np.float64)
+    solve_seconds = time.perf_counter() - solve_started
+    solve_residual = _relative_residual(base, columns, rhs)
+    if solve_residual > residual_tolerance:
+        raise NumericalFailure(
+            f"Base support solve residual {solve_residual} exceeds {residual_tolerance}"
+        )
+    covariance = np.asarray(columns[support, :], dtype=np.float64)
+    covariance = 0.5 * (covariance + covariance.T)
+
+    inverse_started = time.perf_counter()
+    covariance_cholesky = linalg.cho_factor(
+        covariance, lower=True, overwrite_a=False, check_finite=True
+    )
+    precision = linalg.cho_solve(
+        covariance_cholesky,
+        np.eye(support.size, dtype=np.float64),
+        check_finite=True,
+    )
+    precision = 0.5 * (precision + precision.T)
+    inverse_seconds = time.perf_counter() - inverse_started
+    inverse_residual = _relative_residual(
+        covariance, precision, np.eye(support.size, dtype=np.float64)
+    )
+    if inverse_residual > residual_tolerance:
+        raise NumericalFailure(
+            f"Base marginal precision residual {inverse_residual} exceeds "
+            f"{residual_tolerance}"
+        )
+    return ExactSupportReference(
+        support_nodes=support.copy(),
+        covariance=covariance,
+        precision=precision,
+        diagnostics={
+            "precompute_kind": "exact_500d_gaussian_reference",
+            "full_dimension": int(base.shape[0]),
+            "support_dimension": int(support.size),
+            "sparse_factorization_seconds": factorization_seconds,
+            "support_rhs_solve_seconds": solve_seconds,
+            "support_rhs_count": int(support.size),
+            "support_solve_relative_residual": solve_residual,
+            "dense_precision_seconds": inverse_seconds,
+            "dense_precision_relative_residual": inverse_residual,
+            "total_seconds": time.perf_counter() - total_started,
+            "principal_precision_submatrix_used": False,
+        },
+    )
+
+
+def update_exact_support_reference(
+    reference: ExactSupportReference,
+    observed_support_positions: ArrayLike,
+    standardized_observations: ArrayLike,
+    *,
+    sigma_obs: float = SIGMA_OBS,
+    residual_tolerance: float = 1e-9,
+) -> ExactSupportMarginal:
+    """Apply the exact diagonal observation update entirely in support space."""
+
+    positions = np.asarray(observed_support_positions, dtype=np.int64)
+    values = np.asarray(standardized_observations, dtype=np.float64)
+    dimension = reference.precision.shape[0]
+    if reference.precision.shape != (dimension, dimension):
+        raise ValueError("Reference precision must be square")
+    if positions.ndim != 1 or values.shape != positions.shape:
+        raise ValueError("Observed support positions and values must align")
+    if len(set(positions.tolist())) != positions.size:
+        raise ValueError("Observed support positions must be unique")
+    if positions.size and (positions.min() < 0 or positions.max() >= dimension):
+        raise ValueError("Observed support position lies outside the support")
+    if sigma_obs <= 0.0 or not np.all(np.isfinite(values)):
+        raise ValueError("Invalid observation noise or standardized observations")
+
+    total_started = time.perf_counter()
+    observation_precision = sigma_obs**-2
+    precision = np.asarray(reference.precision, dtype=np.float64).copy()
+    precision[positions, positions] += observation_precision
+    information = np.zeros(dimension, dtype=np.float64)
+    information[positions] = observation_precision * values
+    started = time.perf_counter()
+    cholesky = linalg.cho_factor(
+        precision, lower=True, overwrite_a=False, check_finite=True
+    )
+    mean = linalg.cho_solve(cholesky, information, check_finite=True)
+    covariance = linalg.cho_solve(
+        cholesky, np.eye(dimension, dtype=np.float64), check_finite=True
+    )
+    dense_solve_seconds = time.perf_counter() - started
+    covariance = 0.5 * (covariance + covariance.T)
+    mean_residual = _relative_residual(precision, mean, information)
+    inverse_residual = _relative_residual(
+        precision, covariance, np.eye(dimension, dtype=np.float64)
+    )
+    if mean_residual > residual_tolerance or inverse_residual > residual_tolerance:
+        raise NumericalFailure(
+            "Support reference update failed residual checks: "
+            f"mean={mean_residual}, inverse={inverse_residual}"
+        )
+    return ExactSupportMarginal(
+        mean=np.asarray(mean, dtype=np.float64),
+        covariance=covariance,
+        precision=precision,
+        diagnostics={
+            "reference_update_kind": "J_H0_plus_diagonal_observations",
+            "observation_count": int(positions.size),
+            "sigma_obs_standardized": float(sigma_obs),
+            "dense_update_solve_seconds": dense_solve_seconds,
+            "posterior_mean_solve_relative_residual": mean_residual,
+            "dense_inverse_relative_residual": inverse_residual,
+            "total_reference_update_seconds": time.perf_counter() - total_started,
+            "principal_precision_submatrix_used": False,
+            "repeated_500_rhs_marginalization": False,
+        },
+    )
+
+
 def schur_complement_precision(precision: ArrayLike, support: ArrayLike) -> FloatArray:
     """Dense fixture helper for testing the exact marginal identity."""
 
@@ -371,10 +521,32 @@ class TimedFactorBank:
         self.dimension = int(dimension)
         self.weight = float(weight)
         self.chunk_size = int(chunk_size)
+        if (
+            self.endpoint_pairs.ndim != 2
+            or self.endpoint_pairs.shape[1] != 2
+            or self.signs.shape != (self.endpoint_pairs.shape[0],)
+        ):
+            raise ValueError("Factor endpoints and signs do not align")
+        if self.endpoint_pairs.size and (
+            self.endpoint_pairs.min() < 0 or self.endpoint_pairs.max() >= self.dimension
+        ):
+            raise ValueError("Factor endpoint lies outside the latent dimension")
         self.energy_gradient_calls = 0
         self.energy_gradient_seconds = 0.0
         self.hessian_calls = 0
         self.hessian_seconds = 0.0
+
+    @property
+    def factor_count(self) -> int:
+        return int(self.endpoint_pairs.shape[0])
+
+    @property
+    def energy_gradient_element_work(self) -> int:
+        return self.energy_gradient_calls * self.factor_count
+
+    @property
+    def hessian_element_work(self) -> int:
+        return self.hessian_calls * self.factor_count
 
     def energy_gradient(self, values: ArrayLike) -> tuple[float, FloatArray]:
         started = time.perf_counter()
@@ -536,9 +708,13 @@ def fit_laplace_approximation(
             "map_optimization_seconds": map_seconds,
             "optimizer_attempts": attempts,
             "factor_energy_gradient_calls": factor_bank.energy_gradient_calls,
+            "factor_energy_gradient_element_work": (
+                factor_bank.energy_gradient_element_work
+            ),
             "factor_energy_gradient_seconds": factor_bank.energy_gradient_seconds,
             "hessian_construction_seconds": hessian_seconds,
             "factor_hessian_calls": factor_bank.hessian_calls,
+            "factor_hessian_element_work": factor_bank.hessian_element_work,
             "factor_hessian_seconds": factor_bank.hessian_seconds,
             "dense_cholesky_seconds": cholesky_seconds,
             "laplace_solve_relative_residual": solve_residual,
