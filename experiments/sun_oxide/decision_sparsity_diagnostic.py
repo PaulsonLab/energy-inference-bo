@@ -555,13 +555,20 @@ def _plot(
         axis.set_xlabel("Active factor fraction")
     axes[0].set_ylabel("FULL-PBE Laplace EI regret")
     handles, legend_labels = axes[0].get_legend_handles_labels()
-    fig.legend(handles, legend_labels, loc="upper center", ncol=2, frameon=False)
+    fig.legend(
+        handles,
+        legend_labels,
+        loc="upper center",
+        bbox_to_anchor=(0.5, 0.925),
+        ncol=2,
+        frameon=False,
+    )
     fig.suptitle(
         "Decision stabilization versus theorem certification",
-        y=1.02,
+        y=0.995,
         fontsize=12,
     )
-    fig.tight_layout(rect=(0, 0, 1, 0.91))
+    fig.tight_layout(rect=(0, 0, 1, 0.84))
     fig.savefig(
         path,
         dpi=180,
@@ -679,8 +686,24 @@ def _results_markdown(
     else:
         lines.extend(
             [
-                "The result is mixed decision sparsity. Stop at these development",
-                "numbers without creating another experiment plan.",
+                "The result is mixed decision sparsity. STATIC and RERANKED differ",
+                "materially at the initial state (stable agreement 0.10 versus 0.70)",
+                "and after 12 queries (0.40 versus 0.10), while both stabilize at",
+                "0.20 after 6 queries. Influence ranking is useful but not uniformly:",
+                "at the middle state RERANKED agrees with FULL from 0.20 onward while",
+                "none of 20 matched random subsets agree through 0.40; initially it",
+                "reduces regret relative to random without exact agreement through",
+                "0.40; after 12 queries both ranked and random subsets agree.",
+                "",
+                "The certificate is conservative in every state (certificate fraction",
+                "1.00), especially after observations, but empirical exact-action",
+                "sparsity is not uniformly strong because the initial RERANKED path",
+                "needs 0.70. The first <=0.01-regret fraction is 0.00 in every case",
+                "because FULL EI is already sufficiently flat at the empty model; this",
+                "does not imply exact action agreement. Under the frozen prospective",
+                "classification, these mixed results do not justify a major new",
+                "mathematical effort. Stop at these development numbers without",
+                "creating another experiment plan or spending fresh seeds 12--31.",
             ]
         )
     return "\n".join(lines) + "\n"
