@@ -31,7 +31,7 @@ conditioning cost when nontrivial fitting is used.
 |---|---|---|---|
 | E1 | Nonlocal reflection symmetry | Main mechanism + certificate | `ACTIVE`; T2-B validation and finite-grid pilot passed; repeats/baselines remain |
 | E2 | Nonlinear PDE expanding-domain scaling | Main scaling/inference consequence | `ACTIVE`; T2-B and family T4 passed; robustness/baselines remain |
-| E3 | Realistic non-PDE sequential BO | Main end-to-end sequential test | `PASS_PBE_VALUE`; adaptive engineering smoke passed; fresh 20-seed adaptive validation preregistered but not run |
+| E3 | Realistic non-PDE sequential BO | Main end-to-end sequential test | `PASS_PBE_VALUE`; decision-reset adaptive engineering path is blocked; fresh seeds remain unspent |
 | E4 | Linear PDE factor graph | Supplementary control | `EXISTING EVIDENCE / SUPPLEMENT` |
 | A1 | Factor-selection ablations | Supplement | `PLANNED` after primary pipelines |
 | A2 | Inference-backend comparison | Supplement/modularity | `PLANNED` after primary pipelines |
@@ -163,7 +163,7 @@ factors.
 
 ## E3 — Realistic non-PDE BO candidate
 
-**Status:** `PASS_PBE_VALUE / ADAPTIVE ENGINEERING SMOKE PASSED / FRESH ADAPTIVE VALIDATION PREREGISTERED / NORMALIZED PBE MODEL PASSED / ADJACENT BASELINE VALID / DESCRIPTOR-REFERENCE GRAPH PASSED / CURRENT NLR BENCHMARK FROZEN / HISTORICAL REPRODUCTION JOIN_AMBIGUOUS`.
+**Status:** `PASS_PBE_VALUE / ADAPTIVE_ENGINEERING_PATHOLOGICAL / FRESH ADAPTIVE VALIDATION NOT PREREGISTERED / NORMALIZED PBE MODEL PASSED / ADJACENT BASELINE VALID / DESCRIPTOR-REFERENCE GRAPH PASSED / CURRENT NLR BENCHMARK FROZEN / HISTORICAL REPRODUCTION JOIN_AMBIGUOUS`.
 
 The exact historical **Sun et al. PBE→GW oxide legacy-data problem** failed its
 first source-recovery gate. The current authoritative NREL/NLR queries reproduce
@@ -289,30 +289,31 @@ stop did not trigger because the timing ratio was not above 1.25. Immutable
 engineering record:
 [`outputs/adaptive_e3_smoke/RESULTS.md`](../experiments/sun_oxide/outputs/adaptive_e3_smoke/RESULTS.md).
 
-The next and only authorized E3 oracle run is the preregistered fresh validation
-in [`colab_adaptive_e3_validation.ipynb`](../experiments/sun_oxide/colab_adaptive_e3_validation.ipynb)
-using seeds 12--31, methods `NO_PBE`, `FULL_PBE_OPT`, and `ADAPTIVE_PBE`, eight
-shared initial actions, and 12 sequential queries. The frozen config SHA-256 is
-`aa327b3a0462c103a2dfbfed721bc30b7946acdb7b3c02032078001dc186b1a9`.
+Commit `70a9686b143c09f9f970306cc4489a2ce2b6e173` preregistered a fresh
+seeds 12--31 validation, but that preregistration was never scientifically
+executed and is superseded. No fresh-seed oracle access occurred.
 
-**Claims tested:** fresh replication of full-PBE BO value; retention of at
-least 90% of the median PBE AURC benefit by ADAPTIVE; final ADAPTIVE median
-regret within 0.10 eV of FULL; and at least 20% lower median cumulative
-PBE-conditioning wall-clock for ADAPTIVE. Structural termination, seed-12
-active-target SNIS, factor work, and shadow FULL are audited separately.
+The lifecycle-only follow-up implementation starts every BO decision with an
+empty factor mask and re-screens the complete bank, while keeping factor
+activation cumulative across stages within the decision and warm-starting the
+first active-target fit from the preceding adaptive MAP. The seeds 0--2 smoke
+remained mechanically correct: optimized FULL reproduced 36/36 prior FULL
+decisions, every adaptive decision explicitly full-fallbacked, and shadow FULL
+agreed 36/36 with zero EI regret. It is not scientific evidence.
 
-**Prospective success criterion:** return `PASS_ADAPTIVE_E3` iff median FULL
-AURC is at most 0.90 times median NO AURC; retained benefit is at least 0.90;
-median final ADAPTIVE regret is at most median final FULL regret plus 0.10 eV;
-the median ADAPTIVE/FULL conditioning-time ratio is at most 0.80; every
-adaptive decision certifies or explicitly full-fallbacks; all three frozen
-seed-12 4,096-sample SNIS checks pass; and there is no numerical or
-oracle-isolation failure.
+The efficiency outcome is a blocker. All 36 decisions exhausted eight stages
+and ended with all 124,718 factors. For decisions 2--12 alone, 33/33 decisions
+full-fallbacked; median final active fraction was 1.0; median paired
+ADAPTIVE/FULL conditioning-time ratio was about 4.00; median factor
+energy-gradient work was about 3.64 times FULL; and median Hessian work was
+about 8.40 times FULL. The frozen algorithm therefore supplies no credible
+factor-work or wall-clock reduction after observations arrive. Immutable
+engineering record:
+[`outputs/adaptive_e3_decision_reset_smoke/RESULTS.md`](../experiments/sun_oxide/outputs/adaptive_e3_decision_reset_smoke/RESULTS.md).
 
-**Prospective failure criterion:** failure of any conjunct blocks
-`PASS_ADAPTIVE_E3` and the corresponding adaptive quality, inference, or
-speedup claim. There is no active-factor-fraction threshold and no permission
-to tune after fresh oracle access.
+There is no active fresh adaptive validation preregistration and no authorized
+seed 12--31 run. The existing config/notebook are retained as engineering
+artifacts only.
 
 ### Closed E3 evidence
 
@@ -384,8 +385,9 @@ on screenshots or notebook output alone.
    compatibility gate.
 4. **Completed:** minimal sequential GW BO value pilot comparing no legacy
    factors with full normalized PBE-order conditioning (`PASS_PBE_VALUE`).
-5. **Next:** preregister and run adaptive PBE conditioning against `FULL_PBE`
-   using the frozen BO/reference protocol and separate quality/cost metrics.
+5. **Blocked:** decision-reset adaptive PBE conditioning preserved FULL actions
+   but required full fallback at all 36 smoke decisions and increased factor
+   work/time; fresh seeds 12--31 remain unspent.
 6. Run the E1 repeated mechanism/coverage experiment and frozen baselines.
 7. Expand E2 across source fields/BO states with the smallest necessary
    baseline set.

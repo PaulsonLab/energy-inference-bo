@@ -1,0 +1,64 @@
+{
+  "config_sha256": "01cabcda9c4d50ae6b6b498467fa570ea5167b7c89da4feb6a8ec890f6c33c4c",
+  "files": [
+    {
+      "path": "RESULTS.md",
+      "sha256": "03a96e2dfccc7f2b75f148aa76ce14f98ba8cece2b6a559ef3c3d78cd5847853",
+      "size_bytes": 5382
+    },
+    {
+      "path": "adaptive_stage_diagnostics.json",
+      "sha256": "9f19773bf77d723dd9fe1d1fcf599ce465ae750d14ed1b0141c6d49e890d6d71",
+      "size_bytes": 700824
+    },
+    {
+      "path": "checkpoints/seed_00.json",
+      "sha256": "871264dfa8e503923f25324d0ece2f6be486fb4d6ac6016804966abc4a1e32cf",
+      "size_bytes": 343356
+    },
+    {
+      "path": "checkpoints/seed_01.json",
+      "sha256": "b8966acd8875b083e73cde0850fa3c5f839a3ca7488d35e10a1aed8a6ac782a7",
+      "size_bytes": 343384
+    },
+    {
+      "path": "checkpoints/seed_02.json",
+      "sha256": "95875b055d3424f6a68865f5a3a2ded4c49148d3e8c922e3f70bd2c60a2b9a10",
+      "size_bytes": 343329
+    },
+    {
+      "path": "oracle_access_log.json",
+      "sha256": "5168987f852cc2a4ac07e4e43d89b2fd555c29a2169de7bcab3b20fda5a51e4d",
+      "size_bytes": 19498
+    },
+    {
+      "path": "run_summary.json",
+      "sha256": "511574b39a4acf74f87e5a9d9170fbec053c445aac138c871bbe2b9b3715a5a5",
+      "size_bytes": 3289
+    },
+    {
+      "path": "shadow_full.csv",
+      "sha256": "721467f4469bb6ef10cc64c11b6aeea9de1b0b6b44c85e5d98ebdd678f563249",
+      "size_bytes": 6133
+    },
+    {
+      "path": "target_free_smoke.json",
+      "sha256": "30d60fe46e877a4a708d1958ddcf4b94a2cc5a9cbe032725165c69a1abd55edb",
+      "size_bytes": 3124
+    },
+    {
+      "path": "timing_and_work.csv",
+      "sha256": "6abe611d66095b676a21d7079323684c9b73252dde407ad8efff5e025eca6c81",
+      "size_bytes": 50434
+    },
+    {
+      "path": "trajectories.csv",
+      "sha256": "4cd01ee436bdf40d2962d14437492964f25d9db347f7981f6bb8a10277ac49fa",
+      "size_bytes": 12619
+    }
+  ],
+  "implementation_sha": "1fab6fb6afd626381a87df55d2d6b348e7475584",
+  "schema_version": 1,
+  "superseded_unrun_preregistration_sha": "70a9686b143c09f9f970306cc4489a2ce2b6e173",
+  "terminal_state": "ADAPTIVE_ENGINEERING_PATHOLOGICAL"
+}

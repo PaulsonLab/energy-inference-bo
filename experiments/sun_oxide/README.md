@@ -133,12 +133,12 @@ cost savings, or cross-dataset generalization. See the immutable
 [`RESULTS.md`](outputs/bo_value_pilot/RESULTS.md), complete archived outputs,
 and independent [`VERIFICATION.md`](outputs/bo_value_pilot/VERIFICATION.md).
 
-## Adaptive E3 engineering smoke and fresh preregistration
+## Adaptive E3 engineering smokes and blocker
 
 The adaptive implementation uses one exact 500-dimensional Gaussian support
 reference for all methods, the exact state-specific support block of the Menz
-operator, cumulative active factors, L-BFGS-B MAP warm starts, exact active/full
-Hessians, dense 500-dimensional Laplace Cholesky factors, and the frozen EI.
+operator, L-BFGS-B MAP warm starts, exact active/full Hessians, dense
+500-dimensional Laplace Cholesky factors, and the frozen EI.
 
 The engineering smoke ran only the already-consumed seeds 0--2 from
 implementation SHA `7fbfb202268dd0fd92d35defbea2cc4990f089e2`. It passed all
@@ -151,11 +151,23 @@ stop did not trigger because its ratio condition requires a value above 1.25.
 This smoke is not scientific evidence. See its immutable
 [`RESULTS.md`](outputs/adaptive_e3_smoke/RESULTS.md).
 
-The fresh 20-seed validation is preregistered in
-[`configs/adaptive_e3_validation.json`](configs/adaptive_e3_validation.json),
-with SHA-256
-`aa327b3a0462c103a2dfbfed721bc30b7946acdb7b3c02032078001dc186b1a9`, and is
-launched by [`colab_adaptive_e3_validation.ipynb`](colab_adaptive_e3_validation.ipynb)
-on a standard CPU Colab runtime. It freezes seeds 12--31 and the methods
-`NO_PBE`, `FULL_PBE_OPT`, and `ADAPTIVE_PBE`. No fresh-seed oracle execution
-has occurred at preregistration time.
+Commit `70a9686b143c09f9f970306cc4489a2ce2b6e173` preregistered the fresh
+20-seed run, but it was never scientifically executed and is now explicitly
+superseded. No seed 12--31 oracle value was accessed.
+
+The follow-up smoke changed only the active-set lifecycle: factors accumulated
+within one decision, while each new BO decision re-screened the complete bank;
+the preceding adaptive MAP remained the cross-iteration warm start. On seeds
+0--2, all 36 decisions still exhausted all eight stages and explicitly fell
+back to all 124,718 factors. Shadow FULL agreed 36/36 with zero EI regret, but
+the median conditioning-time ratio was about 4.00, median energy-gradient work
+was about 3.58 times FULL, and Hessian work was about 8.40 times FULL. Decisions
+2--12 showed the same blocker: 33/33 full fallbacks, final active fraction 1.0,
+and about 4.00 times the paired FULL conditioning time. See the immutable
+decision-level [`RESULTS.md`](outputs/adaptive_e3_decision_reset_smoke/RESULTS.md).
+
+This is `ADAPTIVE_ENGINEERING_PATHOLOGICAL`. The current
+[`config`](configs/adaptive_e3_validation.json) and
+[`notebook`](colab_adaptive_e3_validation.ipynb) are retained as engineering
+artifacts, not an active preregistration. Do not run the fresh seeds unless a
+new prospective plan is explicitly authorized and committed.

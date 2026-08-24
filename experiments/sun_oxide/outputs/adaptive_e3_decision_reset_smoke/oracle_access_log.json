@@ -1,0 +1,770 @@
+[
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290207",
+    "action_position": 156,
+    "method": "SHARED_INITIAL",
+    "seed": 0,
+    "stage": "initial_1"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009613",
+    "action_position": 14,
+    "method": "SHARED_INITIAL",
+    "seed": 0,
+    "stage": "initial_2"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009744",
+    "action_position": 3,
+    "method": "SHARED_INITIAL",
+    "seed": 0,
+    "stage": "initial_3"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009772",
+    "action_position": 95,
+    "method": "SHARED_INITIAL",
+    "seed": 0,
+    "stage": "initial_4"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010286",
+    "action_position": 57,
+    "method": "SHARED_INITIAL",
+    "seed": 0,
+    "stage": "initial_5"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289749",
+    "action_position": 50,
+    "method": "SHARED_INITIAL",
+    "seed": 0,
+    "stage": "initial_6"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009577",
+    "action_position": 7,
+    "method": "SHARED_INITIAL",
+    "seed": 0,
+    "stage": "initial_7"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010399",
+    "action_position": 117,
+    "method": "SHARED_INITIAL",
+    "seed": 0,
+    "stage": "initial_8"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010014",
+    "action_position": 13,
+    "method": "FULL_PBE_OPT",
+    "seed": 0,
+    "stage": "sequential_1"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010579",
+    "action_position": 165,
+    "method": "FULL_PBE_OPT",
+    "seed": 0,
+    "stage": "sequential_2"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010786",
+    "action_position": 15,
+    "method": "FULL_PBE_OPT",
+    "seed": 0,
+    "stage": "sequential_3"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010003",
+    "action_position": 11,
+    "method": "FULL_PBE_OPT",
+    "seed": 0,
+    "stage": "sequential_4"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009592",
+    "action_position": 12,
+    "method": "FULL_PBE_OPT",
+    "seed": 0,
+    "stage": "sequential_5"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011924",
+    "action_position": 5,
+    "method": "FULL_PBE_OPT",
+    "seed": 0,
+    "stage": "sequential_6"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000286993",
+    "action_position": 134,
+    "method": "FULL_PBE_OPT",
+    "seed": 0,
+    "stage": "sequential_7"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289958",
+    "action_position": 71,
+    "method": "FULL_PBE_OPT",
+    "seed": 0,
+    "stage": "sequential_8"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011426",
+    "action_position": 85,
+    "method": "FULL_PBE_OPT",
+    "seed": 0,
+    "stage": "sequential_9"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289941",
+    "action_position": 135,
+    "method": "FULL_PBE_OPT",
+    "seed": 0,
+    "stage": "sequential_10"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289999",
+    "action_position": 46,
+    "method": "FULL_PBE_OPT",
+    "seed": 0,
+    "stage": "sequential_11"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011455",
+    "action_position": 77,
+    "method": "FULL_PBE_OPT",
+    "seed": 0,
+    "stage": "sequential_12"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010014",
+    "action_position": 13,
+    "method": "ADAPTIVE_PBE",
+    "seed": 0,
+    "stage": "sequential_1"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010579",
+    "action_position": 165,
+    "method": "ADAPTIVE_PBE",
+    "seed": 0,
+    "stage": "sequential_2"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010786",
+    "action_position": 15,
+    "method": "ADAPTIVE_PBE",
+    "seed": 0,
+    "stage": "sequential_3"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010003",
+    "action_position": 11,
+    "method": "ADAPTIVE_PBE",
+    "seed": 0,
+    "stage": "sequential_4"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009592",
+    "action_position": 12,
+    "method": "ADAPTIVE_PBE",
+    "seed": 0,
+    "stage": "sequential_5"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011924",
+    "action_position": 5,
+    "method": "ADAPTIVE_PBE",
+    "seed": 0,
+    "stage": "sequential_6"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000286993",
+    "action_position": 134,
+    "method": "ADAPTIVE_PBE",
+    "seed": 0,
+    "stage": "sequential_7"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289958",
+    "action_position": 71,
+    "method": "ADAPTIVE_PBE",
+    "seed": 0,
+    "stage": "sequential_8"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011426",
+    "action_position": 85,
+    "method": "ADAPTIVE_PBE",
+    "seed": 0,
+    "stage": "sequential_9"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289941",
+    "action_position": 135,
+    "method": "ADAPTIVE_PBE",
+    "seed": 0,
+    "stage": "sequential_10"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289999",
+    "action_position": 46,
+    "method": "ADAPTIVE_PBE",
+    "seed": 0,
+    "stage": "sequential_11"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011455",
+    "action_position": 77,
+    "method": "ADAPTIVE_PBE",
+    "seed": 0,
+    "stage": "sequential_12"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010890",
+    "action_position": 177,
+    "method": "SHARED_INITIAL",
+    "seed": 1,
+    "stage": "initial_1"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009700",
+    "action_position": 87,
+    "method": "SHARED_INITIAL",
+    "seed": 1,
+    "stage": "initial_2"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009985",
+    "action_position": 6,
+    "method": "SHARED_INITIAL",
+    "seed": 1,
+    "stage": "initial_3"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290216",
+    "action_position": 181,
+    "method": "SHARED_INITIAL",
+    "seed": 1,
+    "stage": "initial_4"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290207",
+    "action_position": 156,
+    "method": "SHARED_INITIAL",
+    "seed": 1,
+    "stage": "initial_5"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289674",
+    "action_position": 27,
+    "method": "SHARED_INITIAL",
+    "seed": 1,
+    "stage": "initial_6"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289987",
+    "action_position": 140,
+    "method": "SHARED_INITIAL",
+    "seed": 1,
+    "stage": "initial_7"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009916",
+    "action_position": 94,
+    "method": "SHARED_INITIAL",
+    "seed": 1,
+    "stage": "initial_8"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010014",
+    "action_position": 13,
+    "method": "FULL_PBE_OPT",
+    "seed": 1,
+    "stage": "sequential_1"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010579",
+    "action_position": 165,
+    "method": "FULL_PBE_OPT",
+    "seed": 1,
+    "stage": "sequential_2"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010786",
+    "action_position": 15,
+    "method": "FULL_PBE_OPT",
+    "seed": 1,
+    "stage": "sequential_3"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009592",
+    "action_position": 12,
+    "method": "FULL_PBE_OPT",
+    "seed": 1,
+    "stage": "sequential_4"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010003",
+    "action_position": 11,
+    "method": "FULL_PBE_OPT",
+    "seed": 1,
+    "stage": "sequential_5"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009613",
+    "action_position": 14,
+    "method": "FULL_PBE_OPT",
+    "seed": 1,
+    "stage": "sequential_6"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011924",
+    "action_position": 5,
+    "method": "FULL_PBE_OPT",
+    "seed": 1,
+    "stage": "sequential_7"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000286993",
+    "action_position": 134,
+    "method": "FULL_PBE_OPT",
+    "seed": 1,
+    "stage": "sequential_8"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289958",
+    "action_position": 71,
+    "method": "FULL_PBE_OPT",
+    "seed": 1,
+    "stage": "sequential_9"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011426",
+    "action_position": 85,
+    "method": "FULL_PBE_OPT",
+    "seed": 1,
+    "stage": "sequential_10"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289941",
+    "action_position": 135,
+    "method": "FULL_PBE_OPT",
+    "seed": 1,
+    "stage": "sequential_11"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011455",
+    "action_position": 77,
+    "method": "FULL_PBE_OPT",
+    "seed": 1,
+    "stage": "sequential_12"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010014",
+    "action_position": 13,
+    "method": "ADAPTIVE_PBE",
+    "seed": 1,
+    "stage": "sequential_1"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010579",
+    "action_position": 165,
+    "method": "ADAPTIVE_PBE",
+    "seed": 1,
+    "stage": "sequential_2"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010786",
+    "action_position": 15,
+    "method": "ADAPTIVE_PBE",
+    "seed": 1,
+    "stage": "sequential_3"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009592",
+    "action_position": 12,
+    "method": "ADAPTIVE_PBE",
+    "seed": 1,
+    "stage": "sequential_4"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010003",
+    "action_position": 11,
+    "method": "ADAPTIVE_PBE",
+    "seed": 1,
+    "stage": "sequential_5"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009613",
+    "action_position": 14,
+    "method": "ADAPTIVE_PBE",
+    "seed": 1,
+    "stage": "sequential_6"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011924",
+    "action_position": 5,
+    "method": "ADAPTIVE_PBE",
+    "seed": 1,
+    "stage": "sequential_7"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000286993",
+    "action_position": 134,
+    "method": "ADAPTIVE_PBE",
+    "seed": 1,
+    "stage": "sequential_8"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289958",
+    "action_position": 71,
+    "method": "ADAPTIVE_PBE",
+    "seed": 1,
+    "stage": "sequential_9"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011426",
+    "action_position": 85,
+    "method": "ADAPTIVE_PBE",
+    "seed": 1,
+    "stage": "sequential_10"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289941",
+    "action_position": 135,
+    "method": "ADAPTIVE_PBE",
+    "seed": 1,
+    "stage": "sequential_11"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011455",
+    "action_position": 77,
+    "method": "ADAPTIVE_PBE",
+    "seed": 1,
+    "stage": "sequential_12"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000012394",
+    "action_position": 17,
+    "method": "SHARED_INITIAL",
+    "seed": 2,
+    "stage": "initial_1"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289757",
+    "action_position": 48,
+    "method": "SHARED_INITIAL",
+    "seed": 2,
+    "stage": "initial_2"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000290272",
+    "action_position": 154,
+    "method": "SHARED_INITIAL",
+    "seed": 2,
+    "stage": "initial_3"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000287048",
+    "action_position": 153,
+    "method": "SHARED_INITIAL",
+    "seed": 2,
+    "stage": "initial_4"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009667",
+    "action_position": 55,
+    "method": "SHARED_INITIAL",
+    "seed": 2,
+    "stage": "initial_5"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011426",
+    "action_position": 85,
+    "method": "SHARED_INITIAL",
+    "seed": 2,
+    "stage": "initial_6"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011455",
+    "action_position": 77,
+    "method": "SHARED_INITIAL",
+    "seed": 2,
+    "stage": "initial_7"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000286928",
+    "action_position": 20,
+    "method": "SHARED_INITIAL",
+    "seed": 2,
+    "stage": "initial_8"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010014",
+    "action_position": 13,
+    "method": "FULL_PBE_OPT",
+    "seed": 2,
+    "stage": "sequential_1"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010579",
+    "action_position": 165,
+    "method": "FULL_PBE_OPT",
+    "seed": 2,
+    "stage": "sequential_2"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010786",
+    "action_position": 15,
+    "method": "FULL_PBE_OPT",
+    "seed": 2,
+    "stage": "sequential_3"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010003",
+    "action_position": 11,
+    "method": "FULL_PBE_OPT",
+    "seed": 2,
+    "stage": "sequential_4"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009592",
+    "action_position": 12,
+    "method": "FULL_PBE_OPT",
+    "seed": 2,
+    "stage": "sequential_5"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009613",
+    "action_position": 14,
+    "method": "FULL_PBE_OPT",
+    "seed": 2,
+    "stage": "sequential_6"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009985",
+    "action_position": 6,
+    "method": "FULL_PBE_OPT",
+    "seed": 2,
+    "stage": "sequential_7"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009577",
+    "action_position": 7,
+    "method": "FULL_PBE_OPT",
+    "seed": 2,
+    "stage": "sequential_8"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011924",
+    "action_position": 5,
+    "method": "FULL_PBE_OPT",
+    "seed": 2,
+    "stage": "sequential_9"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000286993",
+    "action_position": 134,
+    "method": "FULL_PBE_OPT",
+    "seed": 2,
+    "stage": "sequential_10"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289958",
+    "action_position": 71,
+    "method": "FULL_PBE_OPT",
+    "seed": 2,
+    "stage": "sequential_11"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289941",
+    "action_position": 135,
+    "method": "FULL_PBE_OPT",
+    "seed": 2,
+    "stage": "sequential_12"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010014",
+    "action_position": 13,
+    "method": "ADAPTIVE_PBE",
+    "seed": 2,
+    "stage": "sequential_1"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010579",
+    "action_position": 165,
+    "method": "ADAPTIVE_PBE",
+    "seed": 2,
+    "stage": "sequential_2"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010786",
+    "action_position": 15,
+    "method": "ADAPTIVE_PBE",
+    "seed": 2,
+    "stage": "sequential_3"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000010003",
+    "action_position": 11,
+    "method": "ADAPTIVE_PBE",
+    "seed": 2,
+    "stage": "sequential_4"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009592",
+    "action_position": 12,
+    "method": "ADAPTIVE_PBE",
+    "seed": 2,
+    "stage": "sequential_5"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009613",
+    "action_position": 14,
+    "method": "ADAPTIVE_PBE",
+    "seed": 2,
+    "stage": "sequential_6"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009985",
+    "action_position": 6,
+    "method": "ADAPTIVE_PBE",
+    "seed": 2,
+    "stage": "sequential_7"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000009577",
+    "action_position": 7,
+    "method": "ADAPTIVE_PBE",
+    "seed": 2,
+    "stage": "sequential_8"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000011924",
+    "action_position": 5,
+    "method": "ADAPTIVE_PBE",
+    "seed": 2,
+    "stage": "sequential_9"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000286993",
+    "action_position": 134,
+    "method": "ADAPTIVE_PBE",
+    "seed": 2,
+    "stage": "sequential_10"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289958",
+    "action_position": 71,
+    "method": "ADAPTIVE_PBE",
+    "seed": 2,
+    "stage": "sequential_11"
+  },
+  {
+    "access": "queried_action",
+    "action_key": "current-nlr-pbe-gw-v1:gw:matdb:000289941",
+    "action_position": 135,
+    "method": "ADAPTIVE_PBE",
+    "seed": 2,
+    "stage": "sequential_12"
+  }
+]
