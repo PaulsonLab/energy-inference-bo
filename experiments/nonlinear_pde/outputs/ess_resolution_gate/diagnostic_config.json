@@ -1,0 +1,176 @@
+{
+  "diagnostic_id": "E2_STANDARD_ESS_RESOLUTION_GATE_DEVELOPMENT_ONLY_V1",
+  "status": "FROZEN_BEFORE_DEVELOPMENT_EXECUTION",
+  "starting_main_sha": "4219f5082063e8c714cf7f998221aa5125faa7e2",
+  "development_only": true,
+  "purpose": "Test whether chain length alone makes the existing ordinary elliptical-slice FULL shadow trustworthy at n=40.",
+  "existing_transition_contract": {
+    "backend": "ELLIPTICAL_SLICE_FULL",
+    "target": "exp(-E_FULL(y)) times the exact current Gaussian BO reference",
+    "ellipse_reference": "exact current Gaussian BO reference via the existing Matheron sampler",
+    "log_likelihood": "-E_FULL",
+    "angular_bracket": "randomized standard bracket [theta-2*pi, theta] followed by standard shrinkage",
+    "chain_count": 8,
+    "group_a_chains": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "group_b_chains": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "initialization": {
+      "chain_0": "converged Laplace mode",
+      "remaining_chains": "independent draws from the previously selected curvature-tempered Laplace initialization proposal"
+    },
+    "maximum_bracket_evaluations_per_transition": 1000,
+    "thinning": false,
+    "transition_changes_permitted": false
+  },
+  "development_sources": {
+    "calibration": {
+      "seed": 2026082401,
+      "classification": "DEVELOPMENT ONLY"
+    },
+    "final_validation": {
+      "derivation_label": "E2_STANDARD_ESS_FINAL_VALIDATE_V1",
+      "derivation": "big-endian first eight SHA256 bytes modulo (2^32 - 1)",
+      "derive_only_after_schedule_freeze": true,
+      "classification": "DEVELOPMENT ONLY"
+    },
+    "previous_development_seeds": [
+      2026082401,
+      3321078991
+    ],
+    "prospective_source_seeds_forbidden": [
+      4215109622,
+      1083605379,
+      4045758625
+    ]
+  },
+  "state_design": {
+    "grid_sizes": [
+      24,
+      40
+    ],
+    "checkpoints": [
+      "early",
+      "middle",
+      "late"
+    ],
+    "checkpoint_queries": [
+      4,
+      8,
+      12
+    ],
+    "source_perturbation_scale": 0.08,
+    "observation_noise_variance": 0.0025,
+    "ordinary_reference_sample_count": 2048,
+    "trajectory_identifier": -2,
+    "incumbent_policy": "max(0.55, max(state.observed_values))"
+  },
+  "calibration_schedules": [
+    {
+      "schedule_id": "S1",
+      "burn_in": 2048,
+      "retained_per_chain": 8192,
+      "stream_phase_label": "ess_resolution_S1"
+    },
+    {
+      "schedule_id": "S2",
+      "burn_in": 2048,
+      "retained_per_chain": 16384,
+      "stream_phase_label": "ess_resolution_S2"
+    },
+    {
+      "schedule_id": "S3",
+      "burn_in": 4096,
+      "retained_per_chain": 32768,
+      "stream_phase_label": "ess_resolution_S3"
+    }
+  ],
+  "schedule_selection_rule": "Evaluate S1, S2, S3 in order on calibration seed 2026082401 and freeze the first global schedule passing every six-state strict gate and every applicable n=24 reference-consistency gate; never inspect a later schedule after a global pass.",
+  "strict_state_gate": {
+    "maximum_split_rhat_all_required_observables": 1.01,
+    "minimum_pooled_mcmc_ess_each_required_leader_challenger_gap": 1000,
+    "require_independent_group_action_agreement": true,
+    "maximum_reciprocal_group_action_regret": 0.005,
+    "maximum_group_acquisition_vector_difference": 0.01
+  },
+  "n24_reference_consistency_gate": {
+    "maximum_pooled_acquisition_vector_difference": 0.01,
+    "maximum_reciprocal_action_regret": 0.005,
+    "calibration_reference": "committed pooled 32768x2 reliable Laplace-SNIS reference",
+    "validation_reference": "fresh independent pooled 32768x2 baseline Laplace-SNIS calculation, used only after schedule freeze"
+  },
+  "additional_diagnostics_not_used_to_change_gate": {
+    "diagnostic_top_action_count": 10,
+    "strict_gate_top_action_union_count": 5,
+    "near_tie_gap_signal_to_mcse_maximum": 2.0,
+    "record_full_group_acquisition_vectors": true,
+    "record_pooled_acquisition_vector": true,
+    "record_per_action_mcse_for_candidate_top_action_union": true,
+    "record_leader_top_ten_gap_mcse": true
+  },
+  "longest_schedule_failure_classification_precedence": [
+    "MCMC_NONCONVERGENCE",
+    "MATERIAL_DECISION_UNCERTAINTY",
+    "GLOBAL_VECTOR_ONLY",
+    "FINITE_MC_NEAR_TIE"
+  ],
+  "failure_classification_rule": {
+    "MCMC_NONCONVERGENCE": "maximum required split-Rhat > 1.01 or minimum required gap ESS < 1000",
+    "MATERIAL_DECISION_UNCERTAINTY": "convergence passes and maximum reciprocal group action regret > 0.01",
+    "GLOBAL_VECTOR_ONLY": "convergence, group action, and regret <= 0.005 pass and the sole strict failure is the uniform acquisition-vector difference",
+    "FINITE_MC_NEAR_TIE": "convergence passes, reciprocal group action regret <= 0.01, and remaining decision disagreement is associated with pooled leader/challenger gap magnitude no more than 2 MCSE"
+  },
+  "strategy_rule": {
+    "case_a": "If the strict gate passes calibration and held-out validation, classify STANDARD_ESS_FULL_REFERENCE_PASS and recommend standard ESS.",
+    "case_b": "If all n=40 convergence diagnostics pass and regrets are <= 0.01 but exact action or uniform-vector checks fail, classify BACKEND_HEALTHY_REFERENCE_RULE_TOO_BRITTLE and recommend a prospective decision-aligned reliability-rule task, not another sampler.",
+    "case_c": "If material decision disagreement remains under well-mixed chains, recommend one separate generalized elliptical-slice/Gaussian-approximation development step with exact residual correction.",
+    "case_d": "If Rhat or gap ESS remains inadequate, classify standard ESS as inadequate at n=40 and recommend a separate sampler-method decision."
+  },
+  "runtime_projection": {
+    "prospective_domain_sizes": [
+      18,
+      24,
+      30,
+      36,
+      40
+    ],
+    "states_per_domain_size": 9,
+    "total_states": 45,
+    "method": "Fit the two-point observed power law through median n=24 and n=40 worker seconds at the selected schedule, or at S3 if none passes, and sum nine projected state times at each domain size.",
+    "shadow_excluded_from_scientific_timing": true,
+    "local_ram_capacity_gb": 16
+  },
+  "prior_backend_rescue_output_sha256": {
+    "RESULTS.md": "4e884f0a1f3730ad682c2b71acab618db53e4c445ac44344303d4bae20391c4b",
+    "backend_config.json": "408614b2c67411a0ad0ac59e5dfb973767f11ae127e9eb96b7c3422aed396258",
+    "backend_validation.csv": "0507813333754610f8f6e1dd1e67644941f4211188123cc6b85cab99bdf1de37",
+    "calibrated_snis_summary.json": "fd8eea3aebab932ae38af82563c34a128ea98a5d20b8f8d53cbbfe1ba01112f1",
+    "elliptical_slice_config.json": "0a71fb13162259b7524e0309a7c806c4c4efa2f1fdf5b6ba6e5c4d1b07faf18c",
+    "mcmc_chain_diagnostics.csv": "1daf4ff8c254098a44241780e83bce004a2714ca8027c48e4103188d2febe23f",
+    "mcmc_config.json": "0fff47831b6f0a59fe93a1cd7cfecb775e1c5cfed0a887cc6f2ce26e0bd85d13",
+    "mcmc_scalar_diagnostics.csv": "2225ba88633fea3eee5bed9a9b79a8a386bf9d54b729dac7b2750d09c826e967",
+    "production_snis.csv": "2bd1010aeebccfba17cb9ca4da09bd1692d85372b50c3c8e8de90c495dbb522e",
+    "proposal_pilot.csv": "0d9004741e5f78cdafd95676a27c1aa14f641cfef9fa94d2fc08a6d8951f5724",
+    "selected_proposals.json": "932e757d3a710e93e591a070eb45690970f0205b0789b1ba79d421cb7e612078",
+    "summary.json": "d92ef6a160420c12c033631c49f39d395c6b8923cfd41fd95890416c60aa97ed"
+  },
+  "preserved_scientific_contract": {
+    "prospective_source_access": false,
+    "replacement_preregistration_created_or_executed": false,
+    "pde_model_changed": false,
+    "bo_problem_changed": false,
+    "factor_selection_changed": false,
+    "scientific_thresholds_changed": false,
+    "e3_changed": false,
+    "shadow_feeds_deployable_factor_selection": false,
+    "shadow_included_in_timed_full_baseline": false
+  }
+}

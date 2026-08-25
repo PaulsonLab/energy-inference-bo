@@ -30,7 +30,7 @@ conditioning cost when nontrivial fitting is used.
 | ID | Experiment | Paper role | Current status |
 |---|---|---|---|
 | E1 | Nonlocal reflection symmetry | Main mechanism + certificate | `ACTIVE`; T2-B validation and finite-grid pilot passed; repeats/baselines remain |
-| E2 | Nonlinear PDE expanding-domain scaling | Main scaling/inference consequence | `BLOCKED`; T2-B and family T4 passed, but development FULL reference is unresolved |
+| E2 | Nonlinear PDE expanding-domain scaling | Main scaling/inference consequence | `BLOCKED`; T2-B and family T4 passed; standard ESS is healthy, but the FULL-reference rule is too brittle and has no replacement freeze |
 | E3 | Realistic non-PDE sequential BO | Main end-to-end sequential test | `PASS_PBE_VALUE`; adaptive path ends `MIXED_DECISION_SPARSITY` after pathological smoke and unhelpful full-archive probe; fresh seeds remain unspent |
 | E4 | Linear PDE factor graph | Supplementary control | `EXISTING EVIDENCE / SUPPLEMENT` |
 | A1 | Factor-selection ablations | Supplement | `PLANNED` after primary pipelines |
@@ -109,7 +109,7 @@ than ordinary locality or a favorable single instance.
 
 ## E2 — Nonlinear PDE expanding-domain scaling
 
-**Status:** `EXISTING EVIDENCE / FULL_REFERENCE_BACKEND_UNRESOLVED`;
+**Status:** `EXISTING EVIDENCE / BACKEND_HEALTHY_REFERENCE_RULE_TOO_BRITTLE`;
 the T2-B construction passed and T4 is proved for this family, while the
 replacement paper-level stress preregistration remains unexecuted.
 
@@ -178,8 +178,34 @@ active-target inference degrades more slowly than full-target inference.
   scientific method, threshold, or preregistration changed. Do not run E2 or
   freeze a new FULL-shadow rule. See the immutable development
   [`RESULTS.md`](../experiments/nonlinear_pde/outputs/full_shadow_backend_rescue/RESULTS.md).
+- **Development-only standard-ESS resolution gate —
+  `BACKEND_HEALTHY_REFERENCE_RULE_TOO_BRITTLE`.** The exact existing standard
+  elliptical-slice transition was held fixed while 8-chain schedules increased
+  through 4,096 burn-in plus 32,768 retained draws per chain. At the longest
+  schedule all three n=24 states passed both the strict group gate and the
+  previously reliable SNIS-reference check. At n=40, maximum required split
+  R-hat was `1.001385` and minimum required leader/challenger gap ESS was
+  `19,841`; early passed the entire strict gate. Middle and late failed only
+  exact group-action agreement, with vector differences `0.003621` and
+  `0.003154`, reciprocal regrets `0.001845` and `0.001420`, pooled gaps
+  `0.000410` and `0.000068`, and gap-to-MCSE ratios about `0.57` and `0.05`.
+  No schedule passed globally, so no fresh final validation seed was derived or
+  accessed and no schedule or replacement rule was frozen. The next step is a
+  separate prospective decision-aligned reliability-rule task, not another
+  sampler. See the immutable development
+  [`RESULTS.md`](../experiments/nonlinear_pde/outputs/ess_resolution_gate/RESULTS.md).
 
-### Next E2 experiment
+### Next E2 task
+
+Formulate and independently audit a prospective decision-aligned FULL-shadow
+reliability rule based on acquisition-gap Monte Carlo uncertainty. It must be
+defined statistically and conceptually before using a fresh development source;
+it may not be chosen merely to pass the six calibration cases above. Preserve
+the current strict rule as historical provenance. Do not create a replacement
+scientific preregistration or access a prospective E2 source until this blocker
+is closed.
+
+### Later E2 experiment
 
 After the E1 upgrade and the realistic-E3 gate, reproduce the scaling study
 over multiple source fields/BO states per \(N\). Add fixed geometric-local and

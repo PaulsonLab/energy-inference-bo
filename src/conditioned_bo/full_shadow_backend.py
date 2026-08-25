@@ -962,10 +962,12 @@ def run_elliptical_slice_chain(
     )
 
 
-def _top_five_from_acquisition(
-    acquisition: FloatArray, state: BOState
+def _top_actions_from_acquisition(
+    acquisition: FloatArray, state: BOState, count: int
 ) -> list[dict[str, Any]]:
-    order = np.argsort(-acquisition, kind="stable")[:5]
+    if count < 1:
+        raise ValueError("top-action count must be positive")
+    order = np.argsort(-acquisition, kind="stable")[:count]
     return [
         {
             "rank": rank,
@@ -983,11 +985,19 @@ def aggregate_independence_mh_chains(
     group_a_chains: Sequence[int],
     group_b_chains: Sequence[int],
     backend_name: str = "LAPLACE_INDEPENDENCE_MH",
+    diagnostic_top_action_count: int = 5,
+    strict_gate_top_action_count: int = 5,
 ) -> dict[str, Any]:
     """Compute convergence and decision diagnostics without confusing IS ESS."""
 
     if len(chains) < 4:
         raise ValueError("at least four independent chains are required")
+    if diagnostic_top_action_count < strict_gate_top_action_count:
+        raise ValueError(
+            "diagnostic top-action count cannot be smaller than the strict gate count"
+        )
+    if strict_gate_top_action_count < 2:
+        raise ValueError("strict gate needs at least a leader and challenger")
     ordered = sorted(chains, key=lambda chain: chain.chain_index)
     if [chain.chain_index for chain in ordered] != list(range(len(ordered))):
         raise ValueError("chain indices must be consecutive from zero")
@@ -1014,11 +1024,28 @@ def aggregate_independence_mh_chains(
     pooled_order = np.argsort(-pooled_acquisition, kind="stable")
     group_a_order = np.argsort(-group_a_acquisition, kind="stable")
     group_b_order = np.argsort(-group_b_acquisition, kind="stable")
-    candidate_union = set(pooled_order[:5].tolist())
-    candidate_union.update(group_a_order[:5].tolist())
-    candidate_union.update(group_b_order[:5].tolist())
+    strict_candidate_union = set(
+        pooled_order[:strict_gate_top_action_count].tolist()
+    )
+    strict_candidate_union.update(
+        group_a_order[:strict_gate_top_action_count].tolist()
+    )
+    strict_candidate_union.update(
+        group_b_order[:strict_gate_top_action_count].tolist()
+    )
+    candidate_union = set(pooled_order[:diagnostic_top_action_count].tolist())
+    candidate_union.update(
+        group_a_order[:diagnostic_top_action_count].tolist()
+    )
+    candidate_union.update(
+        group_b_order[:diagnostic_top_action_count].tolist()
+    )
     for acquisition in chain_acquisitions:
-        candidate_union.update(np.argsort(-acquisition, kind="stable")[:5].tolist())
+        order = np.argsort(-acquisition, kind="stable")
+        strict_candidate_union.update(
+            order[:strict_gate_top_action_count].tolist()
+        )
+        candidate_union.update(order[:diagnostic_top_action_count].tolist())
     candidate_locals = sorted(candidate_union)
     leader_local = int(pooled_order[0])
 
@@ -1031,6 +1058,7 @@ def aggregate_independence_mh_chains(
         observable_type: str,
         action_index: int | None = None,
         challenger_index: int | None = None,
+        required_for_strict_gate: bool = True,
     ) -> None:
         ess = autocorrelation_effective_sample_size(values)
         flattened = values.ravel()
@@ -1045,6 +1073,7 @@ def aggregate_independence_mh_chains(
                 "split_rhat": split_rhat(values),
                 "autocorrelation_ess": ess,
                 "mcse": float(np.std(flattened, ddof=1) / math.sqrt(ess)),
+                "required_for_strict_gate": required_for_strict_gate,
             }
         )
 
@@ -1066,6 +1095,7 @@ def aggregate_independence_mh_chains(
             utility,
             observable_type="TOP_ACTION_UTILITY",
             action_index=action_index,
+            required_for_strict_gate=local in strict_candidate_union,
         )
         if local != leader_local:
             gap = np.asarray(
@@ -1080,6 +1110,7 @@ def aggregate_independence_mh_chains(
                 observable_type="LEADER_CHALLENGER_GAP",
                 action_index=int(state.action_indices[leader_local]),
                 challenger_index=action_index,
+                required_for_strict_gate=local in strict_candidate_union,
             )
 
     action_a = int(group_a_order[0])
@@ -1113,7 +1144,12 @@ def aggregate_independence_mh_chains(
         ],
         "pooled_action": int(state.action_indices[leader_local]),
         "pooled_acquisition": pooled_acquisition.tolist(),
-        "pooled_top_five": _top_five_from_acquisition(pooled_acquisition, state),
+        "pooled_top_five": _top_actions_from_acquisition(
+            pooled_acquisition, state, 5
+        ),
+        "pooled_top_actions": _top_actions_from_acquisition(
+            pooled_acquisition, state, diagnostic_top_action_count
+        ),
         "group_a_chains": list(group_a_chains),
         "group_b_chains": list(group_b_chains),
         "group_a_action": int(state.action_indices[action_a]),
@@ -1121,8 +1157,18 @@ def aggregate_independence_mh_chains(
         "group_action_agreement": action_a == action_b,
         "group_a_acquisition": group_a_acquisition.tolist(),
         "group_b_acquisition": group_b_acquisition.tolist(),
-        "group_a_top_five": _top_five_from_acquisition(group_a_acquisition, state),
-        "group_b_top_five": _top_five_from_acquisition(group_b_acquisition, state),
+        "group_a_top_five": _top_actions_from_acquisition(
+            group_a_acquisition, state, 5
+        ),
+        "group_b_top_five": _top_actions_from_acquisition(
+            group_b_acquisition, state, 5
+        ),
+        "group_a_top_actions": _top_actions_from_acquisition(
+            group_a_acquisition, state, diagnostic_top_action_count
+        ),
+        "group_b_top_actions": _top_actions_from_acquisition(
+            group_b_acquisition, state, diagnostic_top_action_count
+        ),
         "maximum_group_acquisition_vector_difference": float(
             np.max(np.abs(group_a_acquisition - group_b_acquisition))
         ),
@@ -1134,15 +1180,36 @@ def aggregate_independence_mh_chains(
         "candidate_top_action_union": [
             int(state.action_indices[local]) for local in candidate_locals
         ],
+        "diagnostic_top_action_count": diagnostic_top_action_count,
+        "strict_gate_top_action_count": strict_gate_top_action_count,
+        "strict_gate_candidate_top_action_union": [
+            int(state.action_indices[local])
+            for local in sorted(strict_candidate_union)
+        ],
         "leader_challenger_gap_observables": [
             row["observable"]
             for row in scalar_diagnostics
             if row["observable_type"] == "LEADER_CHALLENGER_GAP"
         ],
         "maximum_split_rhat": float(
+            max(
+                row["split_rhat"]
+                for row in scalar_diagnostics
+                if row["required_for_strict_gate"]
+            )
+        ),
+        "maximum_split_rhat_all_diagnostics": float(
             max(row["split_rhat"] for row in scalar_diagnostics)
         ),
         "minimum_leader_challenger_gap_ess": float(
+            min(
+                row["autocorrelation_ess"]
+                for row in scalar_diagnostics
+                if row["observable_type"] == "LEADER_CHALLENGER_GAP"
+                and row["required_for_strict_gate"]
+            )
+        ),
+        "minimum_diagnostic_leader_challenger_gap_ess": float(
             min(
                 row["autocorrelation_ess"]
                 for row in scalar_diagnostics

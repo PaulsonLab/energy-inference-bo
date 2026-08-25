@@ -120,10 +120,26 @@ Details: [`experiments/symmetry/`](../experiments/symmetry/) and its immutable
   calibration decision/convergence gate. Terminal classification:
   `FULL_REFERENCE_BACKEND_UNRESOLVED`. No MCMC backend reached held-out
   validation, no prospective seed was used, and no replacement reliability
-  rule earned a freeze. Exact records: the preserved
-  [`reliability diagnostic`](../experiments/nonlinear_pde/outputs/full_shadow_reliability_diagnostic/RESULTS.md)
-  and the terminal
-  [`backend rescue`](../experiments/nonlinear_pde/outputs/full_shadow_backend_rescue/RESULTS.md).
+  rule earned a freeze. A final development-only chain-length resolution gate
+  then kept the standard ESS transition fixed and evaluated 8-chain schedules
+  through 4,096 burn-in plus 32,768 retained draws per chain on calibration
+  seed `2026082401`. At the longest schedule, all n=24 states and n=40 early
+  passed the unchanged strict rule. The n=40 middle/late chains were well mixed
+  (maximum split R-hat below `1.0014`, required gap ESS above `19,800`) and
+  group vector differences were below `0.004`, but exact group actions flipped
+  across near ties with reciprocal regrets only `0.001845` and `0.001420`.
+  Their pooled leader/challenger gaps were only about `0.57` and `0.05` MCSE.
+  No schedule therefore passed the conjunctive calibration gate, so no fresh
+  validation seed was derived or accessed. Terminal development classification:
+  `BACKEND_HEALTHY_REFERENCE_RULE_TOO_BRITTLE`. Standard ESS no longer appears
+  to be the numerical blocker; the next task is a prospective, statistically
+  justified decision-aligned FULL-reference rule, not another sampler. Exact
+  records: the preserved
+  [`reliability diagnostic`](../experiments/nonlinear_pde/outputs/full_shadow_reliability_diagnostic/RESULTS.md),
+  the historical terminal
+  [`backend rescue`](../experiments/nonlinear_pde/outputs/full_shadow_backend_rescue/RESULTS.md),
+  and the new
+  [`ESS resolution gate`](../experiments/nonlinear_pde/outputs/ess_resolution_gate/RESULTS.md).
 
 Details: [`experiments/nonlinear_pde/`](../experiments/nonlinear_pde/) and its
 immutable [`RESULTS.md`](../experiments/nonlinear_pde/outputs/t2b_structural_validation/RESULTS.md).
@@ -272,12 +288,14 @@ remain in place; see [`experiments/README.md`](../experiments/README.md) and
 ## Next work
 
 Do not execute prospective E2 source seeds from replacement preregistration
-`0dcb76f5f2d053e098b472ac9984182b837295b5`. The immediate E2 planning task is
-an audit/planning decision after terminal development classification
-`FULL_REFERENCE_BACKEND_UNRESOLVED`. Do not create a replacement scientific
-preregistration or freeze a new FULL-shadow rule from the failed development
-backends. The current evidence does not justify changing scientific methods,
-thresholds, factor selection, or the FULL-reference criterion.
+`0dcb76f5f2d053e098b472ac9984182b837295b5`. The immediate E2 task is to
+formulate and independently audit a prospective decision-aligned FULL-reference
+rule based on acquisition-gap Monte Carlo uncertainty. The final standard-ESS
+resolution gate classified the backend as healthy and the exact-action/uniform-
+vector rule as too brittle, but no replacement rule was frozen and no fresh
+validation source was accessed. Do not create a replacement scientific
+preregistration until that rule task is complete. Do not change scientific
+methods, thresholds, factor selection, or theory from this development result.
 
 Do not run `experiments/sun_oxide/colab_adaptive_e3_validation.ipynb` or access
 seeds 12--31. The decision-reset smoke and full-archive scaling probe remain
