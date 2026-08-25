@@ -1,0 +1,16 @@
+{
+  "calibration_source_seed": 2026082401,
+  "config_sha256": "408614b2c67411a0ad0ac59e5dfb973767f11ae127e9eb96b7c3422aed396258",
+  "development_only": true,
+  "diagnostic_id": "E2_FULL_SHADOW_BACKEND_RESCUE_DEVELOPMENT_ONLY_V1",
+  "held_out_validation_started": false,
+  "selected_proposals": {
+    "n24_early": "CURVATURE_TEMPERED_LAMBDA_0.40",
+    "n24_late": "CURVATURE_TEMPERED_LAMBDA_0.40",
+    "n24_middle": "CURVATURE_TEMPERED_LAMBDA_0.40",
+    "n40_early": "BASELINE_LAPLACE_INFLATION_1.10",
+    "n40_late": "CURVATURE_TEMPERED_LAMBDA_0.40",
+    "n40_middle": "CURVATURE_TEMPERED_LAMBDA_0.40"
+  },
+  "selection_rule": "highest pilot ESS fraction; exact ties use proposal_candidates_in_tie_break_order"
+}

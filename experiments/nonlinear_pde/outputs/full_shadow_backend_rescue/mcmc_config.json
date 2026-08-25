@@ -1,0 +1,68 @@
+{
+  "diagnostic_id": "E2_FULL_SHADOW_INDEPENDENCE_MH_DEVELOPMENT_ONLY_V1",
+  "status": "FROZEN_AFTER_CALIBRATED_SNIS_FAILURE_BEFORE_MH_EXECUTION",
+  "parent_backend_config_sha256": "408614b2c67411a0ad0ac59e5dfb973767f11ae127e9eb96b7c3422aed396258",
+  "calibrated_snis_summary_sha256_before_mh": "fd8eea3aebab932ae38af82563c34a128ea98a5d20b8f8d53cbbfe1ba01112f1",
+  "selected_proposals_sha256": "932e757d3a710e93e591a070eb45690970f0205b0789b1ba79d421cb7e612078",
+  "escalation_trigger": "CALIBRATED_SNIS_BACKEND_FAIL_REQUIRES_INDEPENDENCE_MH",
+  "proposal": "the fixed per-state curvature-tempered Gaussian selected by calibration SNIS pilots",
+  "target": "exact unchanged FULL target",
+  "acceptance_log_ratio": "min(0, (log_p_proposed-log_q_proposed) - (log_p_current-log_q_current))",
+  "chain_count": 8,
+  "independent_group_a_chains": [0, 1, 2, 3],
+  "independent_group_b_chains": [4, 5, 6, 7],
+  "initialization": {
+    "chain_0": "converged Laplace mode",
+    "remaining_chains": "independent selected-proposal draws",
+    "overdispersed": true
+  },
+  "calibration_schedule": [
+    {
+      "attempt": 1,
+      "burn_in": 1024,
+      "retained_per_chain": 4096
+    },
+    {
+      "attempt": 2,
+      "burn_in": 2048,
+      "retained_per_chain": 8192
+    }
+  ],
+  "settings_selection_rule": "on calibration seed 2026082401 only, choose the first global schedule passing every n=24/n=40 early/middle/late calibration diagnostic and n=24 prior-reference gate; otherwise independence MH fails calibration",
+  "held_out_rule": "after one global schedule is frozen, run validation seed 3321078991 once without changing any setting",
+  "thinning": false,
+  "proposal_evaluation_block_size": 2048,
+  "required_scalar_diagnostics": [
+    "target_energy",
+    "full_factor_energy",
+    "utility of every action in the union of chain/group/pooled top-five actions",
+    "pooled-leader versus every other action in that union"
+  ],
+  "diagnostic_estimators": {
+    "rhat": "classic split R-hat across eight independent chains",
+    "effective_sample_size": "autocorrelation ESS with Geyer initial-positive and monotone paired sequence",
+    "gap_mcse": "sample standard deviation divided by square root of autocorrelation ESS"
+  },
+  "gate": {
+    "minimum_median_chain_acceptance": 0.15,
+    "maximum_split_rhat_all_required_observables": 1.01,
+    "minimum_pooled_ess_each_leader_challenger_gap": 1000,
+    "require_independent_group_action_agreement": true,
+    "maximum_reciprocal_group_action_regret": 0.005,
+    "maximum_group_acquisition_vector_difference": 0.01
+  },
+  "n24_prior_reference_gate": {
+    "maximum_pooled_acquisition_vector_difference": 0.01,
+    "maximum_reciprocal_action_regret": 0.005
+  },
+  "development_sources": {
+    "calibration": 2026082401,
+    "held_out_validation": 3321078991,
+    "prospective_source_seeds_accessed": false
+  },
+  "shadow_only": {
+    "feeds_deployable_factor_selection": false,
+    "included_in_timed_FULL_baseline": false,
+    "scientific_preregistration_created_or_executed": false
+  }
+}

@@ -112,10 +112,18 @@ Details: [`experiments/symmetry/`](../experiments/symmetry/) and its immutable
   fraction requirement at both 8,192 and 16,384. Increasing to 32,768 raises
   absolute ESS but does not repair relative proposal/target overlap. One early
   16,384 pair also has material cross-batch acquisition regret `0.024442`.
-  Recommendation: improve and development-validate the FULL-reference backend
-  before prospective execution; do not merely increase samples or replace the
-  reliability rule from these development cases. Exact record:
-  [`RESULTS.md`](../experiments/nonlinear_pde/outputs/full_shadow_reliability_diagnostic/RESULTS.md).
+  That diagnosis motivated a development-only backend rescue using calibration
+  seed `2026082401` and separately derived held-out development seed
+  `3321078991`. Curvature-tempered SNIS failed held-out n=40 early/middle;
+  independence MH failed calibration because its exact-mode chain accepted no
+  proposals; and exact-reference elliptical slice failed the conjunctive
+  calibration decision/convergence gate. Terminal classification:
+  `FULL_REFERENCE_BACKEND_UNRESOLVED`. No MCMC backend reached held-out
+  validation, no prospective seed was used, and no replacement reliability
+  rule earned a freeze. Exact records: the preserved
+  [`reliability diagnostic`](../experiments/nonlinear_pde/outputs/full_shadow_reliability_diagnostic/RESULTS.md)
+  and the terminal
+  [`backend rescue`](../experiments/nonlinear_pde/outputs/full_shadow_backend_rescue/RESULTS.md).
 
 Details: [`experiments/nonlinear_pde/`](../experiments/nonlinear_pde/) and its
 immutable [`RESULTS.md`](../experiments/nonlinear_pde/outputs/t2b_structural_validation/RESULTS.md).
@@ -265,10 +273,11 @@ remain in place; see [`experiments/README.md`](../experiments/README.md) and
 
 Do not execute prospective E2 source seeds from replacement preregistration
 `0dcb76f5f2d053e098b472ac9984182b837295b5`. The immediate E2 planning task is
-development-only improvement of FULL proposal/target overlap, followed by an
-independent reliability diagnostic. The current development evidence does not
-justify changing the scientific methods, thresholds, factor selection, or
-FULL-reference criterion yet.
+an audit/planning decision after terminal development classification
+`FULL_REFERENCE_BACKEND_UNRESOLVED`. Do not create a replacement scientific
+preregistration or freeze a new FULL-shadow rule from the failed development
+backends. The current evidence does not justify changing scientific methods,
+thresholds, factor selection, or the FULL-reference criterion.
 
 Do not run `experiments/sun_oxide/colab_adaptive_e3_validation.ipynb` or access
 seeds 12--31. The decision-reset smoke and full-archive scaling probe remain

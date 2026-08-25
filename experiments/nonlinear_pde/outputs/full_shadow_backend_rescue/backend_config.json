@@ -1,0 +1,150 @@
+{
+  "diagnostic_id": "E2_FULL_SHADOW_BACKEND_RESCUE_DEVELOPMENT_ONLY_V1",
+  "status": "DEVELOPMENT_PROCEDURE_FROZEN_BEFORE_EXECUTION",
+  "starting_main_sha": "96a36c32cdff64fc01159d49cd3aa771b9c2e613",
+  "scientific_preregistration": {
+    "sha": "0dcb76f5f2d053e098b472ac9984182b837295b5",
+    "status": "SUPERSEDED_UNRUN",
+    "new_preregistration_created": false
+  },
+  "development_sources": {
+    "calibration": {
+      "seed": 2026082401,
+      "role": "DEVELOPMENT_ONLY_BACKEND_CALIBRATION"
+    },
+    "validation": {
+      "seed": 3321078991,
+      "role": "DEVELOPMENT_ONLY_HELD_OUT_BACKEND_VALIDATION",
+      "derivation_label": "E2_FULL_SHADOW_BACKEND_VALIDATE_V1",
+      "sha256": "467842fc7f7b61d3b6424f6978763c87f5f67c8cf3fddbe8acef67de7955d1f0",
+      "mapping": "big-endian first 8 digest bytes modulo (2^32 - 1)",
+      "repository_search_confirmed_unused_as_e2_scientific_seed": true
+    },
+    "prospective_source_seeds_forbidden": [4215109622, 1083605379, 4045758625]
+  },
+  "state_design_unchanged": {
+    "grid_sizes": [24, 40],
+    "checkpoints": ["early", "middle", "late"],
+    "checkpoint_queries": [4, 8, 12],
+    "trajectory_replicate_identifier": -2,
+    "ordinary_reference_sample_count": 2048,
+    "observation_noise_variance": 0.0025,
+    "incumbent_policy": "max(0.55, max(state.observed_values))",
+    "source_perturbation_scale": 0.08
+  },
+  "target": {
+    "density_changed": false,
+    "description": "exact existing FULL nonlinear-PDE factor target relative to the current Gaussian BO reference"
+  },
+  "laplace": {
+    "gradient_tolerance": 1e-08,
+    "maximum_iterations": 12,
+    "existing_baseline_covariance_inflation": 1.1
+  },
+  "proposal_candidates_in_tie_break_order": [
+    {
+      "name": "BASELINE_LAPLACE_INFLATION_1.10",
+      "kind": "BASELINE_INFLATED_LAPLACE",
+      "curvature_lambda": null,
+      "covariance_inflation": 1.1
+    },
+    {
+      "name": "CURVATURE_TEMPERED_LAMBDA_1.00",
+      "kind": "CURVATURE_TEMPERED",
+      "curvature_lambda": 1.0,
+      "covariance_inflation": null
+    },
+    {
+      "name": "CURVATURE_TEMPERED_LAMBDA_0.80",
+      "kind": "CURVATURE_TEMPERED",
+      "curvature_lambda": 0.8,
+      "covariance_inflation": null
+    },
+    {
+      "name": "CURVATURE_TEMPERED_LAMBDA_0.60",
+      "kind": "CURVATURE_TEMPERED",
+      "curvature_lambda": 0.6,
+      "covariance_inflation": null
+    },
+    {
+      "name": "CURVATURE_TEMPERED_LAMBDA_0.40",
+      "kind": "CURVATURE_TEMPERED",
+      "curvature_lambda": 0.4,
+      "covariance_inflation": null
+    },
+    {
+      "name": "CURVATURE_TEMPERED_LAMBDA_0.20",
+      "kind": "CURVATURE_TEMPERED",
+      "curvature_lambda": 0.2,
+      "covariance_inflation": null
+    }
+  ],
+  "proposal_precision": "Q_t + lambda * (H - Q_t); baseline precision is H / 1.1",
+  "proposal_spd_requirement": "successful dense Cholesky with finite positive diagonal for every candidate at every calibration state",
+  "calibration": {
+    "pilot_samples_per_candidate": 2048,
+    "selection_scope": "one fixed proposal name for each (grid_size, checkpoint), chosen on the calibration seed",
+    "selection_rule": "highest pilot ESS fraction; exact ties use proposal_candidates_in_tie_break_order",
+    "pilot_samples_discarded_before_production": true,
+    "production_samples_per_batch": 8192,
+    "independent_production_batches": 2
+  },
+  "held_out_validation": {
+    "proposal_mapping_frozen_from_calibration_before_validation": true,
+    "validation_pilots_run": false,
+    "n40_gate": {
+      "minimum_ess_fraction_each_batch": 0.3,
+      "require_batch_action_agreement": true,
+      "maximum_acquisition_vector_difference": 0.01,
+      "maximum_reciprocal_cross_batch_action_regret": 0.005
+    },
+    "n24_health_gate": {
+      "minimum_ess_fraction_each_batch": 0.3,
+      "maximum_acquisition_vector_difference_between_batches": 0.01,
+      "maximum_reciprocal_cross_batch_action_regret": 0.005,
+      "calibration_comparison": "each fresh production batch compared with the pooled two-batch 32768-sample prior reliable baseline reconstruction",
+      "maximum_difference_from_prior_pooled_acquisition": 0.01,
+      "maximum_reciprocal_action_regret_against_prior_pooled_reference": 0.005,
+      "exact_action_agreement_not_required_for_decision-negligible_prior near ties": true
+    }
+  },
+  "escalation_order": [
+    "CALIBRATED_LAPLACE_SNIS",
+    "LAPLACE_INDEPENDENCE_MH",
+    "ELLIPTICAL_SLICE_FULL"
+  ],
+  "escalation_policy": "implement and run the next backend only if the simpler backend fails its held-out gate",
+  "terminal_classifications": [
+    "CALIBRATED_SNIS_BACKEND_PASS",
+    "INDEPENDENCE_MH_BACKEND_PASS",
+    "ELLIPTICAL_SLICE_BACKEND_PASS",
+    "FULL_REFERENCE_BACKEND_UNRESOLVED"
+  ],
+  "shadow_only_fairness": {
+    "development_only": true,
+    "feeds_deployable_factor_selection": false,
+    "replaces_timed_FULL_baseline": false,
+    "included_in_M1_or_FULL_timing": false,
+    "may_change_scientific_thresholds_or_model": false
+  },
+  "prior_reference": {
+    "directory": "experiments/nonlinear_pde/outputs/full_shadow_reliability_diagnostic",
+    "record_preserved_unchanged": true,
+    "committed_sha256": {
+      "RESULTS.md": "1872117f4061f85b3b4c67bf4423276a6a51ade0c8414d2020d185447362381b",
+      "diagnostic.json": "0d66802f50362c51b6b6fab3b4816e2c9fb613cee5141f55fe99becb7a5e4ca5",
+      "summary.csv": "a6dc9c6c91ce0f28f4ae3d1c59c4a6273eb2e84aa4bfc4e37b030ddb8c1c4170"
+    },
+    "n24_sample_count_per_batch": 32768,
+    "batches": 2
+  },
+  "required_outputs": [
+    "backend_config.json",
+    "proposal_pilot.csv",
+    "production_snis.csv",
+    "backend_validation.csv",
+    "selected_proposals.json",
+    "summary.json",
+    "RESULTS.md"
+  ]
+}

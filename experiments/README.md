@@ -9,7 +9,7 @@ order live in [`project/EXPERIMENTS.md`](../project/EXPERIMENTS.md).
 | ID | Directory | Status | Canonical committed result |
 |---|---|---|---|
 | E1 | [`symmetry/`](symmetry/) | T2-B validation and finite-grid pilot passed; repeated coverage/baselines are next | [finite-grid `RESULTS.md`](symmetry/outputs/inference_certification_pilot/RESULTS.md) |
-| E2 | [`nonlinear_pde/`](nonlinear_pde/) | T2-B and family T4 passed; repeated scaling/baselines remain | [structural `RESULTS.md`](nonlinear_pde/outputs/t2b_structural_validation/RESULTS.md) |
+| E2 | [`nonlinear_pde/`](nonlinear_pde/) | T2-B and family T4 passed; `FULL_REFERENCE_BACKEND_UNRESOLVED`, so prospective scaling remains blocked | [structural result](nonlinear_pde/outputs/t2b_structural_validation/RESULTS.md), [backend rescue](nonlinear_pde/outputs/full_shadow_backend_rescue/RESULTS.md) |
 
 ## Realistic E3 candidate
 

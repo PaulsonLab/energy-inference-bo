@@ -1,0 +1,64 @@
+{
+  "diagnostic_id": "E2_ELLIPTICAL_SLICE_FULL_DEVELOPMENT_ONLY_V1",
+  "status": "FROZEN_AFTER_INDEPENDENCE_MH_FAILURE_BEFORE_ESS_EXECUTION",
+  "parent_backend_config_sha256": "408614b2c67411a0ad0ac59e5dfb973767f11ae127e9eb96b7c3422aed396258",
+  "independence_mh_summary_sha256_before_ess": "757043402d63039bfec8cb056b11355d806d506be978a7328a3486c6e3c671d3",
+  "selected_proposals_sha256": "932e757d3a710e93e591a070eb45690970f0205b0789b1ba79d421cb7e612078",
+  "escalation_trigger": "INDEPENDENCE_MH_BACKEND_FAIL_REQUIRES_ELLIPTICAL_SLICE",
+  "target_form": "exp(-E_FULL(y)) times N(state.reference_mean, state.reference_precision^-1)",
+  "ellipse_reference": "exact current Gaussian BO reference, never the Laplace proposal",
+  "log_likelihood": "-E_FULL(y) using the unchanged nonlinear-PDE factor energy",
+  "angular_bracket": "theta uniform on [0, 2*pi), initial bracket [theta-2*pi, theta], then standard shrinkage",
+  "chain_count": 8,
+  "independent_group_a_chains": [0, 1, 2, 3],
+  "independent_group_b_chains": [4, 5, 6, 7],
+  "initialization": {
+    "chain_0": "converged Laplace mode",
+    "remaining_chains": "independent selected-Laplace-proposal draws",
+    "reference_directions": "fresh exact Gaussian-reference draws"
+  },
+  "calibration_schedule": [
+    {
+      "attempt": 1,
+      "burn_in": 512,
+      "retained_per_chain": 2048
+    },
+    {
+      "attempt": 2,
+      "burn_in": 1024,
+      "retained_per_chain": 4096
+    }
+  ],
+  "settings_selection_rule": "on calibration seed 2026082401 only, choose the first global schedule passing every n=24/n=40 early/middle/late convergence/decision gate and n=24 prior-reference gate; otherwise elliptical slice fails calibration",
+  "held_out_rule": "after one global schedule is frozen, run validation seed 3321078991 once without changing any setting",
+  "maximum_bracket_evaluations_per_transition": 1000,
+  "thinning": false,
+  "required_scalar_diagnostics": [
+    "target_energy",
+    "full_factor_energy",
+    "utility of every action in the union of chain/group/pooled top-five actions",
+    "pooled-leader versus every other action in that union"
+  ],
+  "gate": {
+    "transition_acceptance_by_construction": 1.0,
+    "maximum_split_rhat_all_required_observables": 1.01,
+    "minimum_pooled_ess_each_leader_challenger_gap": 1000,
+    "require_independent_group_action_agreement": true,
+    "maximum_reciprocal_group_action_regret": 0.005,
+    "maximum_group_acquisition_vector_difference": 0.01
+  },
+  "n24_prior_reference_gate": {
+    "maximum_pooled_acquisition_vector_difference": 0.01,
+    "maximum_reciprocal_action_regret": 0.005
+  },
+  "development_sources": {
+    "calibration": 2026082401,
+    "held_out_validation": 3321078991,
+    "prospective_source_seeds_accessed": false
+  },
+  "shadow_only": {
+    "feeds_deployable_factor_selection": false,
+    "included_in_timed_FULL_baseline": false,
+    "scientific_preregistration_created_or_executed": false
+  }
+}

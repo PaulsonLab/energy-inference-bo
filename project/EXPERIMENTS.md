@@ -30,7 +30,7 @@ conditioning cost when nontrivial fitting is used.
 | ID | Experiment | Paper role | Current status |
 |---|---|---|---|
 | E1 | Nonlocal reflection symmetry | Main mechanism + certificate | `ACTIVE`; T2-B validation and finite-grid pilot passed; repeats/baselines remain |
-| E2 | Nonlinear PDE expanding-domain scaling | Main scaling/inference consequence | `ACTIVE`; T2-B and family T4 passed; robustness/baselines remain |
+| E2 | Nonlinear PDE expanding-domain scaling | Main scaling/inference consequence | `BLOCKED`; T2-B and family T4 passed, but development FULL reference is unresolved |
 | E3 | Realistic non-PDE sequential BO | Main end-to-end sequential test | `PASS_PBE_VALUE`; adaptive path ends `MIXED_DECISION_SPARSITY` after pathological smoke and unhelpful full-archive probe; fresh seeds remain unspent |
 | E4 | Linear PDE factor graph | Supplementary control | `EXISTING EVIDENCE / SUPPLEMENT` |
 | A1 | Factor-selection ablations | Supplement | `PLANNED` after primary pipelines |
@@ -109,7 +109,7 @@ than ordinary locality or a favorable single instance.
 
 ## E2 — Nonlinear PDE expanding-domain scaling
 
-**Status:** `EXISTING EVIDENCE / FULL-SHADOW BACKEND DEVELOPMENT BLOCKER`;
+**Status:** `EXISTING EVIDENCE / FULL_REFERENCE_BACKEND_UNRESOLVED`;
 the T2-B construction passed and T4 is proved for this family, while the
 replacement paper-level stress preregistration remains unexecuted.
 
@@ -163,6 +163,21 @@ active-target inference degrades more slowly than full-target inference.
   is justified as the sole correction. The optional 65,536 level was not used
   because the cause was unambiguous. See the development-only
   [`RESULTS.md`](../experiments/nonlinear_pde/outputs/full_shadow_reliability_diagnostic/RESULTS.md).
+- **Development-only backend rescue — `FULL_REFERENCE_BACKEND_UNRESOLVED`.**
+  Calibration seed `2026082401` and separately derived held-out development
+  seed `3321078991` were the only source seeds used. Curvature tempering
+  materially improved independent-SNIS pilot ESS in five of six states, but
+  held-out n=40 early and middle failed the unchanged development gate.
+  Laplace independence MH then failed both calibration schedules because the
+  chain initialized at the exact mode accepted zero proposals, driving maximum
+  split R-hat to about `8` at n=24 and `13` at n=40. Exact-reference
+  elliptical slice produced healthy gap ESS and much better R-hat, but its
+  longer calibration schedule still failed the conjunctive group action,
+  vector, regret, or R-hat checks at n=24 early and all n=40 states. Neither
+  MCMC backend therefore reached held-out validation. No prospective seed,
+  scientific method, threshold, or preregistration changed. Do not run E2 or
+  freeze a new FULL-shadow rule. See the immutable development
+  [`RESULTS.md`](../experiments/nonlinear_pde/outputs/full_shadow_backend_rescue/RESULTS.md).
 
 ### Next E2 experiment
 
